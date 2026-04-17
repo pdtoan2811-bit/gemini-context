@@ -1,0 +1,25 @@
+# Google Ads Compliance — Ads Management Tasks
+
+## Phase 1: Campaign Creation
+- [x] Create `campaign-creation-constants.ts`
+- [x] Create `campaign-creation-types.ts` (Zod schemas)
+- [x] Create `CampaignCreationWizard.tsx` (6-step wizard)
+- [x] Modify `AddCampaignModal.tsx` → wizard trigger
+- [x] Modify `CampaignManagementTab.tsx` — add create button + row actions
+
+## Phase 2: Campaign Management
+- [x] Create `EditCampaignModal.tsx`
+- [x] Create `AdGroupManagement.tsx`
+- [x] Modify `CampaignManagementTab.tsx` — row actions (edit/pause/enable/remove), bulk actions
+- [ ] Modify `CampaignDetailKeywords.tsx` — keyword CRUD (M.140) — partial, needs action column
+- [x] Modify `CampaignDetail.tsx` — add "Nhóm quảng cáo" tab
+
+## Phase 3: API Hooks & Types
+- [x] Modify `campaign-api.ts` — payload types (Create/Update/Status)
+- [x] Modify `campaign.ts` hooks — mutation hooks (5 new hooks)
+
+## Phase 4: PRD Document
+- [x] Write PRD in Vietnamese (`docs/PRD_GoogleAds_Compliance.md`)
+
+## Phase 5: Verification
+- [ ] Run `npm run build` to verify no compile errors
