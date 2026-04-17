@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Checklist for adding a date picker to sprint settings, including installing dependencies, setting up UI components (popover, calendar), and updating the SprintSettings component.",
+  "updatedAt":  "2026-03-07T01:58:25.187143400Z"
+}

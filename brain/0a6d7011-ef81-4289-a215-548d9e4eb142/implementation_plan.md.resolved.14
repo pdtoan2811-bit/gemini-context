@@ -1,0 +1,28 @@
+# Ultimate Optical Refinement for Bento Grid
+
+To achieve a "stunning" first impression and eliminate all technical artifacts (like light bleed), I will implement the **Ultimate Optical Mask** approach. This leverages hardware-accelerated CSS masking and conic gradients rather than complex SVG filters.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **High-Performance Source:** Replace SVG strokes with a rotating `conic-gradient` source. This naturally creates a beautiful "beam" with a precise head and a long, tapering tail.
+- **Multi-Level Masking (The "Bleed Killer"):**
+    - **Inversion Mask:** Use `mask-clip: content-box` vs `border-box` to isolate the light beam ONLY to the 1.5px border area.
+    - **Secondary Mask:** Ensure the glow "bleeds" into the component but is strictly cut off at the edge of the box.
+- **Optical Pulsing:** Add a subtle opacity animation (`0.7 -> 1.0 -> 0.7`) to give the light a "breathing" or "electric" feel.
+- **Dual-Tone Gradient:** Use a primary-to-bright-cyan transition within the beam for extra depth.
+
+## Technical Superiority
+This approach is technically superior because:
+1. **Zero Viewport Bleed:** CSS Masks are hardware-resolved within the element's bounding box, making it physically impossible for light to escape to the viewport margins.
+2. **GPU Efficient:** Rotating a single gradient div is significantly cheaper for the GPU than re-drawing multiple blurred SVG paths.
+3. **Perfect Geometry:** The mask automatically inherits the `rounded-3xl` corners with zero manual tweaking.
+
+## Verification Plan
+
+### Manual Verification
+- **Bleed Check:** Confirm ABSOLUTELY ZERO blue light at the screen edges.
+- **Aesthetic Check:** Verify the beam has a smooth, elegant tapering tail.
+- **Feel:** Ensure the pulsing makes the interface feel "alive."

@@ -1,0 +1,12 @@
+# Troubleshooting Blank Screen After Localization Task
+
+## Task Checklist
+- [ ] Open http://localhost:5173/
+- [ ] Clear localStorage and sessionStorage
+- [ ] Reload the page
+- [ ] Check if #root element has content
+- [ ] Investigate console errors if any
+- [ ] Report findings
+
+## Findings
+- 

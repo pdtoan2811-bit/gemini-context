@@ -1,0 +1,23 @@
+# Sprint Handoff Diagnostic Tool Tasks
+
+- [x] Project Setup
+  - [x] Initialize Next.js app with Tailwind CSS
+  - [x] Install dependencies (e.g., vis-timeline or raw d3, lucide-react, etc.)
+- [/] Timeline Component
+  - [x] Parse JSON into timeline-compatible data structures (items, groups)
+  - [x] Implement swimlanes grouped by person
+  - [x] Color-code task blocks by `sprintGoal`
+  - [ ] Implement handoff transition indicators (connecting lines / dead zones)
+- [/] Data Integration
+  - [/] Define mock data generator matching the schema to test visually
+  - [ ] Create fetch logic using `GOOGLE_APPS_SCRIPT_URL` placeholder
+  - [ ] Process chronological event logs to calculate task durations per person
+- [ ] Annotation System (Audit Notes)
+  - [ ] Add `localStorage` persistence keyed by `taskId` and `timestamp`
+  - [ ] Build Modal UI for adding/viewing notes
+  - [ ] Overlay icons on timeline blocks that have saved notes
+- [ ] UI/UX Polish
+  - [ ] Implement dark mode
+  - [ ] Add top bar filters (Sprint, Module)
+  - [ ] Optimize horizontal scrolling/zooming
+

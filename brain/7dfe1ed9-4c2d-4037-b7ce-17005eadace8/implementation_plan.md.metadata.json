@@ -1,0 +1,7 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "I have identified that the project's custom dark theme uses an inverted neutral scale (where neutral-950 is white and neutral-100 is dark), which caused many text elements to become invisible in dark mode. I will fix this by re-mapping the text colors to the correct light-colored neutral values in dark mode, ensuring the background is pitch black across all dark states, and specifically targeting the elements mentioned by the user for maximum clarity.",
+  "updatedAt":  "2026-04-09T06:59:52.095881800Z",
+  "version":  "3",
+  "requestFeedback":  true
+}

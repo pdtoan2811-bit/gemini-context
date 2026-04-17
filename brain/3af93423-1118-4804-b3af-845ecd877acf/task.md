@@ -1,0 +1,10 @@
+# Tasks
+
+- [x] Clone repository from GitHub
+- [x] Analyze project structure
+- [x] Create initial `start_all.bat`
+- [x] Fix pnpm installation issue
+- [/] Run and fix `start_all.bat` [ ]
+    - [/] Initial execution [ ]
+    - [ ] Analyze and fix startup errors [ ]
+    - [ ] Verify successful startup [ ]

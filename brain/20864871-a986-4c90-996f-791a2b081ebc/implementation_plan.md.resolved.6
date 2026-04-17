@@ -1,0 +1,48 @@
+# Phase 10: Gemini AI Engine & "Bring Your Own Browser" Scraping
+
+To take the tracking engine to the next level, we will replace the backend LLM with the **Gemini AI Engine**. We will also deeply enhance the scraping engine to support **Persistent Chrome Sessions**, allowing the automation to explicitly borrow your personal, logged-in Google and Facebook sessions directly!
+
+## User Review Required
+
+> [!WARNING]
+> Please review the two architectural upgrades below before I execute the code.
+
+## Proposed Changes
+
+---
+
+### Part 1: Gemini AI Migration
+We will strip out the OpenAI SDK and migrate the intelligence backend entirely to the Gemini API.
+
+#### [MODIFY] `src/app/settings/page.tsx` & `targetList.json`
+- We will replace `openaiApiKey` with `geminiApiKey`. 
+- The UI will be updated to accept the Gemini API Key.
+
+#### [MODIFY] `src/app/api/synthesize/route.ts`
+- Install the official `@google/generative-ai` SDK.
+- Rewrite the prompt execution to utilize **`gemini-1.5-flash`** (or `gemini-1.5-pro`).
+- Leverage Gemini's natively enforced `response_mime_type: "application/json"` to guarantee the exact output schema needed for the Polymorphic Views.
+
+---
+
+### Part 2: "Bring Your Own Browser" (BYOB) Scraping
+Right now, the scraper tries to spin up a completely fresh, empty "incognito" style headless browser heavily locked down by bot protection—OR it expects a WebSocket endpoint for a specialized app like AdsPower. 
+
+To scrape Facebook or logged-in exclusive areas, we will implement **Persistent Contexts**.
+
+#### [MODIFY] `src/lib/scraper/engine.ts`
+- We will introduce a new launch mode: **Persistent Chrome Profile**.
+- Instead of using a random headless browser, we will use `chromium.launchPersistentContext()` and point it directly to a local Chrome User Data Directory.
+- **Why this works**: When Playwright boots up, it will literally look like your regular Chrome browser, already securely logged into Facebook, Reddit, and X via your real cookies. 
+- It will simply open a new tab automatically, parse the specific page you want rapidly, and close the tab without you needing to do anything manually!
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. To use the Persistent Chrome Profile, it usually requires entering the path to your Windows Chrome profile (e.g., `C:\Users\Admin\AppData\Local\Google\Chrome\User Data`). I can program the backend to automatically try to find this path for you. Do you approve?
+> 2. Are you comfortable with Playwright visibly opening a tab on your screen while you work, scraping the data, and then closing the tab? (This is necessary because Facebook/X often block "Headless" mode entirely when using active login sessions).
+
+## Verification Plan
+1. Enter your Gemini API Key in the Settings.
+2. Hit "Trigger Live Scrape."
+3. Watch the local Chrome browser pop open a new tab using your real credentials, scrape the page effortlessly bypassing bot protection, and pass it to Gemini for synthesis!

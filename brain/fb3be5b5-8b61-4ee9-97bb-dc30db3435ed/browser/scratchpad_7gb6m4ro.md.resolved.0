@@ -1,0 +1,10 @@
+# Task Plan: Investigate Shared Task Bug in Squads View
+
+- [ ] Open http://localhost:3001
+- [ ] Navigate to "Daily Meeting" tab
+- [ ] Switch to "Squads" mode
+- [ ] Select 3 people for the squad
+- [ ] Observe "Shared Tasks" in "Squad Backlog"
+- [ ] Check if shared tasks include those with only 2 of 3 members assigned
+- [ ] Capture screenshots of the selected people and shared tasks
+- [ ] Report findings

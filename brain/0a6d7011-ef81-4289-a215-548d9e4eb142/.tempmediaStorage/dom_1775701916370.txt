@@ -1,0 +1,221 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Global Backlog
+V2
+6
+Available
+Drag to deploy task
+Priority Sorting Active
+[0] (259,224)<div  />
+	[1] (259,208)<div  />
+		[2] (235,208)<div  />
+			[3] (241,208)<div  />
+				[4] (241,185)<div  />
+					[5] (72,185)<span >recvaMMmcFRDwE />
+					[6] (104,185)<span >DOOM />
+				[7] (241,204)<span >Tính năng quản lý dự án PRO />
+				[8] (241,230)<div  />
+					[9] (71,230)<div  />
+						[10] (74,230)<span >Digital />
+					[11] (110,230)<div  />
+						[12] (113,230)<span >Chiến dịch />
+		[13] (456,192)<div  />
+			[14] (452,192)<div  />
+				[15] (453,192)<div  />
+					[16] (453,192)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[17] (259,262)<div  />
+		[18] (43,262)<div  />
+		[19] (66,262)<span >Pending />
+		[20] (106,262)<div >Pending />
+		[21] (153,262)<div >STALE
+8d 19h />
+[22] (259,336)<div  />
+	[23] (259,319)<div  />
+		[24] (235,319)<div  />
+			[25] (241,319)<div  />
+				[26] (241,310)<div  />
+					[27] (72,310)<span >recvfgkTQ8br7K />
+				[28] (241,327)<span >Module quản lý ads: Quản lý chiến dịch />
+		[29] (456,318)<div  />
+			[30] (452,318)<div  />
+				[31] (453,318)<div  />
+					[32] (453,318)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[33] (259,358)<div  />
+		[34] (43,358)<div  />
+		[35] (66,358)<span >Pending />
+		[36] (106,358)<div >Pending />
+		[37] (153,358)<div >STALE
+2d 21h />
+[38] (259,432)<div  />
+	[39] (259,415)<div  />
+		[40] (235,415)<div  />
+			[41] (241,415)<div  />
+				[42] (241,406)<div  />
+					[43] (72,406)<span >recvfgvIFzrXVT />
+				[44] (241,423)<span >Module Quản lý ads: Chi tiết chiến dịch />
+		[45] (456,414)<div  />
+			[46] (452,414)<div  />
+				[47] (453,414)<div  />
+					[48] (453,414)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[49] (259,454)<div  />
+		[50] (43,454)<div  />
+		[51] (66,454)<span >Pending />
+		[52] (106,454)<div >Pending />
+		[53] (153,454)<div >STALE
+2d 21h />
+[54] (259,529)<div  />
+	[55] (259,513)<div  />
+		[56] (235,513)<div  />
+			[57] (241,513)<div  />
+				[58] (241,503)<div  />
+					[59] (72,503)<span >recveKn5wK1BZO />
+					[60] (104,503)<span >DOOM />
+				[61] (241,523)<span >[Adecos] Trải nghiệm Onboarding />
+		[62] (456,510)<div  />
+			[63] (452,510)<div  />
+				[64] (453,510)<div  />
+					[65] (453,510)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[66] (259,553)<div  />
+		[67] (43,553)<div  />
+		[68] (70,553)<span >Bug Fixing />
+		[69] (120,553)<div >In progress />
+		[70] (168,553)<div >STALE
+1d />
+[71] (259,627)<div  />
+	[72] (259,610)<div  />
+		[73] (235,610)<div  />
+			[74] (241,610)<div  />
+				[75] (241,601)<div  />
+					[76] (72,601)<span >recvf2zRMuqs8i />
+				[77] (241,619)<span >Module AI Agent: deep research />
+		[78] (456,609)<div  />
+			[79] (452,609)<div  />
+				[80] (453,609)<div  />
+					[81] (453,609)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[82] (259,649)<div  />
+		[83] (43,649)<div  />
+		[84] (70,649)<span >Bug Fixing />
+		[85] (120,649)<div >In progress />
+		[86] (168,649)<div >STALE
+1d />
+[87] (259,723)<div  />
+	[88] (259,706)<div  />
+		[89] (235,706)<div  />
+			[90] (241,706)<div  />
+				[91] (241,697)<div  />
+					[92] (72,697)<span >recvfl34LoMy1I />
+				[93] (241,715)<span >Update Component Base UI theo figma />
+		[94] (456,705)<div  />
+			[95] (452,705)<div  />
+				[96] (453,705)<div  />
+					[97] (453,705)<button class='px-2 py-1.5 rounded-lg bg-[#1D3557]/10 text-[#1D3557] hover:bg-[#1D3557] hover:text-white text-[10px] font-bold transition-all flex items-center border border-[#1D3557]/20 hover:border-[#1D3557] shrink-0 active:scale-95' />
+	[98] (259,745)<div  />
+		[99] (43,745)<div  />
+		[100] (69,745)<span >Designing />
+		[101] (117,745)<div >In progress />
+		[102] (169,745)<div >STALE
+2d 21h />
+Active Sync Protocol
+V2
+[103] (632,90)<button class='p-1.5 rounded-xl hover:bg-secondary text-muted-foreground/40 hover:text-foreground transition-all active:scale-90 border border-transparent hover:border-border' title='Copy to-do list for DM' />
+[104] (650,90)<button class='p-1.5 rounded-xl transition-all active:scale-90 border bg-indigo-600 hover:bg-indigo-700 text-white border-[#1D3557] shadow-lg shadow-indigo-600/20' title='Send to-do list to Lark' />
+5
+Objectives
+[105] (738,200)<div  />
+	[106] (738,164)<div  />
+		[107] (722,164)<div  />
+			[108] (525,160)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+			[109] (729,164)<div  />
+				[110] (729,155)<div  />
+					[111] (553,155)<span >recvf32gykm4bu />
+				[112] (729,173)<span >Module Quản lý ads: màn chính />
+		[113] (943,161)<div  />
+			[114] (939,161)<div  />
+				[115] (939,161)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+	[116] (738,203)<div  />
+		[117] (522,203)<div  />
+		[118] (551,203)<span >Reviewing />
+		[119] (600,203)<div >STALE
+2d 21h />
+	[120] (738,238)<div  />
+		[121] (738,244)<div  />
+			[122] (743,244)<span >Staging Passed />
+[123] (738,336)<div  />
+	[124] (738,301)<div  />
+		[125] (722,301)<div  />
+			[126] (525,297)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+			[127] (729,301)<div  />
+				[128] (729,291)<div  />
+					[129] (553,291)<span >recvfeDdV0Rh73 />
+				[130] (729,309)<span >Module Quản lý ads: Quản lý Email />
+		[131] (943,298)<div  />
+			[132] (939,298)<div  />
+				[133] (939,298)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+	[134] (738,339)<div  />
+		[135] (522,339)<div  />
+		[136] (551,339)<span >Reprocess />
+		[137] (600,339)<div >STALE
+2d 21h />
+	[138] (738,375)<div  />
+		[139] (738,380)<div  />
+			[140] (743,380)<span >Staging Passed />
+[141] (738,472)<div  />
+	[142] (738,437)<div  />
+		[143] (722,437)<div  />
+			[144] (525,433)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+			[145] (729,437)<div  />
+				[146] (729,427)<div  />
+					[147] (553,427)<span >recvfk8QxwDX1i />
+				[148] (729,445)<span >Quản lý ads Quản lý ID />
+		[149] (943,434)<div  />
+			[150] (939,434)<div  />
+				[151] (939,434)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+	[152] (738,475)<div  />
+		[153] (522,475)<div  />
+		[154] (551,475)<span >Reprocess />
+		[155] (600,475)<div >STALE
+2d 21h />
+	[156] (738,511)<div  />
+		[157] (738,517)<div  />
+			[158] (743,517)<span >Staging Passed />
+[159] (738,610)<div  />
+	[160] (738,575)<div  />
+		[161] (722,575)<div  />
+			[162] (525,569)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+			[163] (729,575)<div  />
+				[164] (729,565)<div  />
+					[165] (553,565)<span >recvfpUhkRNSeX />
+					[166] (586,565)<span >DOOM />
+				[167] (729,585)<span >CTA button cho empty state của màn Quản lý ads: CTA để user gắn tài khoản ads -> luồng gắn email tài khoản ads />
+		[168] (943,570)<div  />
+			[169] (939,570)<div  />
+				[170] (939,570)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+	[171] (738,615)<div  />
+		[172] (522,615)<div  />
+		[173] (549,615)<span >Bug Fixing />
+	[174] (738,650)<div  />
+		[175] (738,656)<div  />
+			[176] (743,656)<span >Staging Passed />
+[177] (738,748)<div  />
+	[178] (738,713)<div  />
+		[179] (722,713)<div  />
+			[180] (525,708)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+			[181] (729,713)<div  />
+				[182] (729,703)<div  />
+					[183] (553,703)<span >recvfpUsK53pSR />
+				[184] (729,721)<span >CTA button cho empty state của màn Quản lý dự án: CTA để user add dự án -> AI Agent chat />
+		[185] (943,710)<div  />
+			[186] (939,710)<div  />
+				[187] (939,710)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+	[188] (738,751)<div  />
+		[189] (522,751)<div  />
+		[190] (549,751)<span >Bug Fixing />
+	[191] (738,787)<div  />
+		[192] (738,792)<div  />
+			[193] (743,792)<span >Staging Passed />
+Protocal active · relay operational
+Engine v2.1.0-rev4
+
+</current_dom>

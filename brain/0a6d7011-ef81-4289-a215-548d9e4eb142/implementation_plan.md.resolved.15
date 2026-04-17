@@ -1,0 +1,30 @@
+# Fixing the Bento Grid "Searchlight Disaster"
+
+The previous attempt to use CSS masking resulted in a catastrophic "searchlight" effect because the mask failed to resolve correctly. I will revert to a robust, cross-browser compatible SVG-based implementation that uses high-precision path masking.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This fix removes the large rotating divs and replaces them with localized SVG paths. This guarantees the light is confined to the 1.5px border ONLY.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **High-Precision SVG Masking:** Use an SVG `<mask>` to isolate the light beam to the border perimeter.
+- **Multi-Layered Beam:**
+    - **Layer 1 (The Core):** A sharp 1.5px stroke that travels along the border.
+    - **Layer 2 (The Aurora):** A 4px blurred stroke with a tapering trail.
+    - **Layer 3 (The Bloom):** A 10px very soft glow that adds depth to the glass.
+- **Gradient Trail:** Use an SVG `<linearGradient>` applied to the stroke to create a sophisticated, high-fidelity tapering tail.
+- **Hardware Stability:** Since we use standard SVG properties, we avoid the CSS masking bugs that caused the searchlight effect.
+
+## Why this will resolve the issue
+- **Strict Containment:** SVG elements are naturally contained within their viewBox. By using a mask on the SVG itself, we ensure no light penetrates the center of the box.
+- **Zero-Bleed Assurance:** By removing the `300%` rotating divs, we eliminate the source of the viewport-level light bleed.
+
+## Verification Plan
+- **Performance:** Verify stable 60fps interaction.
+- **Visual Check:** Confirm the "searchlight" is GONE and the light is strictly on the border.
+- **Bleed Check:** Confirm ABSOLUTELY ZERO blue light at screen margins.

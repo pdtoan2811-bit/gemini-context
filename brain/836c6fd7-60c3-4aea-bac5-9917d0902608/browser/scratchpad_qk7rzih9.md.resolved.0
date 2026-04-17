@@ -1,0 +1,9 @@
+# Daily Meeting View Task
+
+- [ ] Navigate to http://localhost:3000/
+- [ ] Select "Sprint 11" from the dropdown
+- [ ] Click on "Daily Meeting" tab
+- [ ] Take screenshot of the view
+- [ ] Verify task detail inspector by clicking a task row
+- [ ] Take screenshot of the inspector
+- [ ] Report findings

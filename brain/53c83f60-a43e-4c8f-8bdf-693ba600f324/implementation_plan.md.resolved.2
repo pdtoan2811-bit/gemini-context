@@ -1,0 +1,49 @@
+# Goal: Maximizing Engagement & Reconsidering Source Media
+
+You are completely right. Our fix resolved the UI layout, but preserving only 5 scenes stretched them out to ~12 seconds each. This completely violates the **"3-Second Rule"** of the `youtube-shorts-mastermind` workflow and makes the video feel incredibly boring and static, no matter how good the UI or background glitch looks. 
+
+Furthermore, querying Tavily for just 5 "broad" concepts resulted in weak background imagery.
+
+This plan outlines a structural refactor to execute the Mastermind cuts properly by atomizing the script.
+
+## The Approach
+
+We will chop the sarcastic script into exactly 18 distinct sub-sentences. This aligns perfectly with the length of the voiceover (averaging ~2.8 seconds per line), guaranteeing a hard visual cut on every beat.
+
+### Script Breakdown (18 Scenes)
+Instead of 5 giant blocks, the voiceover generation script will be redefined as:
+1. `s01-customer`: "...are you the customer, or the vulnerability?"
+2. `s02-megacorps`: "Anthropic just gave their most dangerous AI to five mega-corps,"
+3. `s03-risky`: "while telling you it's too risky for the public. How thoughtful."
+4. `s04-narrative`: "The official narrative?"
+5. `s05-glasswing`: "Project Glasswing is a heroic coalition to defend against zero-day exploits."
+6. `...` etc., down to 18.
+
+### Better Source Media
+By having 18 highly specific scenes, we can query Tavily for much punchier source media:
+- `s07-grocery-list`: "grocery shopping list digital notes app"
+- `s10-rubicon`: "skynet terminators evil AI red eyes"
+- `s13-apocalypse`: "nuclear explosion cinematic apocalyptic technology"
+- `s14-invoice`: "boring enterprise software corporate invoice PDF"
+
+### Applying the Mastermind Techniques
+Because we will have 18 standard scenes rolling swiftly, we can inject the programmatic mastermind techniques over specific beats:
+- The **Whip Pan / Glitch** will happen precisely when he says "Wait, you're telling me..."
+- The **Split Screen** will happen right when "And Reddit?" starts.
+
+## Proposed Changes
+
+### [MODIFY] scripts/generate-voiceover-mythos-sarcastic.ts
+- Refactor the 5 `SCENES` into the 18 micro-beats.
+- Re-run FourteenLabs TTS generation to create 18 localized `.mp3` and `.json` word-timestamp maps.
+
+### [MODIFY] scripts/fetch-images-mythos-sarcastic.ts
+- Provide 18 specific keyword combinations for Tavily to retrieve hyper-relevant, rapidly changing photography.
+
+### [MODIFY] src/components/MythosSarcasticShort.tsx
+- Update the component to map over the 18 new scenes.
+- Assign the glitch/pan/scale logic to specific indexes (e.g., glitch happens on index 13, split screen on index 8).
+
+## User Review Required
+> [!IMPORTANT]
+> Does exploding the script from 5 static segments into 18 rapid-fire cuts sound like the right approach to solve the "static and boring" feeling while generating much better Tavily source media?

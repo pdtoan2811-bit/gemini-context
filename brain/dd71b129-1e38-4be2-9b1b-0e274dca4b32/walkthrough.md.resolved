@@ -1,0 +1,15 @@
+# Walkthrough - Git Synchronization & Reset
+
+I have successfully synchronized your local repository with the remote core at `https://github.com/pdtoan2811-bit/adecos-mvp-mockup`.
+
+## Changes Made
+- Performed `git fetch --all` to get the latest updates.
+- Executed `git reset --hard origin/main` to override all local changes.
+- Ran `git clean -fd` (and followed up with PowerShell's `Remove-Item`) to purge untracked files and directories.
+
+## Verification Results
+- `git status` confirms the branch is up to date with `origin/main`.
+- Working tree is clean (no uncommitted or untracked changes).
+
+> [!IMPORTANT]
+> Your local changes have been completely replaced by the remote code. If you had any uncommitted work, it is now gone.

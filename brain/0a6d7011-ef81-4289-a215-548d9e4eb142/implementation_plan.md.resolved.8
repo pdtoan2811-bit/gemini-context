@@ -1,0 +1,22 @@
+# Definitive Fix for Bento Grid Light Bleed
+
+The border light is now perfectly aligned, but a residual "blue glow" is bleeding to the viewport margins. This is a rendering artifact caused by large blurred gradients escaping their stacking contexts. I will strictly contain the entire section and optimize the beams.
+
+## Proposed Changes
+
+### Component: [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- **Section Containment:** Add `overflow-hidden` and `relative` to the main `#features` `<section>`. This provides a "hard wall" that prevents any internal glows (including background gradients) from reaching the viewport margins.
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Shrink Footprint:** 
+    - Reduce the rotating square size from `150%` to `110%`. A `110%` square is sufficient to cover the corners of a rectangle while drastically reducing the painting area.
+    - Use a more focused `conic-gradient` (shorter tail).
+- **Optimization:** Use `transform-gpu` to ensure the rotating beam stays on the hardware-accelerated layer.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- No changes needed; the wrapper structure is already optimal.
+
+## Verification Plan
+- **Performance:** Ensure 60fps stable interaction.
+- **Bleed Check:** Verify that the blue light NO LONGER appears at the browser margins (checked at viewport edges).
+- **Alignment:** Confirm the light remains flush with the bento box borders.

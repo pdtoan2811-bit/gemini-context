@@ -1,0 +1,13 @@
+# Task: Verify "SANDBOX TEST" button and "Run Test" section on localhost:3000
+
+## Plan
+1. [ ] Navigate to http://localhost:3000
+2. [ ] Check for "SANDBOX TEST" button in the header
+    * [ ] If found, click it
+    * [ ] If not, record as missing
+3. [ ] Click "Members" button
+4. [ ] Check for "Run Test" section in the members area
+    * [ ] Record findings
+
+## Observations
+- No browser pages open yet.

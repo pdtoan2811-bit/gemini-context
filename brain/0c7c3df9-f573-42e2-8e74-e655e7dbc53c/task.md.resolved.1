@@ -1,0 +1,7 @@
+# Task: Implement dynamic blocker person from meeting notes
+
+[x] Add `blockedBy?: string` to [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#68-85) in [types.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts)
+[x] Update [analyzeAllTasks](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#134-148) in [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) to accept `notes: Record<string, MeetingNote[]>` and extract `blockedBy` from the latest note
+[x] Update [getPersonSummaries](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#181-235) to attribute a blocked task to the `blockedBy` person
+[x] Update [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) to pass `notes` into [analyzeAllTasks](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#134-148) and [getPersonSummaries](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#181-235)
+[x] Update [PersonnelOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx) to show "Blocked by: X" on the task row and ensure the task is counted as a `blockingTask` for person X.

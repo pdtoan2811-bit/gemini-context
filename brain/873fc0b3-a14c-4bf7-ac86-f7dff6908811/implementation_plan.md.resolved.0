@@ -1,0 +1,62 @@
+# Implementation Plan: Light Mode as Default UI Overhaul
+
+The goal is to transition the entire application UI from a dark-themed default to a premium, high-contrast light-themed default, while maintaining dark mode as an optional preference.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This change will fundamentally alter the visual identity of the app. I am opting for a "Zinc" based palette (Off-white background, deep charcoal text) to ensure a premium look that isn't eye-straining.
+
+## Proposed Changes
+
+### Core Theme System
+
+#### [MODIFY] [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css)
+- Define a comprehensive set of CSS variables in `:root` for light mode.
+- Move current dark mode colors into a `.dark` class or `@media (prefers-color-scheme: dark)` block.
+- Update `@theme` block to map these variables to Tailwind utilities.
+
+### Core Layout & Home
+
+#### [MODIFY] [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx)
+- Ensure the `html` or `body` element doesn't have hardcoded `dark` classes.
+- Add support for a theme toggle (optional, but good for UX).
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+- Replace hardcoded `bg-black`, `bg-zinc-950`, `text-white`, etc. with semantic theme-aware classes.
+
+---
+
+### UI Components
+
+#### [MODIFY] `src/components/ui/*.tsx`
+- Systematically update [Card](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#514-606), `Badge`, [Button](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#76-103), `Popover`, etc. to use semantic classes (e.g., `bg-card`, `text-card-foreground`, `border-border`).
+
+---
+
+### Feature Components
+
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- This is a large file with many hardcoded colors (especially in [AllPersonsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#75-229) and [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#243-835)). I will replace these with theme-aware utilities.
+- Adjust status-specific colors (Doing, Blocking, Blocked) to look good on light backgrounds.
+
+#### [MODIFY] Other Dashboard Views
+- `NextSprintPlanningView.tsx`
+- `DailyRecapView.tsx`
+- `PersonnelOverview.tsx`
+- `TaskOverview.tsx`
+- `SprintStartManager.tsx`
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- No existing UI tests found. I will rely on manual visual verification using the browser.
+
+### Manual Verification
+- **Visual Audit**: Navigate through all tabs (Daily Meeting, Next Sprint Planning, etc.) in Light Mode.
+- **Contrast Check**: Ensure all text is readable and status indicators (badges, dots) have sufficient contrast.
+- **Dark Mode Check**: Manually toggle the system theme to ensure the application still looks good in Dark Mode (if supported via media query).
+- **Interactive Elements**: Verify hover states and active states for buttons and tabs.
+- **Scrollbars**: Ensure custom scrollbars look good on light backgrounds.

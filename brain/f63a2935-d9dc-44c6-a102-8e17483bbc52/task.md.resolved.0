@@ -1,0 +1,23 @@
+# Task: Implement Language Mode (Vietnamese to English)
+
+- [ ] **Preparation**
+    - [/] Analyze project structure
+    - [ ] Identify hardcoded strings in components and data files
+    - [ ] Design Language Switcher UI
+- [ ] **Infrastructure Setup**
+    - [ ] Install dependencies (`i18next`, `react-i18next`, `i18next-browser-languagedetector`)
+    - [ ] Create `src/i18n.js` configuration
+    - [ ] Setup initial translation files (`src/locales/vi/translation.json`, `src/locales/en/translation.json`)
+- [ ] **Core Implementation**
+    - [ ] Integrate `i18n` in [src/main.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/main.jsx)
+    - [ ] Create `LanguageSwitcher` component
+    - [ ] Add `LanguageSwitcher` to `Sidebar` or global navigation
+- [ ] **Content Migration**
+    - [ ] Migrate [bentoGridData.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/data/bentoGridData.jsx)
+    - [ ] Migrate `Sidebar.jsx`
+    - [ ] Migrate `LandingPage.jsx`
+    - [ ] Migrate `ChatPage.jsx` and other pages
+- [ ] **Verification**
+    - [ ] Verify default language is Vietnamese
+    - [ ] Test language toggle functionality
+    - [ ] Audit for any missed strings

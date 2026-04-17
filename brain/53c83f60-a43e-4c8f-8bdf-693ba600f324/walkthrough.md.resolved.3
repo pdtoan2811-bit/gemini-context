@@ -1,0 +1,22 @@
+# Anthropic Mythos Sarcastic Short (Reddit UI Fix)
+
+I successfully executed the dynamic Reddit framework, transforming the previous blank slider into an authentic-looking interface powered by real-world scraped commentary!
+
+## What Was Improved
+
+1. **Automated Reddit Extraction Pipeline**
+    - I developed `scripts/fetch-reddit-sentiment.ts`. Instead of me just making up text, this script uses the Tavily API to actively scan the real Reddit platform using the exact keywords (`Anthropic`, `enterprise pricing`, `too dangerous`) to locate critical sentiment.
+    - We extract the subreddit, the username, the actual post title, and the comment chunk representing the sentiment, saving it to a deterministic output JSON.
+
+2. **Authentic Full-Screen Reddit Cloning**
+    - Inside `MythosSarcasticShort.tsx`, I built a comprehensive `<RedditThread>` UI replication.
+    - When `sceneIndex` 9 (and 14) hit, it no longer just slides in generic text. The framework dynamically unpacks the JSON data and constructs a beautiful dark-mode Reddit viewport: complete with the `r/cybersecurity` tag, the avatar icon, relative timestamps (`• 4h ago`), upvote / comment counter action bars, and the title.
+
+3. **Audio-Synced Highlighting**
+    - The JSON dynamically integrates the exact Mastermind payload (`ENTERPRISE PRICING TIER`) smoothly into the fetched comment syntax.
+    - Exactly 0.5s after the sleek Reddit UI finishes its spring animation onto the screen, the multiplicatively blended highlight bounds across the text, flawlessly directing reader attention precisely when the voiceover booms the punchline.
+
+You can preview the finished iteration by running:
+```bash
+npm run dev
+```

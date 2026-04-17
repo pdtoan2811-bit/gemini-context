@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Task list for fixing sprint filtering and adding shared tasks logic from NextSprintPlanningView.",
+  "updatedAt": "2026-03-23T02:16:23.341868900Z",
+  "version": "7"
+}

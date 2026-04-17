@@ -1,0 +1,40 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (915,33)<button aria-label='Tiếng Việt. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary dark:bg-white/20 text-primary-foreground hover:bg-primary hover:text-primary-foreground' title='Tiếng Việt'>VI />
+[1] (936,33)<button aria-label='English. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background text-muted-foreground' title='English'>EN />
+[2] (971,33)<div aria-label='Theme selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[3] (964,33)<button aria-label='Light' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Light' />
+	[4] (978,33)<button aria-label='Dark' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Dark' />
+3. Sở Hữu Trí Tuệ
+4. Thu Thập, Sử Dụng Dữ Liệu & Bảo Mật
+5. Sử Dụng Chấp Nhận Được
+[5] (365,75)<a class='transition-colors hover:text-primary' href='#s6'>6. Chính Sách Quyền Riêng Tư & Bản Quyền />
+[6] (334,101)<a class='transition-colors hover:text-primary' href='#s7'>7. Phí, Thanh Toán & Thuế />
+[7] (330,126)<a class='transition-colors hover:text-primary' href='#s8'>8. Tuyên Bố & Bảo Đảm />
+11. Quảng Bá Công Khai
+12. Bồi Thường
+13. Tuyên Bố Từ Chối Trách Nhiệm
+[8] (549,75)<a class='transition-colors hover:text-primary' href='#s14'>14. Giới Hạn Trách Nhiệm />
+[9] (544,101)<a class='transition-colors hover:text-primary' href='#s15'>15. Điều Khoản Chung />
+[10] (525,126)<a class='transition-colors hover:text-primary' href='#s16'>16. Liên Hệ />
+1. Định Nghĩa
+"Tài Khoản Quảng Cáo"
+là tài khoản của Khách Hàng đã đăng ký với một Mạng Quảng Cáo.
+"Mạng Quảng Cáo"
+là nền tảng quảng cáo của bên thứ ba (ví dụ: Google Ads, Meta/Facebook, TikTok Ads) mà Tài Khoản Quảng Cáo liên quan, và Dịch Vụ được cung cấp theo đây.
+"Chi Tiêu Quảng Cáo"
+là tổng tất cả các khoản tiền trong tất cả Tài Khoản Quảng Cáo của Khách Hàng, bất kể mức sử dụng thực tế.
+"Công Ty Liên Kết"
+là bất kỳ tổ chức nào trực tiếp hoặc gián tiếp kiểm soát, bị kiểm soát bởi, hoặc chịu sự kiểm soát chung với một Bên. Kiểm soát nghĩa là sở hữu trực tiếp hoặc gián tiếp hơn 50% quyền biểu quyết.
+"Thông Tin Bảo Mật"
+là tất cả thông tin bí mật được Bên Tiết Lộ tiết lộ cho Bên Nhận, bằng lời nói hoặc văn bản, được chỉ định là bảo mật hoặc mà một người hợp lý sẽ coi là bảo mật.
+"Dữ Liệu Khách Hàng"
+là tất cả thông tin mà bạn gửi hoặc thu thập qua Dịch Vụ. Dữ Liệu Khách Hàng không bao gồm Nội Dung Adecos.
+"Luật Bảo Vệ Dữ Liệu"
+là tất cả pháp luật hiện hành trên toàn thế giới liên quan đến bảo vệ dữ liệu và quyền riêng tư áp dụng cho bên tương ứng khi xử lý Dữ Liệu Cá Nhân.
+"Phản Hồi"
+là bất kỳ góp ý, bình luận, ý tưởng, đề xuất, khuyến nghị, yêu cầu cải tiến, dữ liệu, thống kê hoặc thông tin khác mà bạn có thể cung cấp về Dịch Vụ.
+
+</current_dom>

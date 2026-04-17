@@ -1,0 +1,42 @@
+# Interactive Config Architecture
+
+This document describes the implementation architecture for converting our read-only dashboard into a fully dynamic application. We will introduce UI elements for you to input your OpenAI API key, configure advanced scraping options (like connecting to Kiki Login's websocket), and add/delete structural watch targets directly.
+
+## User Review Required
+
+> [!WARNING]
+> Please review the data storage approach for the API keys. Because this is a local prototype, we will be saving the `OPENAI_API_KEY` into your local `targetList.json` config file across the server. This makes it effortless to spin up globally without handling `.env` files, but it means your key will be stored securely in plain text within your local project directory. **Do not push your config file to a public GitHub repo!**
+
+## Proposed Changes
+
+---
+
+### Phase 8: The Interactive Settings Layer
+We're upgrading the `/settings` page from a read-only table to an active command center.
+
+#### [MODIFY] `src/config/targetList.json` -> Schema Upgrade
+- We will expand the schema to hold top-level application configurations:
+  - `openaiApiKey: string`
+  - `wsEndpoint: string` (For advanced Kiki Login websocket bypass)
+
+#### [MODIFY] `src/app/settings/page.tsx`
+- **Global Settings Module**: A new Shadcn `Card` at the top with secure `<Input>` fields to paste your OpenAI Key and your Kiki Login Websocket Endpoint.
+- **Dynamic Tables**: We will add a `<form>` mechanism next to each table (Semantic Topics, Creators, Communities) allowing you to type in a new keyword and a priority weight, and push it to the live config.
+- **Save State Integration**: All changes will cleanly POST back to our existing `/api/config` headless route.
+
+#### [MODIFY] `src/app/api/synthesize/route.ts`
+- Modifying the AI synthesis workflow to dynamically extract the `openaiApiKey` from your live `config.json` file. It will seamlessly check this before defaulting to the mock output block.
+
+#### [MODIFY] `src/lib/scraper/engine.ts` & `trigger/route.ts`
+- Altering the scraping orchestration engine. Now, if `wsEndpoint` is defined in your settings UI, the Playwright engine will automatically attempt to dial your anti-detect browser's CDP port instead of spawning its own hidden instance. This guarantees your advanced scraping requirements are respected natively!
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Delete Functionality**: Do you want the ability to actively delete targets from the tables in the UI as well, or just add them for now?
+> 2. **Security Check**: Are you perfectly comfortable with the API key being stored in the local server JSON configuration file?
+
+## Verification Plan
+1. Enter a valid OpenAPI key into the Settings UI and press Save.
+2. Trigger the "Live Scrape" from the dashboard and ensure the data returned is uniquely analyzed by standard GPT-4o-mini parameters.
+3. Add a new Community (e.g. `r/webdev`) to the UI, trigger the scrape, and verify Playwright targets the newly inputted semantic community dynamically!

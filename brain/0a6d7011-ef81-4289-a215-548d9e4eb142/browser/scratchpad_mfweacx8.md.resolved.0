@@ -1,0 +1,17 @@
+# Bento Grid Verification Checklist
+- [ ] Navigate to http://localhost:3000/vi
+- [ ] Find the Bento Grid section
+- [ ] Hover over the left tall Bento box and verify:
+    - [ ] Light covers full height
+    - [ ] Light is centered on border line
+    - [ ] Curvature matches box exactly
+- [ ] Hover over the top right smaller Bento box and verify:
+    - [ ] Light covers full height
+    - [ ] Light is centered on border line
+    - [ ] Curvature matches box exactly
+- [ ] Hover over the bottom right smaller Bento box and verify:
+    - [ ] Light covers full height
+    - [ ] Light is centered on border line
+    - [ ] Curvature matches box exactly
+- [ ] Capture screenshot of the section with one box hovered
+- [ ] Report results

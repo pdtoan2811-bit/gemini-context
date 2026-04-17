@@ -1,0 +1,21 @@
+# Sprint Relay Debugger Verification Plan
+
+- [ ] Open http://localhost:3000
+- [ ] Check for compilation errors
+- [ ] Verify Dashboard UI
+    - [ ] Header "Sprint Relay Debugger"
+    - [ ] Stats Bar
+    - [ ] Tabs: Personnel, Tasks, Timeline
+    - [ ] Workflow Legend in Sidebar
+- [ ] Test Personnel Tab
+    - [ ] Person cards visible
+- [ ] Test Tasks Tab
+    - [ ] Task table visible
+- [ ] Test Timeline Tab
+    - [ ] Swimlane visualization visible
+- [ ] Test Task Inspector
+    - [ ] Click a task to open
+    - [ ] Verify High Risk toggle
+    - [ ] Verify Doom Loop indicator (if applicable)
+    - [ ] Verify Status History, Interrogation Log, Standup Notes
+- [ ] Take screenshot of final state

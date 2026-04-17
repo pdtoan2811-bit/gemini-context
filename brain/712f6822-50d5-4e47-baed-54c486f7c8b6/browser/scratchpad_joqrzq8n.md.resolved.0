@@ -1,0 +1,7 @@
+# Sprint Relay Debugging Plan
+
+- [ ] Navigate to http://localhost:3000
+- [ ] Open and check console logs for errors (Failed to load data, Migration failed, 404/500 for /api/data)
+- [ ] Check if Sprint Settings modal (gear icon) can be opened
+- [ ] Verify dates in Sprint Settings modal against DEFAULT_CONFIG
+- [ ] Report Findings

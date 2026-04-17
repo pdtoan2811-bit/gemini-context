@@ -1,0 +1,22 @@
+# Analytics Page Verification Plan
+
+- [x] Navigate to `/vi/analytics` on :3000 -> **Next.js 404**
+- [/] Try `/vi/analytics` on :3001 -> **Redirects to Sign-in**, then "Invalid redirect_uri" on Keycloak.
+- [ ] Investigate why :3000 is 404 and :3001 is auth-locked.
+- [ ] Verify "Tổng quan" tab and take screenshot
+- [ ] Verify all 6 tabs are present:
+    - [ ] Tổng quan
+    - [ ] Chiến dịch
+    - [ ] Quảng cáo
+    - [ ] Từ khóa
+    - [ ] Cụm từ tìm kiếm
+    - [ ] Chiến lược giá thầu
+- [ ] Click and verify "Chiến dịch" (screenshot)
+- [ ] Click and verify "Từ khóa" (screenshot)
+- [ ] Click and verify "Chiến lược giá thầu" (screenshot)
+- [ ] Document findings and any errors.
+
+**Observation:** 
+- `http://localhost:3000/` is "Sprint Relay Debugger".
+- `http://localhost:3000/vi/analytics` returns standard Next.js 404.
+- `http://localhost:3001/vi/signin` exists but Keycloak fails with "Invalid redirect_uri", likely because it expects port 3000 in the callback.

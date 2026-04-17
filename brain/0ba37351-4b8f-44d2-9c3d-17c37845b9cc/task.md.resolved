@@ -1,0 +1,5 @@
+# Updating Squads View Filter Logic
+
+- [x] Analyze the filtering logic in [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- [x] Update the `some` check to an `every` check in the [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1961-2151) to filter tasks by the intersection of selected personnel.
+- [x] Verify the change and complete the task.

@@ -1,0 +1,53 @@
+# Goal: Anthropic Mythos Sarcastic Sentiment Short
+
+Create a high-retention, YouTube Shorts-style Remotion composition ("MythosSarcasticShort") covering the official news vs Reddit sentiment regarding Anthropic's "Mythos" zero-day AI. The tone will be sarcastic, skeptical, and dryly humorous. It will heavily leverage the `@youtube-shorts-mastermind` programmatic video patterns (e.g., subliminal flash montages, Document Sentiment Highlighters, CSS filter glitches).
+
+## Proposed Script & Narrative
+
+*(Tone: Dry, skeptical, "formal curator" delivering outrageous sarcasm)*
+
+*   **Hook (0s - 3s): Dopamine Spike**
+    *   **Narration:** "Anthropic just gave their most dangerous AI to five mega-corps, while telling you it's too risky for the public. How thoughtful."
+    *   **Visuals:** Kinetic Punch typographyslamming in. Subliminal flash montage (3x 5-frames) of "RESTRICTED", Anthropic Logo, and red lock icons. J-cut the audio in early.
+*   **The Anchor (3s - 15s): Receipt & Sarcastic Setup**
+    *   **Narration:** "The official narrative? Project Glasswing is a heroic coalition to defend our digital shores against zero-day exploits. The reality? It's a VIP club. Wall Street gets to automatically patch their software, while you get standard Claude formatting your grocery list."
+    *   **Visuals:** Punch-In Jump cuts on "Project Glasswing", Z-Depth Parallax over financial charts and Anthropic PR quotes. Pop/Whoosh programmable SFX.
+*   **The Payload (15s - 45s): The Reddit Pivot**
+    *   **Narration:** "And Reddit? Reddit is absolutely losing its mind. The top consensus on r/cybersecurity isn't that Mythos is Skynet crossing the Rubicon. It’s that 'too dangerous to release' is just Silicon Valley's new favorite way of saying 'enterprise pricing tier'."
+    *   **Visuals:** Document Sentiment Highlighter dragging across a projected Reddit post with a red multiply-blend highlight over the phrase "Enterprise Pricing Tier". Split-Screen Divergence between a dramatic hacker image and a boring corporate invoice. Match Cut between Reddit upvotes and dollar signs. 
+*   **The Pattern Interrupt (45s - 75s): Skeptical Outro**
+    *   **Narration:** "So an AI that can autonomously discover a 27-year-old OpenBSD bug is just being used for B2B sales? Yes. The apocalypse will not be televised, it will be invoiced monthly."
+    *   **Visuals:** Random 3-frame CSS inverter filter glitch on "B2B sales?" text. Whip pan into dynamic B-Roll of servers and corporate handshakes using `clip-path: circle()`.
+*   **The Loop (75s - 90s): Mobius Strip**
+    *   **Narration:** "...because if you're not paying them, you're the vulnerability. So..." (which loops perfectly back to the beginning hook).
+    *   **Visuals:** Psychological Retention bar growing 0% to 100% across the bottom of the video. The final frame visual matches the opening kinetic punch.
+
+## Proposed Changes
+
+### Component 1: Voiceover Generator
+#### [NEW] scripts/generate-voiceover-mythos-sarcastic.ts
+- Create a script that generates the ElevenLabs audio (`v2` or `v2_5` flash) with word-level timestamps.
+- Will save output cleanly to `public/voiceover/mythos-sarcastic/`.
+
+### Component 2: Main Remotion Video
+#### [NEW] src/components/MythosSarcasticShort.tsx
+- Will implement the master array of scenes via `youtube-shorts-mastermind` patterns.
+- Includes Ken Burns background fallbacks, the Document Sentiment Highlighter logic, the Split-screen, and the Whip Pan / Glitch logic.
+- Will parse the `words.json` to overlay energetic typography `Word` components.
+
+### Component 3: Root Entry
+#### [MODIFY] src/Root.tsx
+- Import `MythosSarcasticShort`.
+- Register it into the `RemotionRoot` using the `calculateMetadata` method to dynamically read the generated audio length and calculate durations.
+
+## Open Questions
+
+> [!IMPORTANT]
+> - Do you approve of this specific script and sarcastic angle? 
+> - Would you like me to tweak any of the Reddit quotes or specific punchlines before I generate the voiceovers with ElevenLabs?
+> - Are there specific background images (like Trump/Iran stuff before) that you want downloaded, or should I generate abstract/news-style images for the assets dynamically?
+
+## Verification Plan
+
+- Run the `generate-voiceover-mythos-sarcastic.ts` script to compile the audio.
+- Run `npm run test` or rely on the `remotion studio` user UI view to verify that the animations (highlighters, kinetic punches, glitches) visually compile without throwing layout errors.

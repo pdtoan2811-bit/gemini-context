@@ -1,0 +1,19 @@
+# Verification Plan for Terms of Service Page
+
+## Goals
+1. Verify the layout and content of the Terms of Service page at http://localhost:3000/en/terms.
+2. Ensure readability improvements (sub-headings, definition lists, callout boxes) are correctly rendered.
+
+## Checklist
+- [ ] Navigate to http://localhost:3000/en/terms
+- [ ] Verify page title "Terms of Service"
+- [ ] Verify Table of Contents (16 sections)
+- [ ] Verify Section 1 (Definitions) structure
+- [ ] Verify Section 2+ sub-headings
+- [ ] Verify Sections 13 & 14 amber callout box
+- [ ] Verify "Important Notice" callout
+- [ ] Capture mid-page screenshot
+- [ ] Audit content in both English and Vietnamese (if possible/requested)
+
+## Findings
+(To be updated)

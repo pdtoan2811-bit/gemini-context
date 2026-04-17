@@ -1,0 +1,46 @@
+# Walkthrough: Project Analytics & Advanced Mapping
+
+We have transformed the Project Detail page into a professional analytics dashboard with robust campaign mapping and data entry workflows.
+
+## Key Features Implemented
+
+### 1. Analytics-First Dashboard
+The "Cấu hình Ads & ROI" tab is now the default view, providing immediate performance feedback.
+- **Summary Cards**: High-level metrics for Ads Spend, Revenue, ROAS, and CVR.
+- **Performance Chart**: Interactive AreaChart visualizing the relationship between spend and revenue over time.
+
+### 2. Advanced Campaign Mapping
+A searchable, email-first selection system to handle complex affiliate portfolios.
+- **Email-Centric UI**: Quickly identify accounts by email address.
+- **Platform Icons**: Visual cues for Google, Meta, and TikTok campaigns.
+- **Search & Filter**: Real-time filtering by campaign name, program, or email.
+- **Confirmation Flow**: Reusable modals to prevent accidental unlinking of data sources.
+
+### 3. Data Ledger & Bulk Entry
+Designed to solve the "manual work" pain point with high efficiency.
+- **7-Day Bulk Editor**: A spreadsheet-style modal to enter data for the last week in one go.
+- **Historical Ledger**: A full list of all recorded data with direct Edit and Delete capabilities.
+- **Deduplication**: Automatic handling of multiple entries for the same date.
+
+### 4. Project Lifecycle Management
+- **Draft Protection**: Manual entry is locked for "AI Agent" leads until they are promoted to "Official Projects".
+- **Promotion Workflow**: A clear banner and button to transition drafts into active tracking projects.
+
+## Visual Verification
+
+![Analytics Dashboard & Ledger](file:///C:/Users/Admin/.gemini/antigravity/brain/e0c324f7-0f84-47a7-b787-82b3efb6743a/.system_generated/click_feedback/click_feedback_1774952489280.png)
+*Figure 1: The new Project Analytics layout with Summary Cards and the Data Ledger.*
+
+![Campaign Selection Modal](file:///C:/Users/Admin/.gemini/antigravity/brain/e0c324f7-0f84-47a7-b787-82b3efb6743a/.system_generated/click_feedback/click_feedback_1774952506013.png)
+*Figure 2: Searchable mapping modal with email prioritization and platform branding.*
+
+![Bulk Editor Modal](file:///C:/Users/Admin/.gemini/antigravity/brain/e0c324f7-0f84-47a7-b787-82b3efb6743a/.system_generated/click_feedback/click_feedback_1774952516515.png)
+*Figure 3: Spreadsheet-style bulk editor for historical data overrides.*
+
+## Technical Details
+- **Location**: `frontend/src/components/ProjectAnalytics.jsx`
+- **State**: Managed via LocalStorage-backed hooks for persistence across sessions.
+- **Components**: Integrated `ConfirmationModal` for all destructive actions.
+
+---
+**Verification Result**: ✅ All features verified via browser subagent. Logic for bulk save, mapping, and ledger confirmed functional.

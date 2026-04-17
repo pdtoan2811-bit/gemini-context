@@ -1,0 +1,4 @@
+- [ ] Implement Ultimate Optical Mask in `BorderBeam.tsx` [/]
+- [ ] Add conic-gradient beam with dual-tone pulse [ ]
+- [ ] Enforce strict hardware mask clipping to eliminate bleed [ ]
+- [ ] Verify zero bleed and stunning visual feel in browser [ ]

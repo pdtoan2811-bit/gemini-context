@@ -1,0 +1,26 @@
+# Verification Checklist - Sprint Relay Debugger
+
+## 1. Sprint Filter
+- [ ] Header shows sprint dropdown with date ranges (e.g., "Sprint 11 · Mar 2 – Mar 13").
+- [ ] Sprint 11 is auto-selected (matching current date Mar 6, 2026).
+- [ ] Blue badge showing sprint date range next to the dropdown.
+- [ ] Screenshot of the header area.
+
+## 2. Personnel View
+- [ ] Personnel view is the default tab.
+- [ ] Person cards show tasks with colored priority dots.
+- [ ] Tasks are sorted by status priority (Reprocess > Waiting to Integrate > In Process > Not Started > others > Staging Passed).
+- [ ] Screenshot of a person card.
+
+## 3. Task Inspector
+- [ ] Clicking a task opens the side inspector panel.
+- [ ] "Assigned People" section with rounded badges.
+- [ ] "Daily Meeting Notes" section and "Add Today's Note" button.
+- [ ] Screenshot of the inspector.
+
+## 4. Meeting Note Form
+- [ ] Clicking "Add Today's Note" button opens the form.
+- [ ] Form has "Is this task stalled?" toggle.
+- [ ] "Blocked By" dropdown has "Assigned on this task" and "Team Leaders" groups.
+- [ ] "Solution / Action Plan" textarea.
+- [ ] Screenshot of the open form and dropdown options.

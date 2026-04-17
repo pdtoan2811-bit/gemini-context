@@ -1,0 +1,245 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (647,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 8 · Jan 19 – Jan 30
+Live Logs
+[1] (929,76)<button class='px-3 py-1.5 flex items-center gap-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-zinc-200 hover:bg-zinc-900 transition-colors' title='Configure per-person webhook URLs'>9
+Members />
+	9
+	Members
+[2] (976,76)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+49
+Met Goal
+2
+Bottlenecked
+13
+Doom Loops
+1
+Stale (24h+)
+22
+📌 High Risk
+0
+[3] (68,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Daily Meeting />
+	Daily Meeting
+[4] (144,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Daily Recap />
+	Daily Recap
+[5] (213,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Personnel />
+	Personnel
+[6] (272,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[7] (333,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+[8] (63,412)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors bg-blue-600 text-white'>Single Person />
+[9] (117,412)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors text-zinc-400 hover:text-zinc-200'>View All />
+[10] (162,412)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors text-zinc-400 hover:text-zinc-200'>Squads />
+[11] (238,412)<button class='flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-700 bg-zinc-900 hover:bg-zinc-800 transition-colors'>Nguyễn Thảo Linh />
+	Nguyễn Thảo Linh
+[12] (349,412)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'>Compare />
+[13] (401,412)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors border-zinc-700 text-zinc-400 hover:text-zinc-200 hover:border-zinc-600'>History />
+[14] (436,412)<button class='p-1.5 rounded hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 transition-colors' />
+[15] (461,412)<button class='px-3 py-1 text-xs font-medium rounded transition-colors bg-blue-600 text-white'>Today />
+Filter:
+[16] (570,412)<button class='flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors bg-blue-600/80 text-white'>Doing />
+[17] (600,412)<button class='flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors bg-red-600/80 text-white'>Blocked />
+[18] (635,412)<button class='flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors bg-amber-600/80 text-white'>Blocking />
+[19] (673,412)<button class='flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors bg-orange-600/80 text-white'>No Activity />
+[20] (710,412)<button class='flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors bg-zinc-600 text-zinc-100'>Pending />
+12
+37
+74
+8
+11
+Priority:
+Doing
+Blocking
+Blocked
+No Activity
+Pending
+Task Backlog
+24
+tasks
+Drag tasks to add to today's list
+(sorted by priority)
+[21] (201,677)<div  />
+	[22] (201,646)<div  />
+		[23] (182,646)<div  />
+			[24] (58,646)<div  />
+			[25] (86,646)<span >recv3K6oWOWQsx />
+			[26] (145,646)<span >Xử lí yêu cầu tài khoản />
+		[27] (339,646)<div  />
+			[28] (335,646)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+	[29] (201,672)<div  />
+		[30] (68,672)<span >Reprocess />
+		[31] (118,672)<span >Blocking others />
+		[32] (161,672)<span >STALE
+1d />
+	[33] (201,705)<div  />
+		[34] (131,710)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+[35] (310,645)<button class='flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-medium transition-all shadow-sm' title='Add to today's plan for all assignees' />
+[36] (201,783)<div  />
+	[37] (201,752)<div  />
+		[38] (182,752)<div  />
+			[39] (58,752)<div  />
+			[40] (86,752)<span >recvaZJ8AYjnBj />
+			[41] (159,752)<span >Thêm bộ lọc "Từ trước đến nay" />
+		[42] (339,752)<div  />
+			[43] (335,752)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+	[44] (201,779)<div  />
+		[45] (68,779)<span >Reprocess />
+		[46] (122,779)<span >No activity in sprint />
+		[47] (175,779)<span >STALE
+1d 18h />
+	[48] (201,811)<div  />
+		[49] (127,816)<span >Lưu Thị Dung,Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh />
+[50] (310,751)<button class='flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-medium transition-all shadow-sm' title='Add to today's plan for all assignees' />
+[51] (201,890)<div  />
+	[52] (201,858)<div  />
+		[53] (182,858)<div  />
+			[54] (58,858)<div  />
+			[55] (86,858)<span >recvccB1jmnaDI />
+			[56] (153,858)<span >Fix Bug import Excel project />
+		[57] (339,858)<div  />
+			[58] (335,858)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+	[59] (201,885)<div  />
+		[60] (61,885)<span >Pending />
+		[61] (97,885)<span >Pending />
+	[62] (201,917)<div  />
+		[63] (115,922)<span >Trần Quý Đạt,Đặng Minh Quân,Nguyễn Thảo Linh />
+[64] (310,857)<button class='flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-[9px] font-medium transition-all shadow-sm' title='Add to today's plan for all assignees' />
+[65] (201,979)<div  />
+	[66] (201,965)<div  />
+		[67] (182,965)<div  />
+			[68] (58,965)<div  />
+			[69] (86,965)<span >recvaOw5yELuJm />
+			[70] (150,965)<span >Multi language thông báo />
+		[71] (339,965)<div  />
+			[72] (335,965)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+	[73] (201,992)<div  />
+		[74] (59,992)<span >Cancel />
+		[75] (93,992)<span >Pending />
+		[76] (134,992)<span >STALE
+1d 17h />
+Today's Plan
+[77] (466,556)<button class='p-1.5 rounded-md hover:bg-zinc-700/80 text-zinc-400 hover:text-zinc-200 transition-colors' title='Copy to-do list for DM' />
+[78] (483,556)<button class='p-1.5 rounded-md transition-colors hover:bg-blue-700/80 text-blue-400 hover:text-blue-200' title='Send to-do list to Lark' />
+0
+/
+9
+done
+9
+planned
+[79] (553,653)<div  />
+	[80] (553,623)<div  />
+		[81] (534,623)<div  />
+			[82] (402,623)<button class='w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-colors border-zinc-600 hover:border-zinc-400 hover:bg-zinc-800' />
+			[83] (412,623)<div  />
+			[84] (440,623)<span >recvaTSTAtMsLJ />
+			[85] (481,623)<span >Sửa nhiều />
+		[86] (691,623)<div  />
+			[87] (680,623)<button class='opacity-0 group-hover:opacity-100 p-1 hover:bg-red-950/50 rounded text-red-400 transition-all' title='Remove from today's plan' />
+			[88] (693,623)<div  />
+				[89] (694,623)<button class='p-1 rounded transition-all ml-1 opacity-100 bg-indigo-950/50 text-indigo-400' title='Sync task to others' />
+	[90] (553,653)<div  />
+		[91] (420,653)<span >Reprocess />
+	[92] (553,684)<div  />
+		[93] (553,689)<div  />
+			[94] (422,689)<span >Staging Passed />
+[95] (553,767)<div  />
+	[96] (553,737)<div  />
+		[97] (534,737)<div  />
+			[98] (402,737)<button class='w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-colors border-zinc-600 hover:border-zinc-400 hover:bg-zinc-800' />
+			[99] (412,737)<div  />
+			[100] (440,737)<span >recvcpw6riOyxm />
+			[101] (475,737)<span >CRUD />
+	[102] (553,767)<div  />
+		[103] (424,767)<span >Ready for Test />
+	[104] (553,798)<div  />
+		[105] (553,803)<div  />
+			[106] (422,803)<span >Staging Passed />
+[107] (553,881)<div  />
+	[108] (553,850)<div  />
+		[109] (534,850)<div  />
+			[110] (402,850)<button class='w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-colors border-zinc-600 hover:border-zinc-400 hover:bg-zinc-800' />
+			[111] (412,850)<div  />
+			[112] (440,850)<span >recvcpAx2I9PQu />
+			[113] (484,850)<span >Phân quyền />
+	[114] (553,880)<div  />
+		[115] (424,880)<span >Ready for Test />
+		[116] (474,880)<span >STALE
+1d 1h />
+	[117] (553,912)<div  />
+		[118] (553,917)<div  />
+			[119] (422,917)<span >Staging Passed />
+[120] (402,964)<button class='w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-colors border-zinc-600 hover:border-zinc-400 hover:bg-zinc-800' />
+[121] (412,964)<div  />
+recvcpAwqeWrG9
+Quét Keyword planner
+[122] (424,994)<span >Ready for Test />
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[123] (633,806)<div class='rounded-md border border-zinc-800 bg-zinc-950 text-zinc-50 shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-64 p-3 z-[100]' id='radix-_r_0_' role='dialog' />
+	Sync to others
+	Select team members to add this task to their today's plan.
+	[124] (633,819)<div class='space-y-1 max-h-48 overflow-y-auto pr-1 mb-3' scrollable='true' />
+		Lưu Thị Dung
+		Already in plan
+		[125] (628,775)<button class='w-full flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition-colors hover:bg-zinc-800'>Nguyễn Đình Hồng Phong />
+			Nguyễn Đình Hồng Phong
+		[126] (628,813)<button class='w-full flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition-colors hover:bg-zinc-800'>Bùi Anh Đức />
+			Bùi Anh Đức
+		[127] (628,851)<button class='w-full flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition-colors hover:bg-zinc-800'>Đặng Minh Quân />
+			Đặng Minh Quân
+		[128] (628,889)<button class='w-full flex items-center justify-between px-2 py-1.5 rounded-md text-sm transition-colors hover:bg-zinc-800'>Trần Quý Đạt />
+			Trần Quý Đạt
+		Phạm Đức Toàn
+		Nguyễn Văn Nam
+		Already in plan
+	[129] (629,946)<button class='px-2.5 py-1 rounded text-xs text-zinc-400 hover:text-zinc-200'>Cancel />
+	Sync (
+	0
+	)
+
+</current_dom>

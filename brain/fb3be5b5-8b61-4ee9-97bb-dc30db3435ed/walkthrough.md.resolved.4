@@ -1,0 +1,56 @@
+# Walkthrough: Squad Shared Tasks & Sprint Goal Fixes
+
+## Changes Made
+
+### Bug 1: Shared Tasks Now Require ALL Squad Members
+
+**Problem:** Selecting 3 people as a squad showed tasks shared by any 2-of-3 as "shared tasks."
+
+**Fix in** [DailyRecapView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx):
+
+```diff
+ // Recap mode (line 627)
+-taskPersonCounts[taskId].size > 1
++taskPersonCounts[taskId].size === selectedPersonsFilter.size
+
+ // Squad todo mode (line 982)
+-taskPersonCounts[taskId].size >= 2
++taskPersonCounts[taskId].size >= selectedPersonsFilter.size
+```
+
+**Fix in** [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx):
+
+Replaced fragile string parsing of `task.currentPerson` with a robust check against the actual task lists of each squad member. This ensures that even if names are formatted differently in the database, the "shared" check only passes if the task is genuinely assigned to/visible for **ALL** selected squad members.
+
+```typescript
+// Now looks like this for both backlog and plan (lines ~2126 and ~2169)
+const involved = squadMembers.filter(sm => {
+    const data = allPersonData.find(p => p.person === sm);
+    return data?.allTasks.some(t => t.taskId === task.taskId);
+});
+...
+if (involved.length === squadMembers.length && involved.length > 1) {
+    shared.push(task);
+}
+```
+
+---
+
+### Bug 2: Flexible Sprint Goal Met Calculation
+
+**Problem:** Sprint goal was checked with exact `===` match. Tasks that progressed **beyond** their goal (e.g., goal = "Testing", status = "Completed") were not shown as met.
+
+**Fix:** Created [hasMetSprintGoal()](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts) that uses `WORKFLOW_STATUSES` index ordering — `currentIndex >= goalIndex` means met.
+
+Applied in 5 files:
+- [utils.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts) — new helper function
+- [api.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/api.ts) — timeline segment `isCompleted`
+- [TaskOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx) — sorting, stats, display
+- [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) — [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#511-700) + [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2004-2548)
+- [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) — staleness check
+
+## Evidence
+
+I reproduced the "2-of-3" bug in the browser (port 3001) before applying the robust fix. Specifically, forming a squad of 3 members showed 24 "Shared Tasks" that were only assigned to 2 of the 3 members.
+
+![Browser observation of the shared task bug](C:\Users\Admin\.gemini\antigravity\brain\fb3be5b5-8b61-4ee9-97bb-dc30db3435ed\debug_squad_shared_1774058752992.webp)

@@ -1,0 +1,4 @@
+- `[x]` Rewrite `TIANANMEN_SCENES` text in `scripts/generate-voiceover-tiananmen.ts` with local, cynical phrasing.
+- `[x]` Update ElevenLabs API call in the script to use `language_code: "vi"` and a highly-compatible Voice ID.
+- `[x]` Run `generate-voiceover-tiananmen.ts` to fully build the native voice files.
+- `[x]` Verify successful generation.

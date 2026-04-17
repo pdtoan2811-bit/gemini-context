@@ -1,0 +1,11 @@
+# Task: Verify Timeline Overview UI
+
+## Checklist
+- [ ] Navigate to http://localhost:3001
+- [ ] Wait for page load and task data
+- [ ] Open Task Detail Inspector
+- [ ] Verify Timeline Overview section
+    - [ ] Stacked duration progress bar
+    - [ ] Vertical timeline with status nodes/badges
+    - [ ] Meeting note cards (if applicable)
+- [ ] Report UI details and screenshots

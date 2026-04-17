@@ -1,0 +1,13 @@
+# Adding Member Roles properly
+
+## Objective
+Implement a way to assign roles (Tester, FE dev, BE dev, Team Leader) to members, group them by these roles in the squad view, and update dropdowns to reference this dynamic role data instead of hardcoded lists. The `db.json` cannot be modified.
+
+## Checklist
+- [x] Understand where members are defined and squads are grouped in [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) and related components.
+- [x] Implement a method to persist member role settings without modifying `db.json`.
+  - [x] Create a configuration or settings UI to define member roles.
+  - [x] Default roles to a fallback if not configured, or allow setting manually.
+- [x] Update squad group rendering to sort members by role: Tester -> BE dev -> FE dev -> Team Leader.
+- [x] Update blocking dropdowns to use the sorted members list dynamically instead of hardcoded lists.
+- [x] Test the changes locally.

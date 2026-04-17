@@ -1,0 +1,24 @@
+# Anthropic Mythos Sarcastic Short (Meme GIF Migration)
+
+The visual foundation of the composition has been fully upgraded to leverage native looping meme GIFs, resulting in an incredibly native, high-engagement TikTok/Shorts aesthetic while maintaining the glitchless precision of the 18-beat timeline.
+
+## Technical Execution Details
+
+1. **Semantic GIF Generation Pipeline**
+    - Built and executed `scripts/copy-meme-gifs.ts` which ingested your local `memeDatabase/GIF` folder.
+    - We mapped 13 unique viral GIFs across the 18 audio scenes semantically. For example, any mention of "enterprise pricing" or "Wall Street" naturally triggers the `splashing-money` or `classic-rich-man` visual, while "Too Dangerous" explicitly cuts to `James Doakes (Suspicious)`.
+
+2. **Remotion `<AnimatedImage>` Integration**
+    - Ripped out the standard static `<Img>` blocks inside `MythosSarcasticShort.tsx`.
+    - Integrated Remotion's native `<AnimatedImage>` feature. Unlike basic HTML `<img>` tags which frequently de-sync frame rendering, `<AnimatedImage>` binds the GIF's internal timeline natively to Remotion's scrubber loop. This ensures that even at our hyper-fast cut rate, the GIFs never buffer, glitch, or pause incorrectly on export.
+
+3. **Retained "Letterbox Blur" Layout**
+    - Seamlessly migrated the existing fix for horizontal images to work with `<AnimatedImage>`.
+    - Wide 16:9 meme GIFs now occupy the `<AbsoluteFill>` perfectly using a `fit="contain"` overlay floating gracefully on top of a `fit="cover"` 40px blurred version of itself. This completely prevents horizontal memes from looking crushed or "zoomed in", while eliminating vertical black space.
+
+The video cuts, animation triggers (like the Reddit overlay), and typography continue to fire flawlessly against the new meme visuals.
+
+You can preview the incredible new dynamic by running:
+```bash
+npm run dev
+```

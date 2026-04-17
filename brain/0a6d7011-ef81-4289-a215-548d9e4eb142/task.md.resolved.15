@@ -1,0 +1,4 @@
+- [ ] Enforce strict SVG clipping in `BorderBeam.tsx` [/]
+- [ ] Shrink blur and remove `overflow: visible` [ ]
+- [ ] Clean up preview backgrounds in `LandingFeatures.tsx` [ ]
+- [ ] Verify zero light bleed and 60fps performance in the browser [ ]

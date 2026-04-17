@@ -1,0 +1,48 @@
+# Tiananmen Square Sarcastic YouTube Short
+
+This plan details the process for generating a 90-second, high-retention YouTube Short using the `youtube-shorts-mastermind` skill. The video will employ a sarcastic, dry humor approach regarding the Tiananmen Square incident (e.g., repeating the punchline that "absolutely nothing happened"), narrated in Vietnamese using the ElevenLabs TTS API.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The plan proposes utilizing the ElevenLabs `eleven_multilingual_v2` model to synthesize Vietnamese audio. Please confirm if you have a specific ElevenLabs Voice ID you'd like to use for the dry, sarcastic tone, or if the default voice used in other scripts (e.g., `pNInz6obpgDQGcFmaJgB`) is acceptable.
+
+## Proposed Changes
+
+### Scripts & Asset Preparation
+#### [NEW] `scripts/generate-voiceover-tiananmen.ts`
+- Creates a script to iterate over 8-10 scenes of a sarcastic Vietnamese script (e.g., "Năm 1989, tại quảng trường Thiên An Môn, một điều vô cùng kỳ diệu đã xảy ra... đó là không có gì xảy ra cả.").
+- Calls ElevenLabs API (`eleven_multilingual_v2` model) to synthesize the voice and estimate word-level timings.
+- Outputs `.mp3` and `.json` (timings) files to `public/voiceover/tiananmen-square/`.
+
+#### [NEW] `scripts/copy-media-tiananmen.ts`
+- Scans `memeDatabase/GIF/` subdirectories (such as `suspicious/`, `everything-gone-chaos/`, `amazing-news/`).
+- Copies and renames these GIFs to `public/images/tiananmen-square/scene-XX.gif` so they map perfectly to our `SCENES` array in the Remotion component.
+
+---
+
+### Remotion Components
+#### [NEW] `src/components/TiananmenSquareShort.tsx`
+- Copies the highly optimized template from `src/templates/YoutubeShortsMastermind.tsx`.
+- Modifies `COMP_ID` to `"tiananmen-square"`.
+- Updates the `SCENES` array with the translated/sarcastic Vietnamese text tags and corresponding scene IDs.
+- Retrieves the Reddit payload (which will be swapped out for a mock or related sarcastic Reddit thread if available, or just removed).
+
+#### [MODIFY] `src/Root.tsx`
+- Registers the new `<Composition>` for `TiananmenSquareShort`.
+- Points it to use `calculateMetadata` from `src/components/TiananmenSquareShort.tsx`.
+
+## Open Questions
+
+> [!WARNING]
+> Do you have a preferred ElevenLabs Voice ID for the Vietnamese narration? Have you set `ELEVENLABS_API_KEY` in your `.env`? (The existing trump script contains a hardcoded API key, which might be expired. Should I continue using it or expect an environment variable?)
+
+## Verification Plan
+
+### Automated Tests
+1. Run `npx tsx scripts/generate-voiceover-tiananmen.ts` to verify the ElevenLabs API generates valid `.mp3` files in Vietnamese.
+2. Run `npx tsx scripts/copy-media-tiananmen.ts` to align the GIFs logically.
+3. Start the dev server `npm run dev` (or `npx remotion studio`) to verify that the template compiles, the pacing is fast, and the captions align accurately with the audio.
+
+### Manual Verification
+- Review the generated short in the Remotion Studio to ensure the dry/sarcastic tone is effectively communicated visually and audibly in the 9:16 layout without timeline issues.

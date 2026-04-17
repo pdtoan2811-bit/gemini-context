@@ -1,0 +1,7 @@
+# Dark Mode Verification for Bento Box
+
+- [ ] Navigate to http://localhost:3001/en
+- [ ] Switch to dark mode
+- [ ] Verify Bento box titles/descriptions readability
+- [ ] Take screenshot
+- [ ] Provide final confirmation

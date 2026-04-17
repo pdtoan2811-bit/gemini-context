@@ -1,0 +1,7 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Updating manual data entry model to support Ref Value (CPA) and Manual Revenue (RevShare) modes.",
+  "updatedAt": "2026-03-31T10:25:24.994675800Z",
+  "version": "4",
+  "requestFeedback": true
+}

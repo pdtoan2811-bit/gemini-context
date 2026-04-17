@@ -1,0 +1,27 @@
+# Fix Bento Border Light Mismatch
+
+The border light is currently misaligned with the actual box borders, appearing either too small or incorrectly curved. This is caused by CSS padding constraints and a mismatch between SVG `rx` and CSS `border-radius`.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Correct Inset:** Change the container from `inset-0` to `-inset-[1px]`. This ensures the animation covers the *entire* border box, ignoring any parent padding or internal constraints.
+- **Precision Stroke:** 
+    - Adjust the SVG `<rect>` to `x="0" y="0" width="100%" height="100%"`. 
+    - Since the container is now exactly the size of the border box, a stroke centered on the perimeter will perfectly overlap the parent's border.
+- **Radius Sync:** Ensure the `rx` value matches the parent's `rounded-3xl` (24px). I will also add a `vector-effect="non-scaling-stroke"` if necessary, though standard width/height is better.
+- **Remove Internal Clipping:** Remove `overflow-hidden` from the `BorderBeam` inner wrapper to allow the "glow" to bleed naturally into the parent's `overflow-hidden` container.
+
+## Technical Details
+- The parent `BentoGridItem` provides the `relative overflow-hidden` context. 
+- The `BorderBeam` will expand 1px beyond the padding box to sit exactly on the border line.
+
+## Verification Plan
+
+### Manual Verification
+- Re-run the browser inspection.
+- Hover over all three Bento boxes.
+- Verify that the blue light is **perfectly centered** on the border line for all boxes, regardless of their size.
+- Ensure the corners match the box curvature exactly.

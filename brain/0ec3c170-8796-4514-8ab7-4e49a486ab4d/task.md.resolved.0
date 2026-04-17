@@ -1,0 +1,14 @@
+# Tasks
+
+- `[/]` Create scripts for Data and Media preparation
+  - `[ ]` `scripts/generate-voiceover-trump.ts`
+  - `[ ]` `scripts/copy-media-trump.ts`
+- `[ ]` Run the voiceover script to fetch ElevenLabs audio and timestamps.
+- `[ ]` Run the media copy script to bring source files to `public/trump-origin`.
+- `[ ]` Create Remotion Components
+  - `[ ]` `src/TrumpOriginShort/Root.tsx`
+  - `[ ]` `src/TrumpOriginShort/Main.tsx`
+  - `[ ]` `src/TrumpOriginShort/Scene.tsx`
+  - `[ ]` `src/TrumpOriginShort/CaptionPage.tsx`
+- `[ ]` Integrate into top-level `src/index.ts` / `Root`.
+- `[ ]` Run dev server / rendering to verify video.

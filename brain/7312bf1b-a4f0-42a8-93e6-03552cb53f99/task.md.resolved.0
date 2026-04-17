@@ -1,0 +1,4 @@
+- [ ] Install dependencies (`pnpm install`)
+- [ ] Create `.env` from `.env.example` (if needed)
+- [ ] Create `run.bat` startup script
+- [ ] Verify setup

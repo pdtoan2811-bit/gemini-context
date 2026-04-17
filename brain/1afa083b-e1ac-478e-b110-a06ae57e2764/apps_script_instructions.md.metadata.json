@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Corrected Google Apps Script code for `getSprintDebug.gs` that fixes the broken filtering functionality and safely references `Sheet1`.",
+  "updatedAt":  "2026-03-06T07:06:11.888767600Z",
+  "version":  "4"
+}

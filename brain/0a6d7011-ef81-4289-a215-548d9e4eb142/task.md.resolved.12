@@ -1,0 +1,3 @@
+- [ ] Apply `clip-path` and `overflow-hidden` to `BentoGridItem` in `BentoGrid.tsx` [/]
+- [ ] Simplify `BorderBeam.tsx` to a single-layer rotating mask for maximum performance [ ]
+- [ ] Verify zero light bleed and perfect alignment in the browser [ ]

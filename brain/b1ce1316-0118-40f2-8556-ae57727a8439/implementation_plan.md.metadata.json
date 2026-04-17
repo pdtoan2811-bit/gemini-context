@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation plan for adding workflow anatomy (10 statuses with bottleneck classification), doom loop detection, and three PM use cases (Personnel Overview standup view, Interrogation Log task detail, Priority Whisperer suggestions) to the Sprint Relay Debugger. Covers new workflow engine, localStorage hooks, dashboard components, and enhanced inspector panel.",
+  "updatedAt":  "2026-03-06T07:54:19.649017600Z"
+}

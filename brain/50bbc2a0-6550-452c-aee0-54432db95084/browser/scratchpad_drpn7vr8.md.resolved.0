@@ -1,0 +1,9 @@
+# Task: Verify Application Rendering
+
+- [ ] Check if `http://localhost:5173` is a white screen.
+- [ ] Inspect console logs for any errors.
+- [ ] Determine the current page (Landing, Login, or Dashboard).
+- [ ] Report status back to the user.
+
+## Findings
+- 

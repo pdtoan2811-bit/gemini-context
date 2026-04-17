@@ -1,0 +1,113 @@
+# Implementation Plan: Language Mode (Vietnamese to English)
+
+This plan outlines the steps to introduce a language switching feature to the Adecos MVP, allowing users to toggle between Vietnamese (default) and English.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The default language will be set to Vietnamese ([vi](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/LandingPage.jsx#58-63)). English ([en](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/chat/BentoFeatureGrid.jsx#67-134)) will be the alternative.
+> The language switcher will be integrated into the Sidebar footer, near the theme toggle.
+
+## Proposed Changes
+
+### Infrastructure
+
+#### [NEW] [i18n.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/i18n.js)
+Setup the `i18next` configuration with `react-i18next` and `i18next-browser-languagedetector`.
+
+#### [NEW] [vi/translation.json](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/locales/vi/translation.json)
+Contains all strings currently in the application in Vietnamese.
+
+#### [NEW] [en/translation.json](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/locales/en/translation.json)
+Contains the English translations for all strings.
+
+---
+
+### Components
+
+#### [MODIFY] [main.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/main.jsx)
+Import [i18n.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/i18n.js) to initialize it at the root of the application.
+
+#### [NEW] [LanguageSwitcher.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/LanguageSwitcher.jsx)
+A sleek, minimal toggle or dropdown component to switch between languages.
+
+#### [MODIFY] [Sidebar.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/Sidebar.jsx)
+- Integrate [LanguageSwitcher](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/LanguageSwitcher.jsx#5-28) in the footer.
+- Use `useTranslation` hook to translate navigation items.
+
+---
+
+### Content Migration
+
+#### [MODIFY] [bentoGridData.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/data/bentoGridData.jsx)
+Replace hardcoded Vietnamese strings with translation keys.
+
+#### [MODIFY] [LandingPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/LandingPage.jsx)
+Translate all hero sections, features, and CTA content using `useTranslation`.
+
+#### [MODIFY] [WaitlistBanner.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/WaitlistBanner.jsx)
+Translate the banner text and button.
+
+#### [MODIFY] [ChatInput.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/chat/ChatInput.jsx)
+Translate the placeholder text and thinking state.
+
+---
+
+### Project Management
+
+#### [MODIFY] [ProjectsPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectsPage.jsx)
+Translate table headers, filter options, and sort labels.
+
+#### [MODIFY] [ProjectModal.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectModal.jsx)
+Translate all form labels, buttons, and status options.
+
+#### [MODIFY] [ProjectCard.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectCard.jsx)
+Translate card labels and tooltips.
+
+#### [MODIFY] [ProjectListRow.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectListRow.jsx)
+Translate row labels and tooltips.
+
+#### [MODIFY] [EmptyProjectsState.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/EmptyProjectsState.jsx)
+Translate the empty state title, description, and button.
+
+#### [MODIFY] [useProjects.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useProjects.js)
+Localize the delete confirmation message and default status values.
+
+---
+
+### Prompt Engineering & Logic
+
+#### [MODIFY] [useChatController.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useChatController.js)
+- Inject a system prompt into the message history that instructs the AI to respond in the user's selected language (`i18n.language`).
+- Localize hardcoded error messages and "thinking" state.
+- Ensure the Mock Workflow trigger also respects the language.
+
+#### [MODIFY] [chatService.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/services/chatService.js)
+Localize error messages using `i18n.t()`.
+
+---
+
+### Onboarding & Components
+
+#### [MODIFY] [onboardingData.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/data/onboardingData.js)
+Convert the onboarding sequence to use translation keys or provide translated versions.
+
+#### [MODIFY] [useOnboarding.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useOnboarding.js)
+Update the hook to apply translations to the content before streaming it.
+
+#### [MODIFY] [StarterPrompts.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/chat/StarterPrompts.jsx)
+Localize labels and placeholders for starter prompts.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run lint` to ensure no syntax errors.
+- Create a new Playwright test `frontend/tests/language_switch.spec.js` to:
+    1. Verify default language is Vietnamese (check for "AI Agent" as "AI Agent" or "Quản lý dự án").
+    2. Toggle to English.
+    3. Verify language changed (check for English text like "Project Management").
+
+### Manual Verification
+- Manually toggle between languages in the Sidebar.
+- Refresh the page and ensure the selected language persists (via `i18next-browser-languagedetector`).
+- Check all major pages (Landing, Chat, Projects) for consistent translation.

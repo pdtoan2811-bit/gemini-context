@@ -1,0 +1,35 @@
+# Timeline Overview Implementation Plan
+
+The goal is to create a combined timeline inside the task details ([StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#48-459)) that seamlessly integrates the status history (with duration calculations) and the daily meeting notes.
+
+## Proposed Changes
+
+### `src/components/inspector`
+#### [NEW] `TaskTimeline.tsx`
+Create a new component responsible for unifying and displaying task events chronologically:
+- **Event Unification:** Combine `taskAnalysis.statusHistory` and `meetingNotes` into a single, chronologically sorted array.
+- **Duration Calculation:** For each status event, calculate the time spent in that status by comparing its timestamp to the next status event's timestamp. If it is the current status and the task is not completed, compare against `Date.now()`. Format the duration elegantly (e.g., "4h 30m" or "2d 5h").
+- **UI Architecture:** Implement a vertical timeline with connecting line details.
+    - Status changes: Display as elegant timeline nodes with the calculated duration prominently highlighted.
+    - Meeting notes: Display as nested, stylized cards interleaved within the timeline, capturing the "who is blocking who" details, stalls, and annotations.
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- **Integration:** Import `TaskTimeline.tsx`.
+- **UI Update:** Remove the separate, disjointed "Status History" list and "Meeting Notes Timeline" rendering logic.
+- **Replacement:** Render `<TaskTimeline />` in their place, passing the required `taskAnalysis`, `meetingNotes`, and note action handles (`onEditNote`, `onDeleteNote`). The "Add Note" form will remain at the top of the timeline section.
+
+### `src/lib/utils/time.ts` (or implement helper inline)
+- Develop a small utility function `formatDurationMs(ms: number)` to print concise timestamp differences.
+
+## Verification Plan
+
+### Automated Tests
+- None currently specified, relying on manual verification as this is a frontend UI addition.
+
+### Manual Verification
+1. Run `npm run dev` and open the application.
+2. Select a task to open the [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#48-459) sheet.
+3. Observe the new "Timeline Overview" section.
+4. Verify that each status lists a meticulously calculated duration (e.g. `2h 15m`).
+5. Add a new Meeting Note with a stall/blocker reason, and confirm it appears logically placed in the timeline according to its timestamp.
+6. Assure the UI appears premium with polished styling and layout.

@@ -1,0 +1,4 @@
+- `[x]` Extract `MythosSarcasticShort.tsx` logic into a reusable `src/templates/YoutubeShortsMastermind.tsx`.
+- `[x]` Purge the 6 legacy components (without source media) from `src/components/`.
+- `[x]` Strip `Root.tsx` of all dead composition registrations to fix 404 compilation errors.
+- `[x]` Update `youtube-shorts-mastermind/SKILL.md` to instruct the AI to physically copy the template file and perform variable substitution.

@@ -1,0 +1,24 @@
+# Visual Audit Checklist
+
+- [ ] Navigate to http://localhost:3000 and verify load.
+- [ ] Visual Audit - Daily Meeting (Single Person and All Persons).
+  - [ ] Navy blue theme (#1D3557) used for headers, buttons, and badges.
+  - [ ] Light-mode aesthetic looks good and high-contrast.
+  - [ ] Unified TaskCard in use.
+  - [ ] "Sync Squad" button is GONE from all cards.
+  - [ ] Blockers clearly displayed.
+  - [ ] Module and Screen info visible.
+  - [ ] Capture screenshots.
+- [ ] Visual Audit - Daily Recap.
+  - [ ] Consistent theme and aesthetic.
+  - [ ] Capture screenshot.
+- [ ] Visual Audit - Next Sprint Squad Planning.
+  - [ ] Consistent theme, unified TaskCard, "Sync Squad" removed, etc.
+  - [ ] Capture screenshot.
+- [ ] Visual Audit - Personnel Overview.
+  - [ ] Consistent theme.
+  - [ ] Capture screenshot.
+- [ ] Visual Audit - Task Overview.
+  - [ ] Consistent theme, unified TaskCard.
+  - [ ] Capture screenshot.
+- [ ] Final Summary.

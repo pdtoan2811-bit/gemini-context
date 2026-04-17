@@ -1,0 +1,31 @@
+# Task Timeline Implementation Walkthrough
+
+## Completed Feature
+
+I have successfully updated the Task Details side panel ([StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#43-369)) to include a deeply comprehensive and visually striking **Timeline Overview**. 
+
+This feature seamlessly unifies the standard workflow status history with the new PM-driven Daily Meeting Notes system.
+
+## Key Changes
+
+1. **Unified Event System:**
+   - Both status transitions and manual meeting notes are sorted chronologically into a single source of truth.
+   - Status transitions automatically calculate their duration (time spent in that status before moving to the next).
+   
+2. **Daily Grouping and Hover Effects (New!):**
+   - The timeline is separated chronologically by Calendar Day (e.g., `Mon, Oct 23`).
+   - Each day group is enclosed in an invisible container that activates on hover.
+   - **Hover Effect:** Hovering over a day subtly illuminates the background (`hover:bg-zinc-900/40`), highlights the connecting timeline border, and applies a soft shadow to lift the entire block of events for that day off the page, allowing the user to precisely focus on a specific day's activity.
+
+3. **Status Duration Bar:**
+   - A summarized stacked progress bar sits at the top of the timeline.
+   - It visually represents the proportion of time spent in each status, color-coded by workflow severity (e.g., Red for Critical/Reprocess, Amber for High/Waiting, Emerald for Completed).
+   - Includes concise duration chips underneath (e.g. `2d 4h`, `50m`).
+
+4. **Interleaved Meeting Notes:**
+   - Instead of a separate section, Daily Meeting Notes now render directly inside the overarching timeline.
+   - They appear as distinct, elevated cards with diamond-shaped line nodes, making it immediately clear exactly when an architectural stall or blocker occurred relative to the status changes.
+
+## Validation
+- The application was compiled successfully.
+- You can freely use your local `npm run dev` session to interact with any task and view the new organized layout and hover interactions.

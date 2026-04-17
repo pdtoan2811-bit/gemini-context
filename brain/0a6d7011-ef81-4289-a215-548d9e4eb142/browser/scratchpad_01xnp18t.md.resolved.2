@@ -1,0 +1,15 @@
+# Bento Box Verification Plan
+
+- [x] Navigate to http://localhost:3000/vi
+- [x] Observe page load and hover performance
+- [ ] Verify zero blue light bleed at screen margins
+- [x] Inspect Bento boxes for alignment (full height/width, 1px center, corner matching)
+- [x] Capture definitive screenshot
+- [ ] Report final results
+
+## Findings
+- Navigated to the page.
+- Hovered over all three Bento boxes.
+- **Performance:** Hover performance seems smooth (no noticeable lag).
+- **Alignment:** Border light is well-aligned with the 1px center of the border and matches the `rounded-3xl` corners correctly on all boxes.
+- **Bleeding:** Significant blue light bleeding is STILL visible at the right and bottom margins of the screen when any Bento box is hovered. This indicates that the light effect (likely a blur) is not correctly contained within the parent element.

@@ -1,0 +1,5 @@
+- [x] Complete Vietnamese translations (Hero, Bento Grid, Testimonials)
+- [x] Implement flexible grid heights in `BentoGrid.tsx`
+- [x] Build `DeepResearchPreview` animation component
+- [x] Localize all hardcoded English strings (sectionSubtitle, highPotential)
+- [x] Final verification across locales and themes

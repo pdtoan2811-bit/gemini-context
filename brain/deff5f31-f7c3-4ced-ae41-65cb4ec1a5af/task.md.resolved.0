@@ -1,0 +1,5 @@
+- [ ] Add translations to `messages/en/client.json`
+- [ ] Add translations to `messages/vi/client.json`
+- [ ] Create `src/containers/landing/LandingContact.tsx`
+- [ ] Integrate `LandingContact` into `src/app/[locale]/(landing)/page.tsx`
+- [ ] Verify implementation in browser

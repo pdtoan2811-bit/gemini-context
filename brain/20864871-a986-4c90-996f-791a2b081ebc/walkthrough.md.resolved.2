@@ -1,0 +1,29 @@
+# Synthetica: Tailwind CSS & Shadcn/UI Refactor Walkthrough
+
+> [!TIP]
+> The architectural switch from bespoke CSS to an industry-standard **Tailwind v3 + Shadcn/UI** ecosystem is complete! You can run `npm run dev` to see the newly polished UI perfectly mapped to Tailwind design tokens. 
+
+## Phase 3 Highlights (The Refactor)
+
+### Centralizing the Design System
+- Overwrote the manual `globals.css` with standard Tailwind `@layer` tokens using HSL mappings.
+- Bound all structural design rules (e.g. `font-display`, `--accent` variables) directly into `tailwind.config.ts` so they can be securely and perfectly targeted by native utility classes like `text-accent`, `bg-background`, and `font-display`.
+
+### Deep Shadcn Primitives Integration
+- We successfully removed custom bare HTML tags and injected real accessible Shadcn elements:
+  - `<Button>` handles the mode selection and scraping triggers with distinct `outline`, `secondary`, and `default` variants.
+  - `<ScrollArea>` provides hidden, smooth cross-platform scrolling inside the Raw Feed Inbox and the Main Render panel.
+  - `<Card>` wraps the Dashboard sections to deliver the signature glassmorphic look safely via native Tailwind backdrop filters (`backdrop-blur-xl bg-card/60 border border-border`).
+  - `<Table>` has been utilized heavily on the `/settings` page to cleanly and responsively manage your Semantic Topics, Creators, and Target Target feeds!
+
+### Lucide SVG Icons
+- Replaced the basic text emojis everywhere (Heart, Chat, Zap, Config Wheels, Chevrons) with crisp, perfectly scaled `lucide-react` SVG components.
+
+## Verification Checklist
+
+> [!SUCCESS]
+> - Shadcn dependency framework (`components.json`, `lib/utils.ts`) was properly initialized and the components parsed correctly.
+> - The application built successfully in production compile mode without a single type mismatch or missing module.
+> - Edge dependencies (like playwright native binaries causing build hangups in `/api`) were correctly suppressed out of the Next.js static evaluator via the `nextConfig.serverExternalPackages` compiler flag.
+
+**You can now fully manage the frontend without stepping outside of the Tailwind compiler! Feel free to launch it.**

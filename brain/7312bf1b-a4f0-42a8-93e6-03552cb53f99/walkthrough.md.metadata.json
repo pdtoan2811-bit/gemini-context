@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Fixed Paperclip startup and build issues on Windows.",
+  "updatedAt": "2026-03-30T09:04:40.877943600Z",
+  "version": "2"
+}

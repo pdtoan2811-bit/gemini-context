@@ -1,0 +1,86 @@
+# Lark POST Test Feature & Webhook Management
+
+## Goal
+# Implementing Lark Test & Sprint Movement Feature
+
+The goal is to provide a robust way to test Lark API POST requests and manage webhook configurations. Additionally, we will implement a feature to mark tasks as "Moved to Next Sprint" and ensure this is reflected in Lark notifications and the testing suite.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Sprint Movement**: The application currently doesn't allow changing task sprint IDs (as they are fetched from external logs). This feature implements "Sprint Movement" as a local status/flag.
+> **Sandbox View**: Since the main dashboard is complex, I will create a dedicated `/sandbox` page for isolated testing of the Lark payload generation and sprint movement logic.
+fic Lark webhooks which are currently stored manually in `db.json`.
+
+## Proposed Changes
+
+### [API Layer]
+
+#### [MODIFY] [route.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/api/send-todo-webhook/route.ts)
+- Update `POST` handler to support an optional `webhookUrl` in the request body.
+- If `webhookUrl` is provided, use it directly instead of fetching from `db.json`.
+- This allows testing arbitrary webhook URLs without saving them first.
+
+#### [NEW] [route.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/api/webhooks/route.ts)
+- Implement `GET` to retrieve `sprint_relay_person_webhooks` from `db.json`.
+- Implement `POST` to update/delete webhooks for specific persons.
+
+---
+
+### [Frontend Layer]
+
+#### [NEW] [useWebhooks.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useWebhooks.ts)
+- Hook to manage fetching and updating Lark webhooks via the new `/api/webhooks` endpoint.
+
+### Dashboard & Inspector
+
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- Add a "Webhooks" button in the header (near the Roles button).
+- Integrate `WebhookSettingsModal` into the control bar.
+- Update `formatTodoListForWebhook` to handle tasks flagged as "Moved to Next Sprint".
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- Add a "Move to Next Sprint" button that flags the task (storing it in `db.json` via meeting notes or a new key).
+
+#### [NEW] [WebhookSettingsModal.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx)
+- A modal UI for:
+    - Managing webhooks for each team member.
+    - Testing Lark POST:
+        - Input for `Task URL` (Record Link).
+        - Input for `Webhook URL` (pre-filled from selected person).
+        - "Run Test" button.
+        - Detailed result display (Lark response body, status code).
+- Provide UI for managing person-specific Lark webhooks.
+- Create a testing interface for Lark POST requests.
+- **Add simulation for "Sprint Movement"** in the test payload.
+
+### Sandbox & Debugging
+
+#### [NEW] [sandbox/page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/sandbox/page.tsx)
+- Dedicated page to select a person and their tasks.
+- Manually mark tasks as "Moved to Next Sprint".
+- Live-preview the JSON payload generated for Lark.
+- Test sending to individual webhooks.
+
+## Reasoning on Missing Use Cases
+1.  **Manual Management**: Webhooks are currently hardcoded in `db.json`. Users need a way to update them through the UI.
+2.  **Connection Validation**: Before sending a real to-do list, users should be able to verify the webhook works with a sample payload.
+3.  **Specific Task Testing**: Users may want to test how a specific "Record Link" (Task URL) appears in Lark's format.
+4.  **Feedback detail**: Lark response details (like `msg_id` or error codes) should be visible during testing to troubleshoot automation issues.
+
+## Verification Plan
+
+### Automated Tests
+- N/A (Project seems to rely on manual verification for UI/API integration).
+
+### Manual Verification
+1.  **Open Webhook Settings**: Click the new "Webhooks" button in the dashboard.
+2.  **Configure Webhook**: Add/Update a webhook for a person and save. Verify it persists in `db.json`.
+3.  **Run Test (Normal)**:
+    - Input a Lark Webhook URL.
+    - Input a mock Task URL (e.g., `https://example.larksuite.com/task/123`).
+    - Click "Run Test" and verify success.
+4.  **Run Test (Error Case)**:
+    - Input an invalid Webhook URL.
+    - Verify the error message and status code are displayed correctly.
+5.  **Send To-do List**: Verify the existing "Send to Lark" button still works correctly for individual and squad views.

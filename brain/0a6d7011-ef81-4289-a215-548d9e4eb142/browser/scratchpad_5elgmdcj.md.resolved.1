@@ -1,0 +1,16 @@
+# Verification Plan for Bento Box Border Light Effect
+
+- [x] Navigate to http://localhost:3000/vi
+- [!] Observe page performance (smoothness, no lag) - **Lags reported, large blurs visible.**
+- [x] Check for blue light bleed at viewport margins - **STILL PRESENT! Large blue glow at screen edges.**
+- [ ] Inspect Bento boxes on hover:
+    - [ ] Full height/width coverage
+    - [ ] 1px center alignment on border
+    - [ ] Perfect corner matching (rounded-3xl)
+- [ ] Capture final definitive screenshot
+- [ ] Report results
+
+## Findings:
+- Significant blue light bleed at viewport margins (top, bottom, left, right).
+- Performance feels slightly heavy during scroll (visual lag).
+- Border light alignment needs closer inspection on specific boxes.

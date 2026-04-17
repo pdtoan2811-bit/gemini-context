@@ -1,0 +1,34 @@
+# Sprint Relay Debugger
+
+## 1. Project Setup
+- [x] Initialize Next.js project with Tailwind CSS
+- [x] Set up Shadcn UI and dark mode theme (using custom Tailwind variants)
+- [x] Install necessary dependencies (`date-fns`, `lucide-react`, etc.)
+
+## 2. Core Logic & Data
+- [x] Implement data fetching service (mock/placeholder Apps Script URL)
+- [x] Implement data transformation utility (logs to continuous segments, duration calculation, success logic)
+
+## 3. UI Components
+- [x] Global Dashboard Layout (Header, Filters)
+- [x] Personnel Swimlane Visualization (Timeline chart grouped by person)
+- [x] Visual indicators (colors by module, styling for unresolved tasks)
+- [x] Standup Inspector (Shadcn Sheet sliding panel for segment details)
+
+## 4. State & Persist
+- [x] Implement localStorage sync for "Standup Notes" (composite key `taskId_timestamp`)
+- [x] Integrate Inspector form with local state
+
+## 5. Polish
+- [x] Enforce "premium dev-tool" aesthetic (fonts, borders, strict alignment)
+- [x] Verify functionality and responsiveness
+
+## 6. Real Data Integration & Optimization
+- [x] Remove mock data and strictly fetch from real endpoint
+- [x] Handle comma-separated multiple personnel for a single task
+- [x] Rethink and propose long-term data storage strategy for large logs
+
+## 7. Performance Optimization (API Filtering)
+- [x] Update Google Apps Script with query parameter filtering
+- [x] Update Frontend [fetchLogs](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/api.ts#5-32) to take `sprint` parameter
+- [x] Add Sprint Filter dropdown to the global dashboard

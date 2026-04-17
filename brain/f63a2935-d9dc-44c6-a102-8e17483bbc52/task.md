@@ -1,0 +1,35 @@
+# Task: Implement Language Mode (Vietnamese to English)
+
+- [x] **Preparation**
+    - [x] Analyze project structure
+    - [x] Identify hardcoded strings in components and data files
+    - [/] Design Language Switcher UI
+- [x] **Infrastructure Setup**
+    - [x] Create implementation plan
+    - [x] Install dependencies (`i18next`, `react-i18next`, `i18next-browser-languagedetector`)
+    - [x] Create `src/i18n.js` configuration
+    - [x] Setup initial translation files (`src/locales/vi/translation.json`, `src/locales/en/translation.json`)
+- [x] **Core Implementation**
+    - [x] Integrate `i18n` in `src/main.jsx`
+    - [x] Create `LanguageSwitcher` component
+    - [x] Add `LanguageSwitcher` to `Sidebar` or global navigation
+- [x] **Content Migration**
+    - [x] Migrate `bentoGridData.jsx`
+    - [x] Migrate `Sidebar.jsx`
+    - [x] Migrate `LandingPage.jsx`
+    - [x] Migrate `ProjectsPage.jsx` (UI Labels)
+    - [x] Migrate `ProjectModal.jsx`, `ProjectCard.jsx`, `ProjectListRow.jsx`, `EmptyProjectsState.jsx`
+    - [x] Migrate `ChatPage.jsx`, `ChatInterface.jsx`, `ChatInput.jsx`, `ChatCheckboxes.jsx`
+    - [x] Migrate `ImmersiveSearchOverlay.jsx`, `ImmersiveInputMessage.jsx`, `StarterPrompts.jsx`
+    - [x] Migrate `DashboardPage.jsx`, and `DeepResearchPage.jsx`
+- [x] **Prompt Engineering & Logic**
+    - [x] Add system prompt with language context in `useChatController`
+    - [x] Localize error messages in `chatService` and `useChatController`
+- [x] **Onboarding & Components**
+    - [x] Localize `onboardingData.js`
+    - [x] Update `useOnboarding.js` to support translations
+    - [x] Localize `StarterPrompts.jsx`
+- [ ] **Verification**
+    - [ ] Verify default language is Vietnamese
+    - [ ] Test language toggle functionality
+    - [ ] Audit for any missed strings

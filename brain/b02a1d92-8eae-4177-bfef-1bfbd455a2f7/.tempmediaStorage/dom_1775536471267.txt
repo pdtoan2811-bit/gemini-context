@@ -1,0 +1,117 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (547,24)<label class='clearfix' />
+	[1] (350,25)<input class='js-checkbox-scope parent-checkbox-scope' />
+	delete_repo
+	Delete repositories
+[2] (547,67)<label class='clearfix' />
+	[3] (350,69)<input class='js-checkbox-scope parent-checkbox-scope' />
+	write:discussion
+	Read and write team discussions
+[4] (547,94)<label class='clearfix' />
+	[5] (358,96)<input class='js-checkbox-scope' />
+	read:discussion
+	Read team discussions
+[6] (547,138)<label class='clearfix' />
+	[7] (350,140)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:enterprise
+	Full control of enterprises
+[8] (547,165)<label class='clearfix' />
+	[9] (358,167)<input class='js-checkbox-scope' />
+	manage_runners:enterprise
+	Manage enterprise runners and runner groups
+[10] (547,192)<label class='clearfix' />
+	[11] (358,194)<input class='js-checkbox-scope' />
+	manage_billing:enterprise
+	Read and write enterprise billing data
+[12] (547,219)<label class='clearfix' />
+	[13] (358,221)<input class='js-checkbox-scope' />
+	read:enterprise
+	Read enterprise profile data
+[14] (547,246)<label class='clearfix' />
+	[15] (358,248)<input class='js-checkbox-scope' />
+	scim:enterprise
+	Provisioning of users and groups via SCIM
+[16] (547,290)<label class='clearfix' />
+	[17] (350,292)<input class='js-checkbox-scope parent-checkbox-scope' />
+	audit_log
+	Full control of audit log
+[18] (547,317)<label class='clearfix' />
+	[19] (358,319)<input class='js-checkbox-scope' />
+	read:audit_log
+	Read access of audit log
+[20] (547,361)<label class='clearfix' />
+	[21] (350,363)<input class='js-checkbox-scope parent-checkbox-scope' />
+	codespace
+	Full control of codespaces
+[22] (547,388)<label class='clearfix' />
+	[23] (358,390)<input class='js-checkbox-scope' />
+	codespace:secrets
+	Ability to create, read, update, and delete codespace secrets
+[24] (547,432)<label class='clearfix' />
+	[25] (350,434)<input class='js-checkbox-scope parent-checkbox-scope' />
+	copilot
+	Full control of GitHub Copilot settings and seat assignments
+[26] (547,459)<label class='clearfix' />
+	[27] (358,461)<input class='js-checkbox-scope' />
+	manage_billing:copilot
+	View and edit Copilot Business seat assignments
+[28] (547,503)<label class='clearfix' />
+	[29] (350,505)<input class='js-checkbox-scope parent-checkbox-scope' />
+	write:network_configurations
+	Write org hosted compute network configurations
+[30] (547,530)<label class='clearfix' />
+	[31] (358,532)<input class='js-checkbox-scope' />
+	read:network_configurations
+	Read org hosted compute network configurations
+[32] (547,574)<label class='clearfix' />
+	[33] (350,576)<input class='js-checkbox-scope parent-checkbox-scope' />
+	project
+	Full control of projects
+[34] (547,601)<label class='clearfix' />
+	[35] (358,603)<input class='js-checkbox-scope' />
+	read:project
+	Read access of projects
+[36] (547,645)<label class='clearfix' />
+	[37] (350,647)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:gpg_key
+	Full control of public user GPG keys
+[38] (547,672)<label class='clearfix' />
+	[39] (358,674)<input class='js-checkbox-scope' />
+	write:gpg_key
+	Write public user GPG keys
+[40] (547,699)<label class='clearfix' />
+	[41] (358,701)<input class='js-checkbox-scope' />
+	read:gpg_key
+	Read public user GPG keys
+[42] (547,743)<label class='clearfix' />
+	[43] (350,744)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:ssh_signing_key
+	Full control of public user SSH signing keys
+[44] (547,770)<label class='clearfix' />
+	[45] (358,771)<input class='js-checkbox-scope' />
+	write:ssh_signing_key
+	Write public user SSH signing keys
+[46] (547,797)<label class='clearfix' />
+	[47] (358,798)<input class='js-checkbox-scope' />
+	read:ssh_signing_key
+	Read public user SSH signing keys
+[48] (376,852)<button class='btn-primary btn'>Generate token />
+[49] (431,852)<a class='btn btn-invisible' href='/settings/tokens'>Cancel />
+Footer
+[50] (288,944)<a aria-label='GitHub Homepage' class='footer-octicon mr-2' href='https://github.com' />
+© 2026 GitHub, Inc.
+Footer navigation
+[51] (369,944)<a class='Link--secondary Link' href='https://docs.github.com/site-policy/github-terms/github-terms-of-service'>Terms />
+[52] (395,944)<a class='Link--secondary Link' href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement'>Privacy />
+[53] (424,944)<a class='Link--secondary Link' href='https://github.com/security'>Security />
+[54] (452,944)<a class='Link--secondary Link' href='https://www.githubstatus.com/'>Status />
+[55] (484,944)<a class='Link--secondary Link' href='https://github.community/'>Community />
+[56] (515,944)<a class='Link--secondary Link' href='https://docs.github.com/'>Docs />
+[57] (541,944)<a class='Link--secondary Link' href='https://support.github.com?tags=dotcom-footer'>Contact />
+[58] (583,944)<button class='Link--secondary underline-on-hover border-0 p-0 color-bg-transparent'>Manage cookies />
+[59] (666,944)<button class='Link--secondary underline-on-hover border-0 p-0 color-bg-transparent text-left'>Do not share my personal information />
+
+</current_dom>

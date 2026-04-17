@@ -1,0 +1,28 @@
+# Task: Unified Task Card & Typography Refinement
+
+- [x] Planning & Design
+    - [x] Create implementation plan
+    - [x] Design high-contrast status UI for light mode
+- [x] Core Implementation
+    - [x] [MODIFY] Update `globals.css` with new accent color `#1D3557`
+    - [x] [NEW] Create `TaskCard.tsx` as a shared component
+    - [x] Implement `module` and `screen` display
+    - [x] Refactor `statusBadge` and `priorityDotColor` for light mode
+- [x] Refactoring & Cleanup
+    - [x] Replace `DraggableTaskCard` with unified `TaskCard` in all views
+    - [x] [DELETE] Remove legacy `DraggableTaskCard.tsx`
+- [x] UI Refinement (User Feedback)
+    - [x] Balance task card title weight (reduce intensity)
+    - [x] Enhance Module & Screen metadata readability
+    - [x] Clean up `dark:` theme classes for consistent light-mode look
+    - [x] Remove "Sync task" button from `PersonSingleView` 
+- [x] Typography & Readability (User Feedback)
+    - [x] Refine `DailyMeetingView` headers and labels
+    - [x] Refine `PersonSingleView` headers and labels
+    - [x] Refine `NextSprintPlanningView` headers
+    - [x] Refine `HistoricalView` and `DailyRecapView` typography
+    - [x] Balance Title Case vs All-Caps for elegance and clarity
+- [x] Verification
+    - [x] Final visual audit of all headers and refreshed labels
+    - [x] Confirm no build errors
+    - [x] Update project walkthrough

@@ -1,0 +1,5 @@
+# Tasks
+
+- [/] Synchronize with remote repository <!-- id: 0 -->
+    - [ ] Check current git status and remotes <!-- id: 1 -->
+    - [ ] Pull changes from https://github.com/pdtoan2811-bit/adecos-mvp-mockup <!-- id: 2 -->

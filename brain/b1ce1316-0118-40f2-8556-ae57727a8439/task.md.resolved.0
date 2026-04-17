@@ -1,0 +1,48 @@
+# Sprint Debugger: Workflow Anatomy & Use Cases
+
+## Planning
+- [x] Audit existing codebase
+- [/] Write implementation plan
+- [ ] Get user approval
+
+## Execution
+
+### 1. Data Layer & Types
+- [ ] Define workflow status constants & bottleneck metadata
+- [ ] Add `TaskAnalysis` type (doom loop count, risk level, reprocess count)
+- [ ] Add `InterrogationLog` type (timestamped manual notes per task)
+- [ ] Add `highRisk` flag to task-level localStorage data
+- [ ] Extend [RawLogEvent](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#1-13) processing with status index mapping
+
+### 2. Workflow Engine (`src/lib/workflow-engine.ts`) [NEW]
+- [ ] Status-to-index mapping (0-9 statuses)
+- [ ] Bottleneck classifier (statuses 3, 4, 7)
+- [ ] Doom loop detector (cycle: Reprocess/Bug Fixing → Ready for Test → Testing → Reprocess)
+- [ ] Risk level escalation (reprocess count > 1 = escalated risk)
+- [ ] Staleness detector (tasks unchanged for 24h)
+- [ ] Priority suggestion rules engine (Use Case 3)
+
+### 3. Personnel Overview (Use Case 1: Standup View)
+- [ ] Build `PersonnelOverview` component with per-person task grouping
+- [ ] Show delta/split view: tasks unchanged in 24h flagged
+- [ ] Visual indicators for bottleneck states (3, 4, 7)
+- [ ] Priority suggestion alerts next to person names
+
+### 4. Task Overview (Use Case 2: Interrogation Log)
+- [ ] Enhance [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#15-155) → full task detail pane
+- [ ] Add timestamped interrogation log input
+- [ ] Add "High Risk" toggle switch
+- [ ] Pin high-risk tasks to top of dashboard
+- [ ] Persist interrogation logs in localStorage
+
+### 5. Main Dashboard Overhaul
+- [ ] Add tab navigation: Personnel Overview / Task Overview
+- [ ] Integrate workflow status legend with bottleneck indicators
+- [ ] Show doom loop visual escalation on timeline segments
+- [ ] Show pinned high-risk tasks at top
+- [ ] Update header with enhanced metadata
+
+### 6. Verification
+- [ ] Visual browser testing of all three use cases
+- [ ] Test doom loop detection with sample data
+- [ ] Test localStorage persistence for notes and high-risk flags

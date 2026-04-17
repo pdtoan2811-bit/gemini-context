@@ -1,0 +1,3 @@
+- [ ] Implement multi-layered SVG gradient beam in `BorderBeam.tsx` [/]
+- [ ] Add organic tail falloff and aura layers [ ]
+- [ ] Verify 60fps performance and high-fidelity aesthetic [ ]

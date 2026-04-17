@@ -1,0 +1,47 @@
+# Synthetica: End-to-End Working Prototype Plan
+
+Currently, the application successfully scrapes **real live data** from Reddit using Playwright. However, when you click on a live feed item, the `api/synthesize` endpoint returns a **static, hardcoded mock string** because we haven't plugged in a real AI yet.
+
+To give you a **truly functional working prototype**, we need to wire the "Semantic Refinery" endpoint directly into a Language Model to dynamically generate the Translations, Theses, and Macro Impacts for the live data we scrape.
+
+## User Review Required
+
+> [!WARNING]
+> Since you explicitly requested the prototype to **run on your local computer**, we have two distinct architectural paths for the AI integration. Please review the options below and let me know which one you prefer so I can write the exact code for it.
+
+## The LLM Integration Proposal
+
+### Option 1: OpenAI API (The Standard Route)
+- **How it works**: We install the `openai` SDK. You put your `OPENAI_API_KEY` into a `.env.local` file. The backend sends the Reddit post to GPT-4o-mini to extract the JSON.
+- **Pros**: Effortless integration. Incredibly high reasoning quality. No heavy processing on your local machine.
+- **Cons**: Requires you to paste a paid API key.
+
+### Option 2: Ollama (The 100% Local Route)
+- **How it works**: You download the local [Ollama](https://ollama.com/) application on your Windows machine and pull a lightweight model (e.g., `llama3.1` or `qwen2.5`). Our Next.js backend natively `fetch`es your local `http://localhost:11434/api/generate` endpoint.
+- **Pros**: 100% Free. Total privacy. Truly a "local computer" prototype.
+- **Cons**: Requires you to install the Ollama tooling. Uses your local system's CPU/GPU for inference, which means generating the "NYT View" will take a few extra seconds.
+
+## Proposed Changes
+
+---
+
+### Phase 7: Dynamic Semantic Refinery
+We will delete the hardcoded mock responses and implement a dynamic prompt execution pipeline.
+
+#### [MODIFY] `src/app/api/synthesize/route.ts`
+- **If Option 1**: We will implement structured outputs (`response_format: { type: "json_object" }`) using the OpenAI SDK to guarantee the model specifically returns the `translatedThesis`, `macroImpact`, and `generatedHeadline` strings mapped to your interface.
+- **If Option 2**: We will build a fetch wrapper that constructs a strict prompt for Ollama, passes the raw context, and parses the returned JSON string on your local machine.
+
+#### [NEW] System Prompts
+- We will draft an extensive "Persona Setup" hidden in the backend codebase that explicitly teaches the AI how to behave like a "hyper-caffeinated, brutally analytical research assistant" directly mirroring your original PRD requirements.
+
+## Open Questions
+
+> [!IMPORTANT]
+> **Which LLM Engine do you want to use?**
+> Reply with **Option 1 (OpenAI)** or **Option 2 (Local Ollama)**, and I will execute the backend logic immediately.
+
+## Verification Plan
+1. We will compile and trigger a live Reddit scrape.
+2. We will select a random, unseen post.
+3. We will verify that the LLM successfully digests the raw context and replies with structured JSON that mounts flawlessly into our 3 Polymorphic React views.

@@ -1,0 +1,29 @@
+# Absolute Stabilization of Bento Grid
+
+All previous attempts using rotating gradients or masks have resulted in viewport-level light bleed and performance lag. I will switch to the most stable and performant method available for web animations: **SVG Stroke Animation with Non-Scaling Stroke**.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **High-Precision SVG:** Use an SVG `<rect>` that fills the container.
+- **Non-Scaling Stroke:** Apply `vector-effect="non-scaling-stroke"` to the `rect`. This ensures the border is exactly 1.5px thick on ALL screen sizes and handles the `rounded-3xl` (24px) corners perfectly without distortion.
+- **Hardware Acceleration:** Animate `pathOffset` and `pathLength` using Framer Motion. This is highly optimized and localized to the path itself.
+- **Zero Bleed:** 
+    - Remove all large container blurs and rotating divs.
+    - Use a simple `box-shadow` or a second SVG layer with a small `strokeWidth` and `blur(2px)` for the glow.
+- **Optimization:** Use `overflow: hidden` on the container and the SVG itself.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Keep the current structure (Inner wrapper for padding). This ensures the SVG (inset 0) stays perfectly flush with the 1px border line.
+
+## Why this will resolve the issue
+- **Performance:** SVG stroke animations cause minimal re-paints compared to large blurred gradients.
+- **Alignment:** `vector-effect="non-scaling-stroke"` is the industry standard for responsive borders; it eliminates the "mismatch" and "oval corner" issues.
+- **Bleed Fix:** By eliminating the large rotating divs, we remove the source of the viewport-margin artifacts.
+
+## Verification Plan
+- **Performance:** Verify 60fps interaction.
+- **Bleed Check:** Confirm zero light bleed at the screen margins.
+- **Alignment:** Verify the beam follows the 1px center of the border precisely.

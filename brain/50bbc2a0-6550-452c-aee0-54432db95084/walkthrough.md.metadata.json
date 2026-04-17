@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Final walkthrough of the white screen bug fix. Includes root cause analysis, implemented fixes in `LandingPage.jsx`, `ProjectsPage.jsx`, and `useOnboarding.js`, and verification via linting.",
+  "updatedAt": "2026-03-24T09:31:34.793948200Z"
+}

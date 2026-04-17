@@ -1,0 +1,243 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 8 · Mar 9 – Mar 13
+Live Logs
+10
+Members
+Total Tasks
+67
+Met Goal
+15
+Bottlenecked
+11
+Doom Loops
+8
+Stale (24h+)
+25
+📌 High Risk
+0
+Daily Meeting
+Daily Recap
+Personnel
+Tasks
+Sprint Start
+Next Sprint
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+[0] (301,431)<div class='flex overflow-x-auto custom-scrollbar gap-2 w-full sm:w-auto pb-1 sm:pb-0' scrollable='true'>View All (
+9
+)
+Squads
+Nguyễn Thảo Linh
+Lưu Thị Dung
+Nguyễn Đình Hồng Phong
+Bùi Anh Đức
+Đặng Minh Quân
+Phạm Đức Toàn
+Trần Quý Đạt
+Nguyễn Văn Nam
+Duyên NT />
+	View All (
+	9
+	)
+	Squads
+	Nguyễn Thảo Linh
+	Lưu Thị Dung
+	Nguyễn Đình Hồng Phong
+	Bùi Anh Đức
+	Đặng Minh Quân
+	Phạm Đức Toàn
+	Trần Quý Đạt
+	Nguyễn Văn Nam
+	Duyên NT
+Team Active:
+175
+|
+20
+|
+38
+|
+73
+Squad Planning Context
+Manage Roles
+Today
+Gradually form your squad
+[1] (378,625)<div class='flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar' scrollable='true' />
+	Nguyễn Thảo Linh
+	Nguyễn Đình Hồng Phong
+	Nguyễn Văn Nam
+	Trần Quý Đạt
+	Đặng Minh Quân
+	Lưu Thị Dung
+	Bùi Anh Đức
+	Phạm Đức Toàn
+	Duyên NT
+Squad Backlog
+51
+tasks
+Drag tasks to the Squad Plan to plan them
+[2] (202,1074)<div class='flex-1 overflow-y-auto custom-scrollbar pr-1 space-y-6 pb-8' scrollable='true' />
+	Shared Tasks (
+	24
+	)
+	recv3K7Ed9poE0
+	Cài đặt cảnh báo
+	Add
+	Bug Fixing
+	Active
+	STALE
+	7d 17h
+	Blocked by
+	Đặng Minh Quân
+	recv3K7M2jDAau
+	Xem chi tiết chiến dịch
+	DOOM
+	Bug Fixing
+	Active
+	STALE
+	3d 17h
+	Blocked by
+	Nguyễn Đình Hồng Phong
+	recvaMJPh9Q4wP
+	Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất)
+	DOOM
+Squad Plan for
+Today
+No tasks planned for the squad
+Drag tasks from the backlog to plan
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[3] (500,500)<div  />
+	[4] (850,500)<div class='fixed z-50 gap-4 bg-zinc-950 shadow-lg transition ease-in-out inset-y-0 right-0 border-l border-zinc-800 flex flex-col h-full overflow-y-auto sm:max-w-xl w-[90%] p-6' scrollable='true' />
+		recv3K7Ed9poE0
+		Bug Fixing
+		Cài đặt cảnh báo
+		Mar 13, 15:51
+		→
+		Mar 21, 09:06
+		Assigned People
+		Nguyễn Đình Hồng Phong
+		Đặng Minh Quân
+		Nguyễn Thảo Linh
+		[5] (849,257)<button class='w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-all border-zinc-800 bg-zinc-900/50 text-zinc-400' />
+			High Risk
+		Doom Loop Detected
+		0
+		cycle(s)
+		Reprocessed
+		2
+		× — Risk:
+		ELEVATED
+		Long Status Durations
+		1
+		blocking
+		Status changes that took more than 8 working hours
+		Bug Fixing
+		→
+		Bug Fixing
+		26.7
+		h
+		Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+		Assignee
+		Nguyễn Đình Hồng Phong
+		Module
+		Digital
+		Screen
+		Chiến dịch
+		Sprint Goal
+		Staging Passed
+		Record Link
+		[6] (849,699)<a class='inline-flex items-center gap-2 font-mono text-blue-400 hover:text-blue-300 hover:underline transition-colors' href='https://jsg35lsl9g0c.sg.larksuite.com/record/ZWMHrhs2yeTGf4c5MiNlnPS9g5e' />
+			[7] (779,699)<span >Open in Source System />
+		Daily Meeting Notes
+		[8] (947,786)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-md shadow-blue-900/30'>Add Today's Note />
+		[9] (765,837)<button class='flex items-center gap-2 group'>Timeline Overview />
+			Timeline Overview
+		[10] (940,838)<button class='text-[9px] uppercase font-bold px-2 py-1 rounded transition-colors tracking-widest text-zinc-500 hover:text-zinc-300'>Sequence />
+		[11] (971,838)<button class='text-[9px] uppercase font-bold px-2 py-1 rounded transition-colors tracking-widest bg-zinc-700 text-white shadow-sm'>Daily />
+		[12] (736,897)<div  />
+			[13] (736,874)<div  />
+			[14] (736,914)<div  />
+				[15] (736,915)<span >Mar 16 />
+		[16] (781,897)<div  />
+			[17] (781,874)<div  />
+			[18] (781,914)<div  />
+				[19] (781,915)<span >Mar 17 />
+		[20] (826,897)<div  />
+			[21] (826,874)<div  />
+			[22] (826,914)<div  />
+				[23] (826,915)<span >Mar 18 />
+		[24] (872,897)<div  />
+			[25] (871,874)<div  />
+			[26] (871,914)<div  />
+				[27] (871,915)<span >Mar 19 />
+		[28] (917,897)<div  />
+			[29] (916,874)<div  />
+			[30] (916,914)<div  />
+				[31] (916,915)<span >Mar 20 />
+		[32] (962,897)<div  />
+			[33] (962,874)<div  />
+			[34] (962,914)<div  />
+				[35] (962,915)<span >Mar 21 />
+		[36] (749,957)<span  />
+			[37] (740,957)<span >Mar 16 />
+			[38] (767,957)<span >7h 30m />
+		[39] (825,957)<span  />
+			[40] (816,957)<span >Mar 17 />
+			[41] (843,957)<span >7h 30m />
+		[42] (901,957)<span  />
+			[43] (892,957)<span >Mar 18 />
+			[44] (919,957)<span >7h 30m />
+		[45] (749,997)<span  />
+			[46] (740,997)<span >Mar 19 />
+			[47] (767,997)<span >7h 30m />
+		[48] (826,997)<span  />
+			[49] (816,997)<span >Mar 20 />
+			[50] (845,997)<span >7h 30m />
+		[51] (897,997)<span  />
+			[52] (893,997)<span >Mar 21 />
+			[53] (915,997)<span >37m />
+		[54] (984,25)<button class='absolute right-4 top-4 rounded-sm opacity-70 ring-offset-zinc-950 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2'>Close />
+			Close
+
+</current_dom>

@@ -1,0 +1,78 @@
+# Synthetica: Live Ingestion & Scraping Architecture
+
+This document describes the architectural plan for transitioning Project Synthetica from mock data to live data ingestion. This encompasses building a robust configuration management interface (for topics, creators, and communities) and implementing a high-success scraping methodology to bypass complex WAFs (Cloudflare) on platforms like Reddit, X, and Instagram.
+
+## User Review Required
+
+> [!WARNING]
+> Please review the Scraping Methodology Proposal below. There are trade-offs between full automation and anti-detect browser usage (e.g., Kiki Login versus purely headless Playwright). We need your approval on the desired approach before we wire up the scraper.
+
+## Scraping Methodology Proposal (Finding the "Best Way")
+
+Scraping walled gardens (X, Instagram, strict subreddits) requires bypassing sophisticated behavioral fingerprinting. Here are the viable paths:
+
+### 1. The Anti-Detect Browser Method (Your Suggestion: Kiki Login, AdsPower, etc.)
+- **How it works:** You run the anti-detect browser on your Windows machine, load up cookies organically (logging in manually once), and our script connects via the Chrome DevTools Protocol (e.g., `puppeteer.connect({ browserWSEndpoint: '...' })`).
+- **Pros:** Unbeatable bypass rates. Instagram/X cannot easily distinguish this from a real user since the fingerprint and proxy footprint are perfectly constructed by the anti-detect software.
+- **Cons:** It is difficult to run *completely* headlessly without the anti-detect application actively running in the background. It is a slightly highly coupled local workflow.
+
+### 2. Playwright + Stealth Plugin + Session State Maintenance
+- **How it works:** We build a pure `playwright-extra` script utilizing `puppeteer-extra-plugin-stealth`. We serialize and save local cookie/session objects to a local `.session` file to avoid re-authenticating.
+- **Pros:** 100% automated script without needing a separate 3rd party desktop application floating around. Cleanest architecture.
+- **Cons:** Sites occasionally figure it out. Maintenance heavy if their DOM or Cloudflare rules shift sharply.
+
+### 3. Managed Scraper APIs (Apify, BrightData, Browserless)
+- **How it works:** You offload the cat-and-mouse game to specialized infrastructure APIs. You request `Get User Tweets`, and they run the headless farm.
+- **Pros:** Zero upkeep.
+- **Cons:** Recurring costs.
+
+**Recommendation:** If you prioritize reliability without paying scraping-API fees, **Method 1 (Local Anti-Detect CDP Connection)** is the most bulletproof for walled gardens, *but* **Method 2 (Playwright Stealth)** is far easier to test and run continuously on a schedule. **For this plan, we will build Method 2 with an architecture that allows you to swap to a CDP websocket URL if you prefer to use Kiki Login later.** 
+
+## Proposed Changes
+
+---
+
+### Configuration Management Layer
+We need a place to define and store the exact targets. For now, we will use a local JSON file to act as our fast-read database until you want to scale to PostgreSQL.
+
+#### [NEW] `src/config/targetList.json`
+- Schema-defined object holding your curated lists:
+  - `semanticTopics`: Array (e.g. "SaaS pricing", "AI infrastructure")
+  - `exactSites`: URLs (e.g. "https://blog.ycombinator.com")
+  - `creators`: Handles (e.g. "@patio11")
+  - `communities`: Social hubs (e.g. "r/SaaS", "r/MachineLearning")
+
+#### [NEW] `src/app/settings/page.tsx`
+- A sleek, dark-mode dashboard providing a UI for managing targets. You can add weighting/priority to specific subreddits or creators.
+
+---
+
+### The Scraping Engine
+The core background worker that fetches live data.
+
+#### [NEW] `src/lib/scraper/engine.ts`
+- Sets up `playwright-extra` and the stealth plugins.
+- Allows configuration parsing to connect to a local Chrome WS Endpoint (if you use Kiki Login) *or* spawns its own stealth instance.
+- Cycles through `targetList.json`.
+
+#### [NEW] `src/lib/scraper/platforms/reddit.ts`
+- specific traversal logic. Uses `playwright` to visit the targeted communities, pull the top daily posts, and format them into `RawPost` objects.
+
+#### [NEW] `src/app/api/ingest/trigger/route.ts`
+- A Next.js API endpoint that fires the scraping job asynchronously.
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Scraping Engine Choice:** Are you comfortable with us moving forward with **Playwright Stealth**, while passing an optional config variable for a `websocketEndpoint` directly into your anti-detect browser if needed? 
+> 2. **Authentication Flow:** Are you okay with the script launching in non-headless mode *the first time* so you can log into Reddit/X and generate session cookies?
+> 3. **Data Storage:** For this MVP update, is saving the scraped and synthesized posts to a local `.json` database file acceptable, or do we need a real database (SQLite / Supabase) right now?
+
+## Verification Plan
+
+### Automated Tests
+- We will execute the scraping script against a generic public Reddit community (e.g. `r/webdev`) to verify Playwright connects, parses the DOM, extracts the raw strings, and assigns the correct priority weight based on our config UI.
+
+### Manual Verification
+- Verify the UI in `/settings` persists new topic vectors.
+- Verify that live scraped items successfully populate the main dashboard's Inbox feed instead of the dummy mock data.

@@ -1,0 +1,14 @@
+# Task: Task Detail Timeline + Remove Outdated Meeting Integration
+
+## Checklist
+
+- [x] Explore codebase and understand current StandupInspector structure
+- [x] Identify outdated meeting integration sections
+- [x] Create implementation plan
+- [ ] (Await user approval)
+- [ ] Remove Interrogation Log section from StandupInspector
+- [ ] Remove Standup Notes section from StandupInspector
+- [ ] Build rich visual timeline for status history
+- [ ] Clean up unused imports and props from page.tsx
+- [ ] Verify changes in browser
+- [ ] Create walkthrough

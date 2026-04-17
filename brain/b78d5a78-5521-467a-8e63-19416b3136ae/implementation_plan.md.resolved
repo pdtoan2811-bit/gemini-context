@@ -1,0 +1,44 @@
+# Member Roles Settings and Grouping
+
+## Goal Description
+Implement a dynamic system to assign roles (Tester, FE dev, BE dev, Team Leader) to team members, group/sort the daily meeting view by these roles, and use this role data to populate the "Blocked by" dropdowns instead of hardcoded lists. Per request, this must NOT modify `db.json`, so a new `roles.json` data store will be introduced.
+
+## Proposed Changes
+
+### Configuration / API Layer
+#### [NEW] `src/app/api/roles/route.ts`
+Create a new API route similar to [api/data/route.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/api/data/route.ts) that safely reads/writes to `data/roles.json`. It will map `Person Name` -> `Role`.
+
+#### [NEW] `src/lib/hooks/useRoles.ts`
+Create a React hook providing `roles` state, `updateRole(person, role)`, and `isLoading` context using `SWR` or just native `fetch` polling to the `/api/roles` endpoint.
+
+---
+
+### UI / View Layer
+#### [MODIFY] `src/app/page.tsx`
+- Integrate `useRoles` to fetch the member-role mapping.
+- Pass `roles` to [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2477-2870) and [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#46-444).
+
+#### [MODIFY] [src/components/dashboard/DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- **Role Ordering**: Modify the sorting logic of `allPersonData` so it groups people by their roles: 
+  1. Tester
+  2. BE dev
+  3. FE dev
+  4. Team Leader
+  5. Unassigned/Other
+- **Settings UI**: Add a small "Member Roles" settings button (e.g. next to the team filters) that opens a `Dialog` or `Popover` listing all known team members with a `<select>` to assign them a Role.
+
+#### [MODIFY] [src/components/inspector/StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- Replace the hardcoded `TEAM_LEADERS` array in the "Blocked By" dropdown.
+- Render `<optgroup>`s dynamically based on the fetched `roles` dictionary. If a person is assigned "Tester", append them under the "Tester" `<optgroup>`, etc.
+
+## Verification Plan
+
+### Automated Tests
+- N/A - Sprint Relay has no automated tests setup around this feature, but `npm run build` will verify type enforcement.
+
+### Manual Verification
+1. Open the UI, click "Member Roles" settings, and assign a few members distinct roles (Tester, FE, BE...).
+2. Observe that `data/roles.json` is successfully created and updated in the project root folder without modifying `db.json`.
+3. Verify that the Daily Meeting View automatically reorders [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#766-1112) cards based on the sorted Role hierarchy.
+4. Click on a task to open [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#46-444), toggle "Is this task stalled?", and verify the "Blocked By" dropdown dynamically reflects the assigned groups.

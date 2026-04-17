@@ -1,0 +1,41 @@
+# Walkthrough - Unified Lark Webhook Settings and Sandbox Visibility
+
+I have improved the discoverability and consistency of the Lark integration test features.
+
+## Changes Made
+
+### 1. Unified Webhook Settings
+I replaced the simple inline webhook settings in the main dashboard with the more comprehensive [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308). This modal now includes a "Test Lark Connection" section, allowing you to run test POST requests directly from the dashboard.
+
+### 2. Improved Sandbox Visibility
+I added a "SANDBOX TEST" button directly to the header of the application. This provides immediate access to the dedicated sandbox environment where you can test sprint movements and Lark payloads in isolation.
+
+## Visual Verification
+
+````carousel
+![Sandbox Test Button in Header](C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/sandbox_test_button_1773971852999.png)
+The header now features a prominent "SANDBOX TEST" button for easy access.
+<!-- slide -->
+![Sprint Movement Sandbox Page](C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/sandbox_page_redirection_1773971868622.png)
+The sandbox page allows for detailed testing of task movements and payload previews.
+<!-- slide -->
+![Lark Webhook Settings Modal](C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/webhook_settings_modal_1773971892829.png)
+The "Members" button now opens the full Lark Webhook Settings modal.
+<!-- slide -->
+![Run Test Button](C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/run_test_button_verified_1773971945265.png)
+The modal includes a "Run Test" button to send sample payloads to Lark.
+````
+---
+
+### ⚠️ Note on "Disappearing" UI
+If you see the new buttons briefly and then they disappear, it is likely due to a **Next.js hydration mismatch** (stale `.next` cache). To fix this:
+1. Stop any running dev servers.
+2. Delete the `.next` folder in the project root.
+3. Run `npm run dev` again.
+4. Or simply use **`http://localhost:3001`** which I have already started for you.
+
+## How to Test
+1. Click the **"SANDBOX TEST"** button in the header to visit the dedicated sandbox.
+2. Click the **"9 Members"** button (or similar) in the header to open the Webhook Settings.
+3. Scroll down to the **"Test Lark Connection"** section in the modal.
+4. Select a person, (optionally) enter a task URL, and click **"Run Test"**.

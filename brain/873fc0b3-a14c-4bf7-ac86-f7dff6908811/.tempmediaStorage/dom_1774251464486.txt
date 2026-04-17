@@ -1,0 +1,177 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay Debugger
+[0] (252,44)<a class='px-4 py-1.5 bg-secondary hover:bg-muted text-muted-foreground text-[10px] font-black rounded-full shadow-sm transition-all border border-border flex items-center gap-2 group' href='/sandbox'>SANDBOX />
+Advanced workflow diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[1] (726,55)<select class='bg-card border border-border text-foreground text-xs font-black uppercase tracking-widest rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 appearance-none pr-10 shadow-sm' />
+Mar 23 – Mar 27
+[2] (916,55)<button class='px-4 py-2.5 flex items-center gap-2 bg-card border border-border rounded-xl text-foreground hover:bg-secondary font-black text-[10px] uppercase tracking-widest transition-all shadow-sm active:scale-95' title='Configure per-person webhook URLs'>11
+Members />
+[3] (973,55)<button class='p-2.5 text-muted-foreground hover:text-foreground hover:bg-card rounded-xl border border-transparent hover:border-border transition-all active:scale-90' title='Sprint Settings' />
+Total Tasks
+36
+Met Goal
+3
+Bottleneck
+5
+Doom Loops
+5
+Stale (24h+)
+17
+📌 High Risk
+0
+[4] (58,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-indigo-600 bg-background shadow-sm border border-border/40'>Daily Meeting />
+	Daily Meeting
+[5] (140,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Squad Planner />
+	Squad Planner
+[6] (217,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Recap />
+	Daily Recap
+[7] (287,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Personnel />
+	Personnel
+[8] (347,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Tasks />
+	Tasks
+[9] (410,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sprint Start />
+	Sprint Start
+[10] (479,261)<button class='relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sandbox />
+	Sandbox
+Standup-ready view: Doing → Blocking → Blocked → Not Started
+[11] (59,384)<button class='flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-muted-foreground/50 hover:text-foreground/70'>Personnel />
+	Personnel
+[12] (124,384)<button class='flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all text-muted-foreground/50 hover:text-foreground/70'>Fleet View />
+	Fleet View
+[13] (188,384)<button class='flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all bg-card text-foreground shadow-lg scale-105'>Squad Ops />
+	Squad Ops
+[14] (615,384)<button class='px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 bg-blue-600 shadow-blue-500/20 text-white shadow-lg'>Active />
+[15] (655,384)<button class='px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 bg-rose-600 shadow-rose-500/20 text-white shadow-lg'>Impeded />
+[16] (698,384)<button class='px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 bg-amber-600 shadow-amber-500/20 text-white shadow-lg'>Blocking />
+[17] (738,384)<button class='px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 bg-orange-600 shadow-orange-500/20 text-white shadow-lg'>Stale />
+[18] (774,384)<button class='px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all active:scale-95 bg-foreground/10 text-foreground/40 text-white shadow-lg'>Queued />
+Configuration:
+[19] (894,384)<button class='flex items-center gap-2 hover:text-indigo-600 transition-colors'>Roles />
+[20] (945,384)<button class='flex items-center gap-2 hover:text-indigo-600 transition-colors'>Registry />
+Personnel Assembly
+Form the collaborative squad context for synchronization.
+[21] (78,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-indigo-600 border-indigo-500 text-white shadow-xl shadow-indigo-600/30'>Nguyễn Thảo Linh />
+	Nguyễn Thảo Linh
+[22] (179,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Nguyễn Đình Hồng Phong />
+	Nguyễn Đình Hồng Phong
+[23] (279,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Nguyễn Văn Nam />
+	Nguyễn Văn Nam
+[24] (359,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Trần Quý Đạt />
+	Trần Quý Đạt
+[25] (437,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Đặng Minh Quân />
+	Đặng Minh Quân
+[26] (514,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Lưu Thị Dung />
+	Lưu Thị Dung
+[27] (588,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Phạm Đức Toàn />
+	Phạm Đức Toàn
+[28] (658,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Duyên NT />
+	Duyên NT
+[29] (721,536)<button class='flex-shrink-0 flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all active:scale-95 bg-secondary/40 border-border/50 text-muted-foreground hover:bg-secondary hover:text-foreground shadow-sm'>Unassigned />
+	Unassigned
+Global Backlog
+Available Objectives:
+14
+Interactive Transfer: Drag to Sync Protocol
+[30] (260,1031)<div class='flex-1 overflow-y-auto custom-scrollbar pr-3 space-y-5 pb-5' scrollable='true' />
+	Nguyễn Thảo Linh
+	Individual (
+	14
+	)
+	[31] (258,840)<div  />
+		[32] (258,823)<div  />
+			[33] (225,823)<div  />
+				[34] (231,823)<div  />
+					[35] (231,800)<div  />
+						[36] (81,800)<span >recv3K6oWOWQsx />
+						[37] (113,800)<span >DOOM />
+					[38] (231,819)<span >Xử lí yêu cầu tài khoản />
+					[39] (231,844)<div  />
+						[40] (80,844)<div  />
+							[41] (84,844)<span >Digital />
+						[42] (123,844)<div  />
+							[43] (126,844)<span >Tài khoản ads />
+			[44] (436,804)<div  />
+				[45] (431,804)<div  />
+					[46] (432,804)<div  />
+						[47] (433,804)<button class='flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D3557] hover:bg-[#1D3557]/90 text-white text-[9px] font-black uppercase tracking-widest transition-all shadow-lg shadow-[#1D3557]/20 active:scale-95 ml-1' title='Deploy to daily plan' />
+		[48] (258,876)<div  />
+			[49] (53,876)<div  />
+			[50] (75,876)<span >Pending />
+			[51] (117,876)<div >STALE
+1d 21h />
+	[52] (258,966)<div  />
+		[53] (258,950)<div  />
+			[54] (225,950)<div  />
+				[55] (231,950)<div  />
+					[56] (231,926)<div  />
+						[57] (81,926)<span >recvdrJyu40C70 />
+						[58] (113,926)<span >DOOM />
+					[59] (231,945)<span >Lỗi hiển thị tổng dự án, dự án mới, dự án trùng />
+					[60] (231,970)<div  />
+						[61] (82,970)<div  />
+							[62] (85,970)<span >Project />
+						[63] (120,970)<div  />
+							[64] (123,970)<span >Crawler />
+			[65] (436,930)<div  />
+				[66] (431,930)<div  />
+					[67] (432,930)<div  />
+						[68] (433,930)<button class='flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D3557] hover:bg-[#1D3557]/90 text-white text-[9px] font-black uppercase tracking-widest transition-all shadow-lg shadow-[#1D3557]/20 active:scale-95 ml-1' title='Deploy to daily plan' />
+		Bug Fixing
+		Active
+		STALE
+		1d 21h
+Active Sync Protocol
+Today
+'s Deployment Vector
+[69] (934,634)<button class='p-2 rounded-xl border transition-all active:scale-90 bg-secondary/40 border-border/50 text-muted-foreground/60 hover:bg-secondary hover:text-foreground' title='Copy Assembly Code' />
+[70] (955,634)<button class='p-2 rounded-xl border transition-all active:scale-90 bg-indigo-600 border-indigo-500 text-white shadow-xl shadow-indigo-600/20 hover:bg-indigo-700' />
+[71] (740,1005)<div class='flex-1 overflow-y-auto custom-scrollbar pr-3 space-y-5 pb-5' scrollable='true' />
+	Nguyễn Thảo Linh
+	Objectives
+	[72] (738,805)<div  />
+		[73] (738,770)<div  />
+			[74] (722,770)<div  />
+				[75] (535,752)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+				[76] (729,770)<div  />
+					[77] (729,747)<div  />
+						[78] (564,747)<span >recv3K4CpAiZOQ />
+					[79] (729,765)<span >Lọc và tìm kiếm />
+					[80] (729,790)<div  />
+						[81] (563,790)<div  />
+							[82] (566,790)<span >Digital />
+						[83] (595,790)<div  />
+							[84] (598,790)<span >Mail />
+			[85] (932,753)<div  />
+				[86] (928,753)<div  />
+					[87] (928,753)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+		[88] (738,822)<div  />
+			[89] (532,822)<div  />
+			[90] (555,822)<span >Testing />
+			[91] (593,822)<div >Active />
+		[92] (738,857)<div  />
+			[93] (738,863)<div  />
+				[94] (743,863)<span >Staging Passed />
+	[95] (738,969)<div  />
+		[96] (738,934)<div  />
+			[97] (722,934)<div  />
+				[98] (535,916)<button class='w-5 h-5 rounded-lg border mt-0.5 flex-shrink-0 flex items-center justify-center transition-all border-muted-foreground/20 bg-background hover:border-[#1D3557] hover:bg-blue-50/50' />
+				[99] (729,934)<div  />
+					[100] (729,911)<div  />
+						[101] (564,911)<span >recvcpwOCxaAUr />
+						[102] (596,911)<span >DOOM />
+					[103] (729,929)<span >Lọc và tìm kiếm />
+					[104] (729,954)<div  />
+						[105] (562,954)<div  />
+							[106] (566,954)<span >Chung />
+						[107] (605,954)<div  />
+							[108] (608,954)<span >Quét Keyword />
+			[109] (932,917)<div  />
+				[110] (928,917)<div  />
+					[111] (928,917)<button class='p-1.5 hover:bg-rose-50 rounded-xl text-rose-500 transition-all active:scale-90' title='Remove deployment' />
+		[112] (738,986)<div  />
+			[113] (565,986)<span >Ready for Test />
+
+</current_dom>

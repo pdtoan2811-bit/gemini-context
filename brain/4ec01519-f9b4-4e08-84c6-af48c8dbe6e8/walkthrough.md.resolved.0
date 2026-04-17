@@ -1,0 +1,22 @@
+# Code Override Walkthrough
+
+I have successfully pulled the code from the `staging` repository and overridden the local `main` branch.
+
+## Changes Made
+
+- Added remote `staging`: `https://github.com/pdtoan2811-bit/sprintDebugStaging`
+- Fetched all branches from `staging`.
+- Performed a hard reset of the local `main` branch to `staging/main`.
+
+## Verification Results
+
+### Git Status
+The local branch `main` is now synchronized with `staging/main`.
+
+```bash
+9cf6c53 (HEAD -> main, staging/main)
+835f955 (origin/main)
+```
+
+### Files
+The local files have been updated to match the state of the `staging/main` branch.

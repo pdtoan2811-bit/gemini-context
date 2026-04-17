@@ -1,0 +1,33 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (915,33)<button aria-label='Tiếng Việt. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary dark:bg-white/20 text-primary-foreground hover:bg-primary hover:text-primary-foreground' title='Tiếng Việt'>VI />
+[1] (936,33)<button aria-label='English. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background text-muted-foreground' title='English'>EN />
+[2] (971,33)<div aria-label='Theme selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[3] (964,33)<button aria-label='Light' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Light' />
+	[4] (978,33)<button aria-label='Dark' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Dark' />
+là các Dịch Vụ hoặc sản phẩm, tính năng khác mà chúng tôi cung cấp cho bạn trên cơ sở dùng thử miễn phí.
+"Quyền Sở Hữu Trí Tuệ"
+là tất cả bằng sáng chế, bản quyền, bí mật thương mại, nhãn hiệu, tên thương mại, và tất cả quyền sở hữu trí tuệ khác (đã đăng ký hoặc chưa) trên toàn thế giới.
+"Tài Khoản Chính"
+là tài khoản Adecos chính mà Tài Khoản Quảng Cáo của bạn được liên kết. Bạn có thể có nhiều Tài Khoản Chính.
+"Đơn Hàng"
+là biểu mẫu đặt hàng hoặc quy trình đăng ký trực tuyến được Adecos phê duyệt, theo đó bạn đồng ý đăng ký hoặc mua Dịch Vụ.
+"Dữ Liệu Cá Nhân"
+là bất kỳ thông tin nào liên quan đến cá nhân được xác định hoặc có thể xác định, nằm trong Dữ Liệu Khách Hàng và được bảo vệ theo Luật Bảo Vệ Dữ Liệu hiện hành.
+"Nền Tảng"
+là nền tảng AI độc quyền của Adecos cho nghiên cứu tiếp thị liên kết, quản lý, tối ưu hóa, giám sát và thực thi chiến lược quảng cáo, bao gồm mọi cập nhật và cải tiến.
+"Sự Cố Bảo Mật"
+là vi phạm bảo mật Dịch Vụ dẫn đến phá hủy, mất mát, thay đổi, tiết lộ hoặc truy cập trái phép Dữ Liệu Khách Hàng.
+"Dịch Vụ"
+là Nền Tảng mà chúng tôi cung cấp trên cơ sở Phần mềm dạng Dịch vụ (SaaS) cho nghiên cứu tiếp thị liên kết, quản lý chiến dịch, phân tích bằng AI, và các dịch vụ bổ sung.
+"Đăng Ký"
+là đăng ký định kỳ cho phép bạn truy cập và sử dụng Dịch Vụ theo Thỏa Thuận này.
+"Thời Hạn"
+là thời hạn ban đầu của Đăng Ký như được chỉ định trong Đơn Hàng, và các kỳ gia hạn tiếp theo.
+"Dịch Vụ Bên Thứ Ba"
+là phần mềm, ứng dụng và/hoặc dịch vụ do bên thứ ba cung cấp có thể tương tác hoặc được sử dụng cùng với Dịch Vụ.
+2. Cấp Quyền & Sử Dụng Dịch Vụ
+
+</current_dom>

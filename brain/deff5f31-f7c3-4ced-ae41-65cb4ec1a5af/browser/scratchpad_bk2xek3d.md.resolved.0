@@ -1,0 +1,9 @@
+# Verification Plan - Connect Section
+
+- [ ] Open `http://localhost:3000/vi`
+- [ ] Locate FAQ section
+- [ ] Locate "Connect" section after FAQ
+- [ ] Verify Zalo card (Title, Button)
+- [ ] Verify Cal.com card (Title, Button)
+- [ ] Check design consistency and premium feel
+- [ ] Provide summary

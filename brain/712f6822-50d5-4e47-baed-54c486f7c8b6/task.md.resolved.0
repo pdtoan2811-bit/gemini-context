@@ -1,0 +1,7 @@
+# Tasks
+
+- [x] Identify Sandbox location in codebase
+- [ ] Research Sandbox implementation and UI linkages <!-- id: 0 -->
+- [ ] Determine why it's not visible/accessible <!-- id: 1 -->
+- [ ] Propose and implement a way to make it accessible <!-- id: 2 -->
+- [ ] Verify the feature works as intended <!-- id: 3 -->

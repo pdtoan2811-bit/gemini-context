@@ -1,0 +1,53 @@
+# Implementation Plan - Affiliate Manual Refs & Analytics
+
+This plan outlines the steps to implement a feature allowing users to manually track affiliate performance, separate official projects from AI-saved leads, and link ads campaigns for ROI analytics.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Data Persistence**: We are currently using `localStorage`. For large daily stats, this might reach limits eventually, but for a mock-up/MVP, it's sufficient.
+> **Project Separation**: I will split the "Quản lý dự án" page into two main tabs: "Dự án chính thức" and "Dự án từ AI Agents".
+
+## Proposed Changes
+
+### 1. Data Model & Hook Updates
+#### [MODIFY] [useProjects.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useProjects.js)
+- Update state to include `isOfficial` flag and `dailyStats` array.
+- Add `promoteToOfficial(index)` function.
+- Ensure `saveProject` handles new fields: `affiliateRef`, `linkedCampaignIds`.
+
+### 2. Frontend: Navigation & Projects Page
+#### [MODIFY] [ProjectsPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectsPage.jsx)
+- Implement a Tab-based view at the top:
+  - **Dự án chính thức**: Active projects with full analytics.
+  - **Dự án từ AI Agents**: Leads saved from research/chat (Unofficial).
+- Add "Thiết lập thành chính thức" button for unofficial projects.
+
+### 3. Frontend: Project Details & Analytics
+#### [MODIFY] [ProjectDetailPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectDetailPage.jsx)
+- Add a new tab: **Phân tích ROAS & CVR**.
+- **Campaign Linking**: Interface to select which Ads Campaigns (from AdsContext) belong to this project.
+- **Manual Daily Entry**: A simplified Excel-like grid to quickly input:
+  - `RefCount` (Clicks/Leads from Affiliate Dashboard)
+  - `Conversions` (Validated sales)
+  - `Revenue` (Commission earned)
+- **Analytics Visuals**:
+  - ROAS Chart (Revenue vs Ads Spend).
+  - CVR Chart (Conversions / RefCount).
+  - Metric cards for Total Spend, Total Revenue, Net Profit, ROAS.
+
+### 4. Component: Quick Daily Entry
+#### [NEW] [DailyStatsModal.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/DailyStatsModal.jsx)
+- A dedicated modal to solve the "repetitive pain point" of manual entry.
+- Features: Autocomplete for recent dates, easy tab-through fields, and "copy from yesterday" option.
+
+## Verification Plan
+
+### Automated Tests
+- No automated tests currently in project, but I will verify components via manual inspection using the browser tool.
+
+### Manual Verification
+1. **Save a project from search results**: Verify it appears in the "Dự án từ AI Agents" tab.
+2. **Promote to Official**: Verify it moves to the "Dự án chính thức" tab and gains the "Analytics" tab in details.
+3. **Link Campaigns**: Link a mock campaign and verify "Spend" data is pulled into the project's analytics.
+4. **Enter Daily Stats**: Insert manual data for 3 days and check if ROAS/CVR charts update correctly.

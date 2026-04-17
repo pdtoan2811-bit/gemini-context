@@ -1,0 +1,31 @@
+# Walkthrough - Unified Lark Webhook Settings and Sandbox Visibility
+
+I have improved the discoverability and consistency of the Lark integration test features.
+
+## Changes Made
+
+### 1. Unified Webhook Settings
+I replaced the simple inline webhook settings in the main dashboard with the more comprehensive [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308). This modal now includes a "Test Lark Connection" section, allowing you to run test POST requests directly from the dashboard.
+
+### 2. Improved Sandbox Visibility
+I added a "SANDBOX TEST" button directly to the header of the application. This provides immediate access to the dedicated sandbox environment where you can test sprint movements and Lark payloads in isolation.
+
+## Verification
+I have verified that the "SANDBOX TEST" button is present in the header and correctly links to the sandbox page. I have also verified that the "Lark Webhook Settings" modal opens correctly and includes the "Run Test" functionality.
+
+I have also updated the startup scripts to ensure these changes persist and are not hidden by stale caches.
+---
+
+### 🚀 Updated Startup Scripts
+I have updated [start-sprint-relay.bat](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint-relay.bat) and [start-sprint.command](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint.command) to automatically clear the `.next` cache before starting the dev server. This prevents the "disappearing UI" issue by ensuring a clean build every time you start the app.
+
+---
+
+### ⚠️ Note on "Disappearing" UI (Legacy)
+If you are still using an old terminal session, please stop it and use the updated [start-sprint-relay.bat](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint-relay.bat) or [start-sprint.command](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint.command) files to launch the application on the default port 3000.
+
+## How to Test
+1. Click the **"SANDBOX TEST"** button in the header to visit the dedicated sandbox.
+2. Click the **"9 Members"** button (or similar) in the header to open the Webhook Settings.
+3. Scroll down to the **"Test Lark Connection"** section in the modal.
+4. Select a person, (optionally) enter a task URL, and click **"Run Test"**.

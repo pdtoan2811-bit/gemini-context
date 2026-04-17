@@ -1,0 +1,193 @@
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 7 · Jan 5 – Jan 16
+Live Logs
+7
+Members
+Total Tasks
+67
+Bottlenecked
+16
+Doom Loops
+1
+Stale (24h+)
+36
+📌 High Risk
+0
+Personnel
+Tasks
+Daily Meeting
+Sprint Start
+Sortable task table with risk analysis
+Task ID
+Task Name
+Person
+Status
+Risk
+Stale
+recv3K5vuWp6BY
+Xem, tìm kiếm và lọc
+Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recv3K6fvev4vz
+Nạp tiền/Thu tiền
+Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recv3K6oWOWQsx
+Xử lí yêu cầu tài khoản
+Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+Testing
+ELEVATED
+—
+recv3K7Ed9poE0
+Cài đặt cảnh báo
+Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recv3K7M2jDAau
+Xem chi tiết chiến dịch
+Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recv4hrGMxVPt8
+CRUD
+Nguyễn Văn Nam,Lưu Thị Dung
+Reprocess
+ELEVATED
+118
+h
+recvaMJgGg2wEj
+Bug: Keyword, Crawler ko phải của mình thì ẩn nút quét
+Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recvaMJPh9Q4wP
+Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất)
+Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recvccB1jmnaDI
+Fix Bug import Excel project
+Trần Quý Đạt,Đặng Minh Quân,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+118
+h
+recvaTSTAtMsLJ
+Sửa nhiều
+Lưu Thị Dung,Nguyễn Văn Nam,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+68
+h
+recv3K7vh0ZshP
+Xem, tìm kiếm và lọc
+Nguyễn Đình Hồng Phong,Lưu Thị Dung,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+96
+h
+recvaZJ8AYjnBj
+Thêm bộ lọc "Từ trước đến nay"
+Lưu Thị Dung,Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh
+Reprocess
+ELEVATED
+72
+h
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[0] (500,500)<div  />
+	[1] (850,500)<div  />
+		[2] (850,500)<div class='flex flex-col h-full overflow-y-auto w-full' scrollable='true' />
+			recv3K5vuWp6BY
+			Reprocess
+			BOTTLENECK
+			Xem, tìm kiếm và lọc
+			Mar 04, 13:52
+			→
+			Mar 09, 11:58
+			Assigned People
+			Nguyễn Đình Hồng Phong
+			Đặng Minh Quân
+			Nguyễn Thảo Linh
+			[3] (846,240)<button class='w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-all border-zinc-800 bg-zinc-900/50 text-zinc-400' />
+				High Risk
+			Status History
+			Mar 04 13:52
+			Reprocess
+			Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+			Assignee
+			Nguyễn Đình Hồng Phong
+			Module
+			Digital
+			Screen
+			Tài khoản ads
+			Sprint Goal
+			Staging Passed
+			Record Link
+			[4] (854,552)<a class='text-sm text-indigo-300 hover:text-indigo-200 font-mono truncate transition-colors underline underline-offset-2 decoration-indigo-700 hover:decoration-indigo-400' href='https://jsg35lsl9g0c.sg.larksuite.com/record/IGy0rSFCLeMeGscwZbPl64JPg0b'>https://jsg35lsl9g0c.sg.larksuite.com/record/IGy0rSFCLeMeGscwZbPl64JPg0b />
+			Daily Meeting Notes
+			[5] (943,635)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-md shadow-blue-900/30'>Add Today's Note />
+			Mon, Mar 9
+			STALLED
+			Blocked by:
+			Nguyễn Đình Hồng Phong
+			09:11
+			Interrogation Log
+			[6] (832,849)<input class='flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-400' placeholder='Add timestamped context...' />
+			Add
+			Standup Notes
+			[7] (734,964)<label class='text-xs text-zinc-400 font-medium uppercase tracking-wider'>Blocked By />
+		[8] (988,25)<button class='absolute right-4 top-4 rounded-sm opacity-70 ring-offset-zinc-950 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2'>Close />
+			Close

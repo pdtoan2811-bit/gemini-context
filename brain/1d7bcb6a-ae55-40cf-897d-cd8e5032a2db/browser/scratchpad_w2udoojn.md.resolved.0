@@ -1,0 +1,8 @@
+# Sprint Selection Debugging
+
+## Checklist
+- [ ] Navigate to http://localhost:3001/
+- [ ] Find sprint selection dropdown
+- [ ] Select "Sprint 7"
+- [ ] Observe and document behavior (flash, tasks, empty state)
+- [ ] Check for error messages or grid status

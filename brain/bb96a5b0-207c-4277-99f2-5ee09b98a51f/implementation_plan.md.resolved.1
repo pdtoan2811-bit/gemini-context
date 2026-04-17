@@ -1,0 +1,20 @@
+# Grouping Timeline by Day with Hover Effects
+
+## User Request
+The user wants the timeline events separated by day, and each day's block should have a hover effect.
+
+## Proposed Changes
+
+### [src/components/inspector/TaskTimeline.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/TaskTimeline.tsx)
+- **Data Transformation**: After sorting `all` events chronologically, group them into a structure like `Map<string, TimelineEvent[]>` or an array of `{ date: string, events: TimelineEvent[] }`, where the date string is formatted as `yyyy-MM-dd` (or an elegant `EEE, MMM d, yyyy` string like "Mon, Oct 23, 2023"). We will use the local date of the event timestamp.
+- **UI Structure**:
+    - Iterate over the grouped days.
+    - For each day, render a distinct "Day Header" (e.g., a sticky or inline small label indicating the date).
+    - Wrap the day's events inside a continuous `<div className="group relative ... hover:bg-zinc-900/40 rounded-xl transition-colors p-2 -mx-2">`. This provides the desired hover effect for the day's span of events.
+    - Inside this wrapper, render the vertical timeline line (`border-l-2`) and the individual events exactly as they are currently styled. The `border-l-2` can run continuously through the wrapper or be scoped to the wrapper. Scoping it to the wrapper makes the timeline look slightly disconnected between days, which enforces the "separated by each day" vibe.
+- **Micro-interactions**: The hover effect on the day container will slightly brighten the background and perhaps add an elegant very subtle border or drop shadow to emphasize the specific day the user is looking at.
+
+## Verification Plan
+1. The app is already running on port 3001.
+2. I will apply the changes to [TaskTimeline.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/TaskTimeline.tsx).
+3. I will open the browser subagent to visually verify that events are grouped by date headers and that hovering highlights the day group correctly without breaking the connecting timeline lines.

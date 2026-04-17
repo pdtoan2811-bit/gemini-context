@@ -1,0 +1,8 @@
+# Verification Plan: DataConcentrator Animation
+- [ ] Navigate to http://localhost:3001/en
+- [ ] Locate the DataConcentrator component on the page
+- [ ] Confirm 8 Google Ads icons are visible in a circle
+- [ ] Verify icons are not stacked
+- [ ] Confirm glowing trails moving to the center
+- [ ] Check browser console for SVG/cx/cy errors
+- [ ] Assess 'premium' feel and visual quality

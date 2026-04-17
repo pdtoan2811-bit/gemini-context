@@ -1,0 +1,28 @@
+# Task: Unified Task Card & Typography Refinement
+
+- [x] Planning & Design
+    - [x] Create implementation plan
+    - [x] Design high-contrast status UI for light mode
+- [x] Core Implementation
+    - [x] [MODIFY] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with new accent color `#1D3557`
+    - [x] [NEW] Create [TaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskCard.tsx) as a shared component
+    - [x] Implement `module` and `screen` display
+    - [x] Refactor [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/next-sprint/utils.tsx#21-35) and [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/status-utils.tsx#5-21) for light mode
+- [x] Refactoring & Cleanup
+    - [x] Replace `DraggableTaskCard` with unified [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskCard.tsx#50-278) in all views
+    - [x] [DELETE] Remove legacy [DraggableTaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx)
+- [x] UI Refinement (User Feedback)
+    - [x] Balance task card title weight (reduce intensity)
+    - [x] Enhance Module & Screen metadata readability
+    - [x] Clean up `dark:` theme classes for consistent light-mode look
+    - [x] Remove "Sync task" button from [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/PersonSingleView.tsx#56-386) 
+- [x] Typography & Readability (User Feedback)
+    - [x] Refine [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#733-1020) headers and labels
+    - [x] Refine [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/PersonSingleView.tsx#56-386) headers and labels
+    - [x] Refine [NextSprintPlanningView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#42-804) headers
+    - [x] Refine [HistoricalView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/HistoricalView.tsx#26-115) and [DailyRecapView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#552-1066) typography
+    - [x] Balance Title Case vs All-Caps for elegance and clarity
+- [x] Verification
+    - [x] Final visual audit of all headers and refreshed labels
+    - [x] Confirm no build errors
+    - [x] Update project walkthrough

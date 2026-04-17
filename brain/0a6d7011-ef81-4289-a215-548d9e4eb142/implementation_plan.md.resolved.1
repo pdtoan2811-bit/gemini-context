@@ -1,0 +1,29 @@
+# Refine Border Light Animation
+
+The previous implementation of the border light effect had alignment issues and lacked the "elegant" feel requested. I will refactor the `BorderBeam` component to achieve a high-fidelity, premium animation.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **SVG-Based Path:** Replace the CSS `offset-path` with a highly precise SVG `rect` path. This ensures perfect alignment with the `rounded-3xl` corners (24px radius) regardless of aspect ratio.
+- **Improved Gradient & Trail:** Use a longer, more sophisticated gradient trail (e.g., matching the `primary` color with varying opacities) to create a soft, elegant glow.
+- **Soft Glow:** Add a blurred shadow or a secondary blurred layer beneath the beam to create a "light bleed" effect that feels more premium.
+- **Timing & Easing:** Adjust the animation duration and potentially add a subtle ease to the movement if it enhances the feel (though linear is usually best for continuous loops, we can experiment with the trail length).
+
+## Technical Details
+
+- Use `motion.path` with `stroke-dasharray` and `stroke-dashoffset` for the "running" effect. This is the gold standard for high-fidelity border animations.
+- Ensure the SVG is positioned with `inset: -1px` to perfectly overlap the parent's border.
+- The beam will be masked using the same `mask-image` technique to ensure it only appears within the border stroke area.
+
+## Verification Plan
+
+### Manual Verification
+- Render the Bento Grid.
+- Hover over items and verify:
+    - The light beam matches the border path perfectly (no gaps or offsets).
+    - The corners look smooth and correctly rounded.
+    - The "trail" is soft and has a subtle glow.
+- Check visibility across both Light and Dark modes.

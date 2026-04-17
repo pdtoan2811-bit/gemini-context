@@ -1,0 +1,27 @@
+# Anthropic Mythos Sarcastic Short (Asset & Visual Engine Upgrades)
+
+I successfully overhauled the visual engine, the relevance of the photography, and expanded the Reddit mock up dynamically!
+
+## What Was Improved
+
+1. **Contextually Strict Image Curation**
+    - The `fetch-images-mythos-sarcastic.ts` script was completely rewritten. Instead of generating ambiguous, literal terms (like `"grocery shopping list"` or `"B2B handshake"`), I manually engineered high-context queries for Tavily.
+    - The terms now uniformly blend `cybersecurity`, `artificial intelligence`, `glowing code`, and `neural networks`. 
+    - The Tavily script successfully dumped 18 highly relevant, hyper-cinematic tech backgrounds to replace the old ones.
+
+2. **Cinematic Aspect Ratio Fitting (The "Letterbox Blur")**
+    - The previous implementation tried to stretch horizontal photos natively across a vertical 9:16 frame using `objectFit: cover`. This resulted in the user's frustrating "awful confusion" where images were zoomed in `400%` directly into the center.
+    - I completely redesigned `<BaseBackground>`. Instead of cropping:
+        1. A deeply blurred and darkened version of the image fills the complete vertical space.
+        2. A perfectly preserved, `objectFit: contain` version of the uncropped image floats on top.
+    - This allows horizontal scrapes to exist flawlessly within the vertical composition without generating any ugly black bars.
+
+3. **Reddit Thread Discussion Context**
+    - The `<RedditThread>` clone was updated from just an Original Post to a full threaded view.
+    - I expanded `fetch-reddit-sentiment.ts` to output a nested `commentsArray` structure.
+    - The UI now iteratively maps these comments directly beneath the post, displaying differing avatars, nested indentations, and independent upvote bars to visually simulate scrolling into the real discourse of a popular thread.
+
+You can preview all 18 updated cinematic scenes and the scrolling Reddit comment hierarchy by running:
+```bash
+npm run dev
+```

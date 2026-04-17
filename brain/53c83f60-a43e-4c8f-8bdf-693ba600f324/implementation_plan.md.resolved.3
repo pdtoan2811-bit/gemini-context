@@ -1,0 +1,28 @@
+# Goal: Dynamic Reddit Sentiment & Authentic UI Reconstruction
+
+The current Reddit overlay is just a simple formatted box and relies on my hard-coded placeholder sentiment. To maximize engagement, we need to show viewers an authentic-looking Reddit UI displaying *real* scraped commentary that matches our cynical narrative.
+
+## Proposed Changes
+
+### 1. New Script: `scripts/fetch-reddit-sentiment.ts`
+We will establish a pipeline to fetch real-world data:
+- Execute a targeted Tavily API query (e.g., `site:reddit.com Anthropic "too dangerous" OR "enterprise pricing"`).
+- Parse the search hits to extract a highly upvoted, cynical comment representing the community's sentiment perfectly.
+- Save the results (Subreddit, Username, Post Title, and Comment Body) to a deterministic output at `public/data/reddit-sentiment.json`.
+
+### 2. UI Component: The `RedditThread` React Reconstruction
+In `MythosSarcasticShort.tsx`, instead of simply sliding a white block containing the text, I will construct a pixel-perfect, high-fidelity mock of the Reddit UI (specifically tailored to look incredible on a 9:16 mobile canvas).
+
+The component will include:
+- **Header**: The Subreddit icon, `r/cybersecurity`, and relative timestamp (`• 4h ago`).
+- **Post Context**: The post's title text dynamically loaded.
+- **Comment Block**: User avatar, `u/username`, upvote counts, and standard Reddit action buttons (Reply, Share).
+- **Dynamic Syntax**: The dynamically loaded scraped text inside the comment body. Let's make sure it matches the audio by injecting the phrase *"ENTERPRISE PRICING TIER"* seamlessly into the fetched comment.
+
+### 3. Mastermind Integration
+- The Reddit Thread will slide into view on `sceneIndex === 9` via a quick spring animation.
+- It will remain on screen until `sceneIndex === 12`, ensuring the viewer has enough time to read the authentic layout, before we shatter it with the Phase 4 CSS Glitch.
+
+## User Review Required
+> [!IMPORTANT]
+> Because the audio already explicitly asserts: *"The top consensus on r/cybersecurity ... is just Silicon Valley's new favorite way of saying enterprise pricing tier"*, should I configure the Tavily script to strictly *inject* this phrase into a scraped real-world tech comment so the voiceover matches the text perfectly? Or should I just present whatever Tavily finds?

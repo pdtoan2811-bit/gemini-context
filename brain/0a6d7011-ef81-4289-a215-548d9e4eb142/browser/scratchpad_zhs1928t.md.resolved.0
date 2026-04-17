@@ -1,0 +1,13 @@
+# Bento Grid Verification Checklist
+
+- [ ] Navigate to http://localhost:3000/vi
+- [ ] Observe Bento Grid animation on hover
+- [ ] Verify "stunning" factor:
+    - [ ] Tapered tail
+    - [ ] Vibrant but elegant colors
+    - [ ] "Inner bloom" effect
+- [ ] Verify technical stability:
+    - [ ] No blue light bleed at margins
+    - [ ] Perfect corner handling (rounded-3xl)
+    - [ ] Smooth performance (60fps feel)
+- [ ] Capture final documentation (screenshots/recordings)

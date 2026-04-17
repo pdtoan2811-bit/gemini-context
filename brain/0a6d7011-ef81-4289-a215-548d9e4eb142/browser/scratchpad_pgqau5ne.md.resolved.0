@@ -1,0 +1,9 @@
+# Task: Verify Bento Grid Hover Effects
+
+- [ ] Navigate to http://localhost:3001/vi
+- [ ] Locate Bento Grid section
+- [ ] Hover over a Bento box
+- [ ] Verify no y-translation (box doesn't move up)
+- [ ] Verify no x-translation (content doesn't shift)
+- [ ] Verify elegant light beam effect
+- [ ] Take screenshot while hovering

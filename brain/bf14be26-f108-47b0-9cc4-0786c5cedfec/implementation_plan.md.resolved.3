@@ -1,0 +1,40 @@
+# AI Agent Animation: Multi-language & Theme Refinement
+
+This plan addresses the need for dual-language support (EN/VI) and aesthetic refinement for both Light and Dark modes in the AI Agent animation.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Translation Keys**: I will add new translation keys under `landing.features.aiAgentAnimation` in both English and Vietnamese locale files. This ensures the animation content updates dynamically based on the user's selected language.
+
+## Proposed Changes
+
+### [Component] Translation Integration
+#### [MODIFY] [en/client.json](file:///c:/Users/Admin/Desktop/prod-2-adecos/messages/en/client.json)
+#### [MODIFY] [vi/client.json](file:///c:/Users/Admin/Desktop/prod-2-adecos/messages/vi/client.json)
+- Add the following keys:
+    - `userPrompt`: Chat input example.
+    - `thinking`: AI status text.
+    - `chartTitle`: Specific niche trend title.
+    - `chartSubtitle`: Date-specific subtitle.
+    - `suggestedAction`: Recommendation text.
+    - `applyButton`: CTA primary text.
+    - `applyingButton`: Loading state text.
+
+### [Component] AI Agent Animation Refinement
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- Use `useTranslations` to map hardcoded strings to the new keys.
+- **Theme Polishing**:
+    - Adjust Chat bubble background/text for better readability in Light mode.
+    - Refine the "Adecos AI is thinking" spinner and text colors.
+    - Enhance the Bar Chart colors to ensure high contrast against both white and black backgrounds.
+    - Use `bg-white/80 dark:bg-black/80` with `backdrop-blur` for the suggested action overlay to feel integrated into the theme.
+
+## Verification Plan
+
+### Automated Tests
+- Use the browser subagent to switch between `/en` and `/vi` locales and verify text updates.
+- Toggle Light/Dark mode in the browser and verify color contrast.
+
+### Manual Verification
+- Ensure the spring animations remain smooth while the content changes.

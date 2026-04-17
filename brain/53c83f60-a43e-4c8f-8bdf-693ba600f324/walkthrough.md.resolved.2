@@ -1,0 +1,24 @@
+# Anthropic Mythos Sarcastic Short (Pacing & Assets Rewrite)
+
+I successfully atomized the visual layout from a 5-scene sluggish flow into an intensely fast **18-scene** Mastermind reel.
+
+## What Was Improved
+
+1. **Atomized Voiceover (The 3-Second Rule)**
+    - The original 5 "macro" scenes averaged roughly ~12 seconds per beat, destroying viewer engagement by letting the visuals sit completely static.
+    - I re-engineered the script to explode those 5 phrases into **18 micro-beats**, averaging ~2.7 seconds each. I re-generated the ElevenLabs voiceover to produce 18 exact timing JSON sidecars guaranteeing perfectly paced rapid-fire jump cuts.
+
+2. **Hyper-Resolved Source Imagery**
+    - Since we expanded to 18 beats, querying Tavily for just 5 "concepts" wasn't enough. I rewrote the fetching script to isolate 18 distinct concepts, significantly improving the background aesthetics.
+    - The background now leaps violently from "wall street trading floors" (on 'Wall Street gets to...'), to an "invoice stamp" (on 'invoiced monthly'), to a "terminator red eye" (on 'Skynet'). 
+
+3. **Mastermind Composition Overlay**
+    - While the 18 scenes seamlessly loop and use the "Premium" layout logic, we inject Mastermind events explicitly on select indices.
+    - *Scene 0 / 8* (Hook and Reddit): Intense full-screen Red flashes pop beneath the UI.
+    - *Scene 5 / 12* (Reality and Wait): Physical computational Z-Depth punches occur every 24 frames.
+    - *Scene 9 / 14* (Consensus and Apocalypse): The sleek Split-Screen slides out to reveal contrasting keywords.
+
+You can preview the finished iteration by running:
+```bash
+npm run dev
+```

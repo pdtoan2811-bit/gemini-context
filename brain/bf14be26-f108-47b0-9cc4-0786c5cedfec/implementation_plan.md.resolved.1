@@ -1,0 +1,36 @@
+# Feature Animation: AI Agent Showcase
+
+Create a high-fidelity React animation using `framer-motion` to demonstrate the "AI Agent" workflow: User Chat -> AI Analysis -> Data Visualization -> Actionable CTA.
+
+## Proposed Changes
+
+### [Component] Feature Showcase
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- Replace `SkeletonOne` with a new, dynamic `AIAgentPreview` component.
+- The component will cycle through a repeating animation loop:
+    1. **User Input Phase**: A realistic chat message slides in.
+    2. **Processing Phase**: Animated typing/thinking indicator.
+    3. **Visualization Phase**: Transition from chat bubbles into a functional, animated bar chart.
+    4. **Action Phase**: Reveal an "Add to Dashboard" or "Export" button to show the actionable nature of the tool.
+
+### [Component] Animation Logic
+- Use **Motion Variants** for smooth transitions between "Chat Mode" and "Chart Mode".
+- Implement a **Layout Animation** so the container expands/contracts naturally.
+- Add **Staggered Bar Animations** for the chart reveal.
+
+## User Review Required
+
+> [!TIP]
+> **Action Button**: For the final "Action" button, I propose using "Lưu vào dự án" (Save to Project) or "Thêm vào Dashboard" to match the app's core value proposition.
+
+> [!NOTE]
+> **Loop Timing**: I will set the loop to roughly 6-8 seconds to allow users to follow the sequence without it feeling rushed or repetitive.
+
+## Verification Plan
+
+### Automated Tests
+- Build check: `npm run build`
+
+### Manual Verification
+- Visual inspection via browser to ensure the animation is smooth and doesn't cause layout shift in the Bento Grid.
+- Verify color harmony with the Vercel-style dark mode.

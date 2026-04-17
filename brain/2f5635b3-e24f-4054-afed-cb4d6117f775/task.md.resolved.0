@@ -1,0 +1,7 @@
+# Implement Reversed Unified Timeline
+
+- [ ] Combine status history and meeting notes into a single timeline array
+- [ ] Sort unified timeline in descending order (newest first)
+- [ ] Update duration calculation logic for descending order
+- [ ] Render meeting note events distinctly within the status timeline
+- [ ] Remove duplicate meeting notes list from the bottom of the inspector

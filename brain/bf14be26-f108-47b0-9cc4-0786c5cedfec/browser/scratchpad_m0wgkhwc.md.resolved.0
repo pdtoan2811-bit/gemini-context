@@ -1,0 +1,7 @@
+# Task: Capture DataConcentrator animation screenshots
+
+- [ ] Navigate to http://localhost:3001/en
+- [ ] Locate DataConcentrator section
+- [ ] Confirm no border and no shadow
+- [ ] Capture Light Mode screenshot
+- [ ] Capture Dark Mode screenshot

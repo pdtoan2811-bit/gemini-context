@@ -1,0 +1,36 @@
+# Replace Bento Box Hover Effects with Border Light Animation
+
+The user wants to remove the current scaling/translation hover effects on the Bento Grid items and replace them with an "elegant border light running effect."
+
+## Proposed Changes
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+
+#### [MODIFY] [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Remove the `whileHover={{ y: -5 }}` scaling/translation effect.
+- Remove the `group-hover/bento:translate-x-2` effect from the content.
+- Remove `hover:shadow-xl` to keep the focus on the border light.
+- **[NEW]** Integrate the `BorderBeam` component inside each `BentoGridItem`.
+- Set the `BorderBeam` to be visible only on hover of the parent `group/bento`.
+
+### [NEW] Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/BorderBeam.tsx)
+
+#### [NEW] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/BorderBeam.tsx)
+Create a new component that renders a "running light" beam along the border of its parent container. 
+- It will use a `motion.div` with a gradient that follows the container's perimeter.
+- It will be absolutely positioned with `pointer-events-none`.
+- It will use an animation that feels "elegant" (subtle speed, soft gradient edges).
+
+## Open Questions
+- Should the light color match the `--primary` color (blue in light mode, lighter blue in dark mode)?
+- Do you want the light to run in a continuous loop or just a single pass on hover? (I'll assume a continuous loop while hovered for the "running" effect).
+
+## Verification Plan
+
+### Manual Verification
+- Navigate to the page containing the Bento Grid (likely Landing page).
+- Hover over the items and verify:
+    - Items no longer shift position or scale.
+    - Content inside items stays static.
+    - A smooth light beam travels along the border.
+- Verify visibility in both **Light** and **Dark** modes.

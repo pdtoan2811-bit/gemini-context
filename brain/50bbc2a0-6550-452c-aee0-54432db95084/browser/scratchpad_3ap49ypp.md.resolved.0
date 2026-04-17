@@ -1,0 +1,11 @@
+# Task: Check if app at http://localhost:5173/ shows a blue screen with "APP COMPONENT IS WORKING"
+
+## Plan
+- [ ] Navigate to http://localhost:5173/
+- [ ] Verify if "APP COMPONENT IS WORKING" is present
+- [ ] Verify if the screen is blue
+- [ ] Check console logs for errors if the screen is blank or not as expected
+- [ ] Report final status
+
+## Findings
+- 

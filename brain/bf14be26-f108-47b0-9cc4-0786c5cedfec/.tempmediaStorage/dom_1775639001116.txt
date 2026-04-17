@@ -1,0 +1,47 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Adecos Intelligence Engine
+[0] (711,125)<div  />
+	[1] (711,125)<div  />
+		[2] (711,125)<img  />
+	[3] (711,178)<div  />
+[4] (648,256)<div  />
+	[5] (648,256)<div  />
+		[6] (648,256)<img  />
+	[7] (648,309)<div  />
+[8] (497,311)<div  />
+	[9] (497,311)<div  />
+		[10] (497,311)<img  />
+[11] (347,256)<div  />
+	[12] (347,256)<div  />
+		[13] (347,256)<img  />
+	[14] (347,309)<div  />
+[15] (284,125)<div  />
+	[16] (284,125)<div  />
+		[17] (284,125)<img  />
+	[18] (284,178)<div  />
+[19] (347,46)<div  />
+[20] (648,46)<div  />
+Trusted by teams optimizing at scale:
+Adecos AI became our unfair advantage in affiliate marketing—
+spotting winning offers and scaling ROAS with confidence.
+—
+Performance Marketing Lead
+Trusted by teams optimizing at scale:
+Forbes
+HubSpot
+Shopify
+Nielsen
+Impact
+Partnerize
+Awin
+Rakuten Advertising
+Forbes
+HubSpot
+Shopify
+Nielsen
+Impact
+
+</current_dom>

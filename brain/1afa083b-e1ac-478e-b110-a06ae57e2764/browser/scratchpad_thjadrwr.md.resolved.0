@@ -1,0 +1,11 @@
+# Task: Verify Personnel Bottleneck Board Data
+
+## Progress Tracker
+- [ ] Open http://localhost:3000
+- [ ] Wait for page to load (spinner gone)
+- [ ] Capture screenshot
+- [ ] Verify personnel names on Y-axis (expecting Vietnamese names)
+- [ ] Final report
+
+## Observations
+- 

@@ -1,0 +1,14 @@
+# Task: Verify Daily Meeting View Features
+
+## Plan
+- [ ] Open http://localhost:3000
+- [ ] Navigate to Daily Meeting View
+- [ ] Verify "Single Person" view features:
+    - [ ] Click 'Single Person' view
+    - [ ] Add a task to 'Today's Plan' if needed
+    - [ ] Click 'Sync task to others' (refresh icon)
+    - [ ] Capture screenshot of Sync Popover
+- [ ] Verify "Squads" view features:
+    - [ ] Click 'Squads' button
+    - [ ] Click 'Squad Filter' dropdown
+    - [ ] Capture screenshot of Squad Filter popover

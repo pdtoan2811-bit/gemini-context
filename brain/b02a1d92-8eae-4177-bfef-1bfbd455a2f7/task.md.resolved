@@ -1,0 +1,6 @@
+- `[x]` Install dependencies (`pnpm install`)
+- `[x]` Create `.env` from `.env.example`
+- `[x]` Generate `NEXTAUTH_SECRET`
+- `[ ]` Configure Database and Keycloak (Waiting for user input or setting up local defaults)
+- `[ ]` Run `pnpm prisma generate`
+- `[ ]` Start development server (`pnpm dev`)

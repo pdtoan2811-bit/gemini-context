@@ -1,0 +1,14 @@
+- [ ] Data Model & Hook Updates
+    - [ ] Update `useProjects.js` state for `isOfficial`, `dailyStats`, etc.
+    - [ ] Add `promoteToOfficial` and `updateDailyStats` functions.
+- [ ] Projects Page Integration
+    - [ ] Implement Tabs in `ProjectsPage.jsx`.
+    - [ ] Add "Promote" action for unofficial projects.
+- [ ] Project Analytics Tab
+    - [ ] Create `AnalyticsTab.jsx` component (or integrate into `ProjectDetailPage.jsx`).
+    - [ ] Implement Ads Campaign lookup and linking.
+    - [ ] Implement Daily Results manual entry form.
+    - [ ] Implement ROAS/CVR charts and summary cards.
+- [ ] AI Agent Save Logic
+    - [ ] Update `ResultsTable.jsx` to mark new saves as unofficial.
+- [ ] Verification & Polish

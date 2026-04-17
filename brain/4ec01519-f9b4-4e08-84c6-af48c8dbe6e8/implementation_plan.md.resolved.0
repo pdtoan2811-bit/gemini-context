@@ -1,0 +1,24 @@
+# Pull and Override Code
+
+Override the local `sprint-relay` code with the specified branch from `https://github.com/pdtoan2811-bit/sprintDebugStaging`.
+
+## User Review Required
+
+> [!WARNING]
+> This will perform a `git reset --hard`, which will **permanently delete** any uncommitted local changes and any commits that are not present in the remote repository.
+
+## Proposed Changes
+
+### [Git Operations]
+
+#### [ACTION] [Update Git Remote]
+- Add the new remote URL: `https://github.com/pdtoan2811-bit/sprintDebugStaging` (as `staging` or update `origin`).
+- Fetch the latest changes from the remote.
+- Perform a `git reset --hard` to the remote's main branch (e.g., `staging/main` or `staging/master`).
+
+## Verification Plan
+
+### Automated Tests
+- Run `git status` after the reset to confirm the state.
+- Run `git log -1` to verify the latest commit matches the remote.
+- Run `npm run dev` (if applicable) to ensure the application starts correctly.

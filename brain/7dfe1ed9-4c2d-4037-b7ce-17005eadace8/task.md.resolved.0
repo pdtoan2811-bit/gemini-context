@@ -1,0 +1,3 @@
+- [ ] Update `globals.css` to redefine `.highlight-gradient` with a static elegant effect
+- [ ] Update `Hero.tsx` with optimized typography sizes, tracking, and margins
+- [ ] Verify the changes visually and ensure responsiveness

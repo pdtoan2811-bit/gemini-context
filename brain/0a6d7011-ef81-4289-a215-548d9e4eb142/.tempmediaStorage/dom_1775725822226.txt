@@ -1,0 +1,49 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Phân tích xu hướng CPC cho AI SaaS tuần này giúp tôi.
+Hỏi tôi bất cứ điều gì...
+Trợ lý AI
+Chat với Adecos AI. Đặt câu hỏi, nhận gợi ý prompt và khởi chạy Deep Research từ cùng một giao diện. Thiết kế cho quy trình affiliate và e-commerce.
+Shopify Partners
+200% Bounty
+[0] (801,40)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 size-6 h-6 w-6 shrink-0 bg-primary/5 hover:bg-primary/10' />
+Fiverr Affiliates
+200% Bounty
+[1] (801,103)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 size-6 h-6 w-6 shrink-0 bg-primary/5 hover:bg-primary/10' />
+Đã xác minh
+Nghiên cứu sâu
+Chạy tác vụ research từ chat. Theo dõi tiến trình trên panel nổi có thể kéo và thu gọn. Xem log và kết quả tại trang quản lý với dạng danh sách hoặc lưới.
+Thống kê
++24% ROI
+Doanh thu
+$
+0
+Lợi nhuận
+$
+0
+Chuyển đổi
+0
+CPA
+$
+0
+Phân tích
+Dashboard kiểu Google Ads: lọc theo tài khoản, chương trình, từ khóa; xem KPI; nhóm theo ngày, tuần hoặc tháng. Biểu đồ chi phí & doanh thu, traffic và chuyển đổi dễ đọc.
+Mới tìm thấy
+2
+Shopify Plus
+$200
++1
+Canva Pro
+25%
++1
+Đã lưu
+1
+NordVPN Aff
+40%
++1
+Đang chạy Ads
+1
+
+</current_dom>

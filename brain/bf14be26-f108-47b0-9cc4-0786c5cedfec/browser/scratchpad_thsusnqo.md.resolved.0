@@ -1,0 +1,11 @@
+# Task: Capture DataConcentrator animation and check hydration errors.
+
+## Roadmap
+- [ ] Navigate to http://localhost:3001/en
+- [ ] Switch to Light Mode
+- [ ] Locate and screenshot DataConcentrator animation
+- [ ] Capture console logs for hydration errors
+- [ ] Report findings
+
+## Findings
+- 

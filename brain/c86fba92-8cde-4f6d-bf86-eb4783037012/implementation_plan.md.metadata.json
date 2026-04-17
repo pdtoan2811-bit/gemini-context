@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Plan for two features: (1) Sprint Start status snapshot — a new tab with a table to confirm/edit the auto-detected starting status of each task at sprint start, backed by a persistence hook. (2) Record Link display in the task inspector. Includes types, hook, component, and integration details.",
+  "updatedAt":  "2026-03-09T04:46:48.542601200Z"
+}

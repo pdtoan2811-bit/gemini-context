@@ -1,0 +1,7 @@
+# Edit & Delete Meeting Notes
+
+- [x] Explore codebase — understand data model, hook, and UI
+- [x] Write implementation plan
+- [x] Wire `updateNote` and `deleteNote` from [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) → [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#49-728)
+- [x] Add edit/delete UI to each note card in [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- [/] Verify via browser

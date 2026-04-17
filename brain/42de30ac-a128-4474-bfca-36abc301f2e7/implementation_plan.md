@@ -1,0 +1,53 @@
+# Next Sprint Planning Feature Implementation Plan
+
+## Goal Description
+Implement a new "Next Sprint Planning" feature that allows users to create draft statuses for tasks to be moved to a future sprint. It will use a squad and individual grouping approach similar to the Daily Meeting View. Users can review uncompleted tasks from the current sprint, assign Draft Status, Target Sprint, and Sprint Goal, and then trigger a bulk update via the existing Lark webhook integration.
+
+## User Review Required
+> [!IMPORTANT]
+> The exact JSON payload expected by your Lark webhook for "bulk updating sprint, status, and sprintGoal" must be confirmed. The plan below proposes sending a payload like this to the existing `/api/send-todo-webhook` endpoint (which forwards it to Lark). Is this shape correct for your Lark Bot?
+> ```json
+> {
+>   "person": "John Doe",
+>   "eventType": "bulk_sprint_planning",
+>   "targetSprint": "24",
+>   "plannedTasks": [
+>     {
+>       "taskId": "TASK-123",
+>       "taskName": "Example Task",
+>       "targetStatus": "Not Started",
+>       "targetSprintGoal": "Finish API integration"
+>     }
+>   ]
+> }
+> ```
+> Please confirm or provide the exact JSON structure your Lark webhook expects for this bulk update action.
+
+## Proposed Changes
+
+### `src/lib/hooks`
+#### [MODIFY] `useNextSprintPlan.ts`
+- Refactor the hook to store drafts by `taskId` instead of `person` so that tasks drafted by a squad are shared. The structure will be `Record<string, DraftTask>`, making it a global pool of drafted tasks for the sprint.
+
+### `src/components/dashboard`
+#### [MODIFY] `NextSprintPlanningView.tsx`
+- Implement a "Squad Mode" identical in look and feel to `DailyMeetingView`'s `SquadsView`.
+- **Top Row:** A multi-select visual "Gradually form your squad" selector.
+- **Left Column ("Squad Backlog"):** Show uncompleted tasks assigned to *any* of the selected squad members. Group them beautifully into "Shared Tasks" and "Individual Tasks".
+- **Right Column ("Squad Plan"):** Display tasks that have been added to the Next Sprint Draft. 
+- Provide global "Bulk Edit" inputs at the top of the Squad Plan to let the user set a global Target Sprint and Sprint Goal for all drafted tasks, and inline status pickers per task.
+- Provide a single "Confirm & Sync All" button that iterates over every drafted task, builds the webhook payload, and dispatches it in one bulk action to the Lark bot via `/api/send-todo-webhook`.
+
+### `src/app`
+#### [MODIFY] `page.tsx`
+- Add a new tab `nextSprint` to the `tabs` array.
+- Render the `NextSprintPlanningView` when the tab is active.
+- Pass `analyses`, `rawLogs`, and `activeSprint` as props so the new view can filter uncompleted tasks.
+
+## Verification Plan
+
+### Automated/Manual Testing
+- **UI Testing:** Verify that clicking the "Next Sprint Planning" tab opens the new view.
+- **Data Filtering:** Verify that only "uncompleted" tasks from the active sprint appear in the selection list.
+- **Draft Persistence:** Verify that modifying the draft `targetStatus` or `targetSprintGoal` persists in the UI without losing data.
+- **Webhook Integration:** Use the `/sandbox` route or network dev tools to verify the exact JSON payload sent to the webhook matches the expected shape.

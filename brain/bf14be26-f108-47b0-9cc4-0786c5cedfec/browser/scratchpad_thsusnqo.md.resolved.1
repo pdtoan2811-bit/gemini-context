@@ -1,0 +1,14 @@
+# Task: Capture DataConcentrator animation and check hydration errors.
+
+## Roadmap
+- [x] Navigate to http://localhost:3001/en
+- [x] Switch to Light Mode
+- [x] Locate and screenshot DataConcentrator animation
+- [x] Capture console logs for hydration errors
+- [ ] Report findings
+
+## Findings
+- Switched to Light Mode successfully.
+- Screenshot of DataConcentrator animation captured: `dataconcentrator_animation_light_mode_1775638767737.png`.
+- Hydration errors detected in console related to `motion.div` in the animation. Specifically, mismatches in `opacity` and `transform` values between server and client.
+- The errors appear to be related to the `DataConcentrator` component's animations being initialized differently on the server vs client.

@@ -1,0 +1,4 @@
+- [x] Install dependencies with `pnpm install`
+- [x] Generate Prisma client with `pnpx prisma generate`
+- [x] Create `start.bat` file
+- [x] Verify setup

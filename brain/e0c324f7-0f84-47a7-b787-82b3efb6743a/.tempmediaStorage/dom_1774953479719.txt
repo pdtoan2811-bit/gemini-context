@@ -1,0 +1,210 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,56)<a class='group block' href='/' />
+		[2] (71,45)<h1 >Adecos />
+		[3] (71,76)<p >AI-Powered Platform />
+	[4] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,165)<div  />
+			[6] (20,165)<span  />
+			[7] (47,165)<span >AI Agent />
+	[8] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,224)<div  />
+			[10] (20,224)<span  />
+			[11] (56,224)<span >Quản lý dự án />
+		[12] (119,224)<span >1 />
+	[13] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,282)<div  />
+			[15] (20,282)<span  />
+			[16] (53,282)<span >Quản lý Ads />
+	[17] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (43,341)<div  />
+			[19] (20,341)<span  />
+			[20] (51,341)<span >Thí nghiệm />
+	[21] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (50,399)<div  />
+			[23] (20,399)<span  />
+			[24] (58,399)<span >Deep Research />
+	[25] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,458)<div  />
+			[27] (20,458)<span  />
+			[28] (48,458)<span >Analytics />
+	[29] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,516)<div  />
+			[31] (20,516)<span  />
+			[32] (51,516)<span >Thông báo />
+	MVP v1.0
+	[33] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	[34] (571,500)<div class='flex-1 p-8 overflow-auto bg-[var(--bg-primary)] transition-colors duration-300' scrollable='true' />
+		2026-12-25
+		-
+		19,394,055
+		0
+		+
+		0
+		0.00
+		x
+		[35] (896,54)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[36] (916,54)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-24
+		-
+		18,613,501
+		0
+		+
+		0
+		0.00
+		x
+		[37] (896,122)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[38] (916,122)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-23
+		-
+		15,729,271
+		0
+		+
+		0
+		0.00
+		x
+		[39] (896,191)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[40] (916,191)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-22
+		-
+		20,507,883
+		0
+		+
+		0
+		0.00
+		x
+		[41] (896,259)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[42] (916,259)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-21
+		-
+		21,308,812
+		0
+		+
+		0
+		0.00
+		x
+		[43] (896,328)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[44] (916,328)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-20
+		-
+		21,046,158
+		0
+		+
+		0
+		0.00
+		x
+		[45] (896,396)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[46] (916,396)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-19
+		-
+		17,226,542
+		0
+		+
+		0
+		0.00
+		x
+		[47] (896,465)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[48] (916,465)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-18
+		-
+		17,787,063
+		0
+		+
+		0
+		0.00
+		x
+		[49] (896,533)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[50] (916,533)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-17
+		-
+		19,222,353
+		0
+		+
+		0
+		0.00
+		x
+		[51] (896,602)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[52] (916,602)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-16
+		-
+		14,183,443
+		0
+		+
+		0
+		0.00
+		x
+		[53] (896,670)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[54] (916,670)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-15
+		-
+		21,479,441
+		0
+		+
+		0
+		0.00
+		x
+		[55] (896,739)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[56] (916,739)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-14
+		-
+		12,639,066
+		0
+		+
+		0
+		0.00
+		x
+		[57] (896,807)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[58] (916,807)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-13
+		-
+		22,417,347
+		0
+		+
+		0
+		0.00
+		x
+		[59] (896,876)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[60] (916,876)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		2026-12-12
+		-
+		19,440,397
+		0
+		+
+		0
+		0.00
+		x
+		[61] (896,944)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[62] (916,944)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+
+</current_dom>

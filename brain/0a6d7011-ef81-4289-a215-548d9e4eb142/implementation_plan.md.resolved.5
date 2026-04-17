@@ -1,0 +1,37 @@
+# Stabilize Bento Grid Performance and Alignment
+
+The site is currently experiencing performance lag and visual artifacts (glowing bars at screen edges) due to unconstrained SVG filters and layout mismatches. I will implement a high-performance refactor.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I am replacing the SVG-based "glow" with a hardware-accelerated CSS approach. This will eliminate the screen-wide repaint issues and resolve the performance lag immediately.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Remove All SVG Filters:** Transition from SVG `filter` primitives to CSS `box-shadow` and `blur`.
+- **Absolute Clipping:** 
+    - Wrap the animation in a container with `-inset-[1px]` and `overflow-hidden`.
+    - Ensure the SVG itself has `overflow-clip` or equivalent to prevent repaint bleed.
+- **Precision Curvature:** Sync the curvature specifically with the parent's `rounded-3xl` (24px) to prevent corner gaps.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+
+#### [MODIFY] [BentoGridItem](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- **Check Wrapper Div:** Ensure the outer `div` (the one with the border) is the **only** positioning context for the `BorderBeam`.
+- Ensure the `overflow-hidden` on the outer div is strictly enforced.
+
+## Technical Details
+
+- Use a `motion.div` that travels along the perimeter using `offsetPath: "inset(0 round 24px)"`. This is widely supported and much more performant for simple "light source" effects than animating large SVG rects with blurs.
+- The "glow" will be created using a CSS `box-shadow` or `radial-gradient` on the moving div, which is composited by the GPU.
+
+## Verification Plan
+
+### Manual Verification
+- **Performance:** Verify scroll and hover are 60fps. Ensure no blue light appears at the browser margins.
+- **Alignment:** Verify the beam is 100% flush with the border on all 3 bento boxes.
+- **Dark/Light Mode:** Ensure the effect is elegant and visible in both.

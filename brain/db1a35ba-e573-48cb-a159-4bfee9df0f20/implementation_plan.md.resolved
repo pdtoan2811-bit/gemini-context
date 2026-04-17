@@ -1,0 +1,65 @@
+# Refactoring Plan for Dashboard Views
+
+## Goal Description
+The goal is to refactor [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) and [NextSprintPlanningView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx) to get better structured code. This will reduce the context size needed for AI to understand the files and will make future coding implementations easier and faster, without breaking any existing functionality. 
+
+### Diagnosis (Code Smells Identified):
+- **Monolithic Components**: [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) is over 3,000 lines and contains multiple large sub-components ([PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#809-1157), [HistoricalView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1166-1284), [CompareView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1294-1831), [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#514-703), [SyncTaskDropdown](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#713-793)).
+- **Mixed Concerns**: It mixes complex data transformation logic (e.g., [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-229), webhook formatting) with UI rendering.
+- **High Cognitive Load**: The sheer file size makes it hard for AI models (and humans) to quickly grok the context.
+
+## Proposed Changes
+
+We will apply the "Extract Method" and "Extract Class/Module" refactoring patterns to break down the monolithic files into cohesive, smaller modules.
+
+### Component: Daily Meeting View
+We will create a new directory `src/components/dashboard/daily-meeting/` to house the extracted chunks.
+
+#### [NEW] `src/components/dashboard/daily-meeting/types.ts`
+- Move shared types ([CategoryFilterKey](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#68-69), [PersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#78-85), [TaskCategory](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#60-67), [TodoWebhookItem](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#348-362), [TodoWebhookPayload](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#363-375), etc.) here.
+
+#### [NEW] `src/components/dashboard/daily-meeting/utils.ts`
+- Extract pure helper functions such as [getLatestMeetingNote](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#93-99), [hasActivityInSprint](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#100-114), [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-229), [getVisibleTaskCount](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#230-239), [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#67-75), [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#76-90), [formatStaleHours](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#264-271), [formatCorporateName](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#272-295), [formatTodoListForDM](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#296-347), [formatTodoListForWebhook](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#376-453), and [sendTodoListToWebhook](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#454-494).
+
+#### [NEW] `src/components/dashboard/daily-meeting/DraggableTaskCard.tsx`
+- Extract the [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#514-703) component and its props interface.
+
+#### [NEW] `src/components/dashboard/daily-meeting/SyncTaskDropdown.tsx`
+- Extract the [SyncTaskDropdown](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#713-793) component.
+
+#### [NEW] `src/components/dashboard/daily-meeting/PersonSingleView.tsx`
+- Extract the [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#809-1157) component.
+
+#### [NEW] `src/components/dashboard/daily-meeting/HistoricalView.tsx`
+- Extract the [HistoricalView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1166-1284) component.
+
+#### [NEW] `src/components/dashboard/daily-meeting/CompareView.tsx`
+- Extract the [CompareView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1294-1831) component.
+
+#### [MODIFY] [src/components/dashboard/DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- Refactor the main file to act purely as an aggregator, importing the extracted types, utilities, and sub-components. This should reduce its size dramatically (by ~70%).
+
+### Component: Next Sprint Planning View
+We will create a new directory `src/components/dashboard/next-sprint/` to better organize it.
+
+#### [NEW] `src/components/dashboard/next-sprint/types.ts`
+- Extract types like [SyncTaskStatus](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#31-32), [VerifyStatus](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#32-33), [SyncTaskResult](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#34-40), [VerificationResult](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#41-47), [SyncProgress](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#48-57).
+
+#### [NEW] `src/components/dashboard/next-sprint/utils.ts`
+- Extract helper functions [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#67-75) and [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#76-90) (or we could even share a common utility folder in `src/components/dashboard/common/` if appropriate, to avoid duplication).
+
+#### [MODIFY] [src/components/dashboard/NextSprintPlanningView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx)
+- Refactor the component to use the extracted types and utilities.
+
+## Verification Plan
+
+### Automated Tests
+- If there are existing unit tests or build commands, run them (`npm run build`, `npm run lint` or `npx tsc --noEmit`) to verify that imports and types are fully intact.
+
+### Manual Verification
+- We will locally host the dev server.
+- The user is requested to verify that the Daily Meeting view still works seamlessly:
+  - Verify dragging and dropping tasks between Backlog and Today's Plan.
+  - Verify syncing tasks and sending webhook functionalities.
+  - Verify checking Historical and Compare Views.
+- For Next Sprint Planning view, verify that drafting tasks to the squad plan and verifying google sheets works exactly as before.

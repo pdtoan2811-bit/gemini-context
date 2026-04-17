@@ -1,0 +1,12 @@
+# Task: Verify "SANDBOX TEST" button and Webhook URL
+
+## Plan
+1. [ ] Open `http://localhost:3000`
+2. [ ] Locate "SANDBOX TEST" blue button next to "Sprint Relay Debugger"
+3. [ ] Click "SANDBOX TEST" button
+4. [ ] Verify sandbox page opens
+5. [ ] Select a person (if needed) to see JSON preview
+6. [ ] Verify webhook URL matches `https://jsg35lsl9g0c.sg.larksuite.com/base/automation/webhook/event/CyknaO0BCwAPxZhhaItlNTN0gEg`
+
+## Findings
+- 

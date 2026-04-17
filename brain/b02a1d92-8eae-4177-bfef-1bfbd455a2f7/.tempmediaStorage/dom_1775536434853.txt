@@ -1,0 +1,126 @@
+Skip to content
+[0] (17,34)<button class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' />
+[1] (40,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderHome__nkA_U prc-Button-IconButton-fyge7' href='/' />
+[2] (68,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/settings/profile' />
+	[3] (68,34)<span >Settings />
+[4] (127,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/settings/apps' />
+	[5] (127,34)<span >Developer Settings />
+[6] (766,34)<button aria-label='Search or jump to…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ Search-module__searchButton__aiE0a' />
+	[7] (766,34)<span  />
+		[8] (773,34)<span >Type
+to search />
+			Type
+			/
+			to search
+[9] (828,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/copilot' />
+[10] (842,34)<button aria-label='Open Copilot…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ CopilotItems-module__CopilotMenu__DVdfE' id='_R_54jpb_' />
+[11] (874,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalCreateMenu-module__actionMenuButton__Hj_iB' id='_R_5jpb_' />
+	[12] (870,34)<span  />
+[13] (900,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/issues' />
+[14] (921,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/pulls' />
+[15] (942,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/repos' />
+[16] (963,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/notifications' />
+[17] (983,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalNavUserMenu-module__anchor__Dcej6 prc-Button-IconButton-fyge7' />
+	[18] (983,34)<img  />
+[19] (246,111)<a class='ActionListContent ActionListContent--visual16' href='/settings/apps' id='item-3c99bbcb-a677-48ea-a702-15a9febdf9cf' />
+	[20] (252,111)<span >GitHub Apps />
+[21] (246,146)<a class='ActionListContent ActionListContent--visual16' href='/settings/developers' id='item-f5b50bf4-0d2d-40a6-94ee-d05570e91e18' />
+	[22] (252,146)<span >OAuth Apps />
+[23] (246,180)<button class='ActionListContent ActionListContent--hasActiveSubItem ActionListContent--visual16' id='personal-access-tokens-menu-item' />
+	[24] (246,180)<span >Personal access tokens />
+[25] (246,215)<a class='ActionListContent' href='/settings/personal-access-tokens' id='item-14df8dc2-0e70-4b35-8c8a-5a2ad3af550b' />
+	[26] (252,215)<span >Fine-grained tokens />
+[27] (246,248)<a class='ActionListContent' href='/settings/tokens' id='item-e49a7843-39e1-4cf9-b6bc-9209e7fc8eb4' />
+	[28] (252,248)<span >Tokens (classic) />
+New personal access token (classic)
+Personal access tokens (classic) function like ordinary OAuth access tokens. They
+    can be used instead of a password for Git over HTTPS, or can be used to
+[29] (519,191)<a class='Link--inTextBlock' href='https://docs.github.com/v3/auth/#basic-authentication'>authenticate to the API over Basic Authentication />
+.
+[30] (350,229)<label >Note />
+[31] (456,263)<input class='form-control wide' id='oauth_access_description' />
+What’s this token for?
+[32] (358,332)<label id='expiration-label'>Expiration />
+[33] (397,368)<button class='Button--secondary Button--medium Button' id='action-menu-a34a2d18-90ad-4f74-bf68-c353114f4920-button' />
+	[34] (393,368)<span  />
+		[35] (399,368)<span  />
+			[36] (399,368)<span >30 days (May 07, 2026) />
+[37] (396,415)<button class='ActionListContent' id='item-e0fb1a46-404c-471e-bc62-43b1d0ed5b26' role='menuitemradio' />
+	[38] (403,415)<span  />
+		[39] (397,415)<span >7 days (Apr 14, 2026) />
+[40] (396,450)<button class='ActionListContent' id='item-ebe5276c-62f9-448b-ac07-5103a2a75175' role='menuitemradio' />
+	[41] (403,450)<span  />
+		[42] (401,450)<span >30 days (May 07, 2026) />
+[43] (396,485)<button class='ActionListContent' id='item-8138d0aa-12c5-48a2-ad8f-8039a3237835' role='menuitemradio' />
+	[44] (403,485)<span  />
+		[45] (399,485)<span >60 days (Jun 06, 2026) />
+[46] (396,520)<button class='ActionListContent' id='item-e32507bb-cc40-4bcb-8687-aae886f8a6d4' role='menuitemradio' />
+	[47] (403,520)<span  />
+		[48] (398,520)<span >90 days (Jul 06, 2026) />
+[49] (396,555)<button class='ActionListContent' id='item-327678ac-6a28-4725-b4ba-d1af4f0606d3' role='menuitemradio' />
+	[50] (403,555)<span  />
+		[51] (375,555)<span >Custom />
+[52] (396,590)<button class='ActionListContent' id='item-746fbcb4-caa6-483b-bdce-ae8af1540d71' role='menuitemradio' />
+	[53] (403,590)<span  />
+		[54] (385,590)<span >No expiration />
+The token will expire on the selected date
+Select scopes
+Scopes define the access for personal tokens.
+[55] (541,465)<a class='Link--inTextBlock' href='https://docs.github.com/apps/building-oauth-apps/scopes-for-oauth-apps/'>Read more about OAuth scopes. />
+[56] (547,510)<label class='clearfix' />
+	repo
+	Full control of private repositories
+[57] (547,537)<label class='clearfix' />
+	repo:status
+	Access commit status
+[58] (547,564)<label class='clearfix' />
+	repo_deployment
+	Access deployment status
+[59] (547,591)<label class='clearfix' />
+	public_repo
+	Access public repositories
+[60] (547,618)<label class='clearfix' />
+	repo:invite
+	Access repository invitations
+[61] (547,645)<label class='clearfix' />
+	security_events
+	Read and write security events
+[62] (547,689)<label class='clearfix' />
+	[63] (350,690)<input class='js-checkbox-scope parent-checkbox-scope' />
+	workflow
+	Update GitHub Action workflows
+[64] (547,733)<label class='clearfix' />
+	[65] (350,734)<input class='js-checkbox-scope parent-checkbox-scope' />
+	write:packages
+	Upload packages to GitHub Package Registry
+[66] (547,760)<label class='clearfix' />
+	[67] (358,761)<input class='js-checkbox-scope' />
+	read:packages
+	Download packages from GitHub Package Registry
+[68] (547,803)<label class='clearfix' />
+	[69] (350,805)<input class='js-checkbox-scope parent-checkbox-scope' />
+	delete:packages
+	Delete packages from GitHub Package Registry
+[70] (547,847)<label class='clearfix' />
+	[71] (350,849)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:org
+	Full control of orgs and teams, read and write org projects
+[72] (547,874)<label class='clearfix' />
+	[73] (358,876)<input class='js-checkbox-scope' />
+	write:org
+	Read and write org and team membership, read and write org projects
+[74] (547,901)<label class='clearfix' />
+	[75] (358,903)<input class='js-checkbox-scope' />
+	read:org
+	Read org and team membership, read org projects
+[76] (547,928)<label class='clearfix' />
+	[77] (358,930)<input class='js-checkbox-scope' />
+	manage_runners:org
+	Manage org runners and runner groups
+[78] (547,972)<label class='clearfix' />
+	[79] (350,974)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:public_key
+	Full control of user public keys
+[80] (547,999)<label class='clearfix' />
+	write:public_key
+	Write user public keys

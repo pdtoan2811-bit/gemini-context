@@ -1,0 +1,10 @@
+# Tasks
+- [ ] Take a screenshot of the entire header at http://localhost:3000
+- [ ] Click the 'Members' button and wait for the modal to appear
+- [ ] Scroll to the bottom of the modal to find the 'Run Test' button
+- [ ] Take a screenshot of the modal content including the 'Run Test' button
+- [ ] Return the absolute paths of the screenshots
+
+# Findings
+- Header screenshot path: 
+- Modal screenshot path: 

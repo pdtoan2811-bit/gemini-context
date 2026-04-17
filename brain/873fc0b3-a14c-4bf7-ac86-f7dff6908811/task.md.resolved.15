@@ -1,0 +1,29 @@
+# Task: Unified Task Card Componentization & UI Refresh
+
+- [x] Planning & Design
+    - [x] Create implementation plan
+    - [x] Design high-contrast status UI for light mode
+- [x] Core Implementation
+    - [x] [MODIFY] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with new accent color `#1D3557`
+    - [x] [NEW] Create [TaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskCard.tsx) as a shared component
+    - [x] Implement `module` and `screen` display
+    - [x] Refactor [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/next-sprint/utils.tsx#21-35) and [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/next-sprint/utils.tsx#12-20) for light mode
+- [x] Refactoring & Cleanup
+    - [x] Replace `DraggableTaskCard` with unified [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskCard.tsx#50-278) in all views
+    - [x] [DELETE] Remove legacy [DraggableTaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx)
+- [x] UI Refinement (User Feedback)
+    - [x] Balance task card title weight (reduce intensity)
+    - [x] Enhance Module & Screen metadata readability
+    - [x] Clean up `dark:` theme classes for consistent light-mode look
+    - [x] Remove "Sync task" button from [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/PersonSingleView.tsx#56-386) 
+- [x] Verification
+    - [x] Final visual audit in browser
+    - [x] Confirm no build errors
+- [/] Typography & Readability Refinement (User Feedback)
+    - [/] Refine [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#733-1020) headers and labels
+    - [ ] Refine [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/PersonSingleView.tsx#56-386) headers and labels
+    - [ ] Refine [NextSprintPlanningView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#42-804) headers
+    - [ ] Verify balanced serif/sans-serif mix for elegance and clarity
+- [ ] Final Verification
+    - [ ] Visual audit of all refreshed headers
+    - [ ] Final project walkthrough update

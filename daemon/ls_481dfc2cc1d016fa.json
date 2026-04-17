@@ -1,0 +1,8 @@
+{
+  "pid": 13364,
+  "httpsPort": 50963,
+  "httpPort": 50964,
+  "lspPort": 52469,
+  "lsVersion": "1.19.4",
+  "csrfToken": "3da2aa7c-4178-482d-8af2-dfe87ffa3798"
+}

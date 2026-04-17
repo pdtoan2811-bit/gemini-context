@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Summary of the Windows symlink EPERM fix. Created a robust symlink utility that falls back to file copying or directory junctions on Windows when permissions are insufficient. Updated Codex, Claude, and Cursor adapters to use this utility. Verified with a full project typecheck.",
+  "updatedAt": "2026-03-30T10:16:33.121459900Z"
+}

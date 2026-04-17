@@ -1,0 +1,10 @@
+# Browser Task - Verify Minimal React App
+
+## Task:
+Open http://localhost:5173/ and check if you see a green screen with "MINIMAL REACT IS WORKING".
+
+## Checklist:
+- [ ] Open http://localhost:5173/
+- [ ] Check for green background
+- [ ] Check for "MINIMAL REACT IS WORKING" text
+- [ ] Report result

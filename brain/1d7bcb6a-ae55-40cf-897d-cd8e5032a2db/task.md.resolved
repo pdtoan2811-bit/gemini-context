@@ -1,0 +1,6 @@
+# Task Checklist
+
+- [x] Investigate filtering logic for sprint data
+- [x] Ensure that tasks are properly matched to their respective configurations
+- [x] Fix the bug causing empty tasks view for sprint 7 (caused by React stale closure state override)
+- [x] Fix invalid [next.config.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/next.config.ts) config preventing app launch (turbopack/eslint keys)

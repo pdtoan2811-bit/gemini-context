@@ -1,0 +1,10 @@
+# Task: Find 'Next Sprint' and 'SANDBOX TEST' at http://localhost:3000
+
+## Goals
+- [ ] Open http://localhost:3000
+- [ ] Find the container holding 'Next Sprint' and get its `innerHTML`
+- [ ] Find all occurrences of 'Next Sprint' and identify elements
+- [ ] Check for 'SANDBOX TEST' in the DOM (even if hidden)
+
+## Findings
+- 

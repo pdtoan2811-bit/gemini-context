@@ -1,0 +1,98 @@
+# Daily Meeting View — Steering Tasks by Person
+
+A new tab view optimized for daily standup meetings. It shows **per-person** what they're working on, who they're blocking, who's blocking them, and what hasn't started yet — all derived from sprint start status, history logs, and meeting notes.
+
+## Key Design Decisions
+
+### How "who is doing what" is determined
+- The **sprint start status** (from `useSprintStart`) provides each task's status at the beginning of the sprint. Tasks with status ≠ "Not Started" at sprint start are **carried over** from the previous sprint.
+- The **latest log entry** in `TaskAnalysis` gives the current status and current person(s).
+- Combined: a task is "Doing" if the person owns it and its current status is an active work status (In Process, Bug Fixing, Testing, Reviewing, etc.).
+
+### How blocking relationships work
+- **Meeting notes** (`MeetingNote.blockedBy`) record who is blocking each task.
+- "Blocking Others" = tasks where **this person** is named as `blockedBy` in any meeting note, but the task is owned by someone else.
+- "Blocked By Others" = tasks owned by **this person** that have a `blockedBy` meeting note naming someone else.
+
+### 4-section priority ordering (per person)
+1. **Doing** — Active work tasks (In Process, Bug Fixing, Testing, etc.)
+2. **Blocking Others** — Tasks this person is blocking for someone else
+3. **Blocked By Others** — This person's tasks that are blocked by someone else
+4. **Not Started in Sprint** — Tasks assigned to this person with status "Not Started" whose sprint start status was also "Not Started" (truly new, not carried over)
+
+---
+
+## Proposed Changes
+
+### Data Engine
+
+#### [NEW] [useDailyMeeting.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useDailyMeeting.ts)
+
+A new hook that takes `analyses`, `meetingNotes`, and `sprintStartEntries` and returns a structured `DailyMeetingPersonData[]`:
+
+```ts
+interface DailyMeetingTask {
+  analysis: TaskAnalysis;
+  latestNote: MeetingNote | null;  // latest meeting note for this task
+  sprintStartStatus: string;       // status at sprint start
+}
+
+interface DailyMeetingPersonData {
+  person: string;
+  doing: DailyMeetingTask[];           // active work
+  blockingOthers: DailyMeetingTask[];  // tasks this person blocks
+  blockedByOthers: DailyMeetingTask[]; // this person's tasks blocked by others
+  notStarted: DailyMeetingTask[];      // not started in this sprint
+  urgencyScore: number;                // for sorting persons
+}
+```
+
+Logic:
+- Iterate all `TaskAnalysis` entries, group by current person(s)
+- For each person's tasks, categorize into the 4 buckets
+- For blocking: scan **all** meeting notes to find tasks where `blockedBy` matches this person's name
+- Sort persons by: most "blocking others" first, then most "blocked by" count, then most "doing"
+
+---
+
+### UI Component
+
+#### [NEW] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+
+A new component rendering one expandable card per person with the 4 sections:
+
+- **Header**: Person name, counts for each section, urgency indicator
+- **Section 1 — Doing**: Green-left-border tasks with current status badge
+- **Section 2 — Blocking Others**: Red-left-border tasks showing who is being blocked, with task name and stall reason
+- **Section 3 — Blocked By Others**: Amber-left-border tasks showing who is blocking, with stall reason
+- **Section 4 — Not Started**: Muted tasks, collapsed by default
+
+Each task row is clickable (calls `onTaskClick`). Cross-reference links show the blocking relationship.
+
+---
+
+### Integration
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+- Add `'daily-meeting'` to the `ViewTab` type
+- Add a new tab entry with icon `Mic` (lucide) and label "Daily Meeting"
+- Pass `analyses`, `allMeetingNotes`, `sprintStartEntries`, and `onTaskClick` to `DailyMeetingView`
+- Import and use the `getAllNotes` from `useMeetingNotes`
+
+---
+
+## Verification Plan
+
+### Manual Verification (Browser)
+1. Run `npm run dev` (already running)
+2. Open `http://localhost:3000/`
+3. Verify a "Daily Meeting" tab appears in the tab bar
+4. Click the tab and verify:
+   - Each person has a card with their name
+   - "Doing" section shows tasks with active statuses
+   - "Blocking Others" section shows tasks where this person is named as `blockedBy` in meeting notes
+   - "Blocked By Others" section shows this person's tasks that someone else is blocking
+   - "Not Started" section shows unstarted tasks
+   - Clicking any task row opens the StandupInspector
+5. Verify ordering: people with more "blocking others" tasks appear first

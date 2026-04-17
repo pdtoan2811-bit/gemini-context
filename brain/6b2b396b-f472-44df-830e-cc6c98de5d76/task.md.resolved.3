@@ -1,0 +1,19 @@
+# Dynamic Squad Planning Feature Tasks
+
+- [x] Modify [DailyMeetingView.tsx](file:///C:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) to add "Squads" view mode
+- [x] Implement [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1864-1992) internal component in [DailyMeetingView.tsx](file:///C:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- [x] Update [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#681-1016)
+- [x] Update [DraggableTaskCard](file:///C:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#470-657)
+
+## Phase 2: Shared Sync and Filtering
+
+- [ ] Implement Task Syncing Dropdown in [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#681-1016) Today's Plan
+  - [ ] Add `allPersons` prop to [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#681-1016)
+  - [ ] Inside the "Today's Plan" loop, add a `SyncDropdown` popover component next to or on the [DraggableTaskCard](file:///C:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#470-657).
+  - [ ] The dropdown should allow selecting multiple people.
+  - [ ] Apply the sync by calling `dailyTodos.addTodo(person, todayStr, taskId)` for each selection.
+- [ ] Implement Squads View Multi-Person Filter
+  - [ ] Pass `allPersonData` mapped down to just names to [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1864-1992)
+  - [ ] Add a `squadFilter` state array (string[]) to [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1864-1992)
+  - [ ] Render a multi-select dropdown to choose people.
+  - [ ] Filter the rendered `squads` based on whether the members match the selected filter.

@@ -1,0 +1,18 @@
+# Investigation of blank screen at http://localhost:5173
+
+## Plan
+- [x] Open http://localhost:5173
+- [x] Check if the page is blank (Confirmed: Page is white blank)
+- [x] Check console logs for errors (Result: Vite connected, but no other logs reported initially)
+- [x] Get DOM (Result: Empty root div, scripts loaded)
+- [x] Fetch entry points (Result: main.jsx and i18n.js are served correctly)
+- [ ] Inspect console logs again for fetch results
+- [ ] Report findings
+
+## Findings
+- Page at `http://localhost:5173` is white blank.
+- Console shows Vite connection logs.
+- DOM has `<div id="root"></div>` and scripts like `main.jsx`.
+- `root` div is empty, suggesting React failed to render.
+- No compilation error overlay from Vite is visible.
+- `main.jsx` and `App.jsx` are reachable.

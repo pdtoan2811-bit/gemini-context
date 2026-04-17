@@ -1,0 +1,4 @@
+- `[/]` Create `src/containers/landing/LandingUseCases.tsx`
+- `[ ]` Update `src/app/[locale]/(landing)/page.tsx` to replace `LandingTestimonial` with `LandingUseCases`
+- `[ ]` Verify UI in browser
+- `[ ]` Write `walkthrough.md`

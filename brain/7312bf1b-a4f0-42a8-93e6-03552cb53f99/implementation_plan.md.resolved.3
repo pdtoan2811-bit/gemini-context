@@ -1,0 +1,21 @@
+# Implementation Plan - Fix Windows Build Issue
+
+The `pnpm build` command fails on Windows because `packages/db/package.json` uses the Unix-specific `cp -r` command. This prevents the `dist` directory from being correctly populated, which in turn causes dependent packages (like the server) to fail at runtime.
+
+## Proposed Changes
+
+### 1. Cross-Platform Build Scripts
+I will replace the `cp -r` command in `@paperclipai/db` with a portable Node.js one-liner.
+
+#### [MODIFY] [package.json](file:///c:/Users/Admin/Desktop/paperclip/packages/db/package.json)
+- Update the `build` script to use `node -e` for copying migrations.
+
+### 2. Workspace Build & Startup
+After fixing the build script, I will perform a full workspace build and restart the application.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Build Test**: Run `pnpm --filter @paperclipai/db build` and verify it completes without error on Windows.
+2.  **Full Build**: Run `pnpm build` from the root.
+3.  **Startup Test**: Run `run.bat` and verify the server starts successfully and the browser opens.

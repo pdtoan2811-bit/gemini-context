@@ -1,0 +1,37 @@
+# Tiananmen Square Sarcastic Short Implementation
+
+I have successfully engineered your 90-second, high-retention YouTube Short surrounding the Tiananmen Square incident, heavily employing a sarcastic/dry humor tone as well as dynamic timeline generation from ElevenLabs.
+
+## Changes Made
+
+1. **Voiceover Engine (`scripts/generate-voiceover-tiananmen.ts`)**: 
+   - Drafted a highly sarcastic 8-scene Vietnamese script asserting that nothing happened on April 15 - June 4, 1989.
+   - Connected strictly to the ElevenLabs `eleven_multilingual_v2` model using a serious/dry voice ID (`pNInz6obpgDQGcFmaJgB`). 
+   - Generated the MP3 audio tracks and strict word-level timing alignments (`.json` timestamps) for synced captioning.
+
+2. **Asset Curator (`scripts/copy-media-tiananmen.ts`)**:
+   - Strategically hand-picked related sarcastic GIFs securely from your `memeDatabase` across the directories `amazing-news`, `everything-gone-chaos`, `suspicious`, and `fear-of-missing-out`.
+   - Mapped the meme GIFs natively to match each specific scene mathematically. The GIFs copied correctly into `public/images/tiananmen-square/`.
+
+3. **Remotion Mastermind Engine (`src/components/TiananmenSquareShort.tsx`)**:
+   - Cloned the required `YoutubeShortsMastermind` blueprint and successfully hooked it into your script's metadata matrix (updating the `COMP_ID`, variables, tags, and source overlays).
+   - Retained the high-speed sequence retention features such as center frame UI punch-ins and fast-paced word tracing.
+
+4. **Component Registration (`src/Root.tsx`)**:
+   - Injected your new `<Composition id="tiananmen-square" ... />` directly into the Root registry so it will compile dynamically via `calculateMetadata`.
+
+## Validation Results
+
+- Both data scripts compiled exactly as specified using the native `tsx` executor. 
+- Media pipelines effectively duplicated the assets without mutating the core files.
+- The React component strictly follows the architectural guidelines from the `youtube-shorts-mastermind` and is fully typed against `TiananmenSquareProps`.
+
+## Next Steps
+
+To watch the newly generated video timeline in your browser or render it locally to an MP4, open your terminal workspace and run:
+```bash
+npm run dev
+# or
+npx remotion studio
+```
+Then select **tiananmen-square** from the left-side preview pane!

@@ -1,0 +1,8 @@
+- Identified Workflow Legend section on http://localhost:3000/
+- Location: Right sidebar (ASIDE element)
+- Container classes: `flex flex-col gap-8` (for the aside), `rounded-xl border text-card-foreground flex-1 border-border bg-card/50 backdrop-blur-2xl shadow-xl hover:shadow-2xl transition-all duration-500 group/sidebar` (for the card within)
+- Headers/Labels:
+    - Main Header: "WORKFLOW LEGEND", subtitle: "Operational Protocol"
+    - Status Section: "WORKFLOW STATUSES" (labels 0-9: Not Started, In Process, Waiting to Integrate, Reviewing, Ready for Test, Testing, Reprocess, Bug Fixing, Staging Passed, Completed)
+    - Doom Loop Section: "THE DOOM LOOP"
+    - Module Categories: "MODULE CATEGORIES" (Auth / Identity, UI / Design, API / Graph, Backend / Infra)

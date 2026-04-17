@@ -1,0 +1,35 @@
+# Fix Sprint Filtering in Daily Meeting View
+
+Ensure that the Daily Meeting View (and its Squad View) only displays tasks that belong to the currently active sprint.
+
+## User Review Required
+
+> [!NOTE]
+> This change will filter out tasks that are not associated with the active sprint in the Daily Meeting View. Tasks that were left behind in previous sprints as backlog will no longer appear in this view unless they are moved to the current sprint.
+
+## Proposed Changes
+
+### [Core Types]
+
+#### [MODIFY] [types.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts)
+- Add `sprint: string` to the [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#77-96) interface.
+
+### [Workflow Engine]
+
+#### [MODIFY] [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts)
+- Update [analyzeTask](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#111-174) to include the `sprint` field from the latest log entry in the [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#77-96) result.
+
+### [Dashboard Components]
+
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- Update [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-226) to accept `activeSprint` as an argument.
+- Filter tasks within [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-226) to only include those where `task.sprint === activeSprint`.
+
+## Verification Plan
+
+### Automated Tests
+- Verify that the [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#77-96) objects now contain a `sprint` field.
+- Verify that the [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2598-3057) correctly filters tasks based on the `activeSprint` prop.
+
+### Manual Verification
+- Select Sprint 9 and confirm that tasks from Sprint 8 are not visible in the Daily Meeting or Squad views.

@@ -1,0 +1,7 @@
+# Task: Verify Sandbox Link in Header
+
+## Checklist
+- [ ] Open http://localhost:3000
+- [ ] Examine header for "Sandbox" link or "Code" icon
+- [ ] Verify existence of sandbox page if link is found
+- [ ] Report results

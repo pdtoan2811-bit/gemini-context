@@ -1,0 +1,67 @@
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (662,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 7 · Jan 5 – Jan 16
+Live Logs
+0
+Members
+[1] (976,76)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+0
+Bottlenecked
+0
+Doom Loops
+0
+Stale (24h+)
+0
+📌 High Risk
+0
+[2] (61,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Personnel />
+	Personnel
+[3] (119,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[4] (184,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Daily Meeting />
+	Daily Meeting
+[5] (258,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+Standup-ready view grouped by person
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+Sprint Relay Engine v2.0.0 · Workflow Anatomy Enabled

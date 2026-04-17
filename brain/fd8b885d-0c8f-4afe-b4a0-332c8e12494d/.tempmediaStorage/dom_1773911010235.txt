@@ -1,0 +1,169 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 8 · Mar 9 – Mar 13
+Live Logs
+9
+Members
+Total Tasks
+60
+Met Goal
+11
+Bottlenecked
+14
+Doom Loops
+7
+Stale (24h+)
+21
+📌 High Risk
+0
+Daily Meeting
+Daily Recap
+Personnel
+Tasks
+Sprint Start
+Next Sprint
+Auto-detected starting status snapshot with override support
+Sprint
+8
+Starting Status
+Auto-detected from earliest log entry per task where sprint and status are set
+Confirm All
+All (
+60
+)
+Overridden (
+0
+)
+Reprocess
+(
+11
+)
+Staging Passed
+(
+8
+)
+Testing
+(
+3
+)
+In Process
+(
+8
+)
+Task ID
+Task Name
+Person
+Module
+Auto Status
+Confirmed
+Diff
+Link
+[0] (378,863)<div class='max-h-[500px] overflow-y-auto' scrollable='true' />
+	recv3K5vuWp6BY
+	Xem, tìm kiếm và lọc
+	Nguyễn Đình Hồng Phong
+	Đặng Minh Quân
+	Nguyễn Thảo Linh
+	Digital
+	Reprocess
+	Mar 9, 16:17
+	recv3K6c4efGLK
+	Xem lịch sử chạy
+	Nguyễn Đình Hồng Phong
+	Đặng Minh Quân
+	Digital
+	Staging Passed
+	Mar 9, 16:17
+	recv3K6fvev4vz
+	Nạp tiền/Thu tiền
+	Nguyễn Đình Hồng Phong
+	Đặng Minh Quân
+	Nguyễn Thảo Linh
+	Digital
+	Reprocess
+	Mar 9, 16:27
+	recv3K6nCbZzof
+	Yêu cầu tài khoản
+	Nguyễn Đình Hồng Phong
+	Đặng Minh Quân
+	Digital
+	Staging Passed
+	Mar 9, 16:17
+	recv3K6oWOWQsx
+	Xử lí yêu cầu tài khoản
+	Nguyễn Đình Hồng Phong
+	Digital
+	Testing
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+Webhook Settings per Member
+[1] (627,192)<button class='text-zinc-500 hover:text-zinc-200 text-xs px-2 py-1 rounded-md hover:bg-zinc-800 transition-colors'>Close />
+[2] (500,521)<div class='space-y-3 max-h-[60vh] overflow-y-auto pr-1' scrollable='true' />
+	Bùi Anh Đức
+	No webhook set
+	[3] (497,270)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Lưu Thị Dung
+	Webhook configured
+	[4] (497,360)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Nguyễn Thảo Linh
+	Webhook configured
+	[5] (497,449)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Nguyễn Văn Nam
+	No webhook set
+	[6] (497,538)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Nguyễn Đình Hồng Phong
+	No webhook set
+	[7] (497,628)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Phạm Đức Toàn
+	No webhook set
+	[8] (497,717)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Trần Quý Đạt
+	No webhook set
+	[9] (497,807)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Unassigned
+	No webhook set
+	Đặng Minh Quân
+	No webhook set
+
+</current_dom>

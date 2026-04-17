@@ -1,0 +1,3 @@
+- [ ] Create `BorderBeam.tsx` component in `src/components/ui` [/]
+- [ ] Remove existing hover animations and integrate `BorderBeam` in `BentoGridItem` in `src/components/BentoGrid.tsx` [ ]
+- [ ] Verify the animation on the landing page [ ]

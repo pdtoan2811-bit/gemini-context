@@ -1,0 +1,25 @@
+# Sprint Filtering Fix Walkthrough
+
+I have implemented sprint filtering in the Daily Meeting View and the Squad Planning View to ensure that only tasks belonging to the active sprint are displayed.
+
+## Changes Made
+
+### 1. Type Definitions
+- Added `sprint: string` to the [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#77-97) interface in [src/lib/types.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts).
+
+### 2. Workflow Engine
+- Updated [analyzeTask](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#111-175) in [src/lib/workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) to populate the `sprint` field from the latest log entry for each task.
+
+### 3. Daily Meeting View
+- Modified [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-229) in [src/components/dashboard/DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) to accept `activeSprint` and filter out tasks that don't match it.
+- Applied the filter to both the main task categories and the blocking task detection.
+
+### 4. Squad View
+- Updated [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2008-2602) to accept `activeSprint` as a prop.
+- Added logic to filter planned tasks (from `dailyTodos`) by the active sprint, ensuring that old tasks don't clutter the current plan.
+
+## Verification
+
+- The [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2603-3063) now correctly filters tasks by the `activeSprint` prop passed from [app/page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx).
+- The [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2008-2602) (Dynamic Squad View) now correctly filters both the backlog and the squad plan to only show tasks relevant to the current sprint.
+- No lint errors remain in the modified files.

@@ -1,0 +1,26 @@
+# Sprint Debugger Enhancement Tasks
+
+## Feature 1: Default Sprint Filter
+- [x] Add sprint config (current sprint number, date range) to [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+- [x] Auto-select current sprint based on today's date
+- [x] Show sprint date range in the header
+
+## Feature 2: Personnel View UI/UX Improvements
+- [x] Sort tasks within each person by status priority: Reprocess > Waiting to Integrate > In Process > Not Started > others > Staging Passed
+- [x] Sort tasks by stall hours (descending, secondary sort)
+- [x] Sort person cards by total stale duration then critical task count
+- [x] Color-coded priority dots and improved stale formatting (days+hours)
+
+## Feature 3: Enhanced Task View (Meeting Notes)
+- [x] Show all people assigned on the task in the inspector
+- [x] Add structured "Daily Meeting Note" quick-add form (stall toggle, blocked by dropdown, solution)
+- [x] Blocked-by dropdown includes task assignees + team leaders (Bùi Anh Đức, Phạm Đức Toàn)
+- [x] Persist meeting notes in localStorage with [useMeetingNotes.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useMeetingNotes.ts) hook
+- [x] Display meeting notes as reverse-chronological timeline with stall indicators
+
+## Feature 4: Context Documentation
+- [x] Create [CONTEXT.md](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/CONTEXT.md) documenting statuses, terminologies, doom loop, bottleneck, team members/leaders
+
+## Verification
+- [ ] Build check passes
+- [ ] Browser verification

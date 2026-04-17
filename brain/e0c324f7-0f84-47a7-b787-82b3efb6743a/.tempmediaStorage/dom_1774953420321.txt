@@ -1,0 +1,129 @@
+[0] (500,500)<div  />
+	[1] (71,56)<a class='group block' href='/' />
+		[2] (71,45)<h1 >Adecos />
+		[3] (71,76)<p >AI-Powered Platform />
+	[4] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,165)<div  />
+			[6] (20,165)<span  />
+			[7] (47,165)<span >AI Agent />
+	[8] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,224)<div  />
+			[10] (20,224)<span  />
+			[11] (56,224)<span >Quản lý dự án />
+		[12] (119,224)<span >1 />
+	[13] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,282)<div  />
+			[15] (20,282)<span  />
+			[16] (53,282)<span >Quản lý Ads />
+	[17] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (43,341)<div  />
+			[19] (20,341)<span  />
+			[20] (51,341)<span >Thí nghiệm />
+	[21] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (50,399)<div  />
+			[23] (20,399)<span  />
+			[24] (58,399)<span >Deep Research />
+	[25] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,458)<div  />
+			[27] (20,458)<span  />
+			[28] (48,458)<span >Analytics />
+	[29] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,516)<div  />
+			[31] (20,516)<span  />
+			[32] (51,516)<span >Thông báo />
+	MVP v1.0
+	[33] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	[34] (571,500)<div class='flex-1 p-8 overflow-auto bg-[var(--bg-primary)] transition-colors duration-300' scrollable='true' />
+		[35] (230,55)<button class='px-3 py-1.5 border border-[var(--border-color)] rounded-lg hover:bg-[var(--bg-surface)] transition-colors text-sm flex items-center gap-1'>←
+Quay lại />
+			←
+			Quay lại
+		Chi tiết dự án
+		Shopee Vietnam (Beauty Category)
+		[36] (248,166)<button class='
+                                pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                                text-[var(--text-primary)]
+                            '>Cấu hình Ads & ROI />
+		[37] (348,166)<button class='
+                                pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                                text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                            '>Thông tin dự án />
+		[38] (438,166)<button class='
+                                pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                                text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                            '>Chỉ số traffic />
+		Tổng Ads Spend
+		1,649,161,759
+		VND
+		Tổng Revenue
+		0
+		VND
+		ROAS Average
+		0.00
+		x
+		CVR (Ref)
+		0.0
+		%
+		Ads Campaign Mapping
+		[39] (391,403)<button class='text-[10px] bg-blue-600 text-white px-4 py-2 rounded-sm uppercase font-bold tracking-widest hover:bg-blue-500 transition-all shadow-md active:scale-95'>Setup Mapping />
+		G
+		Nike Air Max - Fall Launch
+		Nike
+		growth@nike-direct.com
+		[40] (401,492)<button class='p-2 text-red-500 group-hover:bg-red-500/10 rounded-sm transition-colors' />
+		Data Entry
+		Manual Stats Override
+		Nhập kết quả affiliate từ dashboard chương trình. Ref Count đại diện cho số lượt chuyển đổi thành công (converts).
+		[41] (321,767)<button class='w-full py-5 bg-[var(--bg-primary)] border border-blue-500/20 rounded-sm hover:border-blue-500/50 hover:bg-blue-500/5 transition-all flex flex-col items-center justify-center gap-1 group active:scale-95'>Advanced Data Ledger
+Bulk Edit Historical Stats (7-Day View) />
+			Advanced Data Ledger
+			Bulk Edit Historical Stats (7-Day View)
+		[42] (321,878)<input class='w-full h-12 bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-sm px-4 pt-5 pb-1 text-[10px] font-bold text-[var(--text-primary)] focus:outline-none focus:border-blue-500/50' />
+		Entry Date
+		[43] (268,941)<input class='w-full h-12 bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-sm px-3 pt-5 pb-1 text-xs font-mono focus:outline-none focus:border-blue-500/50' placeholder='0' />
+		Ref Count
+		[44] (373,941)<input class='w-full h-12 bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-sm px-3 pt-5 pb-1 text-xs font-mono focus:outline-none focus:border-blue-500/50' placeholder='Manual' />
+		Ref Value (CPA)
+		Net Revenue (VND)
+		Performance Analytics
+		Manual Revenue
+		Ads Spend
+		[45] (692,613)<div  />
+		Data Ledger
+		Verified Logs
+		92
+		Records In-System
+		Date
+		Ads cost
+		Ref Count
+		Net Revenue
+		Efficiency
+		Actions

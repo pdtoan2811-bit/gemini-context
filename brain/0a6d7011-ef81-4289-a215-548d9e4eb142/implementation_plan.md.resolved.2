@@ -1,0 +1,29 @@
+# Redesign Border Light for Precision and Elegance
+
+The current implementation using `offset-path` and `div` layers has alignment issues and lacks the "premium" feel requested. I will switch to a precision SVG stroke animation.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **SVG Precision:** Use an SVG `<rect>` with `width="100%" height="100%"` and `rx="24"` (to match `rounded-3xl`). This ensures the path is ALWAYS perfectly aligned with the parent's border.
+- **Stroke Animation:** Use `framer-motion`'s `animate={{ strokeDashoffset: [...] }}` on a path with a long `strokeDasharray`. This creates a much smoother "running" effect than `offset-path`.
+- **Elegant Gradient:** Use a `linearGradient` defined in SVG `<defs>` with a soft falloff (0% alpha -> 100% alpha -> 0% alpha) to create a more natural "beam" look.
+- **Multi-layer Glow:** 
+    - **Core:** A sharp 1.5px stroke for the light core.
+    - **Glow:** A wider (4-6px) stroke with `blur` and lower opacity for the "light bleed" effect.
+- **Timing:** Use a longer `duration` (10s+) with a linear loop for a graceful, non-distracting movement.
+
+## Technical Details
+- The SVG will use `overflow: visible` and `inset: -1px` to ensure the glow can bleed slightly outside if needed, while the `mask` (if still needed) or simple stroke logic will keep it elegant.
+- Actually, we won't need the complex CSS mask if we use an SVG stroke correctly, as it *is* the border.
+
+## Verification Plan
+
+### Manual Verification
+- Render the Landing Page.
+- Hover over the Bento boxes.
+- Verify that the light is **perfectly centered** on the border line.
+- Confirm the animation feels "smooth and elegant" (soft edges, graceful speed).
+- Verify in Light and Dark modes.

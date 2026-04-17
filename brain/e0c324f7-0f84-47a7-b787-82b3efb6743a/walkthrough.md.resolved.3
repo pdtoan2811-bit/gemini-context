@@ -1,0 +1,29 @@
+# Email-First Campaign Mapping Experience
+
+The campaign selection and tracking interface has been completely redesigned to prioritize **Account Email** and **Platform Visibility**, providing a state-of-the-art UX for managing large-scale affiliate projects.
+
+## Key UX Enhancements
+
+### 1. Unified Multidimensional Search
+The search interface now supports **Contextual Indexing**. You can find your campaigns by typing:
+- **Project Name** (e.g., "Nike Fall Launch")
+- **Affiliate Program** (e.g., "Sephora US")
+- **Account Email** (e.g., "media@sephora.com")
+
+### 2. High-Fidelity Selection Modal
+The "Setup New Mapping" interface has moved from a generic list to a **Premium Glassmorphism Modal**:
+- **Platform Badges**: Instantly identify the source platform (Google, Meta, TikTok) with colored icons.
+- **Email Identifiers**: Every campaign card prominently displays the owner's email as a monospace badge.
+- **Dynamic Entry**: Smooth `fadeInZoom` animations make the modal feel responsive and alive.
+
+### 3. Context-Rich Linked List
+The active mapping list now provides more information at a glance:
+- **Owner Identity**: See exactly which ad account (email) is mapped to each entry.
+- **Managed Actions**: Improved "Unlink" button visibility with refined hover states.
+
+## Behind the Scenes
+- **Data Model**: The system now dynamically populates campaign data with account metadata from the `AdsContext`.
+- **Performance**: Search and filtering happen locally with near-zero latency, even with hundreds of simulated campaigns.
+
+> [!TIP]
+> **Use Email for Quick Filtering**: If you manage multiple accounts for the same brand (e.g., separate Google Ads accounts for different regions), typing the account email is now the fastest way to isolate the correct data source.

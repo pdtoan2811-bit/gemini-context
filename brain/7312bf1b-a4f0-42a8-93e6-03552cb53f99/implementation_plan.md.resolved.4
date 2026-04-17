@@ -1,0 +1,21 @@
+# Implementation Plan - Fix Startup Hang (Port Detection)
+
+The Paperclip dev server is hanging because the embedded PostgreSQL port detection logic is failing to accurately identify if the port is in use. Specifically, it checks `localhost` (which might only check IPv6 `::1`), while the database might be bound to IPv4 `127.0.0.1`. This leads to attempts to start multiple instances in the same data directory, causing a hang.
+
+## Proposed Changes
+
+### 1. Robust Port Detection
+I will update the port detection logic to be more conservative and check both IPv4 and IPv6, or use a wildcard bind for the check.
+
+#### [MODIFY] [migration-runtime.ts](file:///c:/Users/Admin/Desktop/paperclip/packages/db/src/migration-runtime.ts)
+- Update `isPortInUse` to listen on `0.0.0.0` for the check, ensuring it detects anything on IPv4. (IPv6 will be implicitly handled if the OS supports dual-stack).
+- Also update `findAvailablePort` to be more robust.
+
+### 2. Cleanup & Restart
+I will perform a deep cleanup of all processes and restart the setup.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Process Cleanup**: Force-terminate all `node` and `postgres` processes.
+2.  **Startup Test**: Run `run.bat` and verify it can complete migrations AND start the server child.

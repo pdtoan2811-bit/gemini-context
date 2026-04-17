@@ -1,0 +1,33 @@
+# Task: Implement Language Mode (Vietnamese to English)
+
+- [x] **Preparation**
+    - [x] Analyze project structure
+    - [x] Identify hardcoded strings in components and data files
+    - [/] Design Language Switcher UI
+- [ ] **Infrastructure Setup**
+    - [/] Create implementation plan
+    - [ ] Install dependencies (`i18next`, `react-i18next`, `i18next-browser-languagedetector`)
+    - [ ] Create [src/i18n.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/i18n.js) configuration
+    - [ ] Setup initial translation files ([src/locales/vi/translation.json](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/locales/vi/translation.json), [src/locales/en/translation.json](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/locales/en/translation.json))
+- [x] **Core Implementation**
+    - [x] Integrate `i18n` in [src/main.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/main.jsx)
+    - [x] Create [LanguageSwitcher](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/LanguageSwitcher.jsx#5-28) component
+    - [x] Add [LanguageSwitcher](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/LanguageSwitcher.jsx#5-28) to [Sidebar](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/Sidebar.jsx#9-113) or global navigation
+- [ ] **Content Migration**
+    - [x] Migrate [bentoGridData.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/data/bentoGridData.jsx)
+    - [x] Migrate [Sidebar.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/Sidebar.jsx)
+    - [x] Migrate [LandingPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/LandingPage.jsx)
+    - [x] Migrate [ProjectsPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectsPage.jsx)
+    - [x] Migrate [ChatPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ChatPage.jsx)
+    - [/] Migrate [DashboardPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/DashboardPage.jsx), and [DeepResearchPage.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/DeepResearchPage.jsx)
+- [ ] **Prompt Engineering & Logic**
+    - [ ] Add system prompt with language context in [useChatController](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useChatController.js#7-220)
+    - [ ] Localize error messages in `chatService` and [useChatController](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useChatController.js#7-220)
+- [ ] **Onboarding & Components**
+    - [ ] Localize [onboardingData.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/data/onboardingData.js)
+    - [ ] Update [useOnboarding.js](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/hooks/useOnboarding.js) to support translations
+    - [ ] Localize [StarterPrompts.jsx](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/chat/StarterPrompts.jsx)
+- [ ] **Verification**
+    - [ ] Verify default language is Vietnamese
+    - [ ] Test language toggle functionality
+    - [ ] Audit for any missed strings

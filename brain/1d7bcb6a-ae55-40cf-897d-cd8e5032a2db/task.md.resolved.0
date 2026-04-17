@@ -1,0 +1,5 @@
+# Task Checklist
+
+- [ ] Investigate filtering logic for sprint data
+- [ ] Ensure that tasks are properly matched to their respective configurations
+- [ ] Fix the bug causing empty tasks view for sprint 7

@@ -1,0 +1,75 @@
+# Shadcn/UI & Tailwind CSS Refactoring Plan
+
+This document details the architectural path to rip out the initial vanilla CSS implementation and upgrade the entire frontend layer to **Tailwind CSS v3** coupled with **shadcn/ui**. This maximizes developer velocity, standardizes the design tokens, and sets the foundation for an easily scalable component library.
+
+## User Review Required
+
+> [!WARNING]
+> Please review the sequence of the refactoring below. Ripping out Vanilla CSS requires touching almost every `.tsx` file we've written. The resulting aesthetic will be cleaner and heavily reliant on standard Shadcn patterns (Slate/Zinc dark mode, crisp borders). Let me know if you approve this architectural pivot!
+
+## Proposed Changes
+
+---
+
+### Phase 1: Dependency Integration & Tooling
+We will inject Tailwind and Shadcn tooling into the Next.js ecosystem.
+
+#### [NEW] `tailwind.config.ts` & `postcss.config.mjs`
+- Standard Tailwind v3 initialization. 
+- Extension of the Tailwind theme to retain our "Synthetica" specific accent colors (Cyan/Neuro-glows) while leaning heavily on Shadcn themes.
+
+#### [NEW] `components.json`
+- Initialization of Shadcn mapping to `src/components/ui/` and `src/lib/utils.ts`.
+
+#### [MODIFY] `src/app/globals.css`
+- Delete all bespoke `.glass` and vanilla CSS resets.
+- Replace entirely with Tailwind `@tailwind base; @tailwind components; @tailwind utilities;` and the Shadcn CSS-variable root map.
+
+---
+
+### Phase 2: Component Library Extraction (shadcn/ui)
+Execution of the Shadcn CLI to pull in high-quality primitives to replace our `<button>` and basic divs.
+
+- **[NEW]** `src/components/ui/button.tsx`
+- **[NEW]** `src/components/ui/card.tsx`
+- **[NEW]** `src/components/ui/table.tsx`
+- **[NEW]** `src/components/ui/scroll-area.tsx`
+
+---
+
+### Phase 3: Dashboard & Layout Overhaul
+Translating the custom JS inline-styles into optimized Tailwind Utility classes.
+
+#### [MODIFY] `src/app/layout.tsx`
+- Remove inline `style={{...}}`. Apply standard layout shells using flex utilities (`flex, h-screen, bg-background`).
+
+#### [MODIFY] `src/app/page.tsx` (Dashboard)
+- Refactor the sidebar "Raw Feed Inbox" into a Shadcn `ScrollArea`. 
+- Upgrade the action buttons (`Trigger Live Scrape`, View Toggles) to utilize the Shadcn `<Button>` primitive with proper variants (e.g., `variant="outline"`, `variant="default"`).
+
+#### [MODIFY] `src/app/settings/page.tsx`
+- Convert the raw HTML tables into beautiful Shadcn `<Table>` components for managing the Configuration target lists.
+
+---
+
+### Phase 4: Polymorphic View Refactoring
+Updating the specific content renders to match the standard.
+
+#### [MODIFY] `NYTView.tsx`, `InstaScrollView.tsx`, `TikTokView.tsx`
+- Remove all raw CSS objects.
+- Use Tailwind utility classes for the dense typography spacing (e.g., `text-4xl font-extrabold tracking-tight`, `leading-relaxed text-muted-foreground`).
+- Retain the distinct flavor of logic in each view (Carousel cards, vertical snap, editorial).
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Theme Flavor**: Shadcn supports standard dark mode (Zinc, Slate, Neutral). Shall I proceed with `Zinc` (a very deep, professional dark gray) as the primary base color for the UI?
+> 2. **Lucide Icons**: Shadcn strongly pairs with `lucide-react` for icons. Do I have permission to add this dependency to replace our current raw text emojis?
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` after the massive CSS rip-out to ensure no lingering `style` or layout errors exist across the TSX.
+
+### Manual Verification
+- We will visually inspect the Dashboard and Settings to confirm that the Shadcn `Table`, `Card`, and `Button` components are seamlessly mounting and picking up the Tailwind stylesheets seamlessly.

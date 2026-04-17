@@ -1,0 +1,83 @@
+# Project Synthetica MVP
+
+This document outlines the technical implementation plan for **Project Synthetica** (Phase 1 MVP), based on the provided Product Requirements Document (PRD).
+
+## User Review Required
+
+> [!WARNING]
+> Please review the technology stack and architecture choices. We are proposing **Next.js** for the framework as it perfectly supports both the polymorphic frontend views and the planned Phase 2 Context Management API routes in a single codebase.
+> Also, we need to agree on the mock data strategy for MVP. Building live scrapers for YouTube, Reddit, FB, and Instagram is complex and brittle. Should we start with a simulated raw data feed to first build and test out the AI Refinery and dynamic UI?
+
+## Proposed Architecture & Stack
+
+- **Framework**: Next.js (App Router)
+  - *Reasoning*: Best suited for the polymorphic UI views and provides a seamless backend (via API routes) for the AI layer and Phase 2 Context Management API.
+- **Styling**: Vanilla CSS with strict CSS Variable design system.
+  - *Reasoning*: Adheres to strict requirements for high customizability, dynamic aesthetics, and modern premium design principles.
+- **AI Integration**: OpenAI API or Gemini API
+  - *Reasoning*: Necessary for the "Semantic Refinery" to process raw feeds, extract the core thesis, and generate broad analytical angles.
+
+## Proposed Changes
+
+---
+
+### Phase 1: Foundation & Scaffold
+Initialize Next.js application, strict design system, and core routing.
+
+#### [NEW] `src/app/layout.tsx` & `src/app/page.tsx`
+- Set up routing and state management for toggling between the three consumption modes (Mode A, B, and C).
+- Implement a striking, premium global UI layout.
+
+#### [NEW] `src/styles/` (Design System)
+- `variables.css`: Harmonious color palettes, modern typography (Inter/Outfit), spacing, and glassmorphism tokens.
+- `global.css`: Base styles, strict reset, and interactive micro-animations.
+
+---
+
+### Phase 2: Mock Ingestion & Prioritization Engine
+Before building complex live API scrapers, we mock the real-world data to test the LLM pipeline and frontend UI.
+
+#### [NEW] `src/lib/mockIngestion.ts`
+- Generates simulated raw, unformatted posts (simulating Reddit threads, YouTube tangents, X rants).
+- Includes user defined weighting and entity-tracking structures.
+
+---
+
+### Phase 3: The Semantic Refinery (AI Layer)
+The core backend processing pipeline. Connects the raw feed data to the LLM for transformation.
+
+#### [NEW] `src/app/api/synthesize/route.ts`
+- Backend API endpoint that accepts raw text feeds.
+- Prompts AI to extract the "Core Thesis", apply our "Translation Matrix", and perform "Lateral Broadening".
+- Returns structured JSON tailored for our Polymorphic UI.
+
+---
+
+### Phase 4: Polymorphic Consumption Formats (UI/UX)
+Building the three distinct, hyper-engaging viewing experiences.
+
+#### [NEW] `src/components/views/NYTView.tsx`
+- **Mode A (Deep Read)**: Long-form, traditional editorial layout. Renders synthesized JSON into full article width with generated analytical sidebars.
+
+#### [NEW] `src/components/views/InstaScrollView.tsx`
+- **Mode B (Glanceable)**: Carousel-style cards. Smooth horizontal snap-scrolling to cycle through: The Quote -> The Translation -> The Macro Impact.
+
+#### [NEW] `src/components/views/TikTokView.tsx`
+- **Mode C (High Velocity)**: Vertical snap-scrolling text view. Auto-advancing (optional), punchy typography for rapid context acquisition.
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Data Ingestion**: For the MVP stage, do we have your approval to start with mocked raw social data to build out the AI logic and UI first? Building four different live platform scrapers initially will drastically alter the time-to-value delivery.
+> 2. **AI Provider**: Do you prefer we implement the Semantic Refinery with OpenAI or Gemini APIs, or do you have another provider in mind?
+> 3. **Design Aesthetic**: The plan assumes a premium, glassmorphism, heavy-contrast dark theme to differentiate itself from generic platforms. Does this align with your vision?
+
+## Verification Plan
+
+### Automated Tests
+- Run type checking (`tsc`) and basic component mount tests.
+- Core pipeline unit tests to ensure our prompt structure successfully extracts structured JSON.
+
+### Manual Verification
+- Visual inspection of the three layout modes.
+- End-to-end testing of the simulated "feed", allowing us to select a curated item and transition smoothly between "Insta-Scroll" and "NYT View".

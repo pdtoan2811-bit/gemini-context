@@ -1,0 +1,95 @@
+Skip to content
+[0] (17,34)<button class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' />
+[1] (40,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderHome__nkA_U prc-Button-IconButton-fyge7' href='/' />
+[2] (73,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='https://github.com/' />
+	[3] (73,34)<span >Dashboard />
+[4] (759,34)<button aria-label='Search or jump to…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ Search-module__searchButton__aiE0a' />
+	[5] (759,34)<span  />
+		[6] (765,34)<span >Type
+to search />
+			Type
+			/
+			to search
+[7] (820,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/copilot' />
+[8] (834,34)<button aria-label='Open Copilot…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ CopilotItems-module__CopilotMenu__DVdfE' id='_R_54jpb_' />
+[9] (867,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalCreateMenu-module__actionMenuButton__Hj_iB' id='_R_5jpb_' />
+	[10] (863,34)<span  />
+[11] (892,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/issues' />
+[12] (913,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/pulls' />
+[13] (934,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/repos' />
+[14] (955,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/notifications' />
+[15] (976,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalNavUserMenu-module__anchor__Dcej6 prc-Button-IconButton-fyge7' />
+	[16] (976,34)<img  />
+[17] (59,119)<button aria-label='Go to toanpdmicace dashboard' class='Button--invisible Button--medium Button' id='switch_dashboard_context_left_column-button' />
+	[18] (55,119)<span  />
+		[19] (55,119)<span  />
+			[20] (55,119)<span >toanpdmicace />
+Create your first project
+Ready to start building? Create a repository for a new idea or bring over an existing repository to keep contributing to it.
+[21] (50,290)<a class='btn btn-primary mr-2 mb-2' href='/new'>Create repository />
+[22] (122,292)<a class='no-wrap Link' href='/new/import'>Import repository />
+Dashboard
+Home
+[23] (492,259)<div  />
+	[24] (492,196)<textarea aria-label='Ask anything' class='ChatInput-module__input__lPYf_' id='copilot-chat-textarea' placeholder='Ask anything' />
+	[25] (286,272)<button class='prc-Button-ButtonBase-9n-Xk ChatInput-module__modeSelectButton__cyrB_' id='_r_9_' />
+		[26] (281,272)<span  />
+			[27] (287,272)<span >Ask />
+	[28] (358,272)<button aria-label='Select repositories to attach to conversation' class='prc-Button-ButtonBase-9n-Xk undefined ReposSelector-module__invisibleWithBorder__i5BXF' id='_r_f_' />
+		[29] (353,272)<span  />
+			[30] (359,272)<span  />
+				[31] (359,272)<div >All repositories />
+	[32] (413,272)<button class='prc-Button-ButtonBase-9n-Xk ChatInput-module__attachmentIconButton__FyRnH prc-Button-IconButton-fyge7' />
+	[33] (713,272)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' />
+	Chat Commands
+	[34] (343,332)<button class='CommandPill-module__button__AvnQL' />
+		[35] (350,332)<span >Agent />
+	[36] (405,332)<button class='CommandPill-module__button__AvnQL' />
+		[37] (411,332)<span >Create issue />
+	[38] (481,332)<button class='StarterPill-module__container__Lj4wi' />
+		[39] (456,332)<div  />
+			[40] (456,332)<div  />
+		[41] (488,332)<div >Write code />
+			[42] (506,332)<div  />
+	[43] (550,332)<button class='StarterPill-module__container__Lj4wi' />
+		[44] (538,332)<div  />
+			[45] (538,332)<div  />
+		[46] (557,332)<div >Git />
+			[47] (562,332)<div  />
+	[48] (622,332)<button class='StarterPill-module__container__Lj4wi' />
+		[49] (595,332)<div  />
+			[50] (595,332)<div  />
+		[51] (629,332)<div >Pull requests />
+			[52] (650,332)<div  />
+You've been added to the
+micace-tech
+organization.
+[53] (675,399)<a class='Button--secondary Button--small Button Button--labelWrap mx-2 tmp-mx-2' href='https://github.com/micace-tech' />
+	[54] (675,399)<span  />
+		[55] (675,399)<span >View organization />
+[56] (713,399)<button aria-label='Hide this notice forever' class='close-button' />
+Playlist
+GitHub for beginners on YouTube
+Designed to help you master the basics of GitHub, whether you're new to coding or looking to enhance your version control skills.
+[57] (313,673)<a aria-label='GitHub for beginners on YouTube - Start playlist' class='prc-Button-ButtonBase-9n-Xk' href='https://www.youtube.com/watch?v=r8jQ9hVA2qs&list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f' />
+	[58] (313,673)<span  />
+		[59] (319,673)<span >Start playlist />
+[60] (611,599)<a aria-label='Watch video' class='VideoPreview-module__videoPreview__cO5gc' href='https://www.youtube.com/watch?v=r8jQ9hVA2qs&list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f' />
+	[61] (611,599)<div  />
+[62] (712,477)<button class='prc-Button-ButtonBase-9n-Xk CardBanner-module__dismissButton__b0hff prc-Button-IconButton-fyge7' />
+Getting started
+0
+/
+3
+complete
+[63] (718,801)<button class='prc-Button-ButtonBase-9n-Xk prc-Button-IconButton-fyge7' id='_R_3ilb_' />
+[64] (492,910)<details class='rounded-2 Step-module__Step__GtgSh prc-Details-Details-GckmQ'>It’s your own space to experiment, learn, and share code with the world. />
+	[65] (492,865)<summary class='prc-Button-ButtonBase-9n-Xk tmp-px-2' />
+		[66] (492,865)<span  />
+			[67] (328,865)<span  />
+				[68] (328,865)<span >Create your first code project />
+	It’s your own space to experiment, learn, and share code with the world.
+	[69] (309,942)<a class='prc-Button-ButtonBase-9n-Xk' href='/new' />
+		[70] (309,942)<span  />
+			[71] (309,942)<span >Create project />
+Start a Copilot chat

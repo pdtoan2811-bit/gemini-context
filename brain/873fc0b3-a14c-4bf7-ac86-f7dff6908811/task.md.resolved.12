@@ -1,0 +1,19 @@
+# Task: Unified Task Card Componentization & UI Refresh
+
+- [ ] Planning & Design
+    - [ ] Create implementation plan
+    - [ ] Design high-contrast status UI for light mode
+- [ ] Core Implementation
+    - [ ] [MODIFY] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with new accent color `#1D3557`
+    - [ ] [NEW] Create [TaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx) as a shared component
+    - [ ] Implement `module` and `screen` display
+    - [ ] Refactor [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx#81-95) and [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx#49-60) for light mode
+- [ ] Refactoring & Cleanup
+    - [ ] Replace [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247) with unified [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247) in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#745-1032)
+    - [ ] Update [NextSprintPlanningView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#41-830) callsites
+    - [ ] Update [TaskOverview](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx#30-309) and other views
+    - [ ] [DELETE] Remove legacy [DraggableTaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx)
+- [ ] Verification
+    - [ ] Verify UI aesthetics in Chrome
+    - [ ] Test drag & drop functionality
+    - [ ] Confirm removal of "sync squad" button

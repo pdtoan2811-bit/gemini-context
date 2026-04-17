@@ -1,0 +1,8 @@
+# Verification Plan
+- [ ] Open http://localhost:3000 and verify page load.
+- [ ] Navigate to "Sprint Start" tab and verify the table.
+- [ ] Take a screenshot of the "Sprint Start" tab.
+- [ ] Click on a task in "Personnel" or "Tasks" tab.
+- [ ] Verify "Record Link" section in the inspector.
+- [ ] Take a screenshot of the "Record Link" section.
+- [ ] Final summary and reporting.

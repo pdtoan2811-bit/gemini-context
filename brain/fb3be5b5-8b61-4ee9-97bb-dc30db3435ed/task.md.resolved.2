@@ -1,0 +1,17 @@
+# Fix Squad Shared Tasks & Sprint Goal Calculation
+
+## Bug 1: Shared tasks logic requires ALL squad members
+- [x] Fix [DailyRecapView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx) recap mode — change `size > 1` to `size === selectedPersonsFilter.size`
+- [x] Fix [DailyRecapView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx) squad todo mode — change `size >= 2` to `size >= selectedPersonsFilter.size`
+- [x] Fix [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) SquadsView — implement robust name-matching check using actual person task lists instead of string parsing `currentPerson`.
+- [x] Update empty-state helper text to reflect "all selected people" instead of "at least two"
+
+## Bug 2: Flexible sprint goal met calculation (beyond = met)
+- [x] Create shared [hasMetSprintGoal(currentStatus, sprintGoal)](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts#9-36) helper in [utils.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts)
+- [x] Update [api.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/api.ts) `isCompleted` check to use helper
+- [x] Update [TaskOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx) sorting and display logic 
+- [x] Update [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) sprint goal displays (DraggableTaskCard + SquadsView)
+- [x] Update [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) staleness check
+
+## Verification
+- [x] TypeScript build passes with no errors

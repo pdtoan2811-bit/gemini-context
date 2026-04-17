@@ -1,0 +1,304 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (662,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 7 · Jan 5 – Jan 16
+Live Logs
+7
+Members
+[1] (976,76)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+67
+Bottlenecked
+16
+Doom Loops
+1
+Stale (24h+)
+36
+📌 High Risk
+0
+[2] (61,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Personnel />
+	Personnel
+[3] (119,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[4] (184,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Daily Meeting />
+	Daily Meeting
+[5] (258,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+Standup-ready view grouped by person
+Đặng Minh Quân
+25
+tasks
+8
+blocked
+77d 6h
+stale
+⚠ Suggested Priority: Clear 7 task(s) in Reprocess, 1 task(s) in Review before pulling new 'Not Started' tickets.
+[6] (143,546)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[7] (143,532)<div  />
+		[8] (103,532)<div  />
+			[9] (47,532)<div  />
+			[10] (76,532)<span >recv3K5vuWp6BY />
+			[11] (131,532)<span >Xem, tìm kiếm và lọc />
+		[12] (218,532)<div >ELEVATED />
+	[13] (143,560)<div  />
+		[14] (68,560)<span >Reprocess />
+		[15] (115,560)<span >STALE
+4d 22h />
+[16] (143,624)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[17] (143,610)<div  />
+		[18] (99,610)<div  />
+			[19] (47,610)<div  />
+			[20] (76,610)<span >recv3K6fvev4vz />
+			[21] (127,610)<span >Nạp tiền/Thu tiền />
+		[22] (218,610)<div >ELEVATED />
+	[23] (143,639)<div  />
+		[24] (68,639)<span >Reprocess />
+		[25] (115,639)<span >STALE
+4d 22h />
+[26] (143,703)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[27] (143,688)<div  />
+		[28] (98,688)<div  />
+			[29] (47,688)<div  />
+			[30] (76,688)<span >recv3K7Ed9poE0 />
+			[31] (126,688)<span >Cài đặt cảnh báo />
+		[32] (218,688)<div >ELEVATED />
+	[33] (143,717)<div  />
+		[34] (68,717)<span >Reprocess />
+		[35] (115,717)<span >STALE
+4d 22h />
+[36] (143,781)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[37] (143,767)<div  />
+		[38] (106,767)<div  />
+			[39] (47,767)<div  />
+			[40] (76,767)<span >recv3K7M2jDAau />
+			[41] (134,767)<span >Xem chi tiết chiến dịch />
+		[42] (218,767)<div >ELEVATED />
+	[43] (143,795)<div  />
+		[44] (68,795)<span >Reprocess />
+		[45] (115,795)<span >STALE
+4d 22h />
+[46] (143,859)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[47] (143,845)<div  />
+		[48] (119,845)<div  />
+			[49] (47,845)<div  />
+			[50] (76,845)<span >recvaMJgGg2wEj />
+			[51] (147,845)<span >Bug: Keyword, Crawler ko phải của mình thì ẩn nút quét />
+		[52] (218,845)<div >ELEVATED />
+	[53] (143,874)<div  />
+		[54] (68,874)<span >Reprocess />
+		[55] (115,874)<span >STALE
+4d 22h />
+[56] (143,938)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[57] (143,923)<div  />
+		[58] (119,923)<div  />
+			[59] (47,923)<div  />
+			[60] (76,923)<span >recvaMJPh9Q4wP />
+			[61] (147,923)<span >Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất) />
+		[62] (218,923)<div >ELEVATED />
+	[63] (143,952)<div  />
+		[64] (68,952)<span >Reprocess />
+		[65] (115,952)<span >STALE
+4d 22h />
+recvccB1jmnaDI
+Fix Bug import Excel project
+ELEVATED
+Nguyễn Thảo Linh
+37
+tasks
+12
+blocked
+76d 19h
+stale
+⚠ Suggested Priority: Clear 10 task(s) in Reprocess, 2 task(s) in Review before pulling new 'Not Started' tickets.
+[66] (378,546)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[67] (378,532)<div  />
+		[68] (338,532)<div  />
+			[69] (282,532)<div  />
+			[70] (310,532)<span >recv3K5vuWp6BY />
+			[71] (366,532)<span >Xem, tìm kiếm và lọc />
+		[72] (453,532)<div >ELEVATED />
+	[73] (378,560)<div  />
+		[74] (302,560)<span >Reprocess />
+		[75] (350,560)<span >STALE
+4d 22h />
+[76] (378,624)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[77] (378,610)<div  />
+		[78] (334,610)<div  />
+			[79] (282,610)<div  />
+			[80] (310,610)<span >recv3K6fvev4vz />
+			[81] (362,610)<span >Nạp tiền/Thu tiền />
+		[82] (453,610)<div >ELEVATED />
+	[83] (378,639)<div  />
+		[84] (302,639)<span >Reprocess />
+		[85] (350,639)<span >STALE
+4d 22h />
+[86] (378,703)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[87] (378,688)<div  />
+		[88] (333,688)<div  />
+			[89] (282,688)<div  />
+			[90] (310,688)<span >recv3K7Ed9poE0 />
+			[91] (361,688)<span >Cài đặt cảnh báo />
+		[92] (453,688)<div >ELEVATED />
+	[93] (378,717)<div  />
+		[94] (302,717)<span >Reprocess />
+		[95] (350,717)<span >STALE
+4d 22h />
+[96] (378,781)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[97] (378,767)<div  />
+		[98] (341,767)<div  />
+			[99] (282,767)<div  />
+			[100] (310,767)<span >recv3K7M2jDAau />
+			[101] (369,767)<span >Xem chi tiết chiến dịch />
+		[102] (453,767)<div >ELEVATED />
+	[103] (378,795)<div  />
+		[104] (302,795)<span >Reprocess />
+		[105] (350,795)<span >STALE
+4d 22h />
+[106] (378,859)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[107] (378,845)<div  />
+		[108] (353,845)<div  />
+			[109] (282,845)<div  />
+			[110] (310,845)<span >recvaMJgGg2wEj />
+			[111] (382,845)<span >Bug: Keyword, Crawler ko phải của mình thì ẩn nút quét />
+		[112] (453,845)<div >ELEVATED />
+	[113] (378,874)<div  />
+		[114] (302,874)<span >Reprocess />
+		[115] (350,874)<span >STALE
+4d 22h />
+[116] (378,938)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[117] (378,923)<div  />
+		[118] (353,923)<div  />
+			[119] (282,923)<div  />
+			[120] (310,923)<span >recvaMJPh9Q4wP />
+			[121] (382,923)<span >Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất) />
+		[122] (453,923)<div >ELEVATED />
+	[123] (378,952)<div  />
+		[124] (302,952)<span >Reprocess />
+		[125] (350,952)<span >STALE
+4d 22h />
+recvccB1jmnaDI
+Fix Bug import Excel project
+ELEVATED
+Nguyễn Đình Hồng Phong
+33
+tasks
+9
+blocked
+75d
+stale
+⚠ Suggested Priority: Clear 6 task(s) in Reprocess, 3 task(s) in Review before pulling new 'Not Started' tickets.
+[126] (612,546)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[127] (612,532)<div  />
+		[128] (572,532)<div  />
+			[129] (517,532)<div  />
+			[130] (545,532)<span >recv3K5vuWp6BY />
+			[131] (600,532)<span >Xem, tìm kiếm và lọc />
+		[132] (688,532)<div >ELEVATED />
+	[133] (612,560)<div  />
+		[134] (537,560)<span >Reprocess />
+		[135] (584,560)<span >STALE
+4d 22h />
+[136] (612,624)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[137] (612,610)<div  />
+		[138] (568,610)<div  />
+			[139] (517,610)<div  />
+			[140] (545,610)<span >recv3K6fvev4vz />
+			[141] (596,610)<span >Nạp tiền/Thu tiền />
+		[142] (688,610)<div >ELEVATED />
+	[143] (612,639)<div  />
+		[144] (537,639)<span >Reprocess />
+		[145] (584,639)<span >STALE
+4d 22h />
+[146] (612,703)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[147] (612,688)<div  />
+		[148] (567,688)<div  />
+			[149] (517,688)<div  />
+			[150] (545,688)<span >recv3K7Ed9poE0 />
+			[151] (595,688)<span >Cài đặt cảnh báo />
+		[152] (688,688)<div >ELEVATED />
+	[153] (612,717)<div  />
+		[154] (537,717)<span >Reprocess />
+		[155] (584,717)<span >STALE
+4d 22h />
+[156] (612,781)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[157] (612,767)<div  />
+		[158] (575,767)<div  />
+			[159] (517,767)<div  />
+			[160] (545,767)<span >recv3K7M2jDAau />
+			[161] (604,767)<span >Xem chi tiết chiến dịch />
+		[162] (688,767)<div >ELEVATED />
+	[163] (612,795)<div  />
+		[164] (537,795)<span >Reprocess />
+		[165] (584,795)<span >STALE
+4d 22h />
+[166] (612,859)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[167] (612,845)<div  />
+		[168] (572,845)<div  />
+			[169] (517,845)<div  />
+			[170] (545,845)<span >recv3K7vh0ZshP />
+			[171] (600,845)<span >Xem, tìm kiếm và lọc />
+		[172] (688,845)<div >ELEVATED />
+	[173] (612,874)<div  />
+		[174] (537,874)<span >Reprocess />
+		[175] (579,874)<span >STALE
+4d />
+[176] (612,938)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[177] (612,923)<div  />
+		[178] (588,923)<div  />
+			[179] (517,923)<div  />
+			[180] (545,923)<span >recvaZJ8AYjnBj />
+			[181] (616,923)<span >Thêm bộ lọc "Từ trước đến nay" />
+		[182] (688,923)<div >ELEVATED />
+	[183] (612,952)<div  />
+		[184] (537,952)<span >Reprocess />
+		[185] (579,952)<span >STALE
+3d />
+[186] (612,999)<div  />
+	[187] (587,999)<div >recvcplYLRHJAk />
+		recvcplYLRHJAk
+		[188] (615,999)<span >[Adecos] Màn hình quản lý ads />
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+
+</current_dom>

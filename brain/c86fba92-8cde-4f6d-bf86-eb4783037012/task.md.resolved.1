@@ -1,0 +1,13 @@
+# Sprint Start & Record Link Features
+
+## Feature 1: Sprint Start Status Snapshot
+- [ ] Create `useSprintStart` hook for persistence (read/write via `/api/data`)
+- [ ] Add sprint-start data computation logic (find earliest timestamp per sprint where sprint & status are both non-null)
+- [ ] Create `SprintStartManager` component with table view: task ID, name, auto-detected status, editable status override
+- [ ] Add filtering by sprint, bulk edit, confirm/save functionality
+- [ ] Add a new "Sprint Start" tab in the main page tab navigation
+- [ ] Wire everything together in [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+## Feature 2: Record Link in Task Detail
+- [x] Add a "Record Link" section to [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx) that displays and links to the `recordLink` URL
+- [x] Source from both `segment.recordLink` and `taskAnalysis.recordLink`

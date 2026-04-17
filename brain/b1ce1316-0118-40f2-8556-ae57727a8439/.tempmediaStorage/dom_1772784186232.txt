@@ -1,0 +1,339 @@
+Flow-based tracking visualization to expose personnel bottlenecks and handoff wait times. Click any timeline segment to annotate blockers.
+Personnel Bottleneck Board
+Y-Axis: Personnel. X-Axis: Time. Overlapping blocks indicate context-switching. Dashed red borders indicate tasks that have not met their sprint goal.
+Personnel
+Mar 04, 13:52
+Mar 06, 15:02
+Nguyễn Đình Hồng Phong
+recv3K79cqn6GQ
+recv3K7jRnm8eg
+recv8NUvuwmWZa
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K4CpAiZOQ
+recv3K6c4efGLK
+recv3K6nCbZzof
+recv3K6EdXTqVQ
+recvaTQnOlQbVr
+recvcpp9Vt7fDZ
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAx2I9PQu
+recvcplYLRHJAk
+recvcpAwqeWrG9
+recvcMMl3MxScj
+recvcpAw2jVZYY
+recvcpBRsEpopv
+recvcpBRHR4lFR
+recvcpBRVK9th3
+recvcpBS69hM04
+recvcpPRDGYywj
+recvcMMGpuN4C9
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+[0] (116,269)<div  />
+	[1] (116,269)<div  />
+		[2] (116,269)<span >recv3K7vh0ZshP />
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+[3] (282,269)<div  />
+	[4] (282,269)<div  />
+		[5] (282,269)<span >recvcppnKXcTf1 />
+recvaTSzccpO1N
+[6] (356,269)<div  />
+	[7] (356,269)<div  />
+		[8] (356,269)<span >recv3K7vh0ZshP />
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recv3K6oWOWQsx
+[9] (571,269)<div  />
+	[10] (571,269)<div  />
+		[11] (571,269)<span >recv3K6oWOWQsx />
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[12] (694,269)<div  />
+	[13] (694,269)<div  />
+		[14] (694,269)<span >recvcppnKXcTf1 />
+Lưu Thị Dung
+recvb4XrTzRcxd
+recv3K4CpAiZOQ
+recvaMIPZ3H1qJ
+recvaTQnOlQbVr
+recvaTRs6mVHWX
+recvb0w3YjxIhf
+recvb4XbDfH2MD
+recvcpp9Vt7fDZ
+recv4hrGMxVPt8
+recv8eYk2HvUYf
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAx2I9PQu
+recvcpAwqeWrG9
+recvcppvgbY0vg
+recvcpAw2jVZYY
+recvcpBRsEpopv
+recvcpBRHR4lFR
+recvcpBRVK9th3
+recvcpBS69hM04
+recvcpPRDGYywj
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recv4hq6KQz75e
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+[15] (282,345)<div  />
+	[16] (282,345)<div  />
+		[17] (282,345)<span >recvcppnKXcTf1 />
+recvaTSTAtMsLJ
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recv8eYk2HvUYf
+recvaTSzccpO1N
+recv3K7vh0ZshP
+recvaTRbGEPmYe
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvcppvgbY0vg
+recvaTRbGEPmYe
+recvcppvgbY0vg
+recvcppnKXcTf1
+recvaMNg4NgpWW
+recvcppvgbY0vg
+recvaZJ8AYjnBj
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+[18] (565,345)<div  />
+	[19] (565,345)<div  />
+		[20] (565,345)<span >recvaMNg4NgpWW />
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+[21] (644,345)<div  />
+	[22] (644,345)<div  />
+		[23] (644,345)<span >recvcppvgbY0vg />
+recvcppvgbY0vg
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[24] (694,345)<div  />
+	[25] (694,345)<div  />
+		[26] (694,345)<span >recvcppnKXcTf1 />
+Nguyễn Thảo Linh
+recv3K7jRnm8eg
+recvaMML4ugcJn
+recvb4XrTzRcxd
+recvaMJE5qh6eA
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K4CpAiZOQ
+recvaMG1qCYI6b
+recv3K6EdXTqVQ
+recvaMHnT98qyZ
+recvaMIPZ3H1qJ
+recvaMLtyTxamO
+recvaTQnOlQbVr
+recvaTRs6mVHWX
+recvb0w3YjxIhf
+recvb4XbDfH2MD
+recvcpp9Vt7fDZ
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recvaMJgGg2wEj
+recvaMJPh9Q4wP
+recvccB1jmnaDI
+recvaOw5yELuJm
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAwqeWrG9
+recvcpAw2jVZYY
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+[27] (116,421)<div  />
+	[28] (116,421)<div  />
+		[29] (116,421)<span >recvaMNg4NgpWW />
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+[30] (282,421)<div  />
+	[31] (282,421)<div  />
+		[32] (282,421)<span >recvcppnKXcTf1 />
+recvaTSTAtMsLJ
+recvaTSzccpO1N
+recv3K7vh0ZshP
+recvaTRbGEPmYe
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvaTRbGEPmYe
+recvcppnKXcTf1
+recvaMNg4NgpWW
+recvaZJ8AYjnBj
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recv3K6oWOWQsx
+[33] (571,421)<div  />
+	[34] (571,421)<div  />
+		[35] (571,421)<span >recv3K6oWOWQsx />
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[36] (694,421)<div  />
+	[37] (694,421)<div  />
+		[38] (694,421)<span >recvcppnKXcTf1 />
+Đặng Minh Quân
+recv3K79cqn6GQ
+recv3K7jRnm8eg
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K6c4efGLK
+recv3K6nCbZzof
+recvaMG1qCYI6b
+recv3K6EdXTqVQ
+recvaMHnT98qyZ
+recvaMLtyTxamO
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recvaMJgGg2wEj
+recvaMJPh9Q4wP
+recvccB1jmnaDI
+recvcplAZThJCP
+recvcplYLRHJAk
+recvcpm5MtJ0bu
+recvcpmgR56ofw
+recvcpIup8Sin8
+recvcpmsDbPM9F
+recvcpM8aFlUbx
+recvcpmsDbPM9F
+[39] (337,497)<div  />
+	[40] (337,497)<div  />
+		[41] (337,497)<span >recvcplAZThJCP />
+recvcplAZThJCP
+recv3K6oWOWQsx
+[42] (571,497)<div  />
+	[43] (571,497)<div  />
+		[44] (571,497)<span >recv3K6oWOWQsx />
+Nguyễn Văn Nam
+recvb4ZKNJeKXJ
+recvcimYOOXcA1
+recvaMIPZ3H1qJ
+recv4hrGMxVPt8
+recv8eYk2HvUYf
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recvcMPVy5j1Kg
+recvcMQtYD7O24
+recvcMS49Flrxh
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recv4hq6KQz75e
+recvaMNg4NgpWW
+recvaTSTAtMsLJ
+[45] (227,574)<div  />
+	[46] (227,574)<div  />
+		[47] (227,574)<span >recvaTSTAtMsLJ />
+recvaTSTAtMsLJ
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recv8eYk2HvUYf
+recvaMNg4NgpWW
+recvaTSTAtMsLJ
+[48] (565,574)<div  />
+	[49] (565,574)<div  />
+		[50] (565,574)<span >recvaMNg4NgpWW />
+recvcMS49Flrxh
+recvcMQtYD7O24
+recvaTSTAtMsLJ
+[51] (675,574)<div  />
+	[52] (675,574)<div  />
+		[53] (675,574)<span >recvaTSTAtMsLJ />
+Trần Quý Đạt
+recvaMML4ugcJn
+recvb4XrTzRcxd
+recvaMLtyTxamO
+recvb4XbDfH2MD
+recvccB1jmnaDI
+recvcpIup8Sin8
+[54] (411,650)<div  />
+	[55] (411,650)<div  />
+		[56] (411,650)<span >recvcpM8aFlUbx />
+Phạm Đức Toàn
+recvcRVVf8LF0n
+[57] (411,726)<div  />
+	[58] (411,726)<div  />
+		[59] (411,726)<span >recvcRVVf8LF0n />
+Unassigned
+[60] (706,802)<div  />
+	[61] (706,802)<div  />
+		[62] (706,802)<span >recvd4hkuhFspK />
+Legend
+Color coding by Module
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+Blocked / Not Met Goal
+Sprint Relay Engine v1.0.0 · Next.js 14 App Router

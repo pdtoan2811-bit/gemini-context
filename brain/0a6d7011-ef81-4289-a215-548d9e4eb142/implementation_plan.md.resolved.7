@@ -1,0 +1,25 @@
+# Absolute Stabilization of Bento Grid
+
+The border light is still bleeding to the viewport margins in some browsers. I will implement a strictly contained animation using multi-layer clipping (overflow + clip-path) and a more focused animation area.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Strict Multi-Layer Clipping:**
+    - Add `overflow-hidden` to the main container.
+    - Add `clip-path: inset(0 round 24px)` to the animation layers to ensure NO pixels can escape the box boundary.
+- **Minimize Animation Area:** 
+    - Reduce the rotating gradient size from `300%` to `150%` to minimize the repaint surface area.
+    - Use a more focused `conic-gradient`.
+- **Optimization:**
+    - Use a single-layer rotating mask if possible, or ensure the blurred layer is strictly clipped before the blur is applied.
+
+## Technical Details
+- The "bleeding" seen at the viewport margins is likely a rendering artifact where a blurred, animated element isn't correctly clipped by a simple `overflow: hidden`. `clip-path` is a much stronger directive for the GPU to discard pixels.
+
+## Verification Plan
+- **Performance Monitor:** Verify 60fps.
+- **Visual Check:** Confirm zero light bleed at the viewport edges.
+- **Alignment:** Ensure the beam remains perfectly on the 1px border.

@@ -1,0 +1,26 @@
+# Next Sprint Planning Walkthrough
+
+I have successfully implemented the "Next Sprint Planning" feature that allows users to draft uncompleted tasks to roll over into the next sprint, and sync these drafts to the Lark Bot!
+
+## Changes Made
+1. **Added State Management ([useNextSprintPlan.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useNextSprintPlan.ts))**
+   - We created a custom React hook that stores drafted plans in your local `data/db.json`.
+   - Each drafted task persists the assigned `targetSprint`, `targetStatus`, and `targetSprintGoal`.
+
+2. **Created the Next Sprint Planning Dashboard ([NextSprintPlanningView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx))**
+   - The view behaves similarly to the Daily Meeting View, categorizing tasks by person.
+   - For every chosen person, you can see their **uncompleted** tasks from the active sprint.
+   - Clicking **"Plan"** moves the task to their draft queue.
+   - Each draft allows tweaking its target sprint, assigning a target status (defaulting to Not Started), and drafting a detailed sprint goal via a multi-line text area.
+   - A **"Sync to Webhook"** button consolidates the data for a person and dispatches it in bulk.
+
+3. **Integrated with Lark Webhooks**
+   - When the user clicks "Sync to Webhook", a payload properly formatted for the `bulk_sprint_planning` event is sent to the existing `/api/send-todo-webhook` endpoint.
+   - This endpoint forwards the robust JSON to your configured Lark Webhook URL exactly as we discussed!
+
+## Verification Results
+- **Build Constraints:** Evaluated codebase integrity using Next.js build (`npm run build`). No typescript errors or linting errors were found.
+- **Component Rendering:** The `nextSprintPlanning` tab is cleanly integrated into [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) with all tabs properly localized and visually appealing.
+
+## Validation 
+- The feature is ready to test! You can boot up your dev server (`npm run dev`) and click the new tab. Try assigning a "Next Sprint Draft" for a user and observe the actual JSON output sent to Lark!

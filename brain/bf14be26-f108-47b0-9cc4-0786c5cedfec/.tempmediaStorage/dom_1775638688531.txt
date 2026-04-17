@@ -1,0 +1,45 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Affiliate Marketing
+with AI
+Adecos AI helps you find winning products, analyze data, and optimize ROAS for E-commerce. Chat, Deep Research, and Analytics in one platform.
+Get started
+Watch Demo
+Adecos Intelligence Engine
+[0] (708,512)<div  />
+	[1] (708,512)<div  />
+		[2] (708,512)<img  />
+	[3] (708,564)<div  />
+[4] (647,642)<div  />
+	[5] (647,642)<div  />
+		[6] (647,642)<img  />
+	[7] (647,694)<div  />
+[8] (497,695)<div  />
+	[9] (497,695)<div  />
+		[10] (497,695)<img  />
+[11] (348,642)<div  />
+	[12] (348,642)<div  />
+		[13] (348,642)<img  />
+	[14] (348,694)<div  />
+[15] (287,512)<div  />
+	[16] (287,512)<div  />
+		[17] (287,512)<img  />
+	[18] (287,564)<div  />
+[19] (349,383)<div  />
+	[20] (349,383)<div  />
+		[21] (349,383)<img  />
+	[22] (349,435)<div  />
+[23] (497,330)<div  />
+	[24] (497,330)<div  />
+		[25] (497,330)<img  />
+	[26] (497,382)<div  />
+[27] (646,383)<div  />
+	[28] (646,383)<div  />
+		[29] (646,383)<img  />
+	[30] (646,435)<div  />
+Trusted by teams optimizing at scale:
+Adecos AI became our unfair advantage in affiliate marketing—
+
+</current_dom>

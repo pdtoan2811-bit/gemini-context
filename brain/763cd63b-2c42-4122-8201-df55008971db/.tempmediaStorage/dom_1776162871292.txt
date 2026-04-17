@@ -1,0 +1,133 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (125,29)<a aria-label='Google Antigravity' class='logo-link' href='/' />
+	[1] (125,31)<antigravity-logo  />
+[2] (313,28)<nav  />
+	[3] (210,28)<div  />
+		[4] (210,27)<app-button  />
+			[5] (210,28)<button aria-label='Product' class='button button-compact button-nav call-to-action--nav dropdown-open'>Product />
+	[6] (265,28)<div  />
+		[7] (265,27)<app-button  />
+			[8] (265,28)<button aria-label='Use Cases' class='button button-compact button-nav call-to-action--nav dropdown-nav'>Use Cases />
+				[9] (287,28)<span >keyboard_arrow_down />
+	[10] (319,28)<div  />
+		[11] (319,27)<app-button  />
+			[12] (319,28)<button aria-label='Pricing' class='button button-compact button-nav call-to-action--nav dropdown-open'>Pricing />
+	[13] (358,28)<div  />
+		[14] (358,27)<app-button  />
+			[15] (358,28)<button aria-label='Blog' class='button button-compact button-nav call-to-action--nav dropdown-open'>Blog />
+	[16] (407,28)<div  />
+		[17] (407,27)<app-button  />
+			[18] (407,28)<button aria-label='Resources' class='button button-compact button-nav call-to-action--nav dropdown-nav'>Resources />
+				[19] (429,28)<span >keyboard_arrow_down />
+[20] (885,28)<button class='button button-compact button-primary call-to-action--nav download-button dropdown-nav'>Download />
+	[21] (906,28)<span >download />
+[22] (210,528)<div class='docs-nav docs-page-nav' scrollable='true' />
+	[23] (207,113)<a class='page-nav-item' href='/docs/home' />
+		[24] (197,113)<span >Home />
+		[25] (266,113)<span >expand_more />
+	[26] (207,152)<a class='page-nav-item' href='/docs/get-started' />
+		[27] (213,152)<span >Getting Started />
+	[28] (207,191)<a class='page-nav-item' href='/docs/firebase-studio-migration' />
+		[29] (213,191)<span >Firebase Studio Migration />
+	[30] (207,230)<a class='page-nav-item' href='/docs/agent' />
+		[31] (197,230)<span >Agent />
+		[32] (266,230)<span >expand_more />
+	[33] (207,269)<a class='page-nav-item' href='/docs/models' />
+		[34] (213,269)<span >Models />
+	[35] (207,309)<a class='page-nav-item' href='/docs/agent-modes-settings' />
+		[36] (213,309)<span >Agent Modes / Settings />
+	[37] (207,348)<a class='page-nav-item' href='/docs/agent-permissions' />
+		[38] (213,348)<span >Agent Permissions />
+	[39] (207,387)<a class='page-nav-item' href='/docs/rules-workflows' />
+		[40] (213,387)<span >Rules / Workflows />
+	[41] (207,426)<a class='page-nav-item active' href='/docs/skills' />
+		[42] (213,426)<span >Skills />
+	[43] (207,465)<a class='page-nav-item' href='/docs/task-groups' />
+		[44] (213,465)<span >Task Groups />
+	[45] (207,504)<a class='page-nav-item' href='/docs/browser-subagent' />
+		[46] (213,504)<span >Browser Subagent />
+	[47] (207,544)<a class='page-nav-item' href='/docs/strict-mode' />
+		[48] (213,544)<span >Strict Mode />
+	[49] (207,583)<a class='page-nav-item' href='/docs/sandbox-mode' />
+		[50] (213,583)<span >Sandboxing />
+	[51] (198,622)<span >Tools />
+	[52] (266,622)<span >expand_more />
+	[53] (207,661)<a class='page-nav-item' href='/docs/mcp' />
+		[54] (213,661)<span >MCP />
+	[55] (207,700)<a class='page-nav-item' href='/docs/artifacts' />
+		[56] (197,700)<span >Artifacts />
+		[57] (266,700)<span >expand_more />
+	[58] (207,739)<a class='page-nav-item' href='/docs/task-list' />
+		[59] (213,739)<span >Task List />
+	[60] (207,779)<a class='page-nav-item' href='/docs/implementation-plan' />
+		[61] (213,779)<span >Implementation Plan />
+	[62] (207,818)<a class='page-nav-item' href='/docs/walkthrough' />
+		[63] (213,818)<span >Walkthrough />
+	[64] (207,857)<a class='page-nav-item' href='/docs/screenshots' />
+		[65] (213,857)<span >Screenshots />
+	[66] (207,896)<a class='page-nav-item' href='/docs/browser-recordings' />
+		[67] (213,896)<span >Browser Recordings />
+	[68] (207,935)<a class='page-nav-item' href='/docs/knowledge' />
+		[69] (213,935)<span >Knowledge />
+	[70] (207,974)<a class='page-nav-item' href='/docs/editor' />
+		[71] (197,974)<span >Editor />
+		[72] (266,974)<span >expand_more />
+Agent
+>
+Skills
+Agent Skills
+Skills are an
+[73] (372,141)<a href='https://agentskills.io/home'>open standard />
+for extending agent capabilities. A skill is a folder containing a
+SKILL.md
+file with instructions that the agent can follow when working on specific tasks.
+What are skills?
+Skills are reusable packages of knowledge that extend what the agent can do. Each skill contains:
+Instructions
+for how to approach a specific type of task
+Best practices
+and conventions to follow
+Optional scripts and resources
+the agent can use
+When you start a conversation, the agent sees a list of available skills with their names and descriptions. If a skill looks relevant to your task, the agent reads the full instructions and follows them.
+Where skills live
+Antigravity supports two types of skills:
+Location
+Scope
+<workspace-root>/.agents/skills/<skill-folder>/
+Workspace-specific
+~/.gemini/antigravity/skills/<skill-folder>/
+Global (all workspaces)
+Workspace skills
+are great for project-specific workflows, like your team's deployment process or testing conventions.
+Global skills
+work across all your projects. Use these for personal utilities or general-purpose tools you want everywhere.
+Note: Antigravity now defaults to .agents/skills, but still maintains backward support for .agent/skills.
+Creating a skill
+To create a skill:
+Create a folder for your skill in one of the skill directories
+Add a
+SKILL.md
+file inside that folder
+On this Page
+[74] (790,139)<li  />
+	[75] (756,139)<a class='active'>Agent Skills />
+[76] (790,178)<li  />
+	[77] (763,178)<a >What are skills? />
+[78] (790,218)<li  />
+	[79] (764,218)<a >Where skills live />
+[80] (790,257)<li  />
+	[81] (762,257)<a >Creating a skill />
+[82] (790,296)<li  />
+	[83] (772,296)<a >Skill folder structure />
+[84] (790,335)<li  />
+	[85] (781,335)<a >How the agent uses skills />
+[86] (790,374)<li  />
+	[87] (761,374)<a >Best practices />
+[88] (790,413)<li  />
+	[89] (786,413)<a >Example: A code review skill />
+
+</current_dom>

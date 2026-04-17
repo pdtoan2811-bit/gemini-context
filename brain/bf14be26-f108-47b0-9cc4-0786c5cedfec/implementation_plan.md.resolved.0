@@ -1,0 +1,63 @@
+# Homepage Redesign: Vercel Aesthetic
+
+Redesign the homepage to capture the sleek, high-performance aesthetic of Vercel.com while maintaining all existing content and translations.
+
+## Proposed Changes
+
+### [Component] Global Styles
+#### [MODIFY] [globals.css](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/app/globals.css)
+- Refine the color palette for deeper blacks and cleaner grays in dark mode.
+- Add custom utilities for:
+    - **Radiant Borders**: Subtle glowing borders on hover.
+    - **Spotlight Backgrounds**: Smooth radial gradients.
+    - **Text Gradients**: High-contrast heading styles.
+
+### [Component] Navigation
+#### [MODIFY] [LandingHeader.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingHeader.tsx)
+- Enhance the transparency and backdrop-blur effects.
+- Simplify vertical padding and border weight.
+- Add a subtle "active" state or hover glow to nav items.
+
+### [Component] Hero Section
+#### [MODIFY] [Hero.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/Hero.tsx)
+- Implement a bolder, more dramatic layout.
+- Use larger typography with tighter tracking.
+- Add a "Spotlight" effect that follows the mouse or pulses subtly.
+- Improve the secondary button (outline) to feel more premium.
+
+### [Component] Features Section (Bento Grid)
+#### [NEW] [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Create a reusable Bento Grid component.
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- Transition from a single image to a rich Bento Grid showcasing the four main features:
+    - AI Agent
+    - Deep Research
+    - Analytics
+    - Project Management
+
+### [Component] Performance & Animations
+- Optimize `framer-motion` transitions to be smoother and more "viscous" (Vercel style).
+- Use `Inter` font with corrected weights or integrate `Geist` if approved.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Font Selection**: The project currently uses `Inter`. Vercel uses `Geist`. Should I attempt to integrate `Geist` or just optimize the current `Inter` typography?
+
+> [!NOTE]
+> **Layout Logic**: I will be converting the "What We Do" and "Features" sections into more of a unified "Showcase" using a Bento Grid layout. This will keep the content but present it more dynamically.
+
+## Open Questions
+1. Do you have a preference for the dark mode background? (e.g., Pure Black #000 vs. Very Dark Gray #0a0a0a).
+2. Should I maintain the "Orb Gradient" or move towards more subtle "Linear Gradients"?
+
+## Verification Plan
+
+### Automated Tests
+- Build check: `npm run build`
+- Lint check: `npm run lint`
+
+### Manual Verification
+- Visual inspection on desktop and mobile viewports.
+- Interact with all hover states and transitions to ensure they feel premium.
+- Verify that light mode still looks great (though Vercel aesthetic prioritizes dark mode).

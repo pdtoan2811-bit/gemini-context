@@ -1,0 +1,20 @@
+# Tasks
+
+- [x] Identify Sandbox location in codebase
+- [x] Research Sandbox implementation and UI linkages
+- [x] Determine why it's not visible/accessible
+- [x] Make the test feature more accessible (unify Webhook UI)
+- [x] Verify accessibility and functionality
+- [x] Update startup scripts with cache cleaning
+- [x] Fix Webhook Modal UI glitches and Run Test logic
+- [x] Refine Webhook Test Feature:
+    - [x] Add status dropdown
+    - [x] Correct `sprintGoal` to be a status dropdown
+    - [x] Use numeric sprints (8, 9) instead of text strings
+- [x] Update production webhook payload in `DailyMeetingView.tsx` with numeric sprints
+- [x] Verify refined webhook test feature in browser
+- [x] Implement Sprint Start Sync Feature:
+    - [x] Create `useSprintStartSync` hook (gradual sending)
+    - [x] Create `SprintStartSyncModal` (progress & logs)
+    - [x] Integrate into `SprintStartManager.tsx`
+    - [x] Verify gradual sync with production webhook URL

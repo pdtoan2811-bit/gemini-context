@@ -1,0 +1,64 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+AI gợi ý: Tối ưu hóa CPC
+[0] (235,79)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third max-h-10 px-2 py-1.5 has-[>svg]:px-2 w-full h-9 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold border-none transition-all hover:scale-[1.02]'>Áp dụng ngay />
+Trợ lý AI
+Chat với Adecos AI. Đặt câu hỏi, nhận gợi ý prompt và khởi chạy Deep Research từ cùng một giao diện. Thiết kế cho quy trình affiliate và e-commerce.
+Nghiên cứu sâu
+Chạy tác vụ research từ chat. Theo dõi tiến trình trên panel nổi có thể kéo và thu gọn. Xem log và kết quả tại trang quản lý với dạng danh sách hoặc lưới.
+Doanh thu
++14%
+$12,840
+Chi phí Ads
+-5%
+$3,120
+Lợi nhuận
++22%
+$9,720
+Chuyển đổi
++18%
+384
+Doanh thu theo tuần
+Lượt click & Chuyển đổi (30 ngày)
+ROAS:
+4.1x
+Tháng 3 2026
+Phân tích
+Dashboard kiểu Google Ads: lọc theo tài khoản, chương trình, từ khóa; xem KPI; nhóm theo ngày, tuần hoặc tháng. Biểu đồ chi phí & doanh thu, traffic và chuyển đổi dễ đọc.
+Đang quét
+[1] (284,751)<div  />
+	[2] (284,737)<div  />
+		[3] (216,737)<span >Jasper AI Campaign />
+	[4] (284,763)<div  />
+		[5] (210,763)<div >Commission:
+20% />
+		[6] (374,763)<div  />
+Đã lưu
+[7] (497,751)<div  />
+	[8] (497,737)<div  />
+		[9] (437,737)<span >Fragrance niche research />
+	[10] (497,763)<div  />
+		[11] (423,763)<div >Commission:
+15% />
+		[12] (588,763)<div  />
+[13] (497,836)<div  />
+	[14] (497,821)<div  />
+		[15] (428,821)<span >Top Electronics US />
+	[16] (497,847)<div  />
+		[17] (423,847)<div >Commission:
+12% />
+		[18] (588,847)<div  />
+Đang chạy Ads
+[19] (711,751)<div  />
+	[20] (711,737)<div  />
+		[21] (642,737)<span >Affiliate SaaS 2026 />
+	[22] (711,763)<div  />
+		[23] (637,763)<div >Commission:
+25% />
+		[24] (802,763)<div  />
+Quản lý dự án
+Quản lý dự án với dạng danh sách và lưới. Lưu shortlist từ research. Badge trạng thái, tìm kiếm và trang chi tiết—đồng bộ với trải nghiệm demo onboarding.
+
+</current_dom>

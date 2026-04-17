@@ -1,0 +1,19 @@
+Answering your questions
+Got more questions? Send us your enquiry below.
+[0] (231,536)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-10 max-h-10 rounded-lg px-4 py-2 has-[>svg]:px-3 mt-4 w-full sm:mt-6 sm:w-auto sm:px-6'>Get in touch />
+[1] (639,364)<button class='flex flex-1 items-center justify-between gap-3 rounded-md py-4 text-left text-sm font-medium text-foreground transition-all outline-none hover:no-underline disabled:pointer-events-none disabled:opacity-50 min-w-0 sm:gap-4 sm:py-5 sm:text-base md:text-lg [&[data-state=open]>svg]:rotate-45' id='radix-_R_qpbnabmqknelb_'>What type of affiliates is Adecos AI built for? />
+	What type of affiliates is Adecos AI built for?
+Adecos AI is designed for performance marketers running search, shopping, and native campaigns who need a clear view of ROAS, winners, and wasted spend.
+[2] (639,554)<button class='flex flex-1 items-center justify-between gap-3 rounded-md py-4 text-left text-sm font-medium text-foreground transition-all outline-none hover:no-underline disabled:pointer-events-none disabled:opacity-50 min-w-0 sm:gap-4 sm:py-5 sm:text-base md:text-lg [&[data-state=open]>svg]:rotate-45' id='radix-_R_1apbnabmqknelb_'>How does Adecos AI connect to my data? />
+	How does Adecos AI connect to my data?
+[3] (639,627)<button class='flex flex-1 items-center justify-between gap-3 rounded-md py-4 text-left text-sm font-medium text-foreground transition-all outline-none hover:no-underline disabled:pointer-events-none disabled:opacity-50 min-w-0 sm:gap-4 sm:py-5 sm:text-base md:text-lg [&[data-state=open]>svg]:rotate-45' id='radix-_R_1qpbnabmqknelb_'>Do I need a data team to use it? />
+	Do I need a data team to use it?
+[4] (639,700)<button class='flex flex-1 items-center justify-between gap-3 rounded-md py-4 text-left text-sm font-medium text-foreground transition-all outline-none hover:no-underline disabled:pointer-events-none disabled:opacity-50 min-w-0 sm:gap-4 sm:py-5 sm:text-base md:text-lg [&[data-state=open]>svg]:rotate-45' id='radix-_R_2apbnabmqknelb_'>Can I start with just one account or program? />
+	Can I start with just one account or program?
+[5] (639,773)<button class='flex flex-1 items-center justify-between gap-3 rounded-md py-4 text-left text-sm font-medium text-foreground transition-all outline-none hover:no-underline disabled:pointer-events-none disabled:opacity-50 min-w-0 sm:gap-4 sm:py-5 sm:text-base md:text-lg [&[data-state=open]>svg]:rotate-45' id='radix-_R_2qpbnabmqknelb_'>How quickly can I see value? />
+	How quickly can I see value?
+© 2026 Adecos. All rights reserved.
+[6] (676,948)<a class='text-muted-foreground transition-colors hover:text-foreground' href='/en/dashboard'>Dashboard />
+[7] (717,948)<a class='text-muted-foreground transition-colors hover:text-foreground' href='https://nextjs.org'>Docs />
+Privacy
+Terms

@@ -1,0 +1,235 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+[0] (17,34)<button class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' />
+[1] (40,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderHome__nkA_U prc-Button-IconButton-fyge7' href='/' />
+[2] (75,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/micace-tech' />
+	[3] (75,34)<span >micace-tech />
+[4] (129,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/micace-tech/adecos-fe' />
+	[5] (124,34)<span >adecos-fe />
+[6] (766,34)<button aria-label='Search or jump to…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ Search-module__searchButton__aiE0a' />
+	[7] (766,34)<span  />
+		[8] (773,34)<span >Type
+to search />
+			Type
+			/
+			to search
+[9] (828,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/copilot' />
+[10] (842,34)<button aria-label='Open Copilot…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ CopilotItems-module__CopilotMenu__DVdfE' id='_R_54jpb_' />
+[11] (874,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalCreateMenu-module__actionMenuButton__Hj_iB' id='_R_5jpb_' />
+	[12] (870,34)<span  />
+[13] (900,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/issues' />
+[14] (921,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/pulls' />
+[15] (942,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/repos' />
+[16] (963,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/notifications' />
+[17] (983,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalNavUserMenu-module__anchor__Dcej6 prc-Button-IconButton-fyge7' />
+	[18] (983,34)<img  />
+Repository navigation
+[19] (27,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe' />
+	[20] (17,80)<span  />
+	[21] (34,80)<span >Code />
+[22] (71,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/issues' />
+	[23] (59,80)<span  />
+	[24] (77,80)<span >Issues />
+[25] (127,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/pulls' />
+	[26] (104,80)<span  />
+	[27] (133,80)<span >Pull requests />
+[28] (185,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/actions' />
+	[29] (171,80)<span  />
+	[30] (191,80)<span >Actions />
+[31] (236,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/projects' />
+	[32] (220,80)<span  />
+	[33] (242,80)<span >Projects />
+[34] (307,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/security' />
+	[35] (272,80)<span  />
+	[36] (313,80)<span >Security and quality />
+[37] (377,80)<a class='prc-components-UnderlineItem-7fP-n' href='/micace-tech/adecos-fe/pulse' />
+	[38] (362,80)<span  />
+	[39] (383,80)<span >Insights />
+[40] (223,139)<a class='d-block overflow-x-hidden color-fg-default' href='/micace-tech/adecos-fe'>adecos-fe />
+Private
+[41] (639,138)<div  />
+	[42] (639,138)<button aria-label='Watch: Participating in micace-tech/adecos-fe' class='prc-Button-ButtonBase-9n-Xk NotificationsSubscriptionsMenu-module__ActionMenuButton__FVE3w' id='_r_b_' />
+		[43] (635,138)<span  />
+			[44] (640,138)<span >Watch />
+				[45] (651,137)<span >0 />
+[46] (700,138)<button class='btn-sm btn BtnGroup-item' id='fork-button'>Fork
+0 />
+	0
+[47] (734,138)<details class='details-reset details-overlay BtnGroup-parent d-inline-block position-relative' id='my-forks-menu-1170334327' />
+	[48] (734,138)<summary aria-label='See your forks of this repository' class='btn-sm btn BtnGroup-item px-2 tmp-px-2 float-none' role='button' />
+[49] (773,138)<button aria-label='Star this repository (0)' class='js-toggler-target rounded-left-2 btn-with-aria-count btn-sm btn BtnGroup-item' />
+	[50] (774,138)<span >Star />
+	[51] (787,138)<span >0 />
+[52] (808,138)<details class='details-reset details-overlay BtnGroup-parent js-user-list-menu d-flex position-relative' id='details-user-list-1170334327-unstarred' />
+	[53] (808,138)<summary aria-label='Add this repository to a list' class='btn-sm btn BtnGroup-item px-2 tmp-px-2 float-none' role='button' />
+micace-tech/adecos-fe
+[54] (216,215)<button aria-label='develop branch' class='prc-Button-ButtonBase-9n-Xk overview-ref-selector width-full RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[55] (216,215)<span  />
+		[56] (210,215)<span  />
+			[57] (210,215)<div  />
+				[58] (194,215)<div  />
+				[59] (215,215)<div  />
+					[60] (215,215)<span >develop />
+[61] (279,215)<a class='prc-Button-ButtonBase-9n-Xk OverviewContent-module__Button___Uotu' href='/micace-tech/adecos-fe/branches' />
+	[62] (279,215)<span  />
+		[63] (285,215)<span  />
+			[64] (285,215)<span >Branches />
+				[65] (271,215)<strong >3 />
+[66] (325,215)<a class='prc-Button-ButtonBase-9n-Xk OverviewContent-module__Button___Uotu' href='/micace-tech/adecos-fe/tags' />
+	[67] (325,215)<span  />
+		[68] (332,215)<span  />
+			[69] (332,215)<span >Tags />
+				[70] (324,215)<strong >0 />
+[71] (536,215)<span  />
+	[72] (486,215)<span  />
+	[73] (536,215)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+	[74] (585,215)<span  />
+		[75] (585,216)<kbd >t />
+[76] (626,215)<button class='prc-Button-ButtonBase-9n-Xk' id='_R_3idajal1d_' />
+	[77] (626,215)<span  />
+		[78] (626,215)<span >Code />
+Folders and files
+Latest commit
+[79] (198,277)<a class='Link__StyledLink-sc-1syctfj-0 prc-Link-Link-9ZwDx' href='/minhquan001' />
+	[80] (196,278)<img  />
+[81] (228,277)<a aria-label='commits by minhquan001' class='Link__StyledLink-sc-1syctfj-0 iIGVMW AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/micace-tech/adecos-fe/commits?author=minhquan001'>minhquan001 />
+[82] (285,277)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/17f6692ce94f40f83d6a868c1b04468a707b2fe3'>Merge pull request />
+[83] (323,277)<a class='issue-link js-issue-link' href='https://github.com/micace-tech/adecos-fe/pull/76'>#76 />
+[84] (410,277)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/17f6692ce94f40f83d6a868c1b04468a707b2fe3'>from micace-tech/refactor/refactor-color-deepr… />
+[85] (501,277)<button class='prc-Button-ButtonBase-9n-Xk LatestCommit-module__IconButton__mkJr_ prc-Button-IconButton-fyge7' />
+[86] (545,277)<a aria-label='Commit 17f6692' class='Link--secondary prc-Link-Link-9ZwDx' href='/micace-tech/adecos-fe/commit/17f6692ce94f40f83d6a868c1b04468a707b2fe3'>17f6692 />
+·
+History
+[87] (619,277)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/micace-tech/adecos-fe/commits/develop/' />
+	[88] (619,277)<span  />
+		[89] (624,277)<span  />
+			[90] (624,276)<span >199 Commits />
+[91] (419,326)<tr  />
+	[92] (216,327)<a aria-label='.cursor, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/.cursor' title='.cursor'>.cursor />
+	[93] (419,327)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/9df9f26a63e6ac3079d31cf7f63d705c5e1842a0' title='chore: config rules code'>chore: config rules code />
+[94] (419,370)<tr  />
+	[95] (217,370)<a aria-label='.github, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/.github' title='.github'>.github />
+	[96] (444,370)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/8d79b3ee43df90f999d8fb3d885311f3ca4ae9ac' title='feat:page landing and layout dashboard'>feat:page landing and layout dashboard />
+[97] (419,413)<tr  />
+	[98] (216,414)<a aria-label='.husky, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/.husky' title='.husky'>.husky />
+	[99] (394,414)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/d40dd2c859ea96dbc3669abd5276358a403767a2' title='feat:chat'>feat:chat />
+[100] (419,457)<tr  />
+	[101] (213,457)<a aria-label='docs, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/docs' title='docs'>docs />
+	[102] (399,457)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/7a7b736d9b34826adbe5965ceacb9cbd7375d185' title='feat:fix auth'>feat:fix auth />
+[103] (419,500)<tr  />
+	[104] (221,501)<a aria-label='messages, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/messages' title='messages'>messages />
+	[105] (421,501)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/2a4008898036da5aebe73c2660fb99464658a93c' title='refactor: deep research ui'>refactor: deep research ui />
+[106] (419,543)<tr  />
+	[107] (217,544)<a aria-label='prisma, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/prisma' title='prisma'>prisma />
+	[108] (409,544)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/cbe70553d6374a8c0d43c09e3924251a1f136718' title='feat:upgrade auth'>feat:upgrade auth />
+[109] (419,587)<tr  />
+	[110] (216,587)<a aria-label='public, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/public' title='public'>public />
+	[111] (411,587)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/abd6c25044090a451c0d3febc4413671b6bc31d7' title='feat:update landing'>feat:update landing />
+[112] (419,630)<tr  />
+	[113] (210,631)<a aria-label='src, (Directory)' class='Link--primary' href='/micace-tech/adecos-fe/tree/develop/src' title='src'>src />
+	[114] (451,631)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/990a3338658e5164648c24dfa1a3bf0e432f0bb8' title='refactor: refactor define color deep-research'>refactor: refactor define color deep-research />
+[115] (419,674)<tr  />
+	[116] (224,674)<a aria-label='.cursorrules, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/.cursorrules' title='.cursorrules'>.cursorrules />
+	[117] (419,674)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/9df9f26a63e6ac3079d31cf7f63d705c5e1842a0' title='chore: config rules code'>chore: config rules code />
+[118] (419,717)<tr  />
+	[119] (228,717)<a aria-label='.dockerignore, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/.dockerignore' title='.dockerignore'>.dockerignore />
+	[120] (396,717)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/0b60c662233fc4061002ab7c58bc708bc5bda9e2' title='add cicd (#6)'>add cicd ( />
+	[121] (416,717)<a class='issue-link js-issue-link' href='https://github.com/micace-tech/adecos-fe/pull/6'>#6 />
+	[122] (421,717)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/0b60c662233fc4061002ab7c58bc708bc5bda9e2' title='add cicd (#6)'>) />
+[123] (419,760)<tr  />
+	[124] (227,761)<a aria-label='.env.example, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/.env.example' title='.env.example'>.env.example />
+	[125] (392,761)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/69d67a1e464e32ebdc8ff7d6feaf4747ef939ee7' title='fix:auth'>fix:auth />
+[126] (419,804)<tr  />
+	[127] (225,804)<a aria-label='.eslintrc.json, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/.eslintrc.json' title='.eslintrc.json'>.eslintrc.json />
+	[128] (420,804)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/bed281abf1c46aed3fbf3b5982f6ee4ef1052069' title='feat:detail project in chat'>feat:detail project in chat />
+[129] (419,847)<tr  />
+	[130] (221,848)<a aria-label='.gitignore, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/.gitignore' title='.gitignore'>.gitignore />
+	[131] (409,848)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/abf0af1779154ab2209fc943cb9ca7588bf03081' title='feat:add new icon'>feat:add new icon />
+[132] (419,890)<tr  />
+	[133] (222,891)<a aria-label='Dockerfile, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/Dockerfile' title='Dockerfile'>Dockerfile />
+	[134] (394,891)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/95cc3e3585d82c365072d812ee170199c5c31695' title='Fix cicd (#19)
+
+* fix resource
+
+* update file Docker
+
+* add update Docker
+
+* Add openssl'>Fix cicd ( />
+	[135] (414,891)<a class='issue-link js-issue-link' href='https://github.com/micace-tech/adecos-fe/pull/19'>#19 />
+	[136] (421,891)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/95cc3e3585d82c365072d812ee170199c5c31695' title='Fix cicd (#19)
+
+* fix resource
+
+* update file Docker
+
+* add update Docker
+
+* Add openssl'>) />
+[137] (419,934)<tr  />
+	[138] (229,934)<a aria-label='Dockerfile_old, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/Dockerfile_old' title='Dockerfile_old'>Dockerfile_old />
+	[139] (389,934)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/abc57c577423022d4f11cd899422359fb208b6ab' title='Cicd (#11)
+
+* add cicd
+
+* update cicd
+
+* update Docker file'>Cicd ( />
+	[140] (404,934)<a class='issue-link js-issue-link' href='https://github.com/micace-tech/adecos-fe/pull/11'>#11 />
+	[141] (412,934)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/abc57c577423022d4f11cd899422359fb208b6ab' title='Cicd (#11)
+
+* add cicd
+
+* update cicd
+
+* update Docker file'>) />
+[142] (419,977)<tr  />
+	[143] (231,978)<a aria-label='Jenkinsfile.prod, (File)' class='Link--primary' href='/micace-tech/adecos-fe/blob/develop/Jenkinsfile.prod' title='Jenkinsfile.prod'>Jenkinsfile.prod />
+	[144] (420,978)<a class='Link--secondary' href='/micace-tech/adecos-fe/commit/cfe746f5fcc31fb47407d1622c81e832e11f538f' title='Add resource and node (#48)'>Add resource and node ( />
+	#48
+	)
+About
+No description, website, or topics provided.
+Resources
+[145] (695,319)<a class='Link--muted' href='#readme-ov-file'>Readme />
+[146] (694,350)<a class='Link Link--muted' href='/micace-tech/adecos-fe/activity' />
+	[147] (701,350)<span >Activity />
+[148] (712,380)<a class='Link Link--muted' href='/micace-tech/adecos-fe/custom-properties' />
+	[149] (719,380)<span >Custom properties />
+Stars
+[150] (693,411)<a class='Link Link--muted' href='/micace-tech/adecos-fe/stargazers'>stars />
+	[151] (692,411)<strong >0 />
+Watchers
+[152] (700,442)<a class='Link Link--muted' href='/micace-tech/adecos-fe/watchers'>watching />
+	[153] (692,442)<strong >0 />
+Forks
+[154] (693,472)<a class='Link Link--muted' href='/micace-tech/adecos-fe/forks'>forks />
+	[155] (692,472)<strong >0 />
+[156] (691,531)<a class='Link--primary no-underline Link' href='/micace-tech/adecos-fe/releases'>Releases />
+No releases published
+[157] (746,628)<a class='Link--primary no-underline Link d-flex flex-items-center' href='/orgs/micace-tech/packages?repo_name=adecos-fe'>Packages />
+No packages published
+[158] (746,724)<a class='Link--primary no-underline Link d-flex flex-items-center' href='/micace-tech/adecos-fe/graphs/contributors'>Contributors />
+	[159] (730,724)<span >4 />
+[160] (683,770)<a class='mr-2' href='https://github.com/minhquan001' />
+	[161] (683,770)<img  />
+[162] (718,770)<a class='Link--primary no-underline flex-self-center' href='https://github.com/minhquan001' />
+	[163] (718,770)<strong >minhquan001 />
+[164] (683,813)<a class='mr-2' href='https://github.com/ducba01' />
+	[165] (683,813)<img  />
+[166] (709,813)<a class='Link--primary no-underline flex-self-center' href='https://github.com/ducba01' />
+	[167] (709,813)<strong >ducba01 />
+[168] (683,855)<a class='mr-2' href='https://github.com/pooongggggg' />
+	[169] (683,855)<img  />
+[170] (720,855)<a class='Link--primary no-underline flex-self-center' href='https://github.com/pooongggggg' />
+	[171] (720,855)<strong >pooongggggg />
+[172] (683,897)<a class='mr-2' href='https://github.com/luudungace' />
+	[173] (683,897)<img  />
+[174] (715,897)<a class='Link--primary no-underline flex-self-center' href='https://github.com/luudungace' />
+	[175] (715,897)<strong >luudungace />
+Languages
+
+</current_dom>

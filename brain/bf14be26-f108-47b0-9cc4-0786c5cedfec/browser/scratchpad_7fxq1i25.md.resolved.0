@@ -1,0 +1,11 @@
+# Task: Check Bento Grid Layout
+
+## Checklist
+- [ ] Navigate to http://localhost:3001/vi
+- [ ] Locate the Bento Grid section
+- [ ] Verify "AI Agent" card has `row-span-2` and handles height correctly
+- [ ] Capture a screenshot of the entire grid
+- [ ] Report findings
+
+## Observations
+- Initializing task...

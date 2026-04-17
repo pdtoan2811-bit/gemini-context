@@ -1,0 +1,122 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (547,12)<label class='clearfix' />
+	[1] (350,14)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:repo_hook
+	Full control of repository hooks
+[2] (547,39)<label class='clearfix' />
+	[3] (358,41)<input class='js-checkbox-scope' />
+	write:repo_hook
+	Write repository hooks
+[4] (547,66)<label class='clearfix' />
+	[5] (358,68)<input class='js-checkbox-scope' />
+	read:repo_hook
+	Read repository hooks
+[6] (547,110)<label class='clearfix' />
+	[7] (350,112)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:org_hook
+	Full control of organization hooks
+[8] (547,154)<label class='clearfix' />
+	[9] (350,156)<input class='js-checkbox-scope parent-checkbox-scope' />
+	gist
+	Create gists
+[10] (547,198)<label class='clearfix' />
+	[11] (350,199)<input class='js-checkbox-scope parent-checkbox-scope' />
+	notifications
+	Access notifications
+[12] (547,242)<label class='clearfix' />
+	[13] (350,243)<input class='js-checkbox-scope parent-checkbox-scope' />
+	user
+	Update ALL user data
+[14] (547,269)<label class='clearfix' />
+	[15] (358,270)<input class='js-checkbox-scope' />
+	read:user
+	Read ALL user profile data
+[16] (547,296)<label class='clearfix' />
+	[17] (358,297)<input class='js-checkbox-scope' />
+	user:email
+	Access user email addresses (read-only)
+[18] (547,322)<label class='clearfix' />
+	[19] (358,324)<input class='js-checkbox-scope' />
+	user:follow
+	Follow and unfollow users
+[20] (547,366)<label class='clearfix' />
+	[21] (350,368)<input class='js-checkbox-scope parent-checkbox-scope' />
+	delete_repo
+	Delete repositories
+[22] (547,410)<label class='clearfix' />
+	[23] (350,412)<input class='js-checkbox-scope parent-checkbox-scope' />
+	write:discussion
+	Read and write team discussions
+[24] (547,437)<label class='clearfix' />
+	[25] (358,439)<input class='js-checkbox-scope' />
+	read:discussion
+	Read team discussions
+[26] (547,481)<label class='clearfix' />
+	[27] (350,483)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:enterprise
+	Full control of enterprises
+[28] (547,508)<label class='clearfix' />
+	[29] (358,510)<input class='js-checkbox-scope' />
+	manage_runners:enterprise
+	Manage enterprise runners and runner groups
+[30] (547,535)<label class='clearfix' />
+	[31] (358,537)<input class='js-checkbox-scope' />
+	manage_billing:enterprise
+	Read and write enterprise billing data
+[32] (547,562)<label class='clearfix' />
+	[33] (358,564)<input class='js-checkbox-scope' />
+	read:enterprise
+	Read enterprise profile data
+[34] (547,589)<label class='clearfix' />
+	[35] (358,591)<input class='js-checkbox-scope' />
+	scim:enterprise
+	Provisioning of users and groups via SCIM
+[36] (547,633)<label class='clearfix' />
+	[37] (350,635)<input class='js-checkbox-scope parent-checkbox-scope' />
+	audit_log
+	Full control of audit log
+[38] (547,660)<label class='clearfix' />
+	[39] (358,662)<input class='js-checkbox-scope' />
+	read:audit_log
+	Read access of audit log
+[40] (547,704)<label class='clearfix' />
+	[41] (350,706)<input class='js-checkbox-scope parent-checkbox-scope' />
+	codespace
+	Full control of codespaces
+[42] (547,731)<label class='clearfix' />
+	[43] (358,733)<input class='js-checkbox-scope' />
+	codespace:secrets
+	Ability to create, read, update, and delete codespace secrets
+[44] (547,775)<label class='clearfix' />
+	[45] (350,777)<input class='js-checkbox-scope parent-checkbox-scope' />
+	copilot
+	Full control of GitHub Copilot settings and seat assignments
+[46] (547,802)<label class='clearfix' />
+	[47] (358,804)<input class='js-checkbox-scope' />
+	manage_billing:copilot
+	View and edit Copilot Business seat assignments
+[48] (547,846)<label class='clearfix' />
+	[49] (350,848)<input class='js-checkbox-scope parent-checkbox-scope' />
+	write:network_configurations
+	Write org hosted compute network configurations
+[50] (547,873)<label class='clearfix' />
+	[51] (358,875)<input class='js-checkbox-scope' />
+	read:network_configurations
+	Read org hosted compute network configurations
+[52] (547,917)<label class='clearfix' />
+	[53] (350,919)<input class='js-checkbox-scope parent-checkbox-scope' />
+	project
+	Full control of projects
+[54] (547,944)<label class='clearfix' />
+	[55] (358,946)<input class='js-checkbox-scope' />
+	read:project
+	Read access of projects
+[56] (547,988)<label class='clearfix' />
+	[57] (350,989)<input class='js-checkbox-scope parent-checkbox-scope' />
+	admin:gpg_key
+	Full control of public user GPG keys
+
+</current_dom>

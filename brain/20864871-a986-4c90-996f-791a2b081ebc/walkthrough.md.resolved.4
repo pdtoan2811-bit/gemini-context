@@ -1,0 +1,23 @@
+# Synthetica: Gemini & Native Automation Walkthrough
+
+> [!TIP]
+> The Synthetica pipeline is officially fully operational, exclusively utilizing Google Gemini and "Bring Your Own Browser" persistent scraping technologies. 
+
+## Phase 5 Highlights (Google Gemini Native Conversion)
+- The backend Semantic Refinery (`/api/synthesize`) was stripped of its OpenAI dependencies and completely rewritten to use the standard `@google/generative-ai` SDK.
+- To enforce exact output mappings, the pipeline executes against `gemini-1.5-flash` natively using `SchemaType.OBJECT` structural constraints. This guarantees Gemini responds with the precise JSON fields required to populate the UI (e.g. `translatedThesis`, `macroImpact`). 
+
+## Phase 6 Highlights (Bring Your Own Browser Automation)
+- You can now automate deeply gated websites (Facebook, X profiles, Reddit logs) that actively try to block headless "incognito" bots.
+- We re-engineered the Playwright stealth engine (`src/lib/scraper/engine.ts`). When you execute "Trigger Live Scrape", if no explicit WebSocket bypass is passed, it will boot using a **Persistent Context Profile** natively inside the project folder (`chrome_profile`).
+- Since it utilizes `headless: false`, the local Chrome instance will visibly pop up.
+- **Why this is revolutionary**: Because the session data is persistent, you only need to login to X or Facebook *once* inside this pop-up instance. Playwright will cache those cookies natively in your file directory, and every subsequent automation scrape will glide right past login protections exactly as you would!
+
+## Verification Checklist
+
+> [!SUCCESS]
+> - Replaced `.env` references from `openaiApiKey` to `geminiApiKey` directly in your Live Config arrays.
+> - The application built successfully in production mode.
+> - Validated persistent local Chrome directories to intercept Playwright actions visibly.
+
+**You can now fully manage the frontend without stepping outside of the Tailwind compiler! Feel free to launch `npm run dev`, input your Gemini Key in `/settings`, and watch your own browser begin hunting for context.**

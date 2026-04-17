@@ -1,0 +1,21 @@
+# Implementation Plan - Optimize Dev Startup
+
+The Paperclip dev runner is getting stuck during the build phase of the `@paperclipai/plugin-sdk` package. On Windows, `tsc` and `pnpm` workspace operations can be significantly slower or prone to locking issues. Since I have already successfully built the entire workspace manually, this build step in the dev runner is currently redundant and acting as a bottleneck.
+
+## Proposed Changes
+
+### 1. Optimize Dev Runner
+I will temporarily bypass the mandatory build step for the plugin SDK in the dev runner to allow the server to start immediately using the existing build artifacts.
+
+#### [MODIFY] [dev-runner.mjs](file:///c:/Users/Admin/Desktop/paperclip/scripts/dev-runner.mjs)
+- Comment out the `await buildPluginSdk();` call in `startServerChild()`.
+
+### 2. Cleanup & Restart
+1. Terminate all processes.
+2. Run `run.bat`.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Startup Test**: Run `run.bat` and verify it skips the "building plugin sdk..." phase and immediately starts the Express server.
+2.  **Browser Access**: Verify the browser opens to `http://127.0.0.1:3100`.

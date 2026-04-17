@@ -1,0 +1,14 @@
+# Squad View UI/UX Enhancement
+
+## Goal
+Enhance the squad view to allow gradually adding people into a squad for easier planning with a dynamic UI/UX. The UI should have 2 columns (tasks vs squad tasks) and dynamically update as people are added.
+
+## Checklist
+- [ ] Understand current squad/daily meeting implementation
+- [ ] Design the dynamic "Squad View" UI/UX (2 columns, gradual addition of personnel)
+- [ ] Create implementation plan (`implementation_plan.md`)
+- [ ] Request user review for the plan
+- [ ] Implement the new 2-column layout in `DailyMeetingView` / `SquadView`
+- [ ] Implement logic to gradually add personnel and compute shared/individual tasks
+- [ ] Verify the UI behavior (overview tasks, shared tasks, other tasks)
+- [ ] Create walkthrough documenting the changes

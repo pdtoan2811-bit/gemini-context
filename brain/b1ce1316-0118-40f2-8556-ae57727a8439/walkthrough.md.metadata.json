@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary":  "Walkthrough of all changes made to implement workflow anatomy, bottleneck detection, doom loop tracking, and three PM use cases (Personnel Overview, Interrogation Log, Priority Whisperer) in the Sprint Relay Debugger app. Includes verification results.",
+  "updatedAt":  "2026-03-06T08:17:16.765020600Z"
+}

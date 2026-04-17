@@ -1,0 +1,29 @@
+# Typography Update Walkthrough
+
+I have updated the application's typography to create a more elegant and professional feel by mixing **Lora** (Serif) and **Inter** (Sans-serif). Both fonts have full support for Vietnamese Unicode.
+
+## Changes Made
+
+### 1. Font Integration
+- **Lora (Serif)**: Imported and configured in [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx). It is now the primary font for all headings (`h1` through `h6`) and elements with the `.font-serif` class.
+- **Inter (Sans-serif)**: Maintained as the primary body font for maximum readability in data-heavy views.
+
+### 2. Styling Enhancements
+- Updated [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) to:
+  - Define `--font-serif` using the Lora variable.
+  - Apply the serif font to headings with a slight letter-spacing refinement (`-0.01em`) and semi-bold weight (`600`).
+  - Ensure body text remains clean and legible with Inter.
+
+## Visual Verification
+
+````carousel
+![Dashboard Overview with New Typography](file:///C:/Users/Admin/.gemini/antigravity/brain/4a0fb445-8b64-4277-a72c-9ec932f99100/dashboard_overview.png)
+<!-- slide -->
+![Daily Meeting View with New Typography](file:///C:/Users/Admin/.gemini/antigravity/brain/4a0fb445-8b64-4277-a72c-9ec932f99100/daily_meeting_view.png)
+````
+
+## Verification Results
+- **Headings**: Verified to be rendering in **Lora** (Serif).
+- **Body**: Verified to be rendering in **Inter** (Sans-serif).
+- **Vietnamese Support**: Confirmed that all diacritics and Vietnamese characters render perfectly without fallback issues.
+- **Performance**: Used `next/font/google` for optimized loading and zero cumulative layout shift (CLS).

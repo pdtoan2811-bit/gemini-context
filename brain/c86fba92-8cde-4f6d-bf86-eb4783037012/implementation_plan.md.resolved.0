@@ -1,0 +1,98 @@
+# Sprint Start Status Snapshot & Record Link Display
+
+Two features for the Sprint Relay Debugger: (1) a sprint-start screen to confirm/edit the starting status of each task, and (2) displaying the recordLink in the task detail inspector.
+
+## Context
+
+The log database (Google Sheets via Apps Script) automatically creates rows when **any** field of a task is edited — even during sprint planning. So when a sprint begins, many tasks have spurious log entries from planning. The "Sprint Start" feature captures the **true** starting status of each task by finding the **earliest timestamp per task** where `sprint` and `status` are both non-null for that sprint. Users can then confirm, edit, or bulk-edit these starting statuses.
+
+---
+
+## Proposed Changes
+
+### Data Layer — Sprint Start Hook
+
+#### [NEW] [useSprintStart.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useSprintStart.ts)
+
+A custom hook that:
+- **Computes** the auto-detected sprint start snapshot from raw logs:
+  - Group logs by sprint → for each task in that sprint, find the earliest timestamp where both `sprint` and `status` are non-null
+  - That earliest log entry's `status` becomes the auto-detected "starting status"
+- **Persists** overrides to [db.json](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/data/db.json) via `/api/data` under key `sprint_relay_sprint_start`
+- **Exposes**:
+  - `getSprintStartSnapshot(sprint: string, logs: RawLogEvent[])` — returns `SprintStartEntry[]`
+  - `overrides` — user edits stored per sprint per task
+  - `saveOverride(sprint, taskId, newStatus)` / `bulkSaveOverrides(sprint, entries)`
+
+The `SprintStartEntry` type:
+```ts
+interface SprintStartEntry {
+  taskId: string;
+  taskName: string;
+  person: string;
+  module: string;
+  screen: string;
+  autoDetectedStatus: string;   // from earliest log
+  confirmedStatus: string;      // user override or same as auto
+  isOverridden: boolean;
+  autoDetectedTimestamp: string; // the earliest timestamp used
+}
+```
+
+---
+
+### UI — Sprint Start Manager
+
+#### [NEW] [SprintStartManager.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/SprintStartManager.tsx)
+
+A new component rendered as a tab alongside "Personnel" and "Tasks":
+- **Table view** with columns: Task ID, Task Name, Person, Module, Auto-Detected Status, Confirmed Status (editable dropdown), Override indicator
+- **Filters**: text search, status filter
+- **Bulk edit**: select-all checkbox, bulk status change dropdown
+- **Confirm button**: saves all current entries as confirmed
+- **Visual diff**: highlight rows where confirmed ≠ auto-detected in a different color
+- Styled to match the existing dark theme (zinc/black palette)
+
+---
+
+### Integration — Main Page
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+- Import `useSprintStart` hook and `SprintStartManager` component
+- Add `'sprint-start'` to the [ViewTab](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx#32-33) type
+- Add a new tab definition with `Flag` icon and label "Sprint Start"
+- Render `SprintStartManager` when the sprint-start tab is active, passing raw logs, active sprint, and sprint start hook functions
+
+---
+
+### Record Link in Task Detail
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+
+Add a "Record Link" section right after the Metadata grid (line ~293), before the Daily Meeting Notes section:
+- Shows the `recordLink` URL (sourced from `taskAnalysis?.recordLink || segment.recordLink`)
+- Rendered as a clickable external link (`<a target="_blank">`) with an `ExternalLink` icon
+- If recordLink is empty/null, the section is hidden
+- Styled with a subtle highlight so it stands out as a navigation aid
+
+---
+
+## Verification Plan
+
+### Manual Verification (Browser)
+
+> [!IMPORTANT]
+> Since the project has no existing test suite and this is a UI-focused feature, verification will be done via browser testing.
+
+1. **Sprint Start Tab**: with the dev server running (`npm run dev`), open the app, switch to the "Sprint Start" tab. Verify:
+   - The table loads and shows tasks for the active sprint
+   - Auto-detected statuses match the earliest non-null log entries
+   - Editing a status and saving persists across page refresh
+   - Bulk editing changes multiple tasks at once
+   - Filtering works by text and status
+
+2. **Record Link**: Click any task in Personnel or Tasks view. In the inspector panel, verify:
+   - The Record Link section appears when the task has a `recordLink`
+   - Clicking it opens the link in a new tab
+   - The section is hidden when there's no recordLink

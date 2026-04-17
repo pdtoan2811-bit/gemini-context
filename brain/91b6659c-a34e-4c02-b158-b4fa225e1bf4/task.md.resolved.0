@@ -1,0 +1,6 @@
+# Task Checklist
+
+- [ ] Locate the initials generation logic
+- [ ] Update logic to generate initials based on the required naming convention
+- [ ] Ensure database `db.json` is not modified
+- [ ] Verify the daily meeting squad view reflects the new initials format

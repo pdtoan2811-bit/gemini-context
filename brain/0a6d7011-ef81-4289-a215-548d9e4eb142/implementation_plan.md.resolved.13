@@ -1,0 +1,30 @@
+# High-Fidelity Bento Grid Animation Refinement
+
+The current "mechanical" stroke animation will be replaced by a premium "Optical Light Beam" effect. This involves multi-layered gradients, organic trail falloffs, and sophisticated motion curves.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Gradient Beam:** Instead of a solid color, use a dynamic `<linearGradient>` that moves with the stroke. This creates a "head" and a "tail," making the beam feel like a passing light source.
+- **Layered Optical Depth:**
+    - **Core:** A sharp 1.5px stroke for precision.
+    - **Aura:** A 4px-6px blurred stroke for the immediate glow.
+    - **Ambient:** A very soft, low-opacity 12px blur for environmental lighting.
+- **Organic Motion:** Transition from `ease: "linear"` to a custom `cubic-bezier` or a more elegant timing function that feels slightly more fluid.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- No changes needed to the structure; the "Double-Lock" clipping implemented previously is sound.
+
+## Technical Details
+
+- **SVG Gradient Animation:** The gradient's coordinates will be animated in sync with the `pathLength`/`pathOffset` to ensure the "brightest" part of the beam is always at the front.
+- **Performance:** All layers will remain within the hardware-accelerated SVG context to maintain 60fps performance without viewport bleed.
+
+## Verification Plan
+
+### Manual Verification
+- **Visual Polish:** Confirm the beam has a smooth tapering tail.
+- **Depth:** Verify the glow feels "optical" rather than "digital."
+- **Performance:** Ensure interaction stays buttery smooth at 60fps.

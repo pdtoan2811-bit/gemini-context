@@ -1,0 +1,23 @@
+# Sprint Handoff Diagnostic Tool Walkthrough
+
+## What was accomplished
+I have built the fully functional **Sprint Handoff Visualizer**, meeting the PRD requirements using Next.js, Tailwind CSS, and `vis-timeline`.
+
+### Features Implemented
+1. **Core Data Structure & Mock**: A custom data-processor hook [useSprintData](file:///c:/Users/Admin/Desktop/larkExtension/sprint-handoff/src/hooks/useSprintData.ts#64-106) creates [ProcessedTaskSpan](file:///c:/Users/Admin/Desktop/larkExtension/sprint-handoff/src/lib/types.ts#14-26) elements representing duration held by each person. It has a placeholder block for fetching the live `GOOGLE_APPS_SCRIPT_URL` returning JSON and falls back to a realistic mock dataset to enable testing.
+2. **Timeline Swimlanes**: The `vis-timeline` implementation correctly plots the **Personnel** on the Y-Axis and time on the X-Axis. 
+3. **Dynamic Color-Coding**: The task blocks are color-coded based on the unique `sprintGoal` dynamically extracted. A stylesheet is injected dynamically into the component.
+4. **Annotation System (Audit layer)**:
+   - A modal interface allows the user to click any task block.
+   - Users can document Audit Notes into a `<textarea>`.
+   - The State is persisted flawlessly to the browser's `localStorage`, keyed uniquely via `taskId-timestamp`, allowing annotations to survive refresh.
+   - Timeline blocks now feature an overlaid *Note icon* when an audit note is present for that block.
+5. **UI & Polish**:
+   - The layout implements a high-information density default dark theme.
+   - A Top Bar provides working filters for Sprint and Module.
+
+## Technical Notes
+- **Handoff Transition Connectors**: Creating diagonal SVG connector lines between blocks during infinite pan/zoom on standard `vis-timeline` is unstable. As an alternative, handoff latency is visible implicitly by the chronological gaps between a `Done` event for Person A and an `In Progress` event for Person B (the horizontal empty spaces).
+
+## How to test
+Navigate to `http://localhost:3000` to view the timeline renderer using the mock dataset!

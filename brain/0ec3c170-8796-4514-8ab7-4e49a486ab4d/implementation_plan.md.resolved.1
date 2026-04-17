@@ -1,0 +1,42 @@
+# Redo: Donald Trump Origin Documentary
+
+This plan outlines the changes to massively enhance the pacing and detail of the YouTube short, following your request to make the script richer, the voice faster, and the visual assets universally unique (zero repeats).
+
+## User Review Required
+
+> [!IMPORTANT]
+> To get a strictly faster, highly-engaging speaking voice, I will:
+> 1. Switch the ElevenLabs generation model to `eleven_turbo_v2_5` (much faster and highly expressive).
+> 2. Hardcode a pitch-corrected `<Audio playbackRate={1.15} />` inside Remotion to push the pacing into overdrive.
+> 3. Please review the new, heavily detailed script in the "Proposed Changes" section below.
+
+## Proposed Changes
+
+### Script Rewrite & Media Assignment
+We have 83 unique visual assets. I will explicitly map 8-10 entirely unique, non-overlapping images to each of the 5 scenes. It is mathematically impossible for an image to repeat.
+
+The script has been entirely rewritten to be hyper-detailed and visceral:
+
+1. **Scene 1: The Bloody Knuckles of Queens**
+   *Script:* "Forget the gold escalators. Trump’s empire started in the gritty, bare-knuckle real estate of Queens. His father Fred was ruthless, a machine building middle-class rent-controlled barracks. But Donald was repulsed by the outer boroughs. He saw Manhattan not just as land, but as an empire waiting for a conqueror."
+2. **Scene 2: The Military Academy**
+   *Script:* "Sent to the New York Military Academy to violently discipline his defiance, Trump learned the ultimate lesson of his life: total dominance. You secure the room, you crush the weak, you win. Armed with a $1 million loan from Fred, a 25-year-old Donald crossed the East River to invade the Manhattan elite."
+3. **Scene 3: The Commodore Miracle**
+   *Script:* "New York in the 70s was a decaying, bankrupt wasteland. What did Trump do? He bought the rotting, decrepit Commodore Hotel. In a masterstroke of political extortion, he secured an unprecedented 40-year tax abatement, wrapped the corpse in reflective glass, and birthed the Grand Hyatt. The city was bleeding; he struck gold."
+4. **Scene 4: The Bronze Giant**
+   *Script:* "Then came his monument. Trump Tower. A massive, arrogant bronze monolith erected on Fifth Avenue. He didn't just build it; he slapped his name on it in giant golden letters, commanding the media's absolute attention. It ceased being real estate. It became a living, breathing cult of personality."
+5. **Scene 5: The Weaponized Brand**
+   *Script:* "The Art of the Deal weaponized his reputation into a New York Times bestseller list. The Apprentice beamed his absolute authority into twenty million homes every night. Long before he ever touched a debate stage, the indestructible mythology of Donald Trump was cemented into the psychological machinery of America."
+
+### Architectural Code Changes
+#### [MODIFY] [scripts/generate-voiceover-trump.ts](file:///c:/Users/Admin/Desktop/remotionVideos/scripts/generate-voiceover-trump.ts)
+- Replace `SCENES` array with the new, highly-detailed script.
+- Change `model_id` to `eleven_turbo_v2_5`.
+
+#### [MODIFY] [src/TrumpOriginShort/Main.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOriginShort/Main.tsx)
+- Re-map `SCENES_CONFIG` captions to perfectly match the raw new script text so the lower-thirds animate flawlessly.
+- Inject 45 absolutely distinct images across the 5 `assets` arrays.
+
+#### [MODIFY] [src/TrumpOriginShort/Scene.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOriginShort/Scene.tsx)
+- Add `playbackRate={1.15}` to the `<Audio />` node to force the speed up without breaking the metadata calculation.
+- Enforce the 2.8 second cutoff explicitly against the length of the given unique assets.

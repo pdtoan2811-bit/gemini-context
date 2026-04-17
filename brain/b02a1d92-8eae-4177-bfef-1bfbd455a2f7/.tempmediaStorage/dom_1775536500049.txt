@@ -1,0 +1,65 @@
+Skip to content
+[0] (17,34)<button class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' />
+[1] (40,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderHome__nkA_U prc-Button-IconButton-fyge7' href='/' />
+[2] (68,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/settings/profile' />
+	[3] (68,34)<span >Settings />
+[4] (127,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/settings/apps' />
+	[5] (127,34)<span >Developer Settings />
+[6] (766,34)<button aria-label='Search or jump to…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ Search-module__searchButton__aiE0a' />
+	[7] (766,34)<span  />
+		[8] (773,34)<span >Type
+to search />
+			Type
+			/
+			to search
+[9] (828,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/copilot' />
+[10] (842,34)<button aria-label='Open Copilot…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ CopilotItems-module__CopilotMenu__DVdfE' id='_R_54jpb_' />
+[11] (874,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalCreateMenu-module__actionMenuButton__Hj_iB' id='_R_5jpb_' />
+	[12] (870,34)<span  />
+[13] (900,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/issues' />
+[14] (921,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/pulls' />
+[15] (942,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/repos' />
+[16] (963,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/notifications' />
+[17] (983,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalNavUserMenu-module__anchor__Dcej6 prc-Button-IconButton-fyge7' />
+	[18] (983,34)<img  />
+[19] (984,97)<button aria-label='Dismiss this message' class='flash-close js-flash-close' />
+Some of the scopes you’ve selected are included in other scopes. Only the minimum set of necessary scopes has been saved.
+[20] (246,176)<a class='ActionListContent ActionListContent--visual16' href='/settings/apps' id='item-34212110-f6e9-4422-b41f-49ab072dea94' />
+	[21] (252,176)<span >GitHub Apps />
+[22] (246,211)<a class='ActionListContent ActionListContent--visual16' href='/settings/developers' id='item-14fd4ec4-8c24-47e1-835b-98107feaa3f4' />
+	[23] (252,211)<span >OAuth Apps />
+[24] (246,246)<button class='ActionListContent ActionListContent--hasActiveSubItem ActionListContent--visual16' id='personal-access-tokens-menu-item' />
+	[25] (246,246)<span >Personal access tokens />
+[26] (246,280)<a class='ActionListContent' href='/settings/personal-access-tokens' id='item-f375fa69-5af8-4255-ba52-2edf455c314f' />
+	[27] (252,280)<span >Fine-grained tokens />
+[28] (246,313)<a class='ActionListContent' href='/settings/tokens' id='item-adc083fd-bbbf-43c3-9b30-ad9f073f25f8' />
+	[29] (252,313)<span >Tokens (classic) />
+Personal access tokens (classic)
+[30] (703,178)<details class='details-reset details-overlay d-inline-block position-relative' id='details-6b230a' />
+	[31] (703,178)<summary class='btn btn-sm select-menu-button' role='button' />
+		[32] (701,178)<span >Generate new token />
+Tokens you have generated that can be used to access the
+[33] (548,234)<a class='Link--inTextBlock' href='https://docs.github.com'>GitHub API />
+.
+Make sure to copy your personal access token now. You won’t be able to see it again!
+[34] (721,358)<details class='details-overlay details-overlay-dark details-reset ml-2 tmp-ml-2' />
+	[35] (721,359)<summary class='btn-danger btn-sm btn' role='button'>Delete />
+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
+[36] (523,357)<clipboard-copy aria-label='Copy token' class='btn-link' role='button' />
+Personal access tokens (classic) function like ordinary OAuth access tokens. They
+  can be used instead of a password for Git over HTTPS, or can be used to
+[37] (460,447)<a class='Link--inTextBlock' href='https://docs.github.com/v3/auth/#basic-authentication'>authenticate to the API over Basic Authentication />
+.
+Footer
+[38] (288,537)<a aria-label='GitHub Homepage' class='footer-octicon mr-2' href='https://github.com' />
+© 2026 GitHub, Inc.
+Footer navigation
+[39] (369,537)<a class='Link--secondary Link' href='https://docs.github.com/site-policy/github-terms/github-terms-of-service'>Terms />
+[40] (395,537)<a class='Link--secondary Link' href='https://docs.github.com/site-policy/privacy-policies/github-privacy-statement'>Privacy />
+[41] (424,537)<a class='Link--secondary Link' href='https://github.com/security'>Security />
+[42] (452,537)<a class='Link--secondary Link' href='https://www.githubstatus.com/'>Status />
+[43] (484,537)<a class='Link--secondary Link' href='https://github.community/'>Community />
+[44] (515,537)<a class='Link--secondary Link' href='https://docs.github.com/'>Docs />
+[45] (541,537)<a class='Link--secondary Link' href='https://support.github.com?tags=dotcom-footer'>Contact />
+[46] (583,537)<button class='Link--secondary underline-on-hover border-0 p-0 color-bg-transparent'>Manage cookies />
+[47] (666,537)<button class='Link--secondary underline-on-hover border-0 p-0 color-bg-transparent text-left'>Do not share my personal information />

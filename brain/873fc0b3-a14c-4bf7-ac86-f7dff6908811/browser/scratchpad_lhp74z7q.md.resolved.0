@@ -1,0 +1,7 @@
+# Browser Verification Plan
+
+- [ ] Open http://localhost:3000 and take initial screenshot of Daily Meeting view.
+- [ ] Verify "View All" mode in light mode.
+- [ ] Verify "Squad Ops" mode in light mode.
+- [ ] Verify personnel selector contrast.
+- [ ] Verify filters contrast.

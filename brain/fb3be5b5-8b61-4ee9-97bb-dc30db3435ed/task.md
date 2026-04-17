@@ -1,0 +1,23 @@
+# Fix Squad Shared Tasks & Sprint Goal Calculation
+
+## Bug 1: Shared tasks logic requires ALL squad members
+- [x] Fix `DailyRecapView.tsx` recap mode — change `size > 1` to `size === selectedPersonsFilter.size`
+- [x] Fix `DailyRecapView.tsx` squad todo mode — change `size >= 2` to `size >= selectedPersonsFilter.size`
+- [x] Fix `DailyMeetingView.tsx` SquadsView — implement robust name-matching check using actual person task lists instead of string parsing `currentPerson`.
+- [x] Update empty-state helper text to reflect "all selected people" instead of "at least two"
+
+## Bug 2: Flexible sprint goal met calculation (beyond = met)
+- [x] Create shared `hasMetSprintGoal(currentStatus, sprintGoal)` helper in `utils.ts`
+- [x] Update `api.ts` `isCompleted` check to use helper
+- [x] Update `TaskOverview.tsx` sorting and display logic 
+- [x] Update `DailyMeetingView.tsx` sprint goal displays (DraggableTaskCard + SquadsView)
+- [x] Update `workflow-engine.ts` staleness check
+
+## Verification
+- [x] TypeScript build passes with no errors
+
+## Feature: Dynamic Squad Combination Grouping
+- [x] Refactor `SquadsView` backlog derivation logic to group by exact `involved` array
+- [x] Refactor `SquadsView` plan derivation logic similarly
+- [x] Update UI to render groups starting from largest combinations down to individuals
+- [x] Handle empty states gracefully for intermediate combinations

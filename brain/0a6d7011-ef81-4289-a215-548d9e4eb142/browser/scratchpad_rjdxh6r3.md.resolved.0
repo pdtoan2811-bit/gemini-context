@@ -1,0 +1,23 @@
+# Bento Grid Verification Plan
+
+- [ ] Open http://localhost:3000/vi
+- [ ] Scroll to the Bento Grid section ("Mọi thứ bạn cần để phát triển")
+- [ ] Verify Box 1 (AI Agent)
+    - [ ] Border Beam follows rounded corners
+    - [ ] Internal animation is "thoughtful" and fills space
+    - [ ] Take screenshot while hovered
+- [ ] Verify Box 2 (Deep Research)
+    - [ ] Border Beam follows rounded corners
+    - [ ] Internal animation is "thoughtful" and fills space
+    - [ ] Take screenshot while hovered
+- [ ] Verify Box 3 (Analytics)
+    - [ ] Border Beam follows rounded corners
+    - [ ] Internal animation is "thoughtful" and fills space
+    - [ ] Take screenshot while hovered
+- [ ] Verify Box 4 (Project Management)
+    - [ ] Border Beam follows rounded corners
+    - [ ] Kanban board mockup is high-fidelity
+    - [ ] Internal animation is "thoughtful" and fills space
+    - [ ] Take screenshot while hovered
+- [ ] Check light/dark mode visibility
+- [ ] Report on FPS and "Wow" factor

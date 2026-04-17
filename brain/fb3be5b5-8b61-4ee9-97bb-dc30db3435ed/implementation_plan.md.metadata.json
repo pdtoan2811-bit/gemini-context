@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to fix two bugs: (1) shared tasks in squad mode should require ALL selected squad members to share a task, not just 2-of-N; (2) sprint goal met calculation should use workflow status ordering so that statuses beyond the goal count as met.",
+  "updatedAt": "2026-03-21T01:33:00.567794100Z"
+}

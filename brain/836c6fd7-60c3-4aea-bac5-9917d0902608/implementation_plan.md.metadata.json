@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation plan for a Daily Meeting View tab. Covers a new useDailyMeeting hook for computing person-centric blocking relationships, a DailyMeetingView component with 4-section cards (Doing/Blocking Others/Blocked By/Not Started), and integration into page.tsx as a new tab.",
+  "updatedAt":  "2026-03-09T04:55:45.037870400Z"
+}

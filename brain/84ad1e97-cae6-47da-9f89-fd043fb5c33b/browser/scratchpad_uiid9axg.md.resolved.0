@@ -1,0 +1,10 @@
+# Progress Check
+- [ ] Verify Sprint Settings modal
+    - [ ] Find Settings gear icon in header
+    - [ ] Click it and verify modal content
+    - [ ] Take screenshot of settings modal
+    - [ ] Close modal
+- [ ] Verify Wider Task Inspector
+    - [ ] Click on a task in Personnel view
+    - [ ] Verify inspector panel width
+    - [ ] Take screenshot of inspector

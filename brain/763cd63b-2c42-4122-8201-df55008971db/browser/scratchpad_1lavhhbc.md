@@ -1,0 +1,46 @@
+# Antigravity Skills Documentation Summary
+
+## What are skills?
+Skills are modular, reusable sets of instructions and tools that help the agent perform specific tasks more effectively. They extend the agent's capabilities by providing it with domain-specific knowledge and processes.
+
+## Where skills live
+Antigravity supports two types of skills:
+- **Workspace skills**: `<workspace-root>/.agents/skills/<skill-folder>/`
+- **Global skills**: `~/.gemini/antigravity/skills/<skill-folder>/`
+
+Note: Antigravity now defaults to `.agents/skills`, but still maintains backward support for `.agent/skills`.
+
+## Creating a skill
+To create a skill, add a new folder to the `.agents/skills` directory and create a `SKILL.md` file inside it. The file should include a YAML frontmatter with the skill's name and description.
+
+## Skill folder structure
+- `.agents/skills/`
+  - `<skill-id>/`
+    - `SKILL.md`: The main set of instructions for the skill.
+    - `tools/`: (Optional) Custom tools specific to this skill.
+    - `scripts/`: (Optional) Supporting scripts for the skill.
+
+## Formatting
+The `instructions.md` file uses Markdown and must include a YAML frontmatter:
+```markdown
+---
+name: skill-name
+description: A clear description of what the skill does and when to use it.
+---
+# Skill Title
+... instructions ...
+```
+
+## How the agent uses skills
+The agent automatically discovers skills in the `.skills` directory. When it encounters a task where a skill might be useful, it loads the relevant instructions and tools.
+
+## Best practices
+- Be specific and concise.
+- Use scripts as black boxes (run with `--help` first).
+- Include decision trees for complex logic.
+
+# Task Progress
+- [x] Read Antigravity skills documentation.
+- [ ] Read GitHub skills repository.
+- [ ] Extract skills from GitHub repo.
+- [ ] Set up skills in the project.

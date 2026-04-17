@@ -1,0 +1,23 @@
+# Verification Plan
+
+1. [ ] **Sprint Filter**:
+    - [ ] Check if the sprint dropdown shows sprints with date ranges (e.g., "Sprint 11 · Mar 2 – Mar 13").
+    - [ ] Verify Sprint 11 is auto-selected (today is Mar 6, 2026).
+    - [ ] Check for a blue date badge showing active sprint dates.
+    - [ ] Take a screenshot of the header.
+
+2. [ ] **Personnel View**:
+    - [ ] Verify person cards are displayed.
+    - [ ] Look at the tasks within cards for small colored priority dots.
+    - [ ] Verify tasks are sorted by status priority.
+    - [ ] Take a screenshot of the personnel view.
+
+3. [ ] **Task Click → Inspector**:
+    - [ ] Click on a task in the Personnel view.
+    - [ ] Verify "Assigned People" section.
+    - [ ] Verify "Daily Meeting Notes" section with "Add Today's Note" button.
+    - [ ] Click "Add Today's Note" button and verify the form.
+    - [ ] Verify "Is this task stalled?" toggle.
+    - [ ] Verify "Blocked By" dropdown (with "Assigned on this task" and "Team Leaders" groups).
+    - [ ] Verify "Solution / Action Plan" textarea.
+    - [ ] Take a screenshot of the inspector and the form.

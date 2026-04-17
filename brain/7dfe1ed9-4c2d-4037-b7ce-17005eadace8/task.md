@@ -1,0 +1,6 @@
+- [ ] Update `globals.css` to use pitch black background in media query
+- [ ] Correct `LandingFeatures.tsx` contrast for specific elements:
+    - [ ] `chartSubtitle` ("CPC AI SaaS")
+    - [ ] Chart X-axis labels ("T2, T3... CN")
+    - [ ] Research logs ("Đang quét...", "Phân tích...", "Xếp hạng...")
+- [ ] Verify changes in dark mode via browser

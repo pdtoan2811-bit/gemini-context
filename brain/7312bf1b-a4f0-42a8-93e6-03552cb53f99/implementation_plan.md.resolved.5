@@ -1,0 +1,28 @@
+# Implementation Plan - Fix Startup Hang (IPv4 Consistency)
+
+Despite switching to `localhost`, the Paperclip dev server is still failing to report as healthy. On Windows, `localhost` resolution can be inconsistent between different tools (Node.js, curl, browser). To ensure maximum reliability, I will switch all loopback connections to the explicit IPv4 address `127.0.0.1`.
+
+## Proposed Changes
+
+### 1. Hardcode IPv4 Loopback
+I will replace all internal `localhost` or `127.0.0.1` references with the explicit `127.0.0.1` to avoid any dual-stack resolution issues.
+
+#### [MODIFY] [config.ts](file:///c:/Users/Admin/Desktop/paperclip/server/src/config.ts)
+- Set default `host` to `127.0.0.1`.
+
+#### [MODIFY] [index.ts](file:///c:/Users/Admin/Desktop/paperclip/server/src/index.ts)
+- Use `127.0.0.1` for all embedded database connections.
+- Ensure the health check and "open browser" logic uses `127.0.0.1`.
+
+#### [MODIFY] [migration-runtime.ts](file:///c:/Users/Admin/Desktop/paperclip/packages/db/src/migration-runtime.ts)
+- Revert the `localhost` and `0.0.0.0` changes to use `127.0.0.1`. This is safer if the database process only binds to IPv4 correctly.
+
+### 2. Cleanup & Restart
+1. Terminate all processes.
+2. Run `run.bat` (which already uses `127.0.0.1` for its own check).
+
+## Verification Plan
+
+### Manual Verification
+1.  **Startup Test**: Run `run.bat` and verify it can complete migrations and start the server.
+2.  **Browser Access**: Verify the browser opens to `http://127.0.0.1:3100`.

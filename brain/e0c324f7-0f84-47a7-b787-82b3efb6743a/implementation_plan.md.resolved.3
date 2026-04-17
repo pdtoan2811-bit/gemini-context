@@ -1,0 +1,42 @@
+# Advanced Affiliate Results Management
+
+This plan transforms the manual data entry process into a robust "Data Manager" system, allowing for efficient historical editing and multi-day data entry.
+
+## Proposed Changes
+
+### [Component] [ProjectAnalytics](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectAnalytics.jsx)
+
+- **Unified Data Manager**:
+  - Replace the "Recent History" table with an interactive **Daily Stats Ledger**.
+  - **Inline Editing**: Allow clicking on rows to enter an edit mode for that specific date's revenue/clicks/conversions.
+  - **Multi-Day Entry Modal**: Implement a "Bulk Entry" button that opens a spreadsheet-like grid for entering data for the last 7 days (or a custom range) in one go.
+- **Improved UX for Entry**:
+  - Auto-suggestion for dates.
+  - Visual feedback for "Spent vs Revenue" in the ledger.
+  - CRUD refinement: Use `ConfirmationModal` for deleting historical logs.
+- **State Management**:
+  - Add `editingEntry` state to track which row is being modified.
+  - Ensure `onUpdateStats` handles both single and bulk updates correctly.
+
+## UI UX Details
+
+- **Ledger View**: A clean, high-density table that shows daily ROI/ROAS per row with an "Edit" icon.
+- **Bulk Entry Modal**: A grid of inputs:
+  - Row 1: Date | Refs | Conv | Revenue
+  - Row 2: Date | Refs | Conv | Revenue
+  - ...
+- **Log of Edits**: Every "Save" action updates the `dailyStats` array which serves as the source of truth (log).
+
+## Open Questions
+
+- **Date Range**: Should the bulk entry automatically pre-fill the last 7 days that are missing data? 
+- **CSV Import**: Do you want a raw CSV paste area for even faster bulk entry?
+
+## Verification Plan
+
+### Automated Tests
+- Browser test: Enter data for 3 different days in the bulk modal, verify they appear correctly on the ROAS chart.
+- Browser test: Edit an existing row in the ledger and verify the totals update instantly.
+
+### Manual Verification
+- Verify the "Data Ledger" feels professional and handles keyboard navigation (Tab/Enter) gracefully for fast entry.

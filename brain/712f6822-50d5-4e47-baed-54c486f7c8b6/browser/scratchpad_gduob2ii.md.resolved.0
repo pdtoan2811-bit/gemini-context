@@ -1,0 +1,24 @@
+# Sprint Relay Webhook Testing
+
+## Checklist:
+- [ ] Navigate to http://localhost:3000
+- [ ] Open 'Lark Webhook Settings' modal
+- [ ] Scroll to 'Test Lark Connection' section
+- [ ] Verify dropdowns:
+    - [ ] Current Sprint
+    - [ ] Next Sprint (Target)
+    - [ ] Task Status
+    - [ ] Task Sprint Goal
+- [ ] Verify sprint labels ('Sprint 8') vs values ('8')
+- [ ] Perform selection:
+    - [ ] Select '8' for Current Sprint
+    - [ ] Select '9' for Next Sprint
+    - [ ] Select 'Testing' for Task Status
+    - [ ] Select '9' for Task Sprint Goal
+- [ ] Click 'Run Test'
+- [ ] Verify JSON output:
+    - [ ] 'currentSprint' is "8"
+    - [ ] 'nextSprint' is "9"
+    - [ ] 'todos[0].status' is "Testing"
+    - [ ] 'todos[0].sprintGoal' is "9"
+- [ ] Take a screenshot

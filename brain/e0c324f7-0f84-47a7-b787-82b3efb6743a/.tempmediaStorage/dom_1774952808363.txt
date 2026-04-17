@@ -1,0 +1,90 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,56)<a class='group block' href='/' />
+		[2] (71,45)<h1 >Adecos />
+		[3] (71,76)<p >AI-Powered Platform />
+	[4] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,165)<div  />
+			[6] (20,165)<span  />
+			[7] (47,165)<span >AI Agent />
+	[8] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,224)<div  />
+			[10] (20,224)<span  />
+			[11] (56,224)<span >Quản lý dự án />
+		[12] (119,224)<span >1 />
+	[13] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,282)<div  />
+			[15] (20,282)<span  />
+			[16] (53,282)<span >Quản lý Ads />
+	[17] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (43,341)<div  />
+			[19] (20,341)<span  />
+			[20] (51,341)<span >Thí nghiệm />
+	[21] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (50,399)<div  />
+			[23] (20,399)<span  />
+			[24] (58,399)<span >Deep Research />
+	[25] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,458)<div  />
+			[27] (20,458)<span  />
+			[28] (48,458)<span >Analytics />
+	[29] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,516)<div  />
+			[31] (20,516)<span  />
+			[32] (51,516)<span >Thông báo />
+	MVP v1.0
+	[33] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	Quản lý dự án
+	1
+	chương trình
+	[34] (766,61)<select class='bg-[var(--bg-surface)] border border-[var(--border-color)] rounded px-3 py-1.5 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] appearance-none pr-8 cursor-pointer hover:bg-[var(--bg-hover)] transition-colors' />
+	▼
+	[35] (880,61)<select class='bg-[var(--bg-surface)] border border-[var(--border-color)] rounded px-3 py-1.5 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] appearance-none pr-8 cursor-pointer hover:bg-[var(--bg-hover)] transition-colors' />
+	▼
+	[36] (963,61)<button class='p-1.5 rounded transition-colors bg-[var(--bg-hover)] text-[var(--text-primary)]' title='Grid View' />
+	[37] (978,61)<button class='p-1.5 rounded transition-colors text-[var(--text-secondary)] hover:text-[var(--text-primary)]' title='List View' />
+	[38] (204,139)<button class='pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative text-[var(--text-primary)]'>Dự án chính thức (
+0
+) />
+	[39] (323,139)<button class='pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative text-[var(--text-secondary)]'>Dự án từ AI Agents (
+1
+) />
+	Không có dự án nào trong mục này.
+	Hãy chọn "Duyệt thành dự án chính thức" từ danh sách AI Agents leads.
+	PRO
+	Quản lý dự án Pro
+	Liên kết dự án với chiến dịch quảng cáo, nhập số ref affiliate để có insight chiến dịch và doanh nghiệp affiliate rõ ràng hơn.
+	[40] (793,863)<button class='shrink-0 px-6 py-2.5 bg-[var(--text-primary)] text-[var(--bg-primary)] text-sm font-medium rounded-md hover:opacity-90 transition-opacity'>Tham gia Waitlist />
+
+</current_dom>

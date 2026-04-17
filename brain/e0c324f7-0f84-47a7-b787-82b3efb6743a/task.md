@@ -1,0 +1,6 @@
+- [/] Update state models for `newEntry` and `bulkEntries`
+- [ ] Modify `handleAddEntry` and `handleBulkSave` calculation logic
+- [ ] Update Single Entry Form UI (Labels, Ref Value field)
+- [ ] Update Bulk Edit Spreadsheet Modal (Columns, Auto-calc)
+- [ ] Update History Ledger Table (Headers, Display)
+- [ ] Verify CPA vs RevShare modes in browser

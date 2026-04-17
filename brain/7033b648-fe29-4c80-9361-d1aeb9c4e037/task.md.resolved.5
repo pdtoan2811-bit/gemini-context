@@ -1,0 +1,8 @@
+# Git Sync Task
+
+- [x] Check git status and remote information
+- [x] Analyze commit history and local changes
+- [x] Get user approval for merge strategy
+- [x] Stash uncommitted changes (if necessary)
+- [x] Merge/Pull remote changes with "theirs" strategy
+- [x] Verify merge results

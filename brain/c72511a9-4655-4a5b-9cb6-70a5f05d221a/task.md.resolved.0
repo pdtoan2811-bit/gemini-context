@@ -1,0 +1,6 @@
+# Implement Squad Filter in Daily Recap View
+
+- [ ] Investigate how Squad filtering works in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2526-2967).
+- [ ] Add Squads state and UI in [DailyRecapView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#410-617).
+- [ ] Filter rawLogs or movementData in [DailyRecapView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#410-617) based on selected squads.
+- [ ] Test the filtering.

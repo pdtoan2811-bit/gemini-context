@@ -1,0 +1,22 @@
+# Theme-Aware Bento Grid Animation
+
+The current animation is optimized for dark mode and becomes invisible in light mode due to the white core disappearing against the white background. This plan implements theme-aware visual logic.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Dynamic Core Stroke:** 
+    - In **Dark Mode**: Maintain the high-contrast `white` core.
+    - In **Light Mode**: Switch the core to `var(--primary)` (Deep Blue) to provide a sharp, visible leading edge against the white glass.
+- **Contrast Boosting:**
+    - Increase the `opacity` of the "Aura" and "Bloom" layers in light mode. This ensures the soft glow has enough saturation to overcome the ambient brightness of the light theme.
+- **Tailwind Integration:** Use Tailwind regular and `dark:` classes to handle the color transitions seamlessly without needing complex theme-detection hooks.
+
+## Verification Plan
+
+### Manual Verification
+- **Light Mode Check:** Verify the beam is sharply visible as a Blue/Cyan streak on white boxes.
+- **Dark Mode Check:** Verify the beam remains a stunning White/Cyan streak on black boxes.
+- **Transition Check:** Ensure the switch between themes is smooth.

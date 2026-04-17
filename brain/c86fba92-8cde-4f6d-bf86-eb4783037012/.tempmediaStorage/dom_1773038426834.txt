@@ -1,0 +1,209 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (662,39)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 7 · Jan 5 – Jan 16
+Live Logs
+7
+Members
+[1] (976,39)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+67
+Bottlenecked
+16
+Doom Loops
+1
+Stale (24h+)
+36
+📌 High Risk
+0
+[2] (61,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Personnel />
+	Personnel
+[3] (119,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Tasks />
+	Tasks
+[4] (184,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Daily Meeting />
+	Daily Meeting
+[5] (258,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+Sortable task table with risk analysis
+[6] (84,373)<button class='flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold cursor-pointer hover:text-zinc-200 transition-colors text-zinc-500'>Task ID />
+Task Name
+[7] (504,373)<button class='flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold cursor-pointer hover:text-zinc-200 transition-colors text-zinc-500'>Person />
+[8] (579,373)<button class='flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold cursor-pointer hover:text-zinc-200 transition-colors text-zinc-500'>Status />
+[9] (645,373)<button class='flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold cursor-pointer hover:text-zinc-200 transition-colors text-blue-400'>Risk />
+[10] (696,373)<button class='flex items-center gap-1 text-[10px] uppercase tracking-wider font-semibold cursor-pointer hover:text-zinc-200 transition-colors text-zinc-500'>Stale />
+[11] (378,416)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[12] (84,416)<span >recv3K5vuWp6BY />
+	[13] (288,416)<span >Xem, tìm kiếm và lọc />
+	[14] (504,416)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[15] (579,416)<div  />
+		[16] (565,416)<span >Reprocess />
+	[17] (645,416)<div  />
+		[18] (638,416)<div >ELEVATED />
+	[19] (696,416)<div  />
+		[20] (696,416)<span >119
+h />
+[21] (378,468)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[22] (84,468)<span >recv3K6fvev4vz />
+	[23] (288,468)<span >Nạp tiền/Thu tiền />
+	[24] (504,468)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[25] (579,468)<div  />
+		[26] (565,468)<span >Reprocess />
+	[27] (645,468)<div  />
+		[28] (638,468)<div >ELEVATED />
+	[29] (696,468)<div  />
+		[30] (696,468)<span >119
+h />
+[31] (378,520)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[32] (84,520)<span >recv3K6oWOWQsx />
+	[33] (288,520)<span >Xử lí yêu cầu tài khoản />
+	[34] (504,520)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[35] (579,520)<div  />
+		[36] (558,521)<span >Testing />
+	[37] (645,520)<div  />
+		[38] (638,520)<div >ELEVATED />
+	[39] (696,520)<div  />
+		[40] (677,521)<span >— />
+[41] (378,572)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[42] (84,571)<span >recv3K7Ed9poE0 />
+	[43] (288,571)<span >Cài đặt cảnh báo />
+	[44] (504,571)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[45] (579,571)<div  />
+		[46] (565,571)<span >Reprocess />
+	[47] (645,571)<div  />
+		[48] (638,571)<div >ELEVATED />
+	[49] (696,571)<div  />
+		[50] (696,571)<span >119
+h />
+[51] (378,624)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[52] (84,623)<span >recv3K7M2jDAau />
+	[53] (288,623)<span >Xem chi tiết chiến dịch />
+	[54] (504,623)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[55] (579,623)<div  />
+		[56] (565,623)<span >Reprocess />
+	[57] (645,623)<div  />
+		[58] (638,623)<div >ELEVATED />
+	[59] (696,623)<div  />
+		[60] (696,623)<span >119
+h />
+[61] (378,676)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[62] (84,675)<span >recv4hrGMxVPt8 />
+	[63] (288,675)<span >CRUD />
+	[64] (504,675)<span >Nguyễn Văn Nam,Lưu Thị Dung />
+	[65] (579,675)<div  />
+		[66] (565,675)<span >Reprocess />
+	[67] (645,675)<div  />
+		[68] (638,675)<div >ELEVATED />
+	[69] (696,675)<div  />
+		[70] (696,675)<span >119
+h />
+[71] (378,728)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[72] (84,727)<span >recvaMJgGg2wEj />
+	[73] (288,727)<span >Bug: Keyword, Crawler ko phải của mình thì ẩn nút quét />
+	[74] (504,727)<span >Đặng Minh Quân,Nguyễn Thảo Linh />
+	[75] (579,727)<div  />
+		[76] (565,727)<span >Reprocess />
+	[77] (645,727)<div  />
+		[78] (638,727)<div >ELEVATED />
+	[79] (696,727)<div  />
+		[80] (696,727)<span >119
+h />
+[81] (378,779)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[82] (84,779)<span >recvaMJPh9Q4wP />
+	[83] (288,779)<span >Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất) />
+	[84] (504,779)<span >Đặng Minh Quân,Nguyễn Thảo Linh />
+	[85] (579,779)<div  />
+		[86] (565,779)<span >Reprocess />
+	[87] (645,779)<div  />
+		[88] (638,779)<div >ELEVATED />
+	[89] (696,779)<div  />
+		[90] (696,779)<span >119
+h />
+[91] (378,831)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[92] (84,831)<span >recvccB1jmnaDI />
+	[93] (288,831)<span >Fix Bug import Excel project />
+	[94] (504,831)<span >Trần Quý Đạt,Đặng Minh Quân,Nguyễn Thảo Linh />
+	[95] (579,831)<div  />
+		[96] (565,831)<span >Reprocess />
+	[97] (645,831)<div  />
+		[98] (638,831)<div >ELEVATED />
+	[99] (696,831)<div  />
+		[100] (696,831)<span >119
+h />
+[101] (378,883)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[102] (84,883)<span >recvaTSTAtMsLJ />
+	[103] (288,883)<span >Sửa nhiều />
+	[104] (504,883)<span >Lưu Thị Dung,Nguyễn Văn Nam,Nguyễn Thảo Linh />
+	[105] (579,883)<div  />
+		[106] (565,883)<span >Reprocess />
+	[107] (645,883)<div  />
+		[108] (638,883)<div >ELEVATED />
+	[109] (696,883)<div  />
+		[110] (696,883)<span >69
+h />
+[111] (378,935)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30' />
+	[112] (84,934)<span >recv3K7vh0ZshP />
+	[113] (288,934)<span >Xem, tìm kiếm và lọc />
+	[114] (504,934)<span >Nguyễn Đình Hồng Phong,Lưu Thị Dung,Nguyễn Thảo Linh />
+	[115] (579,934)<div  />
+		[116] (565,934)<span >Reprocess />
+	[117] (645,934)<div  />
+		[118] (638,934)<div >ELEVATED />
+	[119] (696,934)<div  />
+		[120] (696,934)<span >98
+h />
+[121] (378,987)<button class='w-full text-left grid grid-cols-[40px_80px_1fr_130px_140px_100px_80px] gap-2 px-4 py-3 items-center transition-all cursor-pointer group hover:bg-zinc-800/30'>Lưu Thị Dung,Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh />
+	[122] (84,986)<span >recvaZJ8AYjnBj />
+	[123] (288,986)<span >Thêm bộ lọc "Từ trước đến nay" />
+	Lưu Thị Dung,Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh
+	[124] (579,986)<div  />
+		[125] (565,986)<span >Reprocess />
+	[126] (645,986)<div  />
+		[127] (638,986)<div >ELEVATED />
+	[128] (696,986)<div  />
+		[129] (696,986)<span >73
+h />
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+
+</current_dom>

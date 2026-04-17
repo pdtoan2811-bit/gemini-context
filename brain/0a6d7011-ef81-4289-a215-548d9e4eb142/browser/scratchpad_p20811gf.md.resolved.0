@@ -1,0 +1,8 @@
+# Task Checklist
+- [ ] Open http://localhost:3001/vi
+- [ ] Find the Bento Grid section
+- [ ] Hover over a Bento box
+- [ ] Verify light beam alignment
+- [ ] Verify animation smoothness
+- [ ] Capture screenshot
+- [ ] Report findings

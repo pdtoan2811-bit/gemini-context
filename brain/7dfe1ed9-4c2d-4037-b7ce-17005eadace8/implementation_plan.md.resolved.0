@@ -1,0 +1,39 @@
+# Typography and Text Effect Optimization
+
+The goal is to refine the hero section's typography to be more "compact and elegant" and replace the "gradient shifting" effect with a more sophisticated alternative.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I am proposing to scale down the massive headers (e.g., from 9xl to 8xl at most) to achieve a more professional and compact look. I'm also replacing the animated teal gradient with a static, high-contrast elegant color (or static gradient) that feels more premium.
+
+## Proposed Changes
+
+### [Component] Hero Section Optimization
+
+I will modify the `Hero.tsx` component and the associated CSS in `globals.css`.
+
+#### [MODIFY] [Hero.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/Hero.tsx)
+- Reduce heading sizes (e.g., `2xl:text-9xl` → `2xl:text-8xl`).
+- Adjust tracking and leading for a more "designed" feel.
+- Reduce vertical margins between elements (`mb-6` → `mb-4`, `mb-10` → `mb-8`).
+- Update button sizes and weights if necessary to match the more compact aesthetic.
+
+#### [MODIFY] [globals.css](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/app/globals.css)
+- Replace the `.highlight-gradient` animation with a more elegant effect.
+- **Option 1 (Static Elegant Gradient):** A clean, static gradient with a subtle drop shadow.
+- **Option 2 (Inner Glow/Metallic):** A sophisticated metallic look using a static linear gradient.
+- **Option 3 (Refined Primary):** Using the brand's primary blue but with a "glass" or "glow" effect instead of the moving teal.
+- I will consolidate the `.highlight-gradient` definitions to avoid duplication.
+
+## Open Questions
+
+- Do you have a specific color preference for the "highlighted" text ("Affiliate Marketing")? Should it stay in the teal/green family, or should it align more with the brand blue?
+- For the "different effect," would you prefer a **subtle glow**, a **metallic static finish**, or a **minimalist high-contrast** look?
+
+## Verification Plan
+
+### Manual Verification
+- I will check the visual consistency of the new typography scale.
+- I will ensure the new text effect is "elegant" and not distracting.
+- I will verify that the layout remains responsive and compact.

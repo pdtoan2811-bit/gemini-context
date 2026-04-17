@@ -1,0 +1,5 @@
+# Typography Improvement Task List
+
+- [ ] Update Google Fonts configuration in [src/app/layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx) to use fonts that support the `vietnamese` subset (e.g., `Inter` and `JetBrains_Mono`).
+- [ ] Update CSS custom properties in [src/app/globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) to map Tailwind's sans and mono fonts to the newly selected Google Fonts.
+- [ ] Ensure body text properly falls back to the configured sans font.

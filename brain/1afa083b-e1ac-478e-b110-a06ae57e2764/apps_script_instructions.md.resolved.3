@@ -1,0 +1,102 @@
+# Unified Google Apps Script Code
+
+Copy and paste this entire block of code into your `Code.gs` file. 
+
+This combines your existing `doPost` function (which safely catches data coming in to the sheet) with our new `doGet` function (which allows our frontend to fetch the data back out, with the ability to filter by sprint).
+
+```javascript
+// ==========================================
+// 1. DATA INGESTION (Incoming Webhooks)
+// ==========================================
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  
+  try {
+    // Attempt to parse the incoming data
+    var rawString = e.postData.contents;
+    var data = JSON.parse(rawString);
+    
+    var rowData = [
+      new Date(),           // Column A: timestamp
+      data.taskId,          // Column B: taskID
+      data.taskName,        // Column C: taskName
+      data.recordLink,      // Column D: recordLink
+      data.status,          // Column E: status
+      data.sprintGoal,      // Column F: sprintGoal
+      data.sprint,          // Column G: sprint
+      data.person,          // Column H: person
+      data.module,          // Column I: module
+      data.screen           // Column K: screen
+    ];
+    
+    sheet.appendRow(rowData);
+    
+    return ContentService.createTextOutput(JSON.stringify({"status": "success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch(error) {
+    // THE SAFETY NET: If JSON.parse fails, dump the raw payload into the sheet so we can inspect it
+    var brokenPayload = e.postData ? e.postData.contents : "No data received";
+    sheet.appendRow([new Date(), "JSON ERROR", brokenPayload, error.toString()]);
+    
+    return ContentService.createTextOutput(JSON.stringify({"error": error.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// ==========================================
+// 2. DATA RETRIEVAL (Frontend API Fetching)
+// ==========================================
+function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  
+  if (data.length <= 1) {
+    return ContentService.createTextOutput(JSON.stringify([]))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  var headers = data[0];
+  var rows = data.slice(1);
+  var result = [];
+  
+  // Check if the frontend passed a specific 'sprint' filter in the URL
+  var targetSprint = e.parameter ? e.parameter.sprint : null;
+  
+  // Find the index of the 'sprint' column dynamically based on header name
+  var sprintColIndex = -1;
+  for (var h = 0; h < headers.length; h++) {
+    if (String(headers[h]).toLowerCase().trim() === 'sprint') {
+      sprintColIndex = h;
+      break;
+    }
+  }
+  
+  for (var i = 0; i < rows.length; i++) {
+    var rowData = rows[i];
+    
+    // If a target sprint is requested, skip rows that don't match
+    if (targetSprint && sprintColIndex !== -1) {
+      // Use loose equality or String casting to handle numbers vs strings
+      if (String(rowData[sprintColIndex]).trim() !== String(targetSprint).trim()) {
+        continue; 
+      }
+    }
+    
+    var obj = {};
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = rowData[j];
+    }
+    result.push(obj);
+  }
+  
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Deployment Instructions:
+1. Go to **Deploy > Manage deployments**.
+2. Click the **pencil icon** (Edit) next to your active Web App deployment.
+3. In the **Version** dropdown menu, select **New version**.
+4. Click **Deploy**.

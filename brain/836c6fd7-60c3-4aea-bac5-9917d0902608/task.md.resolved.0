@@ -1,0 +1,22 @@
+# Daily Meeting View Implementation
+
+## Tasks
+- [/] Plan Daily Meeting View feature
+  - [x] Review codebase: types, workflow engine, hooks, existing components
+  - [/] Write implementation plan
+  - [ ] Get user approval on plan
+- [ ] Build `useDailyMeeting` hook (data engine)
+  - [ ] Compute "who is doing what" from sprint start status + history log
+  - [ ] Compute blocking relationships from meeting notes
+  - [ ] Build sorted person-centric data structure with priority ordering
+- [ ] Build `DailyMeetingView` component
+  - [ ] Person-centric expandable cards with 4-section grouping
+  - [ ] Doing tasks section
+  - [ ] "Blocking Others" section (tasks where this person is the blocker)
+  - [ ] "Blocked By Others" section (tasks where someone else is blocking this person's tasks)
+  - [ ] "Not Started in Sprint" section
+  - [ ] Blocking relationship cross-links
+- [ ] Integrate into [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+  - [ ] Add "Daily Meeting" tab
+  - [ ] Wire up data flow and task click handler
+- [ ] Verify in browser

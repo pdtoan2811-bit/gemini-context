@@ -1,0 +1,7 @@
+- `[/]` Create `scripts/generate-voiceover-tiananmen.ts`
+- `[ ]` Execute `scripts/generate-voiceover-tiananmen.ts`
+- `[ ]` Create `scripts/copy-media-tiananmen.ts`
+- `[ ]` Execute `scripts/copy-media-tiananmen.ts`
+- `[ ]` Create `src/components/TiananmenSquareShort.tsx`
+- `[ ]` Update `src/Root.tsx`
+- `[ ]` Verify Remotion composition compiles.

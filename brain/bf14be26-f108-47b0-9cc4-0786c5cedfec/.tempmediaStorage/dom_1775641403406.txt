@@ -1,0 +1,21 @@
+[0] (25,29)<a aria-label='Home' class='flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-foreground sm:text-base md:text-lg' href='/en'>Adecos />
+[1] (477,30)<a class='text-sm font-medium text-muted-foreground transition-colors hover:text-foreground' href='#features'>Features />
+[2] (526,30)<a class='text-sm font-medium text-muted-foreground transition-colors hover:text-foreground' href='#pricing'>Pricing />
+[3] (896,29)<div aria-label='Language selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[4] (889,29)<button aria-label='English' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='English'>EN />
+		EN
+	[5] (903,29)<button aria-label='Tiếng Việt' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Tiếng Việt'>VI />
+		VI
+[6] (936,29)<div aria-label='Theme selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[7] (928,29)<button aria-label='Light' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Light' />
+	[8] (943,29)<button aria-label='Dark' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Dark' />
+[9] (976,29)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 max-h-8 rounded-md gap-1.5 px-2 py-1.5 has-[>svg]:px-2'>Sign in />
+Everything you need to grow
+Powerful tools designed to elevate your performance marketing.
+Analyze CPC trends for fragrances this week
+AI Agent
+Chat with Adecos AI. Ask questions, get suggested prompts, and start Deep Research from the same interface. Built for affiliate and e-commerce workflows.
+Deep Research
+Launch research tasks from chat. Track progress in a floating panel you can move and collapse. View logs and results in a dedicated management page with list or grid view.
+Analytics
+Google Ads–style dashboard: filter by account, program, keyword; view KPIs; group by day, week, or month. Cost & revenue, traffic, and conversion charts with clear, readable colors.

@@ -1,0 +1,25 @@
+# Goal: Rework Visual Content for AI Relevancy and Layout Compatibility
+
+Based on your feedback, we need significantly better media relevancy, a resolution to the image-cropping issue, and an expanded Reddit thread UI showing genuine discussions (comments). 
+
+## Proposed Changes
+
+### 1. Refined Tavily Search Queries
+Currently, queries like "grocery shopping list" or "boring handshake" fetch literal, non-tech images. I will rewrite the entire `SCENE_QUERIES` array in `fetch-images-mythos-sarcastic.ts` to strictly enforce AI, Cyberpunk, and Tech contexts.
+- Example: `"grocery shopping list"` becomes `"AI processing everyday data neon tech"`.
+- This guarantees all background assets feel inherently connected to artificial intelligence and cybersecurity.
+
+### 2. Upgraded Reddit UI (Including Comments)
+The current Reddit mock only shows the initial post. I will expand this:
+- **Scraper Update**: The Tavily script will simulate or fetch 2-3 contextual comment replies (e.g., another user asking a question, and OP responding).
+- **UI Update**: The `<RedditThread>` component will be expanded to render a classic comment recursion tree (nested lines, smaller text, upvote counts per comment). This achieves the "follow up etc." request and looks exactly like a real scrolling thread.
+
+### 3. Display Fix: Image Fitting
+Because scraped web images are predominantly horizontal (16:9) and our video container is natively vertical (9:16), using `objectFit: 'cover'` chops off the sides, leading to the "awful confusion."
+I propose to fix this by:
+- Wrapping the main `<Img>` in `objectFit: 'contain'` so the *full horizontal breadth* of the image is visibly preserved in the center of the screen.
+- Placing a heavily blurred, scaled-up copy of the same image strictly in the background to fill the empty top and bottom black bars (the cinematic "letterbox blur" effect common in shorts).
+
+## User Review Required
+> [!IMPORTANT]
+> **Resolution Clarification**: When you said *"we are using a horizontal screen"*, did you mean you want me to **change the entire Remotion video aspect ratio** from Vertical Shorts format (1080x1920) to standard Horizontal YouTube format (1920x1080)? Or do you just want me to fix how horizontal scraped images are displayed inside the current Vertical 9:16 format (using the blur technique I proposed)?

@@ -1,0 +1,6 @@
+# Git Sync Task
+
+- [/] Check git status and remote information
+- [ ] Fetch latest changes from remote
+- [ ] Merge remote changes with "theirs" strategy
+- [ ] Verify merge results

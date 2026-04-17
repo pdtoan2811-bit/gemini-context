@@ -1,0 +1,34 @@
+# Goal: Redesign MythosSarcasticShort Layout
+
+The previous iteration focused so exclusively on the programmatic "youtube-shorts-mastermind" rules (kinetic text, z-depth parallax, glitches) that it stripped away the premium, polished look of the main application. The result was a chaotic layout that felt "cliche and repetitive" because the animations were too isolated and lacked a unifying visual framework.
+
+This plan outlines a refactor to merge the **fast pacing** of the Mastermind skill with the **premium aesthetic structure** already established in the `MythosShort.tsx` component.
+
+## Unifying the Premium Framework
+
+We will import and utilize the high-fidelity UI overlay components from `MythosShort.tsx`. This instantly upgrades the look to professional documentary standards while acting as an anchor for the chaotic cuts.
+*   **NetworkHeader**: "AI DEEP DIVE" at the top of the screen.
+*   **WordSyncedCaption**: The premium lower-third subtitling system with audio-reactive amplitude glows, instead of the giant center-screen text blocks.
+*   **Audio Waveform**: The visual EQ bar.
+*   **Progress Bar**: The sleek, sectioned `<hr>` element at the bottom tracking the 5 phases.
+
+## Conditional Mastermind Scene Logic
+
+Instead of building 5 totally discrete visual react components, we will build a unified `<Scene>` wrapper that accepts the index and applies the Mastermind transition/animation *on top* of the standard `<Img>` and gradient layers.
+
+1.  **Phase 1 (Hook)**: Standard `SceneBackground` but we apply the **Subliminal Flash** logic as an `<AbsoluteFill>` pulsing between the image and `"WARNING"` strings behind the premium captions.
+2.  **Phase 2 (Anchor)**: We apply the **Punch-in Jump Cut** (1.3x scale every 1.5s) to the `SceneBackground` wrapper itself.
+3.  **Phase 3 (Payload/Reddit)**: We render a **Split-Screen** overlay, fading in the Reddit post side-by-side with the main background.
+4.  **Phase 4 (Pattern Interrupt)**: We inject the **CSS Filter Glitch** (`hue-rotate`) directly onto the `SceneBackground` for exactly 3 frames in the middle.
+5.  **Phase 5 (Loop)**: Standard layout, but the image and coloring perfectly match Phase 1 to guarantee the seamless Mobius Strip ending.
+
+## Proposed Changes
+
+### [MODIFY] src/components/MythosSarcasticShort.tsx
+- Replace the raw `<Sequence>` logic with a `TransitionSeries` mapping over the 5 scenes.
+- Port over the UI components (`NetworkHeader`, `SceneTag`, `Grain`, `Particles`, `WaveformBar`, `WordSyncedCaption`, `SceneBackground`).
+- Implement the `Scene` component to render the UI, and apply the customized Mastermind animations (glitches, punch-ins, flashes) to the `<SceneBackground>` or `<AbsoluteFill>` depending on `sceneIndex`.
+
+## User Review Required
+> [!IMPORTANT]
+> The primary change is dropping the giant, repetitive full-screen center text (the "Kinetic Punch") in favor of the highly-polished glowing lower-third subtitles, while retaining the fast pacing and glitches in the background images themselves. Does this stylistic direction align with what you're looking for?

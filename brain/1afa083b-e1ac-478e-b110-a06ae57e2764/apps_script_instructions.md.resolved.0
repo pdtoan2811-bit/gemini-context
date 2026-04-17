@@ -1,0 +1,67 @@
+# Google Apps Script Setup Instructions
+
+Your provided Apps Script URL is currently returning an error (`Script function not found: doGet`), which means it does not have the `doGet` function required to handle incoming web HTTP GET requests.
+
+You do **not** need a time-driven trigger for this. You just need to configure the script to act as a Web App that reads your Google Sheet and returns it as JSON.
+
+### Step 1: Add the Code
+Open your Google Sheet, go to **Extensions > Apps Script**, and paste the following code into `Code.gs` (replacing any existing code):
+
+```javascript
+// This function handles incoming GET requests (like our fetch request)
+function doGet(e) {
+  // Get the active sheet (or replace 'Sheet1' with your specific sheet name)
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  
+  // If sheet is empty or only has headers
+  if (data.length <= 1) {
+    return ContentService.createTextOutput(JSON.stringify([]))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  var headers = data[0];
+  var rows = data.slice(1);
+  var result = [];
+  
+  // Map row arrays to objects based on the header names
+  for (var i = 0; i < rows.length; i++) {
+    var rowData = rows[i];
+    var obj = {};
+    for (var j = 0; j < headers.length; j++) {
+      // Assuming headers exactly match our required schema 
+      // ('timestamp', 'taskId', 'taskName', 'recordLink', 'status', 'sprintGoal', 'sprint', 'person', 'module', 'screen')
+      obj[headers[j]] = rowData[j];
+    }
+    result.push(obj);
+  }
+  
+  // Return the JSON response
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Step 2: Ensure your Sheet Headers Match the Schema
+Make sure the first row in your sheet has exactly these column names (case-sensitive):
+- `timestamp`
+- `taskId`
+- `taskName`
+- `recordLink`
+- `status`
+- `sprintGoal`
+- `sprint`
+- `person`
+- `module`
+- `screen`
+
+### Step 3: Deploy as Web App
+1. In the Apps Script editor, click **Deploy** > **New deployment** (or **Manage deployments** if you want to update the existing one).
+2. Select **Web app** as the type.
+3. Set **Execute as** to `Me`.
+4. Set **Who has access** to `Anyone` (this allows our frontend to fetch the data without authentication).
+5. Click **Deploy**. *If requested, authorize the permissions.*
+
+Once deployed, if the resulting URL is different from the one you gave me, let me know and I'll update the frontend to point to the new URL!
+
+For now, I have already updated the frontend repository to fetch from `https://script.google.com/macros/s/AKfycbxmByQX4g2X8uuATENm8Wvog3NGzhr8gmERcNU2jwBD7Dvmp7dwzNPavDwEdbsZyRo-/exec` on page load.

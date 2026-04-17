@@ -1,0 +1,17 @@
+# Task: Verify Timeline Overview UI
+
+## Checklist
+- [x] Navigate to http://localhost:3001
+- [/] Wait for page load and task data (Data not loading yet, shows 500 error in console)
+- [ ] Open Task Detail Inspector
+- [ ] Verify Timeline Overview section
+    - [ ] Stacked duration progress bar
+    - [ ] Vertical timeline with status nodes/badges
+    - [ ] Meeting note cards (if applicable)
+- [ ] Report UI details and screenshots
+
+## Findings
+- Page loads but shows "Total Tasks 0".
+- "Loading Sprint Telemetry..." message is displayed.
+- Console shows a 500 Internal Server Error for some resource.
+- Initial load showed a `ReferenceError: interSans is not defined` error which then triggered a full reload.

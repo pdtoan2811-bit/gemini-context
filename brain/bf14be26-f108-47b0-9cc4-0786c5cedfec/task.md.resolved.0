@@ -1,0 +1,9 @@
+# Tasks: Homepage Redesign
+
+- [ ] Update `globals.css` with Vercel-inspired theme variables and utilities [/]
+- [ ] Refine `LandingHeader.tsx` for a cleaner, more minimalist look [ ]
+- [ ] Redesign `Hero.tsx` with bold typography and spotlight effects [ ]
+- [ ] Create `BentoGrid` component for feature showcase [ ]
+- [ ] Update `LandingFeatures.tsx` to use the Bento Grid [ ]
+- [ ] Polish animations and micro-interactions [ ]
+- [ ] Final verification across viewports [ ]

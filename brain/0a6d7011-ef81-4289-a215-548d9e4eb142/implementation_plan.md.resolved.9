@@ -1,0 +1,25 @@
+# Definitive Stabilization of Bento Grid
+
+The border light alignment is now perfect, but residual light bleed is persisting at the viewport margins in some browsers. I will implement a "Double-Lock" clipping strategy on the parent containers and simplify the animation surface.
+
+## Proposed Changes
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- **Parent Clipping (Double-Lock):** 
+    - Add `clip-path: inset(0 round 1.5rem)` (matching `rounded-3xl`) directly to the `BentoGridItem` container. 
+    - This creates a hardware-enforced clipping boundary that NO child element can bypass, even during high-frequency animations or with blurs.
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Simplify Foundation:**
+    - Use a single-layer rotating gradient for the beam and glow.
+    - Reduce the animation element to a `100%` square (not `150%`) and use `scale(1.5)` only during rotation if needed, or simply ensure the gradient is centered. Actually, a `100%` square with a `conic-gradient` centered correctly will cover all borders.
+- **Hardware Optimization:** Use `translate-z-0` on the beam to keep it strictly on its own GPU layer.
+
+## Why this will work
+- **Stacking Contexts:** By applying `clip-path` to the `BentoGridItem`, we force the browser to discard any pixels that fall outside the box BEFORE they reach the section or viewport level.
+- **Legacy Browser Support:** `inset(0 round 24px)` is the most robust way to clip animated content to rounded corners.
+
+## Verification Plan
+- **Performance:** Ensure 60fps stable interaction.
+- **Bleed Check:** Verify that NO blue glow appears at the viewport margins (left, right, top, or bottom).
+- **Alignment:** Confirm the light remains perfectly centered on the 1px center of the box borders.

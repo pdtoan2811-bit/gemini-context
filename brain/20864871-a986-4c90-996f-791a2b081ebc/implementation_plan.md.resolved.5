@@ -1,0 +1,41 @@
+# Target Metadata Automation (The Wow Factor)
+
+To deliver a premium, automated UX, we will upgrade the Settings dashboard so that whenever you paste a target URL (whether it’s an exact site, a creator profile, or a community link), the system automatically reaches out to the web, grabs the site's logo or profile picture, and saves it into the configuration.
+
+This means your table rows will transform from plain text into beautiful, recognizable lists with high-res avatars and icons, proving to the user immediately that the system has successfully "locked onto" the target.
+
+## User Review Required
+
+> [!WARNING]
+> Please review the approach for metadata fetching. Basic fetch requests might be blocked by heavy WAFs (like Cloudflare) on certain sites. Since we already have the Playwright stealth engine installed, I can either use standard lightweight `fetch` + `cheerio` for instant speed, or we can use Playwright for extreme reliability but slower resolution. I propose a **hybrid approach**: lightweight `fetch` first, falling back to basic favicon resolution, prioritizing speed for the UX. 
+
+## Proposed Changes
+
+---
+
+### Phase 9: Metadata Extraction Engine
+
+#### [NEW] `src/app/api/metadata/route.ts`
+- A dedicated server-rendered endpoint that takes any `url` via a POST request.
+- It will execute a quick `fetch` request, parse the HTML utilizing a lightweight HTML parser (like `cheerio`), and extract the `<meta property="og:image">` or `<link rel="icon">`.
+- It returns this image URL back to the frontend.
+
+#### [MODIFY] `src/config/targetList.json` Schema
+- Expand the definitions for `exactSites` (which we will now fully expose), `communities`, and `creators` to include an `imageUrl?: string` token.
+
+#### [MODIFY] `src/app/settings/page.tsx`
+- **Expose Exact Sites**: Add a brand new interactive card specifically for pacing raw URLs ("Exact Sites").
+- **Live Preview UI**: As you type a URL, the "Add Target" button logic will trigger the metadata endpoint. A loading spinner will appear, and upon success, it saves the target along with the resolved logo.
+- **Enhanced Tables**: Upgrade the Shadcn `<TableRow>` mappings. We will use the native Tailwind `<Avatar>` concept (circular image wrappers) to render the fetched logos dynamically next to the target name.
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> To parse the HTML incredibly fast on the backend without booting Playwright, I will need to install **`cheerio`** (the standard lightweight jQuery core for NodeJS). Do you approve of adding this dependency?
+
+## Verification Plan
+1. Enter `https://news.ycombinator.com` into the new URL field.
+2. Click Add. 
+3. Watch the UI automatically fetch the iconic orange "Y" HackerNews logo and mount it cleanly into the dark-mode table!

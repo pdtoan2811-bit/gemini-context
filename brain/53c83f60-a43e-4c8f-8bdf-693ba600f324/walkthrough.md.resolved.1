@@ -1,0 +1,30 @@
+# Anthropic Mythos Sarcastic Short (Redesign)
+
+I've successfully completed the redesign of the `MythosSarcasticShort`. 
+
+Previously, we strictly implemented the programmatic visual cues of the `youtube-shorts-mastermind` skill (giant kinetic text, plain color blocks, full-screen parallax). While it hit the theoretical pacing targets, it stripped out the premium, polished aesthetic making it feel "repetitive and cliche."
+
+We've now merged the **high-retention pacing cut rules** with our **premium framework layers** to get the best of both worlds.
+
+## What Was Updated
+
+1. **Integrated the UI Framework**: 
+    - The harsh, giant, center-screen text has been replaced by the `WordSyncedCaption` component, creating beautiful, audio-reactive glowing lower-thirds matching the exact word timings.
+    - We ported over the `NetworkHeader` ("AI DEEP DIVE") and `ProgressBar`, instantly giving the chaotic edits a professional, documentary framing.
+    - `Grain` and continuous background animations provide a textural baseline.
+
+2. **Refined the Mastermind Cuts**:
+    We moved the "Mastermind rules" *beneath* the UI layer. They now exist inside the new unified `<Scene>` component and trigger dynamically based on the current scene:
+    - **Hook (Phase 1)**: Still flashes "RESTRICTED", but it happens *behind* the subtitle layer, adding subliminal pacing without ruining layout flow.
+    - **Anchor (Phase 2)**: The background image receives a hard computational `1.08x` punch-in every 1.5 seconds simulating an intense Z-depth camera shake.
+    - **Payload (Phase 3)**: A beautiful split-screen transition sliding in the **Reddit Thread** on the right half of the screen using an eased spring animation, highlighting the `ENTERPRISE PRICING TIER` keyword.
+    - **Interrupt (Phase 4)**: The CSS `hue-rotate(90deg)` glitch happens globally across the background (but beneath the UI) to physically break the viewer's scrolling trance while panning sharply left.
+
+> [!TIP]
+> The composition preserves the **Seamless Loop**. The final background is identical to Phase 1, guaranteeing that when YouTube restarts the video at frame 0, there is zero visual hitch.
+
+You can preview the polished redesign right now by running:
+```bash
+npm run dev
+```
+And selecting the `mythos-sarcastic` comp!

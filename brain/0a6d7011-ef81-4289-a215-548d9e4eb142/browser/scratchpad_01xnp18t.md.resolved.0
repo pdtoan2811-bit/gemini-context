@@ -1,0 +1,11 @@
+# Bento Box Verification Plan
+
+- [ ] Navigate to http://localhost:3000/vi
+- [ ] Observe page load and hover performance
+- [ ] Verify zero blue light bleed at screen margins
+- [ ] Inspect Bento boxes for alignment (full height/width, 1px center, corner matching)
+- [ ] Capture definitive screenshot
+- [ ] Report final results
+
+## Findings
+- 

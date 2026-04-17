@@ -1,0 +1,181 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (645,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 8 · Mar 9 – Mar 13
+Live Logs
+[1] (926,76)<button class='px-3 py-1.5 flex items-center gap-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-zinc-200 hover:bg-zinc-900 transition-colors' title='Configure per-person webhook URLs'>10
+Members />
+	10
+	Members
+[2] (976,76)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+67
+Met Goal
+15
+Bottlenecked
+11
+Doom Loops
+8
+Stale (24h+)
+25
+📌 High Risk
+0
+[3] (68,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Daily Meeting />
+	Daily Meeting
+[4] (144,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Daily Recap />
+	Daily Recap
+[5] (213,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Personnel />
+	Personnel
+[6] (272,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[7] (333,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+[8] (404,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Next Sprint />
+	Next Sprint
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+[9] (301,431)<div class='flex overflow-x-auto custom-scrollbar gap-2 w-full sm:w-auto pb-1 sm:pb-0' scrollable='true'>Phạm Đức Toàn
+Trần Quý Đạt
+Nguyễn Văn Nam
+Duyên NT />
+	[10] (69,425)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50 border border-transparent'>View All (
+9
+) />
+	[11] (131,425)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors bg-indigo-900/40 text-indigo-300 border border-indigo-700/50 shadow-sm'>Squads />
+	[12] (208,425)<button class='px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-blue-300 hover:bg-zinc-800/50 border border-transparent'>Nguyễn Thảo Linh />
+	[13] (281,425)<button class='px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-blue-300 hover:bg-zinc-800/50 border border-transparent'>Lưu Thị Dung />
+	[14] (367,425)<button class='px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-blue-300 hover:bg-zinc-800/50 border border-transparent'>Nguyễn Đình Hồng Phong />
+	[15] (451,425)<button class='px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-blue-300 hover:bg-zinc-800/50 border border-transparent'>Bùi Anh Đức />
+	[16] (519,425)<button class='px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors text-zinc-400 hover:text-blue-300 hover:bg-zinc-800/50 border border-transparent'>Đặng Minh Quân />
+	Phạm Đức Toàn
+	Trần Quý Đạt
+	Nguyễn Văn Nam
+	Duyên NT
+Team Active:
+175
+|
+20
+|
+38
+|
+73
+Squad Planning Context
+[17] (150,510)<button class='flex items-center gap-1.5 text-indigo-400 hover:text-indigo-300 transition-colors bg-indigo-950/30 px-2 py-1 rounded border border-indigo-900/50'>Manage Roles />
+[18] (633,510)<button class='p-1 rounded hover:bg-zinc-800 text-zinc-400 transition-colors' title='Previous Day' />
+Today
+Gradually form your squad
+[19] (378,625)<div class='flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar' scrollable='true' />
+	[20] (79,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-indigo-600 border-indigo-500 text-white shadow-[0_0_10px_rgba(79,70,229,0.3)]'>Nguyễn Thảo Linh />
+		Nguyễn Thảo Linh
+	[21] (182,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Nguyễn Đình Hồng Phong />
+		Nguyễn Đình Hồng Phong
+	[22] (284,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Nguyễn Văn Nam />
+		Nguyễn Văn Nam
+	[23] (363,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Trần Quý Đạt />
+		Trần Quý Đạt
+	[24] (441,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Đặng Minh Quân />
+		Đặng Minh Quân
+	[25] (520,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Lưu Thị Dung />
+		Lưu Thị Dung
+	[26] (591,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Bùi Anh Đức />
+		Bùi Anh Đức
+	[27] (666,618)<button class='flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all bg-zinc-900/80 border-zinc-700/80 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'>Phạm Đức Toàn />
+		Phạm Đức Toàn
+	Duyên NT
+Squad Backlog
+39
+tasks
+Drag tasks to the Squad Plan to plan them
+[28] (202,1074)<div class='flex-1 overflow-y-auto custom-scrollbar pr-1 space-y-6 pb-8' scrollable='true' />
+	Nguyễn Thảo Linh
+	's Tasks (
+	39
+	)
+	[29] (200,848)<div  />
+		[30] (200,834)<div  />
+			[31] (182,834)<div  />
+				[32] (63,834)<div  />
+				[33] (91,834)<span >recvaOw5yELuJm />
+				[34] (154,834)<span >Multi language thông báo />
+			[35] (334,834)<div  />
+				[36] (330,834)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+		[37] (200,860)<div  />
+			[38] (64,860)<span >Cancel />
+			[39] (103,860)<span >STALE
+7d 17h />
+	[40] (200,920)<div  />
+		[41] (200,906)<div  />
+			[42] (182,906)<div  />
+				[43] (63,906)<div  />
+				[44] (91,906)<span >recvccB1jmnaDI />
+				[45] (158,906)<span >Fix Bug import Excel project />
+			[46] (334,906)<div  />
+				[47] (330,906)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+		[48] (200,933)<div  />
+			[49] (66,933)<span >Pending />
+			[50] (106,933)<span >STALE
+7d 17h />
+			[51] (172,933)<span >Nguyễn Thảo Linh />
+				[52] (148,933)<span >Blocked by />
+	[53] (200,993)<div  />
+		[54] (200,979)<div  />
+			[55] (182,979)<div  />
+				[56] (63,979)<div  />
+				[57] (91,979)<span >recv3K7Ed9poE0 />
+				[58] (142,979)<span >Cài đặt cảnh báo />
+			[59] (334,979)<div  />
+				[60] (330,979)<button class='opacity-0 group-hover:opacity-100 flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-[9px] font-medium transition-all' title='Add to today's plan' />
+		Bug Fixing
+		Active
+		STALE
+		7d 17h
+		Blocked by
+		Đặng Minh Quân
+Squad Plan for
+Today
+No tasks planned for the squad
+Drag tasks from the backlog to plan
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+
+</current_dom>

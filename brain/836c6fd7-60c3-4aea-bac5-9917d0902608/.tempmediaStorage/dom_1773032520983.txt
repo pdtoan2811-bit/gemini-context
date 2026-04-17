@@ -1,0 +1,222 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (662,39)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 max-w-[200px] truncate' />
+Sprint 7 · Jan 5 – Jan 16
+Live Logs
+7
+Members
+[1] (976,39)<button class='p-1.5 text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800 rounded-md transition-colors' title='Sprint Settings' />
+Total Tasks
+67
+Bottlenecked
+16
+Doom Loops
+1
+Stale (24h+)
+36
+📌 High Risk
+0
+[2] (61,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Personnel />
+	Personnel
+[3] (119,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[4] (184,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Daily Meeting />
+	Daily Meeting
+[5] (258,286)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Sprint Start />
+	Sprint Start
+Steer tasks by person — blocking visibility & prioritization
+88
+doing
+47
+blocking others
+41
+blocked
+8
+team members
+Nguyễn Thảo Linh
+49
+items
+11
+blocking
+15
+blocked
+[6] (202,472)<button class='flex items-center gap-2 w-full text-left py-1.5 group'>Doing
+23 />
+	Doing
+	23
+[7] (207,522)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[8] (207,513)<div  />
+		[9] (121,513)<div  />
+			[10] (66,513)<span >Rnm8eg />
+			[11] (132,513)<span >Tk tự tạo: Thêm thông tin thanh toán />
+		[12] (342,513)<span >Pending />
+	[13] (207,536)<div >STALE
+4d 22h />
+[14] (207,593)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[15] (207,584)<div  />
+		[16] (120,584)<div  />
+			[17] (66,584)<span >4ugcJn />
+			[18] (131,584)<span >Thông tin cá nhân - Forget password />
+		[19] (342,584)<span >Pending />
+	[20] (207,606)<div >STALE
+4d 22h />
+[21] (207,663)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[22] (207,654)<div  />
+		[23] (93,654)<div  />
+			[24] (66,654)<span >TzRcxd />
+			[25] (105,654)<span >Thông tin cá nhân />
+		[26] (342,654)<span >Pending />
+	[27] (207,676)<div >STALE
+4d 22h />
+[28] (207,734)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[29] (207,724)<div  />
+		[30] (191,724)<div  />
+			[31] (66,724)<span >5qh6eA />
+			[32] (202,724)<span >Bug: Load dữ liệu mới lâu, f5 mãi mới đc, nhanh nhất là log out r log in lại :) Các màn ở project hunter, khi phân quyền hoặc yêu cầu />
+		[33] (344,724)<span >Cancel />
+	[34] (207,747)<div >STALE
+4d 22h />
+[35] (207,804)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[36] (207,795)<div  />
+		[37] (97,795)<div  />
+			[38] (66,795)<span >uWp6BY />
+			[39] (109,795)<span >Xem, tìm kiếm và lọc />
+		[40] (335,795)<span >Reprocess />
+	[41] (207,817)<div >STALE
+4d 22h />
+[42] (207,874)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[43] (207,865)<div  />
+		[44] (93,865)<div  />
+			[45] (66,865)<span >vev4vz />
+			[46] (105,865)<span >Nạp tiền/Thu tiền />
+		[47] (335,865)<span >Reprocess />
+	[48] (207,888)<div >STALE
+4d 22h />
+[49] (207,935)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[50] (207,935)<div  />
+		[51] (100,935)<div  />
+			[52] (66,935)<span >WOWQsx />
+			[53] (112,935)<span >Xử lí yêu cầu tài khoản />
+		[54] (342,935)<span >Testing />
+[55] (207,997)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[56] (207,987)<div  />
+		[57] (92,987)<div  />
+			[58] (66,987)<span >d9poE0 />
+			[59] (104,987)<span >Cài đặt cảnh báo />
+		[60] (335,987)<span >Reprocess />
+Lưu Thị Dung
+35
+items
+9
+blocking
+5
+blocked
+[61] (554,472)<button class='flex items-center gap-2 w-full text-left py-1.5 group'>Doing
+18 />
+	Doing
+	18
+[62] (559,522)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[63] (559,513)<div  />
+		[64] (445,513)<div  />
+			[65] (418,513)<span >TzRcxd />
+			[66] (457,513)<span >Thông tin cá nhân />
+		[67] (694,513)<span >Pending />
+	[68] (559,536)<div >STALE
+4d 22h />
+[69] (559,593)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[70] (559,584)<div  />
+		[71] (428,584)<div  />
+			[72] (418,584)<span >MxVPt8 />
+			[73] (440,584)<span >CRUD />
+		[74] (688,584)<span >Reprocess />
+	[75] (559,606)<div >STALE
+4d 22h />
+[76] (559,663)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[77] (559,654)<div  />
+		[78] (459,654)<div  />
+			[79] (418,654)<span >2HvUYf />
+			[80] (470,654)<span >Lịch sử thay đổi VPS/Proxy />
+		[81] (694,654)<span >Testing />
+	[82] (559,676)<div >STALE
+4d 22h />
+[83] (559,734)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[84] (559,724)<div  />
+		[85] (431,724)<div  />
+			[86] (418,724)<span >zM6lh2 />
+			[87] (442,724)<span >Ghi chú />
+		[88] (694,724)<span >Testing />
+	[89] (559,747)<div >STALE
+4d 22h />
+[90] (559,804)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[91] (559,795)<div  />
+		[92] (454,795)<div  />
+			[93] (418,795)<span >KQz75e />
+			[94] (465,795)<span >Import excel VPS/Proxy />
+		[95] (694,795)<span >Testing />
+	[96] (559,817)<div >STALE
+4d 21h />
+[97] (559,874)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30' />
+	[98] (559,865)<div  />
+		[99] (434,865)<div  />
+			[100] (418,865)<span >AtMsLJ />
+			[101] (446,865)<span >Sửa nhiều />
+		[102] (688,865)<span >Reprocess />
+	[103] (559,888)<div >STALE
+2d 20h />
+[104] (559,945)<button class='w-full text-left rounded-lg border px-3 py-2.5 transition-all hover:bg-zinc-800/50 cursor-pointer group border-l-2 border-l-emerald-500/60 border-y-zinc-800/30 border-r-zinc-800/30 bg-zinc-900/30'>STALE
+4d />
+	[105] (559,935)<div  />
+		[106] (449,935)<div  />
+			[107] (418,935)<span >h0ZshP />
+			[108] (461,935)<span >Xem, tìm kiếm và lọc />
+		[109] (688,935)<span >Reprocess />
+	STALE
+	4d
+4NgpWW
+Import - export thay đổi phương thức: Đổi từ API sang thông báo (?)
+Testing
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+
+</current_dom>

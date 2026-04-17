@@ -1,0 +1,11 @@
+# Tasks
+
+- [x] Planning Typography Changes
+    - [x] Create task.md
+    - [x] Create Implementation Plan
+- [x] Implementing Font Changes
+    - [x] Add Lora font to `layout.tsx`
+    - [x] Update `globals.css` with font variables and base styles
+- [x] Refinement and Verification
+    - [x] Refine component-specific typography
+    - [x] Verify changes with browser tool

@@ -1,0 +1,24 @@
+# Task: Light Mode as Default UI Overhaul
+
+- [/] Planning Phase
+    - [x] Analyze current color usage in components
+    - [/] Create implementation plan
+    - [ ] Define semantic color variables in [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css)
+- [ ] Core Implementation
+    - [ ] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with light-as-default variables
+    - [ ] Refactor [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx) for theme support
+    - [ ] Refactor [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) (Home) with theme variables
+- [ ] Component Refactoring
+    - [ ] [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#836-1296) and its sub-components
+    - [ ] `NextSprintPlanningView`
+    - [ ] `DailyRecapView`
+    - [ ] `PersonnelOverview`
+    - [ ] `TaskOverview`
+    - [ ] `SprintStartManager`
+    - [ ] `StandupInspector`
+    - [ ] `WorkflowLegend`
+    - [ ] UI components (Card, Badge, Button, etc. in `src/components/ui`)
+- [ ] Verification and Polish
+    - [ ] Verify accessibility and contrast in light mode
+    - [ ] Check dark mode fallback
+    - [ ] Final visual polish and micro-animations

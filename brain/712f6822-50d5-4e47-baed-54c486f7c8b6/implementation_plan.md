@@ -1,0 +1,46 @@
+# Webhook Test Refinement & Sprint Goal Correction
+
+The user clarified that `sprintGoal` represents the target status of a task at the end of a sprint (e.g., "Completed"), not a sprint number. Additionally, sprint-related fields in the webhook payload should use numeric strings (e.g., "8", "9") instead of descriptive text like "Sprint 8".
+
+## Proposed Changes
+
+### Webhook Settings Modal
+Refine the test feature to correctly handle status goals and numeric sprints.
+
+#### [MODIFY] [WebhookSettingsModal.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx)
+- [ ] Update state initialization for `testCurrentSprint` and `testNextSprint` to use numeric strings.
+- [ ] Add `testStatus` and `testSprintGoal` state using `WORKFLOW_STATUSES` as the source of truth.
+- [ ] Replace text inputs with dropdowns (select elements) for:
+    - Current Sprint (Numeric)
+    - Next Sprint (Numeric)
+    - Task Status (Workflow Status)
+    - Task Sprint Goal (Workflow Status)
+- [ ] Update the test payload to reflect these changes.
+
+### Dashboard Webhook Logic
+Ensure production payloads also follow the numeric sprint requirement.
+
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- [x] Update `formatTodoListForWebhook` to ensure `currentSprint` and `nextSprint` are numeric strings.
+
+### Sprint Start Sync Feature
+Implement a gradual, logged sync for starting the sprint.
+
+#### [NEW] [useSprintStartSync.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useSprintStartSync.ts)
+- Create a hook to manage serial webhook requests to the provided Lark endpoint.
+- Include progress tracking and result logging.
+
+#### [NEW] [SprintStartSyncModal.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/SprintStartSyncModal.tsx)
+- Create a modal to show real-time sync status, progress bar, and a detailed API status log.
+
+#### [MODIFY] [SprintStartManager.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/SprintStartManager.tsx)
+- Add "Sync to Lark" button next to "Confirm All".
+- Integrate the `SprintStartSyncModal`.
+
+## Verification Plan
+
+### Manual Verification
+1. Open the **Lark Webhook Settings** modal.
+2. Verify that all four test fields are dropdowns.
+3. Select "Testing" for Status and "Completed" for Sprint Goal.
+4. Run a test and verify the JSON payload shows numeric sprints and correctly mapped statuses.

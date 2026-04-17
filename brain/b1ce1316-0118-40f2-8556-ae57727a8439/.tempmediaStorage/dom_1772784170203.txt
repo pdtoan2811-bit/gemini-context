@@ -1,0 +1,350 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Flow-based tracking visualization to expose personnel bottlenecks and handoff wait times. Click any timeline segment to annotate blockers.
+[0] (828,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500' />
+Live Logs
+8
+Members
+Personnel Bottleneck Board
+Y-Axis: Personnel. X-Axis: Time. Overlapping blocks indicate context-switching. Dashed red borders indicate tasks that have not met their sprint goal.
+Personnel
+Mar 04, 13:52
+Mar 06, 15:02
+Nguyễn Đình Hồng Phong
+recv3K79cqn6GQ
+recv3K7jRnm8eg
+recv8NUvuwmWZa
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K4CpAiZOQ
+recv3K6c4efGLK
+recv3K6nCbZzof
+recv3K6EdXTqVQ
+recvaTQnOlQbVr
+recvcpp9Vt7fDZ
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAx2I9PQu
+recvcplYLRHJAk
+recvcpAwqeWrG9
+recvcMMl3MxScj
+recvcpAw2jVZYY
+recvcpBRsEpopv
+recvcpBRHR4lFR
+recvcpBRVK9th3
+recvcpBS69hM04
+recvcpPRDGYywj
+recvcMMGpuN4C9
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+[1] (116,369)<div  />
+	[2] (116,369)<div  />
+		[3] (116,369)<span >recv3K7vh0ZshP />
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+[4] (282,369)<div  />
+	[5] (282,369)<div  />
+		[6] (282,369)<span >recvcppnKXcTf1 />
+recvaTSzccpO1N
+[7] (356,369)<div  />
+	[8] (356,369)<div  />
+		[9] (356,369)<span >recv3K7vh0ZshP />
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recv3K6oWOWQsx
+[10] (571,369)<div  />
+	[11] (571,369)<div  />
+		[12] (571,369)<span >recv3K6oWOWQsx />
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[13] (694,369)<div  />
+	[14] (694,369)<div  />
+		[15] (694,369)<span >recvcppnKXcTf1 />
+Lưu Thị Dung
+recvb4XrTzRcxd
+recv3K4CpAiZOQ
+recvaMIPZ3H1qJ
+recvaTQnOlQbVr
+recvaTRs6mVHWX
+recvb0w3YjxIhf
+recvb4XbDfH2MD
+recvcpp9Vt7fDZ
+recv4hrGMxVPt8
+recv8eYk2HvUYf
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAx2I9PQu
+recvcpAwqeWrG9
+recvcppvgbY0vg
+recvcpAw2jVZYY
+recvcpBRsEpopv
+recvcpBRHR4lFR
+recvcpBRVK9th3
+recvcpBS69hM04
+recvcpPRDGYywj
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recv4hq6KQz75e
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+[16] (282,446)<div  />
+	[17] (282,446)<div  />
+		[18] (282,446)<span >recvcppnKXcTf1 />
+recvaTSTAtMsLJ
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recv8eYk2HvUYf
+recvaTSzccpO1N
+recv3K7vh0ZshP
+recvaTRbGEPmYe
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvcppvgbY0vg
+recvaTRbGEPmYe
+recvcppvgbY0vg
+recvcppnKXcTf1
+recvaMNg4NgpWW
+recvcppvgbY0vg
+recvaZJ8AYjnBj
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+[19] (565,446)<div  />
+	[20] (565,446)<div  />
+		[21] (565,446)<span >recvaMNg4NgpWW />
+recvcppvgbY0vg
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+[22] (644,446)<div  />
+	[23] (644,446)<div  />
+		[24] (644,446)<span >recvcppvgbY0vg />
+recvcppvgbY0vg
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[25] (694,446)<div  />
+	[26] (694,446)<div  />
+		[27] (694,446)<span >recvcppnKXcTf1 />
+Nguyễn Thảo Linh
+recv3K7jRnm8eg
+recvaMML4ugcJn
+recvb4XrTzRcxd
+recvaMJE5qh6eA
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K4CpAiZOQ
+recvaMG1qCYI6b
+recv3K6EdXTqVQ
+recvaMHnT98qyZ
+recvaMIPZ3H1qJ
+recvaMLtyTxamO
+recvaTQnOlQbVr
+recvaTRs6mVHWX
+recvb0w3YjxIhf
+recvb4XbDfH2MD
+recvcpp9Vt7fDZ
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recvaMJgGg2wEj
+recvaMJPh9Q4wP
+recvccB1jmnaDI
+recvaOw5yELuJm
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+recvcpw6riOyxm
+recvcpwOCxaAUr
+recvcpAwqeWrG9
+recvcpAw2jVZYY
+recvcppnKXcTf1
+recvcppnKXcTf1
+recvaTSzccpO1N
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recv3K7vh0ZshP
+[28] (116,522)<div  />
+	[29] (116,522)<div  />
+		[30] (116,522)<span >recvaMNg4NgpWW />
+recvaTSzccpO1N
+recvcppnKXcTf1
+recvcppnKXcTf1
+recv3K7vh0ZshP
+recvaMNg4NgpWW
+recvaTRbGEPmYe
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+[31] (282,522)<div  />
+	[32] (282,522)<div  />
+		[33] (282,522)<span >recvcppnKXcTf1 />
+recvaTSTAtMsLJ
+recvaTSzccpO1N
+recv3K7vh0ZshP
+recvaTRbGEPmYe
+recv3K7vh0ZshP
+recvaTSzccpO1N
+recvaZJ8AYjnBj
+recvcppnKXcTf1
+recvaTRbGEPmYe
+recvcppnKXcTf1
+recvaMNg4NgpWW
+recvaZJ8AYjnBj
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recv3K6oWOWQsx
+[34] (571,522)<div  />
+	[35] (571,522)<div  />
+		[36] (571,522)<span >recv3K6oWOWQsx />
+recvaTSTAtMsLJ
+recvaTSTAtMsLJ
+recvcppnKXcTf1
+recvaZJ8AYjnBj
+[37] (694,522)<div  />
+	[38] (694,522)<div  />
+		[39] (694,522)<span >recvcppnKXcTf1 />
+Đặng Minh Quân
+recv3K79cqn6GQ
+recv3K7jRnm8eg
+recv3K4sOHw1sF
+recv3K4RRrKWpl
+recv3K6c4efGLK
+recv3K6nCbZzof
+recvaMG1qCYI6b
+recv3K6EdXTqVQ
+recvaMHnT98qyZ
+recvaMLtyTxamO
+recv3K5vuWp6BY
+recv3K6fvev4vz
+recv3K6oWOWQsx
+recv3K7Ed9poE0
+recv3K7M2jDAau
+recvaMJgGg2wEj
+recvaMJPh9Q4wP
+recvccB1jmnaDI
+recvcplAZThJCP
+recvcplYLRHJAk
+recvcpm5MtJ0bu
+recvcpmgR56ofw
+recvcpIup8Sin8
+recvcpmsDbPM9F
+recvcpM8aFlUbx
+recvcpmsDbPM9F
+[40] (337,598)<div  />
+	[41] (337,598)<div  />
+		[42] (337,598)<span >recvcplAZThJCP />
+recvcplAZThJCP
+recv3K6oWOWQsx
+[43] (571,598)<div  />
+	[44] (571,598)<div  />
+		[45] (571,598)<span >recv3K6oWOWQsx />
+Nguyễn Văn Nam
+recvb4ZKNJeKXJ
+recvcimYOOXcA1
+recvaMIPZ3H1qJ
+recv4hrGMxVPt8
+recv8eYk2HvUYf
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recvcMPVy5j1Kg
+recvcMQtYD7O24
+recvcMS49Flrxh
+recvaTSTAtMsLJ
+recvaMNg4NgpWW
+recv4hq6KQz75e
+recvaMNg4NgpWW
+recvaTSTAtMsLJ
+[46] (227,674)<div  />
+	[47] (227,674)<div  />
+		[48] (227,674)<span >recvaTSTAtMsLJ />
+recvaTSTAtMsLJ
+recv4hqdzM6lh2
+recv4hq6KQz75e
+recv8eYk2HvUYf
+recvaMNg4NgpWW
+recvaTSTAtMsLJ
+[49] (565,674)<div  />
+	[50] (565,674)<div  />
+		[51] (565,674)<span >recvaMNg4NgpWW />
+recvcMS49Flrxh
+recvcMQtYD7O24
+recvaTSTAtMsLJ
+[52] (675,674)<div  />
+	[53] (675,674)<div  />
+		[54] (675,674)<span >recvaTSTAtMsLJ />
+Trần Quý Đạt
+recvaMML4ugcJn
+recvb4XrTzRcxd
+recvaMLtyTxamO
+recvb4XbDfH2MD
+recvccB1jmnaDI
+recvcpIup8Sin8
+[55] (411,750)<div  />
+	[56] (411,750)<div  />
+		[57] (411,750)<span >recvcpM8aFlUbx />
+Phạm Đức Toàn
+recvcRVVf8LF0n
+[58] (411,826)<div  />
+	[59] (411,826)<div  />
+		[60] (411,826)<span >recvcRVVf8LF0n />
+Unassigned
+[61] (706,903)<div  />
+	[62] (706,903)<div  />
+		[63] (706,903)<span >recvd4hkuhFspK />
+Legend
+Color coding by Module
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+Blocked / Not Met Goal
+
+</current_dom>

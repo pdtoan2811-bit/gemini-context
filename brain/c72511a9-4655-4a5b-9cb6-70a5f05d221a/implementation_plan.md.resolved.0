@@ -1,0 +1,31 @@
+# Implement Squad Filter in Daily Recap View
+
+## Goal Description
+The user wants to apply the squad filtering logic (present in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2526-2967)) to the [DailyRecapView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#410-617). This will allow them to overview the progress of a specific subset of team members (a "squad") on the tasks they are working on, making it easier to track squad-specific daily movements without the noise of the entire team.
+
+## Proposed Changes
+
+### [src/components/dashboard/DailyRecapView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx)
+- **Imports**: Import [useRoles](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useRoles.ts#8-62), `ROLE_ORDER`, and [ValidRole](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useRoles.ts#6-7) from [useRoles.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useRoles.ts), and `Users` icon from `lucide-react`.
+- **State**: Add a `selectedPersonsFilter` state (a `Set` of strings) to track selected squad members.
+- **Hook**: Call [useRoles()](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useRoles.ts#8-62) to fetch the team roles.
+- **Data Derivation**:
+  - Extract all unique persons from `rawLogs`.
+  - Sort these persons using `ROLE_ORDER` from [useRoles()](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useRoles.ts#8-62), identical to the logic in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2526-2967).
+  - Create a `filteredMovementData` `useMemo` block. If `selectedPersonsFilter` is empty, it returns the original `movementData` (showing everyone by default). If there are personnel selected, it filters `movementData.personMovements` to only include the selected persons, and explicitly re-calculates the `Summary Stats` (total tasks moved forward, backward, etc.) for only those squad members.
+- **UI Additions**:
+  - Add the "Personnel Selector Row" (with the "Gradually form your squad" label) above the Summary Stats card.
+  - Render a clickable row of buttons for each member in `sortedAllPersons`.
+  - Use `filteredMovementData` instead of `movementData` for rendering the stats correctly and listing out the [PersonCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#181-409)s.
+
+## Verification Plan
+
+### Manual Verification
+1. Launch the local dev server.
+2. Select a sprint that has activity.
+3. Open the "Daily Recap" view in the dashboard.
+4. Verify that the "Personnel Selector Row" appears at the top.
+5. Click on one or more personnel to select them.
+6. Observe that the "Summary Stats" and the "Person Cards" instantly update to only reflect the daily recap of those selected personnel.
+7. Deselect all personnel and verify that it returns back to the global daily recap view.
+8. Validate that the sorting of personnel follows the role hierarchy (Tester -> BE dev -> FE dev -> Team Leader -> Other).

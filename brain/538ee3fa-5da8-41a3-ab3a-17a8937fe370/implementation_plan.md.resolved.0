@@ -1,0 +1,47 @@
+# Edit & Delete Meeting Notes
+
+Add inline editing and deletion for daily meeting notes inside the task inspector panel.
+
+## Proposed Changes
+
+### Data Hook (already done)
+
+[useMeetingNotes.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useMeetingNotes.ts) already exposes `updateNote` and `deleteNote` — **no changes needed**.
+
+---
+
+### Page Wiring
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+1. Destructure `updateNote` and `deleteNote` from [useMeetingNotes()](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useMeetingNotes.ts#8-75) (line 59).
+2. Pass them as new props `onUpdateMeetingNote` and `onDeleteMeetingNote` to `<StandupInspector>` (line 346).
+
+---
+
+### Inspector UI
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+
+1. **Add two new props** to [EnhancedInspectorProps](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#31-44):
+   - `onUpdateMeetingNote: (note: MeetingNote) => void`
+   - `onDeleteMeetingNote: (taskId: string, noteId: string) => void`
+
+2. **Add edit state** — track which note is being edited (`editingNoteId`), plus form fields mirroring the add-form.
+
+3. **Add edit/delete buttons** to each note card (lines 512–560):
+   - **Edit** (pencil icon): populates the edit form with the note's data.
+   - **Delete** (trash icon): shows a confirmation prompt then calls `onDeleteMeetingNote`.
+
+4. **Inline edit form**: When editing, the note card transforms into an editable form (same fields as the add form) with Save / Cancel buttons. On save, calls `onUpdateMeetingNote`.
+
+## Verification Plan
+
+### Manual Verification (Browser)
+
+1. Open the app at `localhost:3000`.
+2. Click any task to open the inspector side panel.
+3. **Add** a new meeting note — verify it appears in the list.
+4. **Edit**: click the pencil icon on a note → change fields → click Save → verify note updates.
+5. **Delete**: click the trash icon on a note → confirm deletion → verify note disappears.
+6. Refresh the page — verify edited/deleted state persists (data saved to [db.json](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/data/db.json) via API).

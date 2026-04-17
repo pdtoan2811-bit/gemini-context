@@ -1,0 +1,27 @@
+# Analytics-First Project Experience
+
+This update shifts the project detail view to an **Analytics-First** approach, making campaign setup and ROI tracking the core focus.
+
+## Navigation Enhancements
+
+### 1. Analytics as the Primary View
+The **Cấu hình Ads & ROI** tab is now the default view when opening any project. This allows you to immediately see performance data or configure tracking without navigating through multiple tabs.
+
+### 2. Streamlined Setup for Drafts
+For projects saved from AI Agents (Drafts), the Analytics tab now includes:
+- **Status Banner**: A clear notice that the project is in "Draft" mode.
+- **One-Click Activation**: A "Duyệt & Kích hoạt Mapping" button that promotes the project to Official and unlocks historical data entry.
+
+## Workflow Overview
+
+> [!IMPORTANT]
+> To start seeing ROI data, you must first **Link Ads Campaigns** in the sidebar of the Analytics tab. This pulls in your actual spend from the linked marketing campaigns.
+
+### Updated Detail Page
+- **Slot 1**: Cấu hình Ads & ROI (Default)
+- **Slot 2**: Thông tin dự án
+- **Slot 3**: Chỉ số traffic
+
+## Technical Improvements
+- **Conditional Layouts**: `ProjectAnalytics` now handles both Official and Unofficial states gracefully with customized UI overlays.
+- **Integrated Actions**: Promotion logic is now accessible directly from the Analytics dashboard, reducing friction in the "Lead to Project" conversion funnel.

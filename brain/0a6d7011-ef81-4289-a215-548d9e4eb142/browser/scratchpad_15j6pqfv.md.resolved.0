@@ -1,0 +1,15 @@
+# Task: Diagnose "Searchlight Disaster" in Bento Boxes
+
+## Status Checklist
+- [x] Go to http://localhost:3000/vi
+- [x] Observe the "Searchlight Disaster"
+- [ ] Inspect the `BorderBeam` component in the DOM
+- [x] Verify if the rotating gradient covers the whole box
+- [ ] Identify why masking is failing
+- [x] Capture a screenshot of the broken state
+
+## Findings
+- Observe: Confirmed huge blue light sweep across the entire bento box area on hover.
+- Inspect: TODO (first attempt failed due to CSS class check error)
+- Verification: Yes, the light is definitely not confined to the border. It's a full-box sweep.
+- Masking issue cause: Likely `mask-image` or `clip-path` is missing or not working as expected.

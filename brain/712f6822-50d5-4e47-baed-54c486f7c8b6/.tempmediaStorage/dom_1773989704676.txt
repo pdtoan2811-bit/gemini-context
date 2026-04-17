@@ -1,0 +1,179 @@
+Sprint Relay Debugger
+SANDBOX TEST
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 8 · Jan 19 – Jan 30
+Live Logs
+9
+Members
+Total Tasks
+62
+Met Goal
+12
+Bottlenecked
+19
+Doom Loops
+8
+Stale (24h+)
+29
+📌 High Risk
+0
+Daily Meeting
+Daily Recap
+Personnel
+Tasks
+Sprint Start
+Sandbox
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+Single Person
+View All
+Squads
+Nguyễn Thảo Linh
+Compare
+History
+Today
+Filter:
+Doing
+Blocked
+Blocking
+No Activity
+Pending
+39
+36
+60
+4
+24
+Roles
+Webhooks
+Priority:
+Doing
+Blocking
+Blocked
+No Activity
+Pending
+Task Backlog
+36
+tasks
+Drag tasks to add to today's list
+(sorted by priority)
+recvccB1jmnaDI
+Fix Bug import Excel project
+Pending
+Blocking others
+STALE
+6d 22h
+Trần Quý Đạt,Đặng Minh Quân,Nguyễn Thảo Linh
+recv3K6oWOWQsx
+Xử lí yêu cầu tài khoản
+DOOM
+Pending
+Blocking others
+Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh,Lưu Thị Dung,Nguyễn Văn Nam
+recvcpw6riOyxm
+CRUD
+Reprocess
+Blocking others
+STALE
+2d 21h
+Lưu Thị Dung,Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh
+recvcpAx2I9PQu
+Phân quyền
+Testing
+Blocking others
+STALE
+2d 3h
+Today's Plan
+0
+planned
+No tasks planned
+Drag tasks from backlog to plan your day
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[0] (500,500)<div  />
+	[1] (850,500)<div class='fixed z-50 gap-4 bg-zinc-950 shadow-lg transition ease-in-out inset-y-0 right-0 border-l border-zinc-800 flex flex-col h-full overflow-y-auto sm:max-w-xl w-[90%] p-6' scrollable='true' />
+		Settings
+		Configure sprint date ranges and manual overrides.
+		Active Sprint Mode
+		Choose whether to auto-detect the current sprint based on today's date, or manually lock the view to a specific sprint.
+		[2] (849,227)<select class='w-full bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:ring-1 focus:ring-blue-500' />
+		Sprint Configurations
+		[3] (958,330)<button class='flex items-center gap-1.5 px-2.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs rounded-md transition-colors'>Add Sprint />
+		[4] (741,388)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[5] (741,416)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[6] (813,384)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[7] (813,416)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>January 5th, 2026 />
+		[8] (912,384)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[9] (912,416)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>January 16th, 2026 />
+		[10] (970,415)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[11] (741,488)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[12] (741,516)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[13] (813,484)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[14] (813,516)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>January 19th, 2026 />
+		[15] (912,484)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[16] (912,516)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>January 30th, 2026 />
+		[17] (970,516)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[18] (741,589)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[19] (741,617)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[20] (813,585)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[21] (813,617)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>February 2nd, 2026 />
+		[22] (912,585)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[23] (912,617)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>February 13th, 2026 />
+		[24] (970,616)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[25] (741,689)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[26] (741,717)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[27] (813,685)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[28] (813,717)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>February 16th, 2026 />
+		[29] (912,685)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[30] (912,717)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>February 27th, 2026 />
+		[31] (970,717)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[32] (741,790)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[33] (741,818)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[34] (813,786)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[35] (813,818)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>March 2nd, 2026 />
+		[36] (912,786)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[37] (912,818)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>March 13th, 2026 />
+		[38] (970,817)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[39] (741,890)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Sprint # />
+		[40] (741,919)<input class='bg-zinc-950 border border-zinc-800 rounded px-2 py-1 text-sm text-zinc-200 focus:outline-none focus:border-zinc-ed' />
+		[41] (813,886)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>Start Date />
+		[42] (813,919)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>March 16th, 2026 />
+		[43] (912,886)<label class='text-[10px] text-zinc-500 uppercase font-semibold'>End Date />
+		[44] (912,919)<button class='flex w-full items-center justify-between rounded-md border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 focus:border-zinc-ed focus:outline-none'>March 27th, 2026 />
+		[45] (970,918)<button class='p-1.5 text-zinc-500 hover:text-red-400 hover:bg-red-950/30 rounded transition-colors' title='Remove sprint' />
+		[46] (984,25)<button class='absolute right-4 top-4 rounded-sm opacity-70 ring-offset-zinc-950 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2'>Close />
+			Close

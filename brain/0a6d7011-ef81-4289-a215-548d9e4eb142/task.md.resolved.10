@@ -1,0 +1,3 @@
+- [ ] Apply strict `clip-path` and `overflow-hidden` to `BorderBeam.tsx` [/]
+- [ ] Minimize animation surface area to `150%` [ ]
+- [ ] Verify zero light bleed and 60fps performance in the browser [ ]

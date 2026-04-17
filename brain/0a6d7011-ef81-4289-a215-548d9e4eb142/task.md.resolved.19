@@ -1,0 +1,3 @@
+- [ ] Implement robust SVG masking in `BorderBeam.tsx` [/]
+- [ ] Ensure perfect `rounded-3xl` corner matching [ ]
+- [ ] Verify zero bleed and 60fps performance in browser [ ]

@@ -1,0 +1,11 @@
+- [x] Modify [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) to add "Squads" view mode
+  - [x] Add `squads` to `viewMode` state
+  - [x] Add toggle button for "Squads" View next to "Single Person" and "View All"
+- [x] Implement [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1864-1992) internal component in [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+  - [x] Group `analyses` tasks by exact `currentPerson` strings that contain multiple people (e.g., `"Dev A, Dev B"`)
+  - [x] Render grouped tasks with [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#470-657)
+  - [x] Add "Add to Squad's Today Plan" functionality that iterates over the squad members and calls `dailyTodos.addTodo` for each.
+- [x] Update [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#681-1016)
+  - [x] For tasks assigned to multiple people, add an "Add for All Assignees" button next to "Add to Today" that adds the task to all assignees' daily to-dos.
+- [x] Update [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#470-657)
+  - [x] Add `showAssignees` prop to explicitly display `task.currentPerson` so PMs and members can see who else is working on the task (the squad indicator).

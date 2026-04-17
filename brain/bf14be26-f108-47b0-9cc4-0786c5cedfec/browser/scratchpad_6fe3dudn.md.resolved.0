@@ -1,0 +1,10 @@
+# Deep Research Animation Verification
+
+## Checklist
+- [ ] Verify animation stages (Search -> Logs -> Results) at http://localhost:3001/en
+- [ ] Check Dark Mode compatibility at http://localhost:3001/en
+- [ ] Verify Vietnamese translations at http://localhost:3001/vi
+- [ ] Summarize visual and functional quality
+
+## Observations
+- 

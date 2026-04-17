@@ -1,0 +1,5 @@
+- `[x]` Fetch and reset local code to `origin/main`
+- `[x]` Clean untracked files
+- `[x]` Update frontend dependencies (`npm install`)
+- `[x]` Update backend dependencies (`pip install -r requirements.txt`)
+- `[x]` Verify synchronization and dependencies

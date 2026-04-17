@@ -1,0 +1,11 @@
+# Tasks
+
+- [/] Planning Typography Changes
+    - [x] Create task.md
+    - [ ] Create Implementation Plan
+- [ ] Implementing Font Changes
+    - [ ] Add Lora font to [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx)
+    - [ ] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with font variables and base styles
+- [ ] Refinement and Verification
+    - [ ] Refine component-specific typography
+    - [ ] Verify changes with browser tool

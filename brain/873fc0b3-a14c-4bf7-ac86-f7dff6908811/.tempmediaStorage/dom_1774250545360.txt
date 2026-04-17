@@ -1,0 +1,183 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay Debugger
+[0] (260,55)<a class='px-4 py-1.5 bg-secondary hover:bg-muted text-muted-foreground text-[10px] font-black rounded-full shadow-sm transition-all border border-border flex items-center gap-2 group' href='/sandbox'>SANDBOX />
+Advanced workflow diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[1] (712,66)<select class='bg-card border border-border text-foreground text-xs font-black uppercase tracking-widest rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 appearance-none pr-10 shadow-sm' />
+Mar 23 – Mar 27
+[2] (906,66)<button class='px-4 py-2.5 flex items-center gap-2 bg-card border border-border rounded-xl text-foreground hover:bg-secondary font-black text-[10px] uppercase tracking-widest transition-all shadow-sm active:scale-95' title='Configure per-person webhook URLs'>11
+Members />
+[3] (968,66)<button class='p-2.5 text-muted-foreground hover:text-foreground hover:bg-card rounded-xl border border-transparent hover:border-border transition-all active:scale-90' title='Sprint Settings' />
+Total Tasks
+36
+Met Goal
+3
+Bottleneck
+5
+Doom Loops
+5
+Stale (24h+)
+17
+📌 High Risk
+0
+[4] (67,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Meeting />
+	Daily Meeting
+[5] (153,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Squad Planner />
+	Squad Planner
+[6] (236,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Recap />
+	Daily Recap
+[7] (311,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Personnel />
+	Personnel
+[8] (376,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-indigo-600 bg-background shadow-sm border border-border/40'>Tasks />
+	Tasks
+[9] (445,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sprint Start />
+	Sprint Start
+[10] (519,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sandbox />
+	Sandbox
+Sortable task table with risk analysis
+Pin
+[11] (80,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Task ID />
+Task Name
+[12] (295,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Person />
+[13] (376,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Status />
+[14] (471,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Sprint Goal />
+[15] (534,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-[#1D3557] '>Risk />
+[16] (600,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Stale />
+[17] (650,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Blocked By />
+Action
+[18] (377,748)<div class='max-h-[500px] overflow-y-auto custom-scrollbar' scrollable='true' />
+	[19] (375,535)<tr  />
+		[20] (46,535)<td  />
+			[21] (46,498)<div  />
+		[22] (84,535)<td  />
+			[23] (83,524)<span >recvaMHnT98qyZ />
+		[24] (190,535)<td  />
+			[25] (189,523)<span >Bug: Tự add crawler, quét ra dự án nhưng k thêm đc dự án vào màn thông tin dự án />
+		[26] (311,535)<td  />
+			[27] (306,537)<span >Đặng Minh Quân,Nguyễn Thảo Linh />
+		[28] (395,535)<td  />
+			[29] (380,510)<span >Reprocess />
+		[30] (476,535)<td  />
+			[31] (476,504)<div  />
+				[32] (468,504)<span >Completed />
+		[33] (545,535)<td  />
+			[34] (537,510)<div >DOOM ×
+2 />
+		[35] (596,535)<td  />
+			[36] (596,504)<span >45
+h />
+		[37] (657,535)<td  />
+			[38] (624,512)<span >— />
+		[39] (706,535)<td  />
+			[40] (706,506)<div  />
+	[41] (375,662)<tr  />
+		[42] (46,662)<td  />
+			[43] (46,601)<div  />
+		[44] (84,662)<td  />
+			[45] (83,626)<span >recv3K6fvev4vz />
+		[46] (190,662)<td  />
+			[47] (155,613)<span >Nạp tiền/Thu tiền - Tự tạo />
+		[48] (311,662)<td  />
+			[49] (306,665)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh,Nguyễn Văn Nam />
+		[50] (395,662)<td  />
+			[51] (378,614)<span >Bug Fixing />
+		[52] (476,662)<td  />
+			[53] (476,607)<div  />
+				[54] (476,607)<span >Staging Passed />
+		[55] (545,662)<td  />
+			[56] (537,613)<div >DOOM ×
+4 />
+		[57] (596,662)<td  />
+			[58] (596,607)<span >45
+h />
+		[59] (657,662)<td  />
+			[60] (624,614)<span >— />
+		[61] (706,662)<td  />
+			[62] (706,608)<div  />
+	[63] (375,816)<tr  />
+		[64] (46,816)<td  />
+			[65] (46,754)<div  />
+		[66] (84,816)<td  />
+			[67] (83,780)<span >recv3K6oWOWQsx />
+		[68] (190,816)<td  />
+			[69] (150,767)<span >Xử lí yêu cầu tài khoản />
+		[70] (311,816)<td  />
+			[71] (308,818)<span >Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh,Lưu Thị Dung,Nguyễn Văn Nam />
+		[72] (395,816)<td  />
+			[73] (373,768)<span >Pending />
+		[74] (476,816)<td  />
+			[75] (476,760)<div  />
+				[76] (476,760)<span >Staging Passed />
+		[77] (545,816)<td  />
+			[78] (537,766)<div >DOOM ×
+2 />
+		[79] (596,816)<td  />
+			[80] (596,760)<span >45
+h />
+		[81] (657,816)<td  />
+			[82] (624,768)<span >— />
+		[83] (706,816)<td  />
+			[84] (706,762)<div  />
+	[85] (375,957)<tr  />
+		[86] (46,957)<td  />
+			[87] (46,908)<div  />
+		[88] (84,957)<td  />
+			[89] (83,933)<span >recv3K7Ed9poE0 />
+		[90] (190,957)<td  />
+			[91] (141,920)<span >Cài đặt cảnh báo />
+		[92] (311,957)<td  />
+			[93] (306,959)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+		[94] (395,957)<td  />
+			[95] (378,921)<span >Bug Fixing />
+		[96] (476,914)<div  />
+			[97] (476,914)<span >Staging Passed />
+		[98] (537,920)<div >DOOM ×
+3 />
+		[99] (596,957)<td  />
+			[100] (596,914)<span >45
+h />
+		[101] (657,957)<td  />
+			[102] (624,921)<span >— />
+		[103] (706,957)<td  />
+			[104] (706,915)<div  />
+Workflow Legend
+Operational Protocol
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready Test
+Testing
+Reprocess
+Multiple
+Reprocess
+hits escalate risk automatically to highlight potential blockers.
+1× = Elevated
+2×+ = Critical
+Module Categories
+Auth / Identity
+UI / Design
+API / Graph
+
+</current_dom>

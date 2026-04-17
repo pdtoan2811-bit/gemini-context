@@ -1,0 +1,37 @@
+# Optimize Bento Grid Performance and Fix Border Alignment
+
+The site is currently slow due to unconstrained SVG filters causing massive redraws. Additionally, the border light is misaligned because it's being "squeezed" by parent padding. I will refactor the container structure and optimize the animation.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I am moving the internal padding (`p-4`) of the Bento items to a nested content wrapper. This ensures the `BorderBeam` can fill the ENTIRE border-box without being constrained by the content padding.
+
+## Proposed Changes
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+
+#### [MODIFY] [BentoGridItem](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Move the `p-4` (padding) class from the outer container to a new inner content `div`.
+- This allows `BorderBeam` (which is `absolute inset-0`) to truly occupy the full space bounded by the border.
+- Ensure the outer container remains the positioning context (`relative`) and handles the `overflow-hidden`.
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Optimize Filters:** 
+    - Remove the heavy SVG `<filter>` and `feGaussianBlur`.
+    - Use CSS `filter: blur()` instead, which is hardware-accelerated and more efficient.
+- **Contain Repaints:**
+    - Set `overflow: hidden` on the SVG to prevent the glow from bleeding across the entire screen.
+    - Reduce the filter region size to prevent the browser from calculating blurs for out-of-bounds areas.
+- **Alignment Fix:**
+    - Explicitly set `top: 0`, `left: 0`, `width: 100%`, `height: 100%` on the SVG to ensure it fills the parent border box.
+    - Synchronize the `rx` value with the parent's actual corner radius.
+
+## Verification Plan
+
+### Automated/Manual Verification
+- **Performance:** Monitor FPS during scroll and hover in the browser. Verify that the "blue bars" at the top/bottom of the screen are gone.
+- **Alignment:** Verify the beam covers the full height of the tall left box and matches all corners exactly.
+- **Light/Dark Mode:** Ensure the hover effect remains visible and elegant in both themes.

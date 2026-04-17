@@ -1,0 +1,22 @@
+# Implementation Plan - Fix Startup Hang on Windows
+
+The Paperclip dev server is getting stuck on Windows during the database migration phase. My research indicates that the embedded PostgreSQL instance is listening on the IPv6 loopback address (`[::1]`), while the application code is attempting to connect via the IPv4 loopback address (`127.0.0.1`). This mismatch can cause connections to hang or timeout.
+
+## Proposed Changes
+
+### Database Connection Logic
+
+I will update the connection strings to use `localhost` instead of the hardcoded `127.0.0.1`. This allows the operating system and the database client to correctly resolve the available loopback interface (IPv4 or IPv6) and establish a successful connection.
+
+#### [MODIFY] [migration-runtime.ts](file:///c:/Users/Admin/Desktop/paperclip/packages/db/src/migration-runtime.ts)
+- Replace all occurrences of `127.0.0.1` with `localhost` in the embedded PostgreSQL connection strings.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Process Cleanup**: Terminate any lingering `node` and `postgres` processes from previous failed attempts.
+2.  **Startup Test**: Run `run.bat` and verify:
+    - The server progresses past the "Waiting for server to be ready" phase.
+    - Database migrations are applied successfully.
+    - All services report as healthy.
+    - The browser automatically opens to `http://localhost:3100`.

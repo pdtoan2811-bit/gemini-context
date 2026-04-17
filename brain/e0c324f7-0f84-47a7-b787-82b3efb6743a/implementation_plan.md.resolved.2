@@ -1,0 +1,35 @@
+# Enhanced Campaign Mapping UI (Email-First UX)
+
+This plan focuses on improving the Campaign Mapping experience by integrating Account Emails as a primary identifier, allowing for better organization and searchability when managing large numbers of ad accounts.
+
+## Proposed Changes
+
+### [Component] [ProjectAnalytics](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectAnalytics.jsx)
+
+- **Data Enrichment**: Enrich the campaigns list with `accountEmail` and `platform` information from the `AdsContext`.
+- **Search Logic Update**: Extend the search function to include `accountEmail`.
+- **UI UX Overhaul**:
+  - **Grouped View**: Implement an optional "Grouped by Account" view in the selection modal.
+  - **Account Badges**: Display platform icons (Google, Meta, TikTok) and emails prominently on each campaign card.
+  - **Premium Aesthetics**: 
+    - Use a sleek, glassmorphism design for the selection modal.
+    - Add subtle entry animations for search results.
+    - Improve typography and spacing to match the premium dashboard aesthetic.
+- **Linked List Polish**: Show the owner email in the "Currently Linked" section for immediate context.
+
+## Design Details
+
+- **Campaign Card**: 
+  - Title: Campaign Name (Bold)
+  - Subtitle: Program Name | Platform
+  - Footer: Account Email (Small, dimmed)
+- **Search**: "Search by Name, Program, or Email..." placeholder.
+
+## Verification Plan
+
+### Automated Tests
+- Browser test: Search for a specific email address and verify that only campaigns from that account are shown.
+- Browser test: Verify that the "Group by Account" toggle correctly organizes the list.
+
+### Manual Verification
+- Review the aesthetic quality of the new modal and ensure transitions are smooth.

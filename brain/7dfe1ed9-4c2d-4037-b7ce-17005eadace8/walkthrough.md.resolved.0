@@ -1,0 +1,29 @@
+# Typography & Text Effect Optimization Walkthrough
+
+I have updated the Adecos hero section to achieve a more **compact and elegant** typography system while replacing the previous animated gradient with a sophisticated **Metallic Satin** effect.
+
+## Changes Overview
+
+### 1. Refined Typography Scale
+I scaled down the font sizes across the hero section to create a more professional and "designed" feel:
+- **Main Heading**: Reduced from `9xl` to `8xl` (at largest) and from `5xl` to `4xl` (at smallest).
+- **Sub-description**: Reduced from `2xl` to `xl` and `xl` to `lg`.
+- **Tracking**: Switched from `tracking-tighter` to `tracking-tight` for a more open yet premium aesthetic.
+
+### 2. Elegant Text Effect
+I replaced the shifting teal animation with a static, high-contrast linear gradient:
+- **Effect**: A vertical "Metallic Satin" gradient ranging from pure white to a soft neutral gray.
+- **Styling**: Added a subtle `drop-shadow` to make the highlighted text ("Affiliate Marketing") pop without being distracting.
+
+### 3. Compact Layout
+I reduced the vertical margins between the hero elements to create a more cohesive and compact visual structure:
+- Reduced margins between header, description, and action buttons.
+
+## Verification
+
+### Visual Consistency
+- The new typography scale maintains strong hierarchy while occupying less vertical space.
+- The static gradient feels significantly more premium and "state-of-the-art" compared to the previous animated version.
+
+### Responsiveness
+- All typography adjustments use responsive Tailwind classes (`sm:`, `md:`, `lg:`) to ensure a perfect look on all devices.

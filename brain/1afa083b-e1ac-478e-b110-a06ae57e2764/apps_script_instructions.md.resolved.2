@@ -1,0 +1,54 @@
+# Google Apps Script Setup Instructions (v2 - Performance Update)
+
+To prevent the browser from crashing when the Google Sheet gets thousands of logs, we are implementing **API Filtering**. The script needs to accept a `?sprint=` url parameter and ONLY return rows matching that sprint.
+
+### Update your Code
+Open your Google Sheet, go to **Extensions > Apps Script**, and replace your `doGet` function with this updated version:
+
+```javascript
+function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  
+  if (data.length <= 1) {
+    return ContentService.createTextOutput(JSON.stringify([])).setMimeType(ContentService.MimeType.JSON);
+  }
+  
+  var headers = data[0];
+  var rows = data.slice(1);
+  var result = [];
+  
+  // Check if the frontend passed a specific 'sprint' filter in the URL
+  var targetSprint = e.parameter.sprint;
+  
+  // Find the index of the 'sprint' column dynamically
+  var sprintColIndex = headers.indexOf('sprint');
+  
+  for (var i = 0; i < rows.length; i++) {
+    var rowData = rows[i];
+    
+    // If a target sprint is requested, skip rows that don't match
+    if (targetSprint && sprintColIndex !== -1) {
+      // Use loose equality or String casting to handle numbers vs strings
+      if (String(rowData[sprintColIndex]) !== String(targetSprint)) {
+        continue; 
+      }
+    }
+    
+    var obj = {};
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = rowData[j];
+    }
+    result.push(obj);
+  }
+  
+  return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### Critical: Deploy as a New Version!
+Just saving the script won't update the live URL! You **must** go to:
+1. **Deploy > Manage deployments**
+2. Click the **pencil icon**
+3. Under the Version dropdown, select **New version**
+4. Click **Deploy**.

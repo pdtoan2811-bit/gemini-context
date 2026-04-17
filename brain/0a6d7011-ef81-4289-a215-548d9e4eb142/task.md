@@ -1,0 +1,6 @@
+- [x] **Part 1: Elegant Border Beam** — CSS offset-path traveling orb
+- [x] **Part 2a: AI Agent Box** — Live chat interface filling full space
+- [x] **Part 2b: Deep Research Box** — Scanning pipeline animation
+- [x] **Part 2c: Analytics Box** — Live dashboard with counting numbers
+- [x] **Part 2d: Project Management Box** — Kanban board with moving cards
+- [x] **Verification** — Browser test all boxes, both themes, 60fps

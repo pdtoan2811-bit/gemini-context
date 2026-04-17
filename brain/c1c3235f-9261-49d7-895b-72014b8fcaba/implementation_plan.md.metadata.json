@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Fix EPERM error on Windows by adding symlink fallbacks. Local adapters (Codex-local, Claude-local, Cursor-local) use symlinks to manage agent homes and skills, which fails on Windows without administrative privileges or Developer Mode. This plan outlines a strategy to fallback to file copying or directory junctions for improved Windows compatibility.",
+  "updatedAt": "2026-03-30T10:14:40.102229500Z",
+  "requestFeedback": true
+}

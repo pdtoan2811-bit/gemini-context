@@ -1,0 +1,4 @@
+# Task: Verify App Component is Working
+- [ ] Open http://localhost:5173/
+- [ ] Check for blue screen
+- [ ] Check for text "APP COMPONENT IS WORKING"

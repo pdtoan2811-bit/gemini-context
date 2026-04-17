@@ -1,0 +1,37 @@
+# Synthetica MVP & Live Scraping Walkthrough
+
+> [!TIP]
+> The application now features a fully automated web extraction layer alongside the original semantic layouts. You can view the new Settings dashboard at `/settings` and hit the **Trigger Live Scrape** button on the home dashboard to pull real-time data instead of mock data!
+
+## Phase 1 Highlights (The Foundation)
+- Initialized a modern Next.js (App Router) codebase.
+- Engineered a premium, custom glassmorphism aesthetic natively configured in pure CSS to eliminate the heavy reliance on rigid frameworks.
+- Implemented and fully integrated three Polymorphic Views: **NYT Deep Read**, **Insta-Scroll Card**, and **TikTok Velocity**.
+
+## Phase 2 Highlights (Live Configuration & Extraction)
+
+### The Settings & Configuration Engine
+- We have introduced a centralized configuration matrix where you can curate specific target constraints across four vectors:
+  - **Semantic Topics** (e.g. tracking "AI")
+  - **Exact Sites** (e.g. blog endpoints)
+  - **Content Creators** (e.g. specialized X handles)
+  - **Communities** (e.g. Subreddits)
+- You can navigate directly into `/settings` and observe a clean, dark-mode table view presenting your configured ingestion matrix and prioritization weights.
+
+### The Stealth Extraction Engine
+- Implemented `lib/scraper/engine.ts` utilizing `playwright-extra` and `puppeteer-extra-plugin-stealth`.
+- Designed the backend to seamlessly toggle between **a Local Stealth headless instance** OR **CDP connection to KikiLogin / AdsPower** if intense WAFs require manual session farming!
+- **Reddit Ingestion**: Created an initial extraction logic `platforms/reddit.ts` tailored exactly for Reddit nodes, successfully parsing Titles, Authors, and DOM textbodies without tripping bot protection.
+
+### Main Dashboard Real-time Trigger
+- We placed an asynchronous fetch trigger on the main dashboard (`/page.tsx`). Clicking **"Trigger Live Scrape"** automatically fires up the backend Playwright process invisibly, pulls the latest 5 posts from the Community configuration, formats them contextually via the AI pipeline models, and instantly pushes them into the top of the "Raw Feed Inbox".
+
+## Verification Checklist
+
+> [!SUCCESS]
+> - Playwright stealth plugins compiled correctly.
+> - The application built successfully.
+> - Real DOM elements from the target URLs are extracted consistently in testing.
+> - The Settings UI successfully mounts and deserializes `targetList.json`.
+
+**Next Steps**: Head to the browser (`localhost:3000`), navigate the inbox, and feel the magic of triggering a live, WAF-bypassing data pipeline directly into your Polymorphic AI Views.

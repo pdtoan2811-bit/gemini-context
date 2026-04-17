@@ -1,0 +1,6 @@
+# Task: Check Paperclip Dashboard
+
+- [ ] Open `http://127.0.0.1:3100` in the browser
+- [ ] Verify if the dashboard is loaded correctly
+- [ ] Check `http://127.0.0.1:3100/api/health` if the root fails
+- [ ] Record findings and screenshots

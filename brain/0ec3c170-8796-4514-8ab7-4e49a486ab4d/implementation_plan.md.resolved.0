@@ -1,0 +1,63 @@
+# Donald Trump Origin Story - YouTube Short
+
+This plan outlines the process of generating a highly-paced, 90-second YouTube Shorts video detailing Donald Trump's origin story utilizing Remotion. It will use the provided API keys for Text-to-Speech and leverage `youtube-shorts-mastermind` principles.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The Voiceover generation script will use the provided ElevenLabs key. I will utilize the `with_timestamps` endpoint to generate high-quality, word-level synced captions in `.json` format to power `@remotion/captions`.
+
+> [!IMPORTANT]  
+> The script is tuned to ~140 words to fit the exact 90-second target with dramatic pauses and pacing. Do you want to review the script draft before we execute the voiceover generation?
+
+## Proposed Changes
+
+### 1. Pre-Processing Scripts
+We will create scripts out of the Remotion root to handle media and audio fetching.
+
+#### [NEW] [scripts/generate-voiceover-trump.ts](file:///c:/Users/Admin/Desktop/remotionVideos/scripts/generate-voiceover-trump.ts)
+- Will contain the 5-6 scene 90-second documentary script.
+- Uses ElevenLabs `with_timestamps` API using the `eleven_multilingual_v2` model and provided API key `sk_6c...`.
+- Saves `.mp3` audio and parses `alignment` data into Remotion-compatible `Caption[]` arrays `captions.json`.
+
+#### [NEW] [scripts/copy-media-trump.ts](file:///c:/Users/Admin/Desktop/remotionVideos/scripts/copy-media-trump.ts)
+- Maps the necessary assets from `media-source-about-donald-trump` skills into `public/trump-origin/` to be used with `staticFile()`.
+- Assets planned to copy:
+  - Fred Trump Desk photo
+  - Fred & Donald 1987 photo
+  - Young Trump headshot
+  - NYMA uniform photo
+  - Commodore hotel / Trump Tower references
+
+---
+
+### 2. Remotion Code Implementation
+
+#### [NEW] [src/TrumpOrigin/Root.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOrigin/Root.tsx)
+- Sets up `<Composition>` for `TrumpOriginShort`.
+- Integrates `calculateMetadata` (from `remotion-calculate-metadata`) to dynamically adjust video length to exact audio frame count.
+
+#### [NEW] [src/TrumpOrigin/Main.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOrigin/Main.tsx)
+- Contains the main `<Series>` flow splitting into multiple overlapping scenes.
+- Applies loud audio, heavy bass cuts, and non-linear transitions.
+
+#### [NEW] [src/TrumpOrigin/CaptionPage.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOrigin/CaptionPage.tsx)
+- Reuses mapping from `remotion-captions` to display highlighted text.
+- Overhaul with `youtube-shorts-mastermind` kinetic typography rules (hostile easing, extreme bounciness) on word active state.
+
+#### [NEW] [src/TrumpOrigin/Scene.tsx](file:///c:/Users/Admin/Desktop/remotionVideos/src/TrumpOrigin/Scene.tsx)
+- Renders the image assets with aggressive scale / panning.
+- Adds noise grains, light leaks, floating elements.
+
+## Open Questions
+
+1. Do you want any specific background music track layered, or should I generate a chaotic/ambient sound, or no BGM?
+2. Are you ok with a standard dramatic, deep Male voice from ElevenLabs for the documentary narration?
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run dev` and analyze the browser using the Browser subagent.
+- Run `npx tsx scripts/generate-voiceover-trump.ts` and verify files are output in `public/voiceover/trump-origin`.
+- Run `npx tsx scripts/copy-media-trump.ts`.
+- Run `npx remotion render TrumpOriginShort out.mp4` to ensure it successfully builds the final 90-second `.mp4`.

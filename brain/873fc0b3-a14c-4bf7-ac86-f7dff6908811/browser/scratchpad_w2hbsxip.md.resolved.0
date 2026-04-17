@@ -1,0 +1,27 @@
+# Verification Checklist
+
+## 1. Daily Meeting View
+- [ ] Remove 'sync squad' buttons (involved member buttons) inside task card.
+    - *Status: FOUND in DOM/Screenshot. Still present.*
+- [ ] Show 'Module' and 'Screen' labels on task cards.
+    - *Status: NOT FOUND in DOM/Screenshot.*
+- [ ] Status badges high-contrast/light-mode friendly.
+    - *Status: Need to verify contrast.*
+- [ ] Accent color is navy blue (#1D3557) instead of purple.
+    - *Status: Purple/Indigo still visible in buttons and icons.*
+
+## 2. Next Sprint Squad Planning View
+- [ ] Select personnel to see backlog.
+- [ ] Task cards follow new design.
+- [ ] 'Deploy' and 'Add' buttons are navy blue.
+
+## 3. Daily Recap / Personnel Overview
+- [ ] Consistency check.
+
+## 4. Task Card Zoom
+- [ ] Verify 'Module' and 'Screen' info visibility.
+
+# Findings
+- Sync Squad button is still present in Daily Meeting backlog task cards.
+- Purple/Indigo accents are still visible.
+- Module/Screen info is missing from task cards.

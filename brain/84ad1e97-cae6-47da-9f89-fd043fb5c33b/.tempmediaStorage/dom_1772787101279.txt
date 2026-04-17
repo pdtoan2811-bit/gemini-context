@@ -1,0 +1,233 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Live Logs
+8
+Members
+Total Tasks
+68
+Bottlenecked
+15
+Doom Loops
+1
+Stale (24h+)
+42
+📌 High Risk
+0
+Personnel
+Tasks
+Timeline
+Standup-ready view grouped by person
+Nguyễn Đình Hồng Phong
+33
+tasks
+7
+blocked
+43d 20h
+stale
+⚠ Suggested Priority: Clear 7 task(s) in Reprocess before pulling new 'Not Started' tickets.
+recv3K5vuWp6BY
+Xem, tìm kiếm và lọc
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K6fvev4vz
+Nạp tiền/Thu tiền
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7Ed9poE0
+Cài đặt cảnh báo
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7M2jDAau
+Xem chi tiết chiến dịch
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7vh0ZshP
+Xem, tìm kiếm và lọc
+ELEVATED
+Reprocess
+STALE
+1d 4h
+recv3K6oWOWQsx
+Xử lí yêu cầu tài khoản
+ELEVATED
+Reprocess
+Nguyễn Thảo Linh
+37
+tasks
+12
+blocked
+37d 12h
+stale
+⚠ Suggested Priority: Clear 11 task(s) in Reprocess, 1 task(s) in Review before pulling new 'Not Started' tickets.
+recv3K5vuWp6BY
+Xem, tìm kiếm và lọc
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K6fvev4vz
+Nạp tiền/Thu tiền
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7Ed9poE0
+Cài đặt cảnh báo
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7M2jDAau
+Xem chi tiết chiến dịch
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recvaMJgGg2wEj
+Bug: Keyword, Crawler ko phải của mình thì ẩn nút quét
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recvaMJPh9Q4wP
+Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất)
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recvccB1jmnaDI
+Fix Bug import Excel project
+ELEVATED
+Lưu Thị Dung
+30
+tasks
+5
+blocked
+33d 1h
+stale
+⚠ Suggested Priority: Clear 4 task(s) in Reprocess, 1 task(s) in Review before pulling new 'Not Started' tickets.
+recv4hrGMxVPt8
+CRUD
+ELEVATED
+Reprocess
+STALE
+2d 1h
+recv3K7vh0ZshP
+Xem, tìm kiếm và lọc
+ELEVATED
+Reprocess
+STALE
+1d 4h
+recvaTSTAtMsLJ
+Sửa nhiều
+ELEVATED
+Reprocess
+recvaZJ8AYjnBj
+Thêm bộ lọc "Từ trước đến nay"
+ELEVATED
+Reprocess
+recvcpAwqeWrG9
+Quét Keyword planner
+In Process
+STALE
+2d 1h
+recvaTSzccpO1N
+Gom theo Tài khoản dự án
+In Process
+STALE
+1d 1h
+recvcpAw2jVZYY
+Xem chi tiết kết quả
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[0] (500,500)<div  />
+	[1] (900,500)<div  />
+		[2] (900,500)<div class='flex flex-col h-full overflow-y-auto' scrollable='true' />
+			recv3K5vuWp6BY
+			Reprocess
+			BOTTLENECK
+			Xem, tìm kiếm và lọc
+			Mar 04, 13:52
+			→
+			Mar 06, 15:49
+			Assigned People
+			Nguyễn Đình Hồng Phong
+			Đặng Minh Quân
+			Nguyễn Thảo Linh
+			[3] (896,274)<button class='w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-all border-zinc-800 bg-zinc-900/50 text-zinc-400' />
+				High Risk
+			Status History
+			Mar 04 13:52
+			Reprocess
+			Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+			Assignee
+			Nguyễn Đình Hồng Phong
+			Module
+			Digital
+			Screen
+			Tài khoản ads
+			Sprint Goal
+			Staging Passed
+			Daily Meeting Notes
+			[4] (958,603)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-zinc-800 text-zinc-300 border border-zinc-700'>Cancel />
+			[5] (896,670)<button class='w-full flex items-center justify-between px-3 py-2 rounded-lg border text-xs font-medium transition-all border-red-600/50 bg-red-950/40 text-red-300'>Is this task stalled? />
+				Is this task stalled?
+			[6] (849,717)<label class='text-[10px] text-red-400 font-semibold uppercase tracking-wider'>Why is it stalled? />
+			[7] (896,759)<textarea class='w-full bg-zinc-900 border border-red-800/50 rounded-md px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-red-500 resize-none' placeholder='Describe why this task is stalled...' />
+			[8] (839,824)<label class='text-[10px] text-zinc-400 font-semibold uppercase tracking-wider'>Blocked By />
+			[9] (896,855)<select class='w-full bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-sm text-zinc-100 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none' />
+			[10] (858,902)<label class='text-[10px] text-zinc-400 font-semibold uppercase tracking-wider'>Solution / Action Plan />
+			[11] (896,944)<textarea class='w-full bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none' placeholder='What's the plan to resolve this?' />
+		[12] (988,25)<button class='absolute right-4 top-4 rounded-sm opacity-70 ring-offset-zinc-950 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2'>Close />
+			Close
+
+</current_dom>

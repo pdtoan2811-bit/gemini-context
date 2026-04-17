@@ -1,0 +1,5 @@
+- [ ] Implement robust symlink helper in `packages/adapter-utils/src/server-utils.ts`
+- [ ] Update `packages/adapters/codex-local/src/server/codex-home.ts` to use robust symlink for `auth.json`
+- [ ] Update `packages/adapters/claude-local/src/server/execute.ts` for skills injection
+- [ ] Update `packages/adapters/cursor-local/src/server/execute.ts` for skills injection
+- [ ] Verify fix by running `pnpm -r typecheck` and checking for runtime regressions

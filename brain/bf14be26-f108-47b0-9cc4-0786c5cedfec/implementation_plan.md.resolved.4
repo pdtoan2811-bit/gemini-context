@@ -1,0 +1,35 @@
+# Deep Research Animation Component
+
+This plan outlines the creation of a high-fidelity, interactive "Deep Research" demonstration component for the Bento Grid. 
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Constraint Reasoning**: Since the Deep Research card is smaller than the AI Agent card (`md:col-span-1`), the animation will be more vertical and condensed. I will use a "Terminal-style" log progression followed by a "Cards reveal" to maximize the limited space.
+
+## Proposed Changes
+
+### [Component] Deep Research Preview
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- **New Component**: `DeepResearchPreview`
+- **Animation Stages**:
+    1. **Search**: A specialized input box showing the query: *"{t('searchQuery')}"*.
+    2. **Log Stream**: A series of steps (Step 1, 2, 3) appearing with a "scanning" effect.
+    3. **Results Display**: High-ticket affiliate cards showing name, commission (e.g., 20%), and a "Verified" badge.
+- **Styling**:
+    - Consistent with `AIAgentPreview` (background, borders, gradients).
+    - Fully compatible with Light/Dark mode using semantic classes.
+- **Integration**:
+    - Replace `SkeletonTwo` in the `items` array with `DeepResearchPreview`.
+
+### [Localization] Animation Content
+- I have already added the necessary translation keys to `en/client.json` and `vi/client.json`.
+
+## Verification Plan
+
+### Automated Tests
+- Use browser subagent to record and verify the 4-stage animation loop.
+- Verify that text contrast is correct in both Light and Dark modes.
+
+### Manual Verification
+- Ensure the animation speed feels "intelligent" (not too fast, not too slow) and loops seamlessly.

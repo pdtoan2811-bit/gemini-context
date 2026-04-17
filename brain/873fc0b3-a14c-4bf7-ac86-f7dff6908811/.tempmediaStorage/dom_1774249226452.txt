@@ -1,0 +1,97 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay Debugger
+[0] (260,55)<a class='px-4 py-1.5 bg-secondary hover:bg-muted text-muted-foreground text-[10px] font-black rounded-full shadow-sm transition-all border border-border flex items-center gap-2 group' href='/sandbox'>SANDBOX />
+Advanced workflow diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[1] (712,66)<select class='bg-card border border-border text-foreground text-xs font-black uppercase tracking-widest rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 appearance-none pr-10 shadow-sm' />
+Mar 23 – Mar 27
+[2] (906,66)<button class='px-4 py-2.5 flex items-center gap-2 bg-card border border-border rounded-xl text-foreground hover:bg-secondary font-black text-[10px] uppercase tracking-widest transition-all shadow-sm active:scale-95' title='Configure per-person webhook URLs'>11
+Members />
+[3] (968,66)<button class='p-2.5 text-muted-foreground hover:text-foreground hover:bg-card rounded-xl border border-transparent hover:border-border transition-all active:scale-90' title='Sprint Settings' />
+Total Tasks
+36
+Met Goal
+3
+Bottleneck
+5
+Doom Loops
+5
+Stale (24h+)
+18
+📌 High Risk
+0
+[4] (67,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Meeting />
+	Daily Meeting
+[5] (154,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-indigo-600 bg-background shadow-sm border border-border/40'>Squad Planner />
+	Squad Planner
+[6] (238,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Recap />
+	Daily Recap
+[7] (312,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Personnel />
+	Personnel
+[8] (377,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Tasks />
+	Tasks
+[9] (446,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sprint Start />
+	Sprint Start
+[10] (520,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sandbox />
+	Sandbox
+Draft and bulk sync tasks to the next sprint
+Next Sprint Squad Planning
+Form a dynamic squad below. Uncompleted tasks belonging to squad members will appear in the backlog. Draft them to the Squad Plan, apply bulk updates, and sync to Lark in one click.
+Gradually form your squad
+[11] (80,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Đặng Minh Quân />
+	Đặng Minh Quân
+[12] (150,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Duyên NT />
+	Duyên NT
+[13] (214,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Lưu Thị Dung />
+	Lưu Thị Dung
+[14] (303,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Nguyễn Đình Hồng Phong />
+	Nguyễn Đình Hồng Phong
+[15] (399,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Nguyễn Thảo Linh />
+	Nguyễn Thảo Linh
+[16] (483,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Nguyễn Văn Nam />
+	Nguyễn Văn Nam
+[17] (562,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Phạm Đức Toàn />
+	Phạm Đức Toàn
+[18] (635,600)<button class='flex-shrink-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full border transition-all shadow-sm bg-card border-border text-muted-foreground hover:bg-background hover:text-foreground hover:border-muted-foreground/30'>Trần Quý Đạt />
+	Trần Quý Đạt
+Workflow Legend
+Operational Protocol
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready Test
+Testing
+Reprocess
+Multiple
+Reprocess
+hits escalate risk automatically to highlight potential blockers.
+1× = Elevated
+2×+ = Critical
+Module Categories
+Auth / Identity
+UI / Design
+API / Graph
+
+</current_dom>

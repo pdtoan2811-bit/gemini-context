@@ -1,0 +1,25 @@
+# Task: Light Mode as Default UI Overhaul
+
+- [x] Planning Phase
+    - [x] Analyze current color usage in components
+    - [x] Create implementation plan
+    - [x] Define semantic color variables in [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css)
+- [x] Core Implementation
+    - [x] Update [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) with light-as-default variables
+    - [x] Refactor [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx) for theme support
+    - [x] Refactor [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) (Home) with theme variables
+
+- [x] Component Refactoring
+    - [x] [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#839-1299) and its sub-components
+    - [x] [NextSprintPlanningView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#41-830)
+    - [x] [DailyRecapView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx#612-1126)
+    - [x] [PersonnelOverview](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx#152-285)
+    - [x] [TaskOverview](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx#30-309)
+    - [x] [SprintStartManager](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/SprintStartManager.tsx#43-590)
+    - [x] [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#45-500)
+    - [x] [WorkflowLegend](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WorkflowLegend.tsx#7-107)
+    - [x] UI components (Card, Badge, Button in `src/components/ui`)
+- [x] Verification and Polish
+    - [x] Verify accessibility and contrast in light mode
+    - [x] Check dark mode fallback
+    - [x] Final visual polish and micro-animations

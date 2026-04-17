@@ -1,0 +1,39 @@
+# Walkthrough: Squad Shared Tasks & Sprint Goal Fixes
+
+## Changes Made
+
+### Bug 1: Shared Tasks Now Require ALL Squad Members
+
+**Problem:** Selecting 3 people as a squad showed tasks shared by any 2-of-3 as "shared tasks."
+
+**Fix in** [DailyRecapView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyRecapView.tsx):
+
+```diff
+ // Recap mode (line 627)
+-taskPersonCounts[taskId].size > 1
++taskPersonCounts[taskId].size === selectedPersonsFilter.size
+
+ // Squad todo mode (line 982)
+-persons.size >= 2
++persons.size >= selectedPersonsFilter.size
+```
+
+---
+
+### Bug 2: Flexible Sprint Goal Met Calculation
+
+**Problem:** Sprint goal was checked with exact `===` match. Tasks that progressed **beyond** their goal (e.g., goal = "Testing", status = "Completed") were not shown as met.
+
+**Fix:** Created [hasMetSprintGoal()](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts) that uses `WORKFLOW_STATUSES` index ordering — `currentIndex >= goalIndex` means met.
+
+Applied in 5 files:
+- [utils.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/utils.ts) — new helper function
+- [api.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/api.ts) — timeline segment `isCompleted`
+- [TaskOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx) — sorting, stats, display
+- [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) — [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#511-700) + [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2004-2542)
+- [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) — staleness check
+
+## Validation
+
+- ✅ TypeScript build (`tsc --noEmit`) passes with zero errors
+- Also fixed a pre-existing lint error (`people: unknown[]` → `string[]`)

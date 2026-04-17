@@ -1,0 +1,25 @@
+# Unify Lark Webhook Settings and Improve Visibility
+
+The user is unable to find the Lark test feature. My research shows that the test functionality is present in the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308) (used in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2531-2988)) and on the `/sandbox` page, but the [Home](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx#46-479) page uses an older, inline webhook settings UI that lacks the "Run Test" button.
+
+## Proposed Changes
+
+### [Component Name] Dashboard / UI
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+- Import [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308) from `@/components/dashboard/WebhookSettingsModal`.
+- Replace the inline webhook settings overlay with the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308) component.
+- Ensure the `SANDBOX TEST` link in the header is easily identifiable (it already is, but maybe adding a "New" badge or making it more prominent).
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` to ensure no regressions in routing or component imports.
+
+### Manual Verification
+1. Open the application.
+2. Click the "Members" button in the header.
+3. Verify that the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-308) opens and contains the "Run Test" section.
+4. Input a test webhook URL and click "Run Test".
+5. Verify that the test result is displayed correctly.
+6. Navigate to the "Sandbox" tab or click the "SANDBOX TEST" button in the header to ensure the dedicated test page is also accessible.

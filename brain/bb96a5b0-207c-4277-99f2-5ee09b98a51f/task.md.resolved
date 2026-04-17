@@ -1,0 +1,12 @@
+# Task Breakdown
+
+- [x] Modify [TaskTimeline.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/TaskTimeline.tsx) to group sorted timeline events by their local date.
+- [x] Render a day separator/header for each grouped set of events.
+- [x] Add a wrapping container for each day's events with a sleek hover effect (e.g., subtle background transition, border highlight).
+- [x] Verify the UI visually.
+
+# Business Hours Duration
+- [x] Implement [calculateWorkingDuration](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/date-utils.ts#13-65) function in a new module ([lib/date-utils.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/date-utils.ts) or similar). Rules: 08:30-17:30 core, 12:00-13:30 break.
+- [x] Determine how to track "Overtime" or "Out of hours" duration and separate it from "Working hours" duration.
+- [x] Update timeline UI to show Working Hours vs Overtime if applicable.
+- [x] Add visual separators in the stacked duration bar "on the line" (as requested by the user) to demarcate date changes visually if possible.

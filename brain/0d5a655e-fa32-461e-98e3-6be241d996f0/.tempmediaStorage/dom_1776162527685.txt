@@ -1,0 +1,22 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (915,33)<button aria-label='Tiếng Việt. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background text-muted-foreground' title='Tiếng Việt'>VI />
+[1] (936,33)<button aria-label='English. Click to switch.' class='rounded-full px-3 py-1.5 text-sm transition hover:bg-muted hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary dark:bg-white/20 text-primary-foreground hover:bg-primary hover:text-primary-foreground' title='English'>EN />
+[2] (971,33)<div aria-label='Theme selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[3] (964,33)<button aria-label='Light' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Light' />
+	[4] (978,33)<button aria-label='Dark' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Dark' />
+2. Grant of Rights & Use of Services
+Registration
+During the Term, we will provide you with a non-exclusive, non-transferable, revocable right to access and use the Services solely as set forth in this Agreement and any applicable Order. You are not granted a license to any software. To access the Services, you must register with Adecos for a Master Account. Registration may require you to submit contact information, including but not limited to name, address, contact number, industry, company, and social media profile. You agree to maintain accurate, complete, and updated contact information.
+Your Responsibilities
+You may provide access to the Services to one or more designated end users (each, an "Additional User"). You are responsible for all activity under your Master Account, including by Additional Users. You are responsible for maintaining the security and confidentiality of all login credentials. You will notify us promptly of any unauthorized access to or use of the Services.
+Modifications
+To improve your experience, we may modify the Services from time to time, including by adding or deleting features in our sole discretion. We may provide some or all elements of the Services through third-party service providers.
+Free Trials
+We may provide access to Free Services, subject to this Agreement. Unless you purchase a subscription before the end of your free trial, all Customer Data in the Free Services may be permanently deleted and we will not recover it. No compensation or refund will be provided for any free trial.
+Customer Data License
+You grant to Adecos, our Affiliates and their respective agents, suppliers and subcontractors, a non-exclusive, transferable, worldwide, perpetual, royalty-free license, with the right to sublicense, to access and use, ingest, reproduce, format, store, distribute, display and perform Customer Data and associated metadata, solely to provide the Services and as permitted by applicable law.
+
+</current_dom>

@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for enhancing the analytics feature to satisfy Google Ads API reporting requirements (R.10–R.130). Covers a tab-based analytics page redesign with 6 report resource types: Account overview, Campaign, Ad Group Ad, Keyword View, Search Term View, and Bidding Strategy. Includes new TypeScript types, new table components per report type, i18n key additions, and verification steps.",
+  "updatedAt": "2026-04-17T04:20:33.118766800Z",
+  "requestFeedback": true
+}

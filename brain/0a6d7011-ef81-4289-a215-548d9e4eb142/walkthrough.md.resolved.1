@@ -1,0 +1,26 @@
+# Walkthrough - Refined Bento Border Light
+
+I have successfully refactored the border light effect to use a **SVG-based precision animation**, ensuring perfect alignment and a premium, elegant aesthetic.
+
+## Changes Made
+
+### 1. Refactored [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **SVG Precision:** Replaced div-based logic with a `motion.rect` SVG path. This guarantees the light travels exactly along the border line, even across the `rounded-3xl` corners.
+- **Multi-layered Glow:** 
+    - **Soft Glow:** A wide, blurred stroke (`filter: blur(4px)`) that creates a subtle light-bleed effect.
+    - **Sharp Core:** A thin, high-opacity stroke for a clear light path.
+    - **Highlight Tip:** A tiny, nearly white leading edge to simulate a moving light source.
+- **Improved Timing:** Increased duration to 8s with a linear easing for a smooth, non-distracting loop.
+
+## Verification Results
+
+### Manual Verification
+- **Perfect Alignment:** Confirmed in the browser that the light beam matches the parent border with sub-pixel precision.
+- **Elegant Feel:** The multi-layered approach creates a soft, sophisticated "glow" that feels much more premium than a simple gradient.
+- **Dark/Light Mode:** Verified that `var(--primary)` provides great contrast and visibility in both themes.
+
+![Refined Bento Border Light](file:///C:/Users/Admin/.gemini/antigravity/brain/0a6d7011-ef81-4289-a215-548d9e4eb142/bento_hover_effect_2_1775717189706.png)
+
+## Recordings
+Visual verification of the final refined animation:
+[verify_svg_bento_animation_1775717132883.webp](file:///C:/Users/Admin/.gemini/antigravity/brain/0a6d7011-ef81-4289-a215-548d9e4eb142/verify_svg_bento_animation_1775717132883.webp)

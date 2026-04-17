@@ -1,0 +1,23 @@
+# Paperclip Project Setup
+
+The repository has been cloned and a startup script was created to automate the environment setup and launch of all services.
+
+## Accomplishments
+
+- **Repository Cloned**: The Paperclip repository was cloned from `https://github.com/paperclipai/paperclip`.
+- **Startup Script Updated**: The `start_all.bat` has been updated to use `npx pnpm` as a fallback. This avoids the need for a global installation and bypasses potential permission errors.
+- **Dependency Automation**: The batch file automatically checks for Node.js, and uses `pnpm` or `npx pnpm` to run the necessary `install` and `dev` commands.
+
+## How to Start
+
+1.  Open the project folder: `c:\Users\Admin\Desktop\paperclip`
+2.  Double-click `start_all.bat` (or run it from a terminal).
+3.  Wait for dependencies to install.
+4.  Once the dev server is running, the API and UI will be available at `http://localhost:3100`.
+
+## Verification
+
+The environment was checked for compatibility:
+- **Node.js**: v25.6.0 (Installed)
+- **npm**: v11.8.0 (Installed)
+- **pnpm**: Will be installed by the script if not found.

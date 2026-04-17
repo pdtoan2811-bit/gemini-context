@@ -1,0 +1,62 @@
+# Task Detail View: Timeline Feature + Remove Outdated Meeting Integration
+
+The task detail side panel ([StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)) currently contains three overlapping note-taking sections that were built incrementally. Two are now outdated and superseded by the Daily Meeting Notes system. Additionally, the status history display is a minimal text list that should be a rich visual timeline.
+
+## Proposed Changes
+
+### StandupInspector Component
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+
+**Remove outdated sections:**
+- **Interrogation Log** (lines 494–529): Replaced by Daily Meeting Notes. Remove the entire section including the `logInput` state, [handleAddLog](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#116-121), and the rendering block.
+- **Standup Notes** (lines 533–583): Old form with free-text `blockedBy`, `reason`, `note` fields. Also superseded by Daily Meeting Notes. Remove the section, the [useNotes](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useNotes.ts#6-46) hook import, and related state (`blockedBy`, `reason`, `noteText`, [handleSave](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#104-115)).
+
+**Remove from props interface:**
+- `interrogationLogs`, `onAddLog` — no longer needed
+
+**Add rich visual timeline to replace the minimal Status History section (lines 246–273):**
+- Vertical timeline with connector lines between status nodes
+- Each node shows: timestamp, status name, person, and duration since previous status
+- Color-coded severity dots (critical = red, high = amber, normal = zinc)
+- Bottleneck statuses highlighted with a glow effect
+- "Reprocess" entries marked with a loop icon
+- Collapsible with expand/collapse toggle if there are many entries
+
+---
+
+### Main Page Integration
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+- Remove [useInterrogationLog](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useInterrogationLog.ts#8-57) hook import and usage (line 17, 59)
+- Remove `interrogationLogs` and `onAddLog` props from [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#50-590) usage (lines 352–353)
+- Remove `currentLogs` variable (line 152)
+
+---
+
+### Hooks Cleanup
+
+The [useInterrogationLog.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useInterrogationLog.ts) and [useNotes.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useNotes.ts) hook files will be **kept** in the codebase (not deleted) since they may be referenced elsewhere or useful in the future. Only their usage in the modified components will be removed.
+
+## Verification Plan
+
+### Browser Verification
+1. Open `http://localhost:3000/` in the browser
+2. Switch to Sprint 7 (which has data) if the current sprint is empty
+3. Click on any task from the Personnel or Tasks view
+4. Verify the side panel opens with:
+   - Task header with status badges ✓
+   - Assigned People section ✓
+   - High Risk toggle ✓
+   - Doom Loop indicator (if applicable) ✓
+   - **New visual timeline** with connector lines, duration labels, and color coding ✓
+   - Metadata grid ✓
+   - Record Link ✓
+   - Daily Meeting Notes section (kept, working) ✓
+   - **NO Interrogation Log section** ✓
+   - **NO Standup Notes section** ✓
+5. Verify no console errors
+
+### Build Verification
+- Run `npx next build` to confirm no TypeScript errors from removed props/imports

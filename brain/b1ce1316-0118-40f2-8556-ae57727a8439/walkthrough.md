@@ -1,0 +1,71 @@
+# Sprint Relay Debugger v2.0 — Walkthrough
+
+## What Was Built
+
+Implemented workflow-aware diagnostics with **bottleneck detection**, **doom loop tracking**, and **three PM use cases** into the existing Sprint Relay Debugger.
+
+---
+
+## New Files Created
+
+| File | Purpose |
+|------|---------|
+| [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts) | Core analysis engine — bottleneck classifier, doom loop detector, risk escalation, priority suggestion rules |
+| [useHighRisk.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useHighRisk.ts) | localStorage hook for manually flagged high-risk tasks |
+| [useInterrogationLog.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useInterrogationLog.ts) | localStorage hook for timestamped interrogation log entries |
+| [PersonnelOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx) | Use Case 1: Per-person standup view with stale/bottleneck indicators |
+| [TaskOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskOverview.tsx) | Use Case 2: Sortable task table with pinned high-risk tasks |
+| [WorkflowLegend.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WorkflowLegend.tsx) | Sidebar legend with 10 statuses and doom loop explanation |
+
+## Modified Files
+
+| File | Changes |
+|------|---------|
+| [types.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts) | Added `WORKFLOW_STATUSES`, `TaskAnalysis`, `InterrogationLogEntry`, `PersonSummary`, `RiskLevel` |
+| [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx) | Added high-risk toggle, doom loop indicator, status history, interrogation log |
+| [PersonnelSwimlane.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/timeline/PersonnelSwimlane.tsx) | Added doom loop glow effects, bottleneck pulse borders, cycle count badges |
+| [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) | Complete rebuild with tab nav, stats bar, workflow engine integration |
+| [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css) | Added bottleneck-pulse, doom-glow animations |
+| [sheet.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/ui/sheet.tsx) | Added className prop support to fix TS errors |
+| [layout.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/layout.tsx) | Updated page metadata |
+
+---
+
+## Feature Mapping
+
+### Workflow Statuses (0–9)
+All 10 statuses recognized with bottleneck classification:
+- **Bottleneck**: Waiting to Integrate (2), Reviewing (3) — amber pulse
+- **Major Bottleneck**: Reprocess (6) — red pulse + doom loop detection
+
+### Doom Loop Detection
+Detects cycles: `Reprocess/Bug Fixing → Ready for Test → Testing → Reprocess`
+- 1× = **Elevated** risk (amber indicators)
+- 2×+ = **Critical** risk (red glow, escalating animation)
+
+### Use Case 1: Personnel Overview
+Per-person card grid with task grouping, stale-task (24h+) flags, bottleneck status badges, and priority suggestion banners.
+
+### Use Case 2: Interrogation Log
+Sortable task table with high-risk pinning. Inspector panel has timestamped log input, high-risk toggle, status history, and doom loop indicator.
+
+### Use Case 3: Priority Whisperer
+Rules engine generates contextual suggestions: *"Clear X task(s) in Reprocess, Y task(s) Waiting to Integrate before pulling new 'Not Started' tickets."*
+
+---
+
+## Verification Results
+
+> [!TIP]
+> All features verified via browser testing on the live production build.
+
+- ✅ App loads successfully at `http://localhost:3000` — 68 tasks, 14 bottlenecked, 40 stale
+- ✅ Tab navigation (Personnel / Tasks / Timeline) functions correctly
+- ✅ Stats bar shows Total Tasks, Bottlenecked, Doom Loops, Stale, High Risk counts
+- ✅ Personnel view displays per-person cards with priority suggestion alerts
+- ✅ Task view renders sortable table with risk badges and stale indicators
+- ✅ Timeline view shows swimlane with doom loop glow and bottleneck pulse effects
+- ✅ Inspector panel opens with High Risk toggle, Status History, Interrogation Log, and Standup Notes
+- ✅ Workflow Legend sidebar shows all 10 statuses with doom loop explanation
+
+![Browser verification recording](C:/Users/Admin/.gemini/antigravity/brain/b1ce1316-0118-40f2-8556-ae57727a8439/final_test_verify_1772784839559.webp)

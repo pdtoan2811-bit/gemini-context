@@ -1,0 +1,110 @@
+# Sprint Debugger Enhancements
+
+Implement 4 features: smart sprint filter, improved personnel view sorting, structured daily meeting notes in the task inspector, and a context documentation file.
+
+## Proposed Changes
+
+### Feature 1 — Smart Sprint Filter
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+Replace the hardcoded sprint `<select>` dropdown with a **sprint configuration system**:
+
+- Define a `SPRINT_CONFIG` array with sprint number, start date, and end date
+- Auto-detect the current sprint based on `Date.now()` falling within a sprint's date range
+- Default `selectedSprint` state to the current sprint number instead of `''` (all sprints)
+- Show the active sprint's date range label in the header (e.g., "Sprint 10 · Mar 3 – Mar 14")
+
+---
+
+### Feature 2 — Personnel View Sorting
+
+#### [MODIFY] [PersonnelOverview.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx)
+
+- Sort tasks **within each person card** using a priority-weighted sort:
+  1. **Status priority**: Reprocess (1) > Waiting to Integrate (2) > In Process (3) > Not Started (4) > *(others)* (5) > Staging Passed (6)
+  2. **Stale hours** (descending, as secondary sort key)
+- Display stale duration prominently on each task row
+- Add a small status-priority indicator color dot next to each task for scanability
+
+#### [MODIFY] [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts)
+
+- Sort person summaries by: most stale hours total (desc), then by count of critical-status tasks (desc)
+
+---
+
+### Feature 3 — Enhanced Task Inspector with Meeting Notes
+
+#### [MODIFY] [types.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts)
+
+Add a new `MeetingNote` interface:
+```ts
+interface MeetingNote {
+  id: string;
+  taskId: string;
+  date: string;       // ISO date string  
+  isStall: boolean;
+  stallReason: string;
+  blockedBy: string;   // person name
+  solution: string;
+  createdAt: string;   // ISO timestamp
+}
+```
+
+#### [NEW] [useMeetingNotes.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useMeetingNotes.ts)
+
+New hook for localStorage-persisted meeting notes, keyed by `taskId`. Methods:
+- `addNote(note: MeetingNote)` — persist a new note
+- `getNotesForTask(taskId: string): MeetingNote[]` — retrieve all notes for a task
+- `getAllNotes(): Record<string, MeetingNote[]>` — all notes across tasks
+
+#### [MODIFY] [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+
+Major redesign of the side panel:
+
+1. **All Assigned People section** — show all unique people from the task's `statusHistory` (derived from [TaskAnalysis](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#68-84)) as avatar-like badges at the top
+2. **"+ Add Today's Meeting Note" button** — opens an inline form:
+   - Toggle: "Is this task stalled?" → shows stall reason textarea
+   - "Blocked by" dropdown: auto-populated with all assigned people on this task + team leaders (Bùi Anh Đức, Phạm Đức Toàn)
+   - "Solution" textarea
+   - Save button
+3. **Meeting Note Timeline** — below the form, show all saved meeting notes for this task in reverse chronological order. Each note card shows:
+   - Date (prominent, e.g., "Thu, Mar 6")
+   - Stall indicator (red badge if stalled)
+   - "Blocked by: [name]"
+   - Solution text
+   - Timestamp
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+
+- Wire the new `useMeetingNotes` hook
+- Pass meeting notes data + handlers to [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#34-308)
+
+---
+
+### Feature 4 — Context Documentation
+
+#### [NEW] [CONTEXT.md](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/CONTEXT.md)
+
+A reference document covering:
+- **Workflow Statuses**: each status name, description, and whether it's a bottleneck
+- **Terminologies**: Doom Loop, Bottleneck, Stale Task, Reprocess, Risk Levels
+- **Team Structure**: Team leaders (Bùi Anh Đức, Phạm Đức Toàn) and member roles
+- **Sprint Structure**: Sprint numbering and duration conventions
+
+---
+
+## Verification Plan
+
+### Browser Verification
+1. Run `npm run dev` (already running) and open the app
+2. Verify the sprint filter defaults to the current sprint and shows the date range
+3. Switch between sprints to confirm filtering works
+4. Go to Personnel tab — confirm tasks are sorted by status priority then stale hours
+5. Click a task — verify the inspector shows all assigned people
+6. Use the "Add Today's Meeting Note" form — verify the blocked-by dropdown includes task assignees + leaders
+7. Save a note, refresh the page, and verify persistence
+8. Check the meeting note timeline displays chronologically with readable formatting
+
+### Build Check
+- Run `npm run build` to ensure no TypeScript errors

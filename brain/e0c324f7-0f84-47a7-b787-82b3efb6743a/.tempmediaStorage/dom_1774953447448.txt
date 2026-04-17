@@ -1,0 +1,133 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	Adecos
+	AI-Powered Platform
+	AI Agent
+	Quản lý dự án
+	1
+	Quản lý Ads
+	Thí nghiệm
+	Deep Research
+	Analytics
+	Thông báo
+	MVP v1.0
+	[1] (571,500)<div class='flex-1 p-8 overflow-auto bg-[var(--bg-primary)] transition-colors duration-300' scrollable='true' />
+		Ads Campaign Mapping
+		Setup Mapping
+		G
+		Nike Air Max - Fall Launch
+		Nike
+		growth@nike-direct.com
+		Data Entry
+		Manual Stats Override
+		Nhập kết quả affiliate từ dashboard chương trình. Ref Count đại diện cho số lượt chuyển đổi thành công (converts).
+		Advanced Data Ledger
+		Bulk Edit Historical Stats (7-Day View)
+		Entry Date
+		Ref Count
+		Ref Value (CPA)
+		Net Revenue (VND)
+		Update Ledger Entry
+		Performance Analytics
+		Manual Revenue
+		Ads Spend
+		Data Ledger
+		Verified Logs
+		92
+		Records In-System
+		Date
+		Ads cost
+		Ref Count
+		Net Revenue
+		Efficiency
+		Actions
+		2026-12-31
+		-
+		13,664,399
+		5
+		+
+		500,000
+		0.04
+		x
+		2026-12-30
+		-
+		18,560,924
+		0
+		+
+		0
+		0.00
+		x
+		2026-12-29
+		-
+		14,851,549
+		0
+		+
+		0
+		0.00
+		x
+		2026-12-28
+		-
+		16,649,684
+		0
+		+
+		0
+		0.00
+		x
+		2026-12-27
+		-
+		13,361,591
+		0
+		+
+		0
+		0.00
+		x
+		[2] (896,975)<button class='p-1.5 text-blue-400 hover:bg-blue-400/20 rounded transition-colors' title='Edit Entry' />
+		[3] (916,975)<button class='p-1.5 text-red-500/40 hover:text-red-500 hover:bg-red-500/10 rounded transition-colors' title='Delete Entry' />
+		Bulk Affiliate Data Ledger
+		Last 7 Days Spreadsheet View
+		[4] (579,140)<button class='px-6 py-2 text-[10px] font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-white transition-colors'>Discard Changes />
+		[5] (677,140)<button class='px-8 py-2 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded transition-all hover:bg-blue-500 shadow-lg shadow-blue-600/20'>Commit All Updates />
+		[6] (500,499)<div class='p-8 overflow-x-auto max-h-[60vh] custom-scrollbar' scrollable='true' />
+			Log Date
+			Ref Count
+			Ref Value (CPA)
+			Revenue (VND)
+			2026-03-25
+			Thứ Tư
+			[7] (396,313)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[8] (526,313)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[9] (656,313)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-26
+			Thứ Năm
+			[10] (396,396)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[11] (526,396)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[12] (656,396)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-27
+			Thứ Sáu
+			[13] (396,479)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[14] (526,479)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[15] (656,479)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-28
+			Thứ Bảy
+			[16] (396,562)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[17] (526,562)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[18] (656,562)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-29
+			Chủ Nhật
+			[19] (396,645)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[20] (526,645)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[21] (656,645)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-30
+			Thứ Hai
+			[22] (396,727)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			[23] (526,727)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono focus:outline-none focus:border-blue-500/50 transition-all' placeholder='None' />
+			[24] (656,727)<input class='w-full bg-[var(--bg-primary)] border border-white/5 rounded-sm p-3 text-xs font-mono text-emerald-400 font-bold focus:outline-none focus:border-blue-500/50 transition-all' placeholder='0' />
+			2026-03-31
+			Thứ Ba
+		System handles automatic deduplication. If you save multiple times for the same date, only the latest record is preserved in the ledger.
+		Keyboard: [Tab] to navigate
+
+</current_dom>

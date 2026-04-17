@@ -1,0 +1,515 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Skip to content
+[0] (17,34)<button class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' />
+[1] (40,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderHome__nkA_U prc-Button-IconButton-fyge7' href='/' />
+[2] (75,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/addyosmani' />
+	[3] (75,34)<span >addyosmani />
+[4] (127,34)<a class='styles-module__contextCrumb__IzGIq prc-Breadcrumbs-Item-jcraJ' href='/addyosmani/agent-skills' />
+	[5] (127,34)<span >agent-skills />
+[6] (766,34)<button aria-label='Search or jump to…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ Search-module__searchButton__aiE0a' />
+	[7] (766,34)<span  />
+		[8] (773,34)<span >Type
+to search />
+			Type
+			/
+			to search
+[9] (828,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/copilot' />
+[10] (842,34)<button aria-label='Open Copilot…' class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ CopilotItems-module__CopilotMenu__DVdfE' id='_R_kkjpb_' />
+[11] (874,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalCreateMenu-module__actionMenuButton__Hj_iB' id='_R_5jpb_' />
+	[12] (870,34)<span  />
+[13] (900,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/issues' />
+[14] (921,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/pulls' />
+[15] (942,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/repos' />
+[16] (963,34)<a class='prc-Button-ButtonBase-9n-Xk styles-module__appHeaderButton__axedQ prc-Button-IconButton-fyge7' href='/notifications' />
+[17] (983,34)<button class='prc-Button-ButtonBase-9n-Xk GlobalNavUserMenu-module__anchor__Dcej6 prc-Button-IconButton-fyge7' />
+	[18] (983,34)<img  />
+Repository navigation
+[19] (27,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills' />
+	[20] (17,80)<span  />
+	[21] (34,80)<span >Code />
+[22] (80,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/issues' />
+	[23] (59,80)<span  />
+	[24] (77,80)<span >Issues />
+	[25] (98,80)<span >(
+14
+) />
+		[26] (98,80)<span >14 />
+		(
+		14
+		)
+[27] (154,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/pulls' />
+	[28] (121,80)<span  />
+	[29] (151,80)<span >Pull requests />
+	[30] (183,80)<span >(
+20
+) />
+		[31] (183,80)<span >20 />
+		(
+		20
+		)
+[32] (221,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/actions' />
+	[33] (207,80)<span  />
+	[34] (227,80)<span >Actions />
+[35] (272,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/projects' />
+	[36] (256,80)<span  />
+	[37] (278,80)<span >Projects />
+[38] (342,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/security' />
+	[39] (308,80)<span  />
+	[40] (349,80)<span >Security and quality />
+[41] (413,80)<a class='prc-components-UnderlineItem-7fP-n' href='/addyosmani/agent-skills/pulse' />
+	[42] (398,80)<span  />
+	[43] (419,80)<span >Insights />
+[44] (17,140)<button class='prc-Button-ButtonBase-9n-Xk position-relative ExpandFileTreeButton-module__expandButton__hDOcv fgColor-muted prc-Button-IconButton-fyge7' />
+Files
+[45] (65,190)<button aria-label='main branch' class='prc-Button-ButtonBase-9n-Xk react-repos-tree-pane-ref-selector width-full ref-selector-class RefSelectorAnchoredOverlay-module__RefSelectorOverlayBtn__a3WK3' id='ref-picker-repos-header-ref-selector' />
+	[46] (65,190)<span  />
+		[47] (58,190)<span  />
+			[48] (58,190)<div  />
+				[49] (19,190)<div  />
+				[50] (35,190)<div  />
+					[51] (35,190)<span >main />
+[52] (133,190)<a class='prc-Button-ButtonBase-9n-Xk ReposFileTreePane-module__IconButton__rGggU prc-Button-IconButton-fyge7' href='/addyosmani/agent-skills/new/main/skills' />
+[53] (150,190)<button class='prc-Button-ButtonBase-9n-Xk SearchButton-module__IconButton__SBlqu ReposFileTreePane-module__SearchButtonWithLeftBorder__TBrDc prc-Button-IconButton-fyge7' />
+[54] (83,233)<span  />
+	[55] (17,233)<span  />
+	[56] (83,233)<input aria-label='Go to file' class='prc-components-Input-IwWrt' placeholder='Go to file' role='combobox' />
+	[57] (149,233)<span  />
+		[58] (149,234)<kbd >t />
+[59] (83,684)<div class='ReposFileTreePane-module__Box_5__Zy_o6' scrollable='true' />
+	[60] (79,863)<div  />
+		[61] (79,279)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='.claude-plugin-item' role='treeitem' />
+			[62] (79,279)<div  />
+				[63] (13,279)<div  />
+				[64] (84,279)<div  />
+					[65] (25,279)<div  />
+						[66] (25,279)<div  />
+					[67] (90,279)<span  />
+						[68] (56,279)<span >.claude-plugin />
+		[69] (79,314)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='.claude-item' role='treeitem' />
+			[70] (79,314)<div  />
+				[71] (13,314)<div  />
+				[72] (84,314)<div  />
+					[73] (25,313)<div  />
+						[74] (25,313)<div  />
+					[75] (90,314)<span  />
+						[76] (45,314)<span >.claude />
+		[77] (79,348)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='.github-item' role='treeitem' />
+			[78] (79,348)<div  />
+				[79] (13,348)<div  />
+				[80] (84,348)<div  />
+					[81] (25,347)<div  />
+						[82] (25,347)<div  />
+					[83] (90,348)<span  />
+						[84] (45,348)<span >.github />
+		[85] (79,382)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='agents-item' role='treeitem' />
+			[86] (79,382)<div  />
+				[87] (13,382)<div  />
+				[88] (84,382)<div  />
+					[89] (25,382)<div  />
+						[90] (25,382)<div  />
+					[91] (90,382)<span  />
+						[92] (44,382)<span >agents />
+		[93] (79,416)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='docs-item' role='treeitem' />
+			[94] (79,416)<div  />
+				[95] (13,416)<div  />
+				[96] (84,416)<div  />
+					[97] (25,416)<div  />
+						[98] (25,416)<div  />
+					[99] (90,416)<span  />
+						[100] (41,416)<span >docs />
+		[101] (79,450)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='hooks-item' role='treeitem' />
+			[102] (79,450)<div  />
+				[103] (13,450)<div  />
+				[104] (84,450)<div  />
+					[105] (25,450)<div  />
+						[106] (25,450)<div  />
+					[107] (90,450)<span  />
+						[108] (43,450)<span >hooks />
+		[109] (79,484)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='references-item' role='treeitem' />
+			[110] (79,484)<div  />
+				[111] (13,484)<div  />
+				[112] (84,484)<div  />
+					[113] (25,484)<div  />
+						[114] (25,484)<div  />
+					[115] (90,484)<span  />
+						[116] (50,484)<span >references />
+		[117] (79,876)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills-item' role='treeitem' />
+			[118] (79,518)<div  />
+				[119] (13,518)<div  />
+				[120] (84,518)<div  />
+					[121] (25,518)<div  />
+						[122] (25,518)<div  />
+					[123] (90,518)<span  />
+						[124] (41,518)<span >skills />
+			[125] (79,552)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/api-and-interface-design-item' role='treeitem' />
+				[126] (79,552)<div  />
+					[127] (10,552)<div  />
+						[128] (10,552)<div  />
+							[129] (10,552)<div  />
+					[130] (17,552)<div  />
+					[131] (86,552)<div  />
+						[132] (29,552)<div  />
+							[133] (29,552)<div  />
+						[134] (92,552)<span  />
+							[135] (77,552)<span >api-and-interface-design />
+			[136] (79,586)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/browser-testing-with-devtools-item' role='treeitem' />
+				[137] (79,586)<div  />
+					[138] (10,586)<div  />
+						[139] (10,586)<div  />
+							[140] (10,586)<div  />
+					[141] (17,586)<div  />
+					[142] (86,586)<div  />
+						[143] (29,586)<div  />
+							[144] (29,586)<div  />
+						[145] (92,586)<span  />
+							[146] (86,586)<span >browser-testing-with-devtools />
+			[147] (79,620)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/ci-cd-and-automation-item' role='treeitem' />
+				[148] (79,620)<div  />
+					[149] (10,620)<div  />
+						[150] (10,620)<div  />
+							[151] (10,620)<div  />
+					[152] (17,620)<div  />
+					[153] (86,620)<div  />
+						[154] (29,620)<div  />
+							[155] (29,620)<div  />
+						[156] (92,620)<span  />
+							[157] (73,620)<span >ci-cd-and-automation />
+			[158] (79,654)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/code-review-and-quality-item' role='treeitem' />
+				[159] (79,654)<div  />
+					[160] (10,654)<div  />
+						[161] (10,654)<div  />
+							[162] (10,654)<div  />
+					[163] (17,654)<div  />
+					[164] (86,654)<div  />
+						[165] (29,654)<div  />
+							[166] (29,654)<div  />
+						[167] (92,654)<span  />
+							[168] (77,654)<span >code-review-and-quality />
+			[169] (79,688)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/code-simplification-item' role='treeitem' />
+				[170] (79,688)<div  />
+					[171] (10,688)<div  />
+						[172] (10,688)<div  />
+							[173] (10,688)<div  />
+					[174] (17,688)<div  />
+					[175] (86,688)<div  />
+						[176] (29,688)<div  />
+							[177] (29,688)<div  />
+						[178] (92,688)<span  />
+							[179] (68,688)<span >code-simplification />
+			[180] (79,722)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/context-engineering-item' role='treeitem' />
+				[181] (79,722)<div  />
+					[182] (10,722)<div  />
+						[183] (10,722)<div  />
+							[184] (10,722)<div  />
+					[185] (17,722)<div  />
+					[186] (86,722)<div  />
+						[187] (29,722)<div  />
+							[188] (29,722)<div  />
+						[189] (92,722)<span  />
+							[190] (70,722)<span >context-engineering />
+			[191] (79,756)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/debugging-and-error-recovery-item' role='treeitem' />
+				[192] (79,756)<div  />
+					[193] (10,756)<div  />
+						[194] (10,756)<div  />
+							[195] (10,756)<div  />
+					[196] (17,756)<div  />
+					[197] (86,756)<div  />
+						[198] (29,756)<div  />
+							[199] (29,756)<div  />
+						[200] (92,756)<span  />
+							[201] (87,756)<span >debugging-and-error-recovery />
+			[202] (79,790)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/deprecation-and-migration-item' role='treeitem' />
+				[203] (79,790)<div  />
+					[204] (10,790)<div  />
+						[205] (10,790)<div  />
+							[206] (10,790)<div  />
+					[207] (17,790)<div  />
+					[208] (86,790)<div  />
+						[209] (29,790)<div  />
+							[210] (29,790)<div  />
+						[211] (92,790)<span  />
+							[212] (81,790)<span >deprecation-and-migration />
+			[213] (79,824)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/documentation-and-adrs-item' role='treeitem' />
+				[214] (79,824)<div  />
+					[215] (10,824)<div  />
+						[216] (10,824)<div  />
+							[217] (10,824)<div  />
+					[218] (17,824)<div  />
+					[219] (86,824)<div  />
+						[220] (29,824)<div  />
+							[221] (29,824)<div  />
+						[222] (92,824)<span  />
+							[223] (78,824)<span >documentation-and-adrs />
+			[224] (79,858)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/frontend-ui-engineering-item' role='treeitem' />
+				[225] (79,858)<div  />
+					[226] (10,858)<div  />
+						[227] (10,858)<div  />
+							[228] (10,858)<div  />
+					[229] (17,858)<div  />
+					[230] (86,858)<div  />
+						[231] (29,858)<div  />
+							[232] (29,858)<div  />
+						[233] (92,858)<span  />
+							[234] (77,858)<span >frontend-ui-engineering />
+			[235] (79,893)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/git-workflow-and-versioning-item' role='treeitem' />
+				[236] (79,893)<div  />
+					[237] (10,893)<div  />
+						[238] (10,893)<div  />
+							[239] (10,893)<div  />
+					[240] (17,893)<div  />
+					[241] (86,893)<div  />
+						[242] (29,892)<div  />
+							[243] (29,892)<div  />
+						[244] (92,893)<span  />
+							[245] (83,893)<span >git-workflow-and-versioning />
+			[246] (79,927)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/idea-refine-item' role='treeitem' />
+				[247] (79,927)<div  />
+					[248] (10,927)<div  />
+						[249] (10,927)<div  />
+							[250] (10,927)<div  />
+					[251] (17,927)<div  />
+					[252] (86,927)<div  />
+						[253] (29,927)<div  />
+							[254] (29,927)<div  />
+						[255] (92,927)<span  />
+							[256] (55,927)<span >idea-refine />
+			[257] (79,961)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/incremental-implementation-item' role='treeitem' />
+				[258] (79,961)<div  />
+					[259] (10,961)<div  />
+						[260] (10,961)<div  />
+							[261] (10,961)<div  />
+					[262] (17,961)<div  />
+					[263] (86,961)<div  />
+						[264] (29,961)<div  />
+							[265] (29,961)<div  />
+						[266] (92,961)<span  />
+							[267] (83,961)<span >incremental-implementation />
+			[268] (79,995)<li class='PRIVATE_TreeView-item prc-TreeView-TreeViewItem-Ter5f' id='skills/performance-optimization-item' role='treeitem' />
+				[269] (79,995)<div  />
+					[270] (10,995)<div  />
+						[271] (10,995)<div  />
+							[272] (10,995)<div  />
+					[273] (17,995)<div  />
+					[274] (86,995)<div  />
+						[275] (29,995)<div  />
+							[276] (29,995)<div  />
+						[277] (92,995)<span  />
+							[278] (80,995)<span >performance-optimization />
+[279] (167,606)<div aria-label='Draggable pane splitter' class='prc-PageLayout-DraggableHandle-9s6B4' role='slider' />
+Breadcrumbs
+[280] (197,139)<a class='Breadcrumb-module__repoLink__O2Nbs prc-Link-Link-9ZwDx' href='/addyosmani/agent-skills/tree/main'>agent-skills />
+/
+skills
+/
+[281] (271,140)<button class='prc-Button-ButtonBase-9n-Xk ml-2 prc-Button-IconButton-fyge7' />
+Directory actions
+Add file
+[282] (947,140)<button aria-label='Add file' class='prc-Button-ButtonBase-9n-Xk' id='_r_4e_' />
+	[283] (947,140)<span  />
+		[284] (947,140)<span  />
+			[285] (947,140)<span >Add file />
+More options
+[286] (983,140)<button class='prc-Button-ButtonBase-9n-Xk CodeViewHeader-module__IconButton__PYSHU prc-Button-IconButton-fyge7' id='_R_13cqjal1d_' title='More options' />
+Latest commit
+[287] (190,198)<a class='prc-Link-Link-9ZwDx' href='/yaphi1' />
+	[288] (188,199)<img  />
+[289] (208,198)<a aria-label='commits by yaphi1' class='AuthorAvatar-module__authorHoverableLink__MHTT8 prc-Link-Link-9ZwDx' href='/addyosmani/agent-skills/commits?author=yaphi1'>yaphi1 />
+[290] (325,198)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/0bc1f6115aad5df6650b83d5b23ac9d82de815ec'>Fix button accessibility guidance in frontend-ui-engineering skill />
+[291] (440,198)<button class='prc-Button-ButtonBase-9n-Xk ChecksStatusBadge-module__ChecksStatusBadgeIconButton__rcQQ1 prc-Button-IconButton-fyge7' />
+[292] (897,198)<a aria-label='Commit 0bc1f61' class='Link--secondary prc-Link-Link-9ZwDx' href='/addyosmani/agent-skills/commit/0bc1f6115aad5df6650b83d5b23ac9d82de815ec'>0bc1f61 />
+·
+History
+[293] (967,198)<a class='prc-Button-ButtonBase-9n-Xk d-none d-lg-flex LinkButton-module__linkButton__nFnov flex-items-center fgColor-default' href='/addyosmani/agent-skills/commits/main/skills' />
+	[294] (967,198)<span  />
+		[295] (972,198)<span  />
+			[296] (972,197)<span >History />
+Folders and files
+Name
+Last commit message
+Last commit date
+[297] (584,304)<tr  />
+	parent directory
+	[298] (584,304)<a aria-label='Parent directory' class='DirectoryRow-module__PrimerLink__COEaW prc-Link-Link-9ZwDx' href='/addyosmani/agent-skills/tree/main' />
+		[299] (584,304)<div >.. />
+[300] (584,347)<tr  />
+	[301] (238,347)<a aria-label='api-and-interface-design, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/api-and-interface-design' title='api-and-interface-design'>api-and-interface-design />
+	[302] (594,347)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[303] (584,390)<tr  />
+	[304] (247,390)<a aria-label='browser-testing-with-devtools, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/browser-testing-with-devtools' title='browser-testing-with-devtools'>browser-testing-with-devtools />
+	[305] (594,390)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[306] (584,433)<tr  />
+	[307] (233,434)<a aria-label='ci-cd-and-automation, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/ci-cd-and-automation' title='ci-cd-and-automation'>ci-cd-and-automation />
+	[308] (594,434)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[309] (584,477)<tr  />
+	[310] (237,477)<a aria-label='code-review-and-quality, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/code-review-and-quality' title='code-review-and-quality'>code-review-and-quality />
+	[311] (578,477)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/928b8834e02d1f3ac54e2a6b942ba7598cae8d69' title='Add 'See Also' section for review guidance
+
+Added references to security and performance review checklists.'>Add 'See Also' section for review guidance />
+[312] (584,520)<tr  />
+	[313] (229,521)<a aria-label='code-simplification, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/code-simplification' title='code-simplification'>code-simplification />
+	[314] (594,521)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[315] (584,563)<tr  />
+	[316] (231,564)<a aria-label='context-engineering, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/context-engineering' title='context-engineering'>context-engineering />
+	[317] (594,564)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[318] (584,607)<tr  />
+	[319] (248,607)<a aria-label='debugging-and-error-recovery, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/debugging-and-error-recovery' title='debugging-and-error-recovery'>debugging-and-error-recovery />
+	[320] (594,607)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[321] (584,650)<tr  />
+	[322] (242,651)<a aria-label='deprecation-and-migration, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/deprecation-and-migration' title='deprecation-and-migration'>deprecation-and-migration />
+	[323] (594,651)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[324] (584,694)<tr  />
+	[325] (238,694)<a aria-label='documentation-and-adrs, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/documentation-and-adrs' title='documentation-and-adrs'>documentation-and-adrs />
+	[326] (594,694)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[327] (584,737)<tr  />
+	[328] (237,738)<a aria-label='frontend-ui-engineering, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/frontend-ui-engineering' title='frontend-ui-engineering'>frontend-ui-engineering />
+	[329] (613,738)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/0bc1f6115aad5df6650b83d5b23ac9d82de815ec' title='Fix button accessibility guidance in frontend-ui-engineering skill'>Fix button accessibility guidance in frontend-ui-engineering skill />
+[330] (584,780)<tr  />
+	[331] (244,781)<a aria-label='git-workflow-and-versioning, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/git-workflow-and-versioning' title='git-workflow-and-versioning'>git-workflow-and-versioning />
+	[332] (594,781)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[333] (584,824)<tr  />
+	[334] (215,824)<a aria-label='idea-refine, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/idea-refine' title='idea-refine'>idea-refine />
+	[335] (594,824)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[336] (584,867)<tr  />
+	[337] (244,868)<a aria-label='incremental-implementation, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/incremental-implementation' title='incremental-implementation'>incremental-implementation />
+	[338] (594,868)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[339] (584,911)<tr  />
+	[340] (240,911)<a aria-label='performance-optimization, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/performance-optimization' title='performance-optimization'>performance-optimization />
+	[341] (627,911)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/22df069c405b7610f79f550a70b9d3d98988c81f' title='docs(perf): update image best practices and TTFB thresholds based on feedback
+
+- Add width/height to <source> elements for correct aspect-ratio in art direction.
+- Use realistic 'sizes' attributes in hero image examples.
+- Remove 'decoding=sync' from hero images to avoid blocking the main thread.
+- Align TTFB 'good' threshold with web.dev standards (800ms).'>docs(perf): update image best practices and TTFB thresholds based on … />
+[342] (584,954)<tr  />
+	[343] (247,954)<a aria-label='planning-and-task-breakdown, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/planning-and-task-breakdown' title='planning-and-task-breakdown'>planning-and-task-breakdown />
+	[344] (594,954)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/fea75b16472ba87e8c11f13a9e000c3ffdb2d1f5' title='Align skill descriptions with Anthropic best practices
+
+Update all SKILL.md descriptions to lead with what the skill does
+(third person) followed by trigger conditions, per Anthropic's
+skill authoring docs. All original trigger conditions preserved.
+Update description max chars to match Anthropic spec (1024).
+Retain workflow-summary warning in skill-anatomy.md to prevent
+agents from following descriptions instead of reading full skills.
+Add Table of Contents to reference files longer than 100 lines so
+Claude can see the full scope of available information even when
+previewing with partial reads.'>Align skill descriptions with Anthropic best practices />
+[345] (584,997)<tr  />
+	[346] (236,998)<a aria-label='security-and-hardening, (Directory)' class='Link--primary' href='/addyosmani/agent-skills/tree/main/skills/security-and-hardening' title='security-and-hardening'>security-and-hardening />
+	[347] (595,998)<a class='Link--secondary' href='/addyosmani/agent-skills/commit/1e78370a70933c93b60640014687241cfd131e5e' title='Add 'See Also' section for security checklist reference
+
+Added a reference to the security checklist for detailed verification steps.'>Add 'See Also' section for security checklist reference />
+
+</current_dom>

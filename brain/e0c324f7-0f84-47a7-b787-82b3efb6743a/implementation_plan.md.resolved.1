@@ -1,0 +1,34 @@
+# Concrete Campaign Mapping & ROI Setup
+
+The goal is to transform the simple checkbox campaign mapping into a formal CRUD-like procedure with search, confirmation modals, and warnings. This ensures data integrity and a more deliberate "setup" experience.
+
+## Proposed Changes
+
+### [Component] [ProjectAnalytics](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectAnalytics.jsx)
+
+- **Managed List**: Replace the scrollable checkbox list with a cleaner "Currently Linked" table/list view.
+- **Searchable Selection**: Implement a "Link New Campaign" modal/popover with real-time search.
+- **CRUD Operations**:
+  - **CREATE**: Add a campaign with a confirmation step.
+  - **DELETE**: Remove a campaign with a warning/confirmation using `ConfirmationModal`.
+- **Logic Refinement**:
+  - Store "Pending" selections before confirming.
+  - Warn users if they attempt to remove a campaign that contributes to the current ROI data.
+
+### [Component] [ProjectDetailPage](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectDetailPage.jsx)
+
+- No major structure changes needed, but ensure it handles the new mapping events.
+
+## Open Questions
+
+- **Warning Content**: Should we specifically calculate how much ad spend will be "lost" from the charts when a campaign is unmapped?
+- **Multiple Mappings**: Can a campaign be mapped to multiple projects? (Currently, yes, as it's many-to-many logically).
+
+## Verification Plan
+
+### Automated Tests
+- Browser test: Search for a campaign, add it, verify it appears in the list.
+- Browser test: Try to remove a campaign, verify the confirmation modal appears and works.
+
+### Manual Verification
+- Verify the "Cấu hình" tab looks professional and the transitions feel "concrete".

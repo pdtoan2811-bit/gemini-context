@@ -1,0 +1,201 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 8 · Mar 9 – Mar 13
+Live Logs
+9
+Members
+Total Tasks
+61
+Met Goal
+12
+Bottlenecked
+16
+Doom Loops
+8
+Stale (24h+)
+27
+📌 High Risk
+0
+Daily Meeting
+Daily Recap
+Personnel
+Tasks
+Sprint Start
+Next Sprint
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+[0] (301,431)<div class='flex overflow-x-auto custom-scrollbar gap-2 w-full sm:w-auto pb-1 sm:pb-0' scrollable='true'>View All (
+9
+)
+Squads
+Nguyễn Thảo Linh
+Lưu Thị Dung
+Nguyễn Đình Hồng Phong
+Bùi Anh Đức
+Đặng Minh Quân
+Phạm Đức Toàn
+Trần Quý Đạt
+Nguyễn Văn Nam
+Unassigned />
+	View All (
+	9
+	)
+	Squads
+	Nguyễn Thảo Linh
+	Lưu Thị Dung
+	Nguyễn Đình Hồng Phong
+	Bùi Anh Đức
+	Đặng Minh Quân
+	Phạm Đức Toàn
+	Trần Quý Đạt
+	Nguyễn Văn Nam
+	Unassigned
+Team Active:
+160
+|
+31
+|
+37
+|
+59
+Overview
+Filters:
+Doing
+Blocking
+Blocked
+No Activity
+Pending
+Nguyễn Thảo Linh
+4
+doing
+9
+blocking
+14
+blocked
+2
+no activity
+10
+pending
+Doing
+recvcpAx2I9PQu
+Phân quyền
+recvcpAwqeWrG9
+Quét Keyword planner
+recvaMNg4NgpWW
+Import - export thay đổi phương thức: Đổi từ API sang thông báo (?)
+recvds2m0wvx2f
+[Bug] Check trùng link sau khi quét keyword
+Blocking others
+recvccB1jmnaDI
+Fix Bug import Excel project
+recv3K6oWOWQsx
+Xử lí yêu cầu tài khoản
+recvcpw6riOyxm
+CRUD
+recvcpwOCxaAUr
+Lọc và tìm kiếm
+recvdmyrgqeSob
+Lúc thêm mới với import phải check trùng url hoặc keyword , nếu mà trùng thì phải xin quyền xem của leader
+Lưu Thị Dung
+9
+doing
+7
+blocking
+13
+blocked
+1
+no activity
+2
+pending
+Doing
+recv4hrGMxVPt8
+CRUD
+recvaTSTAtMsLJ
+Sửa nhiều
+recvcpBRsEpopv
+Xem ( tab 1 )
+recvcpBRVK9th3
+Thêm vào Nhóm Keyword ( Tab 1 )
+recvcpBS69hM04
+Lọc và Tìm kiếm ( Tab 1 )
+recvcpPOTXgQaJ
+Thêm ghi chú ( Tab 1 )
+recvcpBRHR4lFR
+Tạo nhóm ( tab 1)
+recvdrJyu40C70
+Lỗi hiển thị tổng dự án, dự án mới, dự án trùng
+recvdCCiytgYMd
+toanTest
+Blocking others
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+Webhook Settings per Member
+[1] (627,192)<button class='text-zinc-500 hover:text-zinc-200 text-xs px-2 py-1 rounded-md hover:bg-zinc-800 transition-colors'>Close />
+[2] (500,521)<div class='space-y-3 max-h-[60vh] overflow-y-auto pr-1' scrollable='true' />
+	Bùi Anh Đức
+	No webhook set
+	Lưu Thị Dung
+	Webhook configured
+	Nguyễn Thảo Linh
+	Webhook configured
+	[3] (497,256)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Nguyễn Văn Nam
+	No webhook set
+	[4] (497,346)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Nguyễn Đình Hồng Phong
+	No webhook set
+	[5] (497,435)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Phạm Đức Toàn
+	No webhook set
+	[6] (497,525)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Trần Quý Đạt
+	No webhook set
+	[7] (497,614)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Unassigned
+	No webhook set
+	[8] (497,703)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+	Đặng Minh Quân
+	No webhook set
+	[9] (497,793)<input class='w-full bg-zinc-950 border border-zinc-700 rounded-md px-2 py-1 text-[11px] text-zinc-200 placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-purple-500' placeholder='https://... (Lark webhook URL for this person)' />
+
+</current_dom>

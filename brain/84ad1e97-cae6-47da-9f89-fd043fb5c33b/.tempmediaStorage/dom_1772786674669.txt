@@ -1,0 +1,266 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[0] (828,76)<select class='bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500' />
+Live Logs
+8
+Members
+Total Tasks
+68
+Bottlenecked
+15
+Doom Loops
+1
+Stale (24h+)
+41
+📌 High Risk
+0
+[1] (61,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-100 bg-zinc-800/50'>Personnel />
+	Personnel
+[2] (119,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Tasks />
+	Tasks
+[3] (175,323)<button class='relative flex items-center gap-2 px-4 py-2 rounded-t-lg text-sm font-medium transition-all text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/30'>Timeline />
+	Timeline
+Standup-ready view grouped by person
+Nguyễn Thảo Linh
+37
+tasks
+12
+blocked
+19
+stale
+⚠ Suggested Priority: Clear 11 task(s) in Reprocess, 1 task(s) in Review before pulling new 'Not Started' tickets.
+[4] (143,543)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[5] (143,529)<div  />
+		[6] (122,529)<div  />
+			[7] (67,529)<span >recv3K7jRnm8eg />
+			[8] (146,529)<span >Tk tự tạo: Thêm thông tin thanh toán />
+	[9] (143,555)<div  />
+		[10] (61,555)<span >Pending />
+		[11] (97,555)<span >STALE
+49
+h />
+[12] (143,616)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[13] (143,602)<div  />
+		[14] (122,602)<div  />
+			[15] (67,602)<span >recvaMML4ugcJn />
+			[16] (146,602)<span >Thông tin cá nhân - Forget password />
+	[17] (143,628)<div  />
+		[18] (61,628)<span >Pending />
+		[19] (97,628)<span >STALE
+49
+h />
+[20] (143,689)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[21] (143,675)<div  />
+		[22] (95,675)<div  />
+			[23] (67,675)<span >recvb4XrTzRcxd />
+			[24] (119,675)<span >Thông tin cá nhân />
+	[25] (143,701)<div  />
+		[26] (61,701)<span >Pending />
+		[27] (97,701)<span >STALE
+49
+h />
+[28] (143,762)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[29] (143,748)<div  />
+		[30] (143,748)<div  />
+			[31] (67,748)<span >recvaMJE5qh6eA />
+			[32] (167,748)<span >Bug: Load dữ liệu mới lâu, f5 mãi mới đc, nhanh nhất là log out r log in lại :) Các màn ở project hunter, khi phân quyền hoặc yêu cầu />
+	[33] (143,774)<div  />
+		[34] (59,774)<span >Cancel />
+		[35] (94,774)<span >STALE
+49
+h />
+[36] (143,835)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[37] (143,821)<div  />
+		[38] (78,821)<div  />
+			[39] (67,821)<span >recv3K4sOHw1sF />
+			[40] (102,821)<span >CRUD />
+	[41] (143,847)<div  />
+		[42] (72,847)<span >Staging Passed />
+[43] (143,908)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[44] (143,894)<div  />
+		[45] (96,894)<div  />
+			[46] (67,894)<span >recv3K4RRrKWpl />
+			[47] (120,894)<span >Xử lí lệnh chia mail />
+	[48] (143,920)<div  />
+		[49] (72,920)<span >Staging Passed />
+[50] (143,981)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[51] (143,967)<div  />
+		[52] (92,967)<div  />
+			[53] (67,967)<span >recv3K4CpAiZOQ />
+			[54] (116,967)<span >Lọc và tìm kiếm />
+	[55] (143,993)<div  />
+		[56] (72,993)<span >Staging Passed />
+Đặng Minh Quân
+25
+tasks
+9
+blocked
+16
+stale
+⚠ Suggested Priority: Clear 8 task(s) in Reprocess, 1 task(s) in Review before pulling new 'Not Started' tickets.
+[57] (378,543)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[58] (378,529)<div  />
+		[59] (333,529)<div  />
+			[60] (302,529)<span >recv3K79cqn6GQ />
+			[61] (357,529)<span >Xem lịch sử nạp tiền />
+	[62] (378,555)<div  />
+		[63] (296,555)<span >Pending />
+		[64] (332,555)<span >STALE
+49
+h />
+[65] (378,616)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[66] (378,602)<div  />
+		[67] (357,602)<div  />
+			[68] (302,602)<span >recv3K7jRnm8eg />
+			[69] (381,602)<span >Tk tự tạo: Thêm thông tin thanh toán />
+	[70] (378,628)<div  />
+		[71] (296,628)<span >Pending />
+		[72] (332,628)<span >STALE
+49
+h />
+[73] (378,689)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[74] (378,675)<div  />
+		[75] (313,675)<div  />
+			[76] (302,675)<span >recv3K4sOHw1sF />
+			[77] (337,675)<span >CRUD />
+	[78] (378,701)<div  />
+		[79] (307,701)<span >Staging Passed />
+[80] (378,762)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[81] (378,748)<div  />
+		[82] (331,748)<div  />
+			[83] (302,748)<span >recv3K4RRrKWpl />
+			[84] (355,748)<span >Xử lí lệnh chia mail />
+	[85] (378,774)<div  />
+		[86] (307,774)<span >Staging Passed />
+[87] (378,835)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[88] (378,821)<div  />
+		[89] (328,821)<div  />
+			[90] (302,821)<span >recv3K6c4efGLK />
+			[91] (352,821)<span >Xem lịch sử chạy />
+	[92] (378,847)<div  />
+		[93] (307,847)<span >Staging Passed />
+[94] (378,908)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[95] (378,894)<div  />
+		[96] (329,894)<div  />
+			[97] (302,894)<span >recv3K6nCbZzof />
+			[98] (353,894)<span >Yêu cầu tài khoản />
+	[99] (378,920)<div  />
+		[100] (307,920)<span >Staging Passed />
+[101] (378,981)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[102] (378,967)<div  />
+		[103] (378,967)<div  />
+			[104] (302,967)<span >recvaMG1qCYI6b />
+			[105] (402,967)<span >Bug: Màn keyword, click vào thông báo k tạo đc crawler />
+	[106] (378,993)<div  />
+		[107] (307,993)<span >Staging Passed />
+Nguyễn Đình Hồng Phong
+33
+tasks
+7
+blocked
+22
+stale
+⚠ Suggested Priority: Clear 7 task(s) in Reprocess before pulling new 'Not Started' tickets.
+[108] (612,543)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[109] (612,529)<div  />
+		[110] (568,529)<div  />
+			[111] (537,529)<span >recv3K79cqn6GQ />
+			[112] (592,529)<span >Xem lịch sử nạp tiền />
+	[113] (612,555)<div  />
+		[114] (530,555)<span >Pending />
+		[115] (566,555)<span >STALE
+49
+h />
+[116] (612,616)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[117] (612,602)<div  />
+		[118] (592,602)<div  />
+			[119] (537,602)<span >recv3K7jRnm8eg />
+			[120] (616,602)<span >Tk tự tạo: Thêm thông tin thanh toán />
+	[121] (612,628)<div  />
+		[122] (530,628)<span >Pending />
+		[123] (566,628)<span >STALE
+49
+h />
+[124] (612,689)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-amber-700/30 bg-amber-950/10' />
+	[125] (612,675)<div  />
+		[126] (612,675)<div  />
+			[127] (537,675)<span >recv8NUvuwmWZa />
+			[128] (636,675)<span >Quét lại ads account khi có campaign được thêm mới-653 />
+	[129] (612,701)<div  />
+		[130] (530,701)<span >Pending />
+		[131] (566,701)<span >STALE
+49
+h />
+[132] (612,762)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[133] (612,748)<div  />
+		[134] (547,748)<div  />
+			[135] (537,748)<span >recv3K4sOHw1sF />
+			[136] (571,748)<span >CRUD />
+	[137] (612,774)<div  />
+		[138] (541,774)<span >Staging Passed />
+[139] (612,835)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[140] (612,821)<div  />
+		[141] (566,821)<div  />
+			[142] (537,821)<span >recv3K4RRrKWpl />
+			[143] (590,821)<span >Xử lí lệnh chia mail />
+	[144] (612,847)<div  />
+		[145] (541,847)<span >Staging Passed />
+[146] (612,908)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[147] (612,894)<div  />
+		[148] (561,894)<div  />
+			[149] (537,894)<span >recv3K4CpAiZOQ />
+			[150] (585,894)<span >Lọc và tìm kiếm />
+	[151] (612,920)<div  />
+		[152] (541,920)<span >Staging Passed />
+[153] (612,981)<button class='w-full text-left rounded-lg border px-3 py-2 transition-all hover:bg-zinc-800/50 cursor-pointer group border-zinc-800/50 bg-zinc-900/30' />
+	[154] (612,967)<div  />
+		[155] (563,967)<div >recv3K6c4efGLK />
+			recv3K6c4efGLK
+			[156] (587,967)<span >Xem lịch sử chạy />
+	[157] (612,993)<div >Staging Passed />
+		Staging Passed
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+
+</current_dom>

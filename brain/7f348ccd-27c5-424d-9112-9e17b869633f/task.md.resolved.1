@@ -1,0 +1,9 @@
+# Task Breakdown
+
+- [x] Remove Interrogation Log from [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- [x] Remove Standup Notes from [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+- [x] Add Edit and Delete support for Daily Meeting Notes in [StandupInspector.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx)
+  - [x] Add `onUpdateMeetingNote(note: MeetingNote)` and `onDeleteMeetingNote(id: string)` to [EnhancedInspectorProps](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#32-47)
+  - [x] Update [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#48-459) UI to support editing and deleting notes
+  - [x] Find where [StandupInspector](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/inspector/StandupInspector.tsx#48-459) is used, and pass the new update/delete handlers down
+  - [x] Ensure the parent component correctly implements the update/delete functionality for meeting notes

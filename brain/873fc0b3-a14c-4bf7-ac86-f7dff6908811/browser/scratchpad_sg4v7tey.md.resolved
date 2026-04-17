@@ -1,0 +1,24 @@
+# Visual Audit Checklist
+
+- [x] Navigate to http://localhost:3000 and verify load. (Success)
+- [x] Visual Audit - Daily Meeting (Single Person and All Persons).
+  - [x] Navy blue theme (#1D3557) used for headers, buttons, and badges. (Mostly, some indigo remains)
+  - [x] Light-mode aesthetic looks good and high-contrast. (Yes)
+  - [x] Unified TaskCard in use. (Yes)
+  - [ ] "Sync Squad" button is GONE from all cards. (FAILED: Still present in Personnel sub-view with title 'Sync task to others')
+  - [x] Blockers clearly displayed. (Yes, DOOM/STALE badges)
+  - [x] Module and Screen info visible. (Yes)
+  - [x] Capture screenshots. (Captured)
+- [x] Visual Audit - Daily Recap.
+  - [x] Consistent theme and aesthetic. (Yes, though active button is blue-600)
+  - [x] Capture screenshot. (Captured)
+- [x] Visual Audit - Next Sprint Squad Planning.
+  - [x] Consistent theme, unified TaskCard, "Sync Squad" removed, etc. (Yes)
+  - [x] Capture screenshot. (Captured)
+- [x] Visual Audit - Personnel Overview.
+  - [x] Consistent theme. (Yes)
+  - [x] Capture screenshot. (Captured)
+- [x] Visual Audit - Task Overview.
+  - [x] Consistent theme, unified TaskCard. (Table format used, Risk header is #1D3557)
+  - [x] Capture screenshot. (Captured)
+- [x] Final Summary.

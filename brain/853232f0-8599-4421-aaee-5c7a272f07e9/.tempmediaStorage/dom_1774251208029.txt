@@ -1,0 +1,194 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay Debugger
+[0] (260,55)<a class='px-4 py-1.5 bg-secondary hover:bg-muted text-muted-foreground text-[10px] font-black rounded-full shadow-sm transition-all border border-border flex items-center gap-2 group' href='/sandbox'>SANDBOX />
+Advanced workflow diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+[1] (712,66)<select class='bg-card border border-border text-foreground text-xs font-black uppercase tracking-widest rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 appearance-none pr-10 shadow-sm' />
+Mar 23 – Mar 27
+[2] (906,66)<button class='px-4 py-2.5 flex items-center gap-2 bg-card border border-border rounded-xl text-foreground hover:bg-secondary font-black text-[10px] uppercase tracking-widest transition-all shadow-sm active:scale-95' title='Configure per-person webhook URLs'>11
+Members />
+[3] (968,66)<button class='p-2.5 text-muted-foreground hover:text-foreground hover:bg-card rounded-xl border border-transparent hover:border-border transition-all active:scale-90' title='Sprint Settings' />
+Total Tasks
+36
+Met Goal
+3
+Bottleneck
+5
+Doom Loops
+5
+Stale (24h+)
+17
+📌 High Risk
+0
+[4] (67,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Meeting />
+	Daily Meeting
+[5] (153,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Squad Planner />
+	Squad Planner
+[6] (236,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Daily Recap />
+	Daily Recap
+[7] (311,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Personnel />
+	Personnel
+[8] (376,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-indigo-600 bg-background shadow-sm border border-border/40'>Tasks />
+	Tasks
+[9] (445,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sprint Start />
+	Sprint Start
+[10] (519,314)<button class='relative flex items-center gap-2.5 px-5 py-3.5 rounded-2xl text-[10px] uppercase tracking-widest font-black transition-all text-muted-foreground/60 hover:text-foreground hover:bg-background/40'>Sandbox />
+	Sandbox
+Sortable task table with risk analysis
+Pin
+[11] (88,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Task ID />
+Task Name
+[12] (380,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Person />
+[13] (490,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Status />
+[14] (617,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Sprint Goal />
+[15] (707,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-[#1D3557] '>Risk />
+[16] (796,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Stale />
+[17] (861,457)<button class='flex items-center gap-1 text-[10px] uppercase tracking-widest font-black cursor-pointer hover:text-foreground transition-colors text-muted-foreground '>Blocked By />
+Action
+[18] (500,748)<div class='max-h-[500px] overflow-y-auto custom-scrollbar' scrollable='true' />
+	[19] (498,522)<tr  />
+		[20] (51,522)<td  />
+			[21] (51,498)<div  />
+		[22] (102,522)<td  />
+			[23] (97,511)<span >recvaMHnT98qyZ />
+		[24] (247,522)<td  />
+			[25] (244,523)<span >Bug: Tự add crawler, quét ra dự án nhưng k thêm đc dự án vào màn thông tin dự án />
+		[26] (411,522)<td  />
+			[27] (409,524)<span >Đặng Minh Quân,Nguyễn Thảo Linh />
+		[28] (525,522)<td  />
+			[29] (494,510)<span >Reprocess />
+		[30] (635,522)<td  />
+			[31] (635,504)<div  />
+				[32] (614,504)<span >Completed />
+		[33] (729,522)<td  />
+			[34] (710,510)<div >DOOM ×
+2 />
+		[35] (800,522)<td  />
+			[36] (800,504)<span >45
+h />
+		[37] (882,522)<td  />
+			[38] (835,512)<span >— />
+		[39] (949,522)<td  />
+			[40] (949,506)<div  />
+	[41] (498,612)<tr  />
+		[42] (51,612)<td  />
+			[43] (51,576)<div  />
+		[44] (102,612)<td  />
+			[45] (97,588)<span >recv3K6fvev4vz />
+		[46] (247,612)<td  />
+			[47] (182,588)<span >Nạp tiền/Thu tiền - Tự tạo />
+		[48] (411,612)<td  />
+			[49] (411,614)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh,Nguyễn Văn Nam />
+		[50] (525,612)<td  />
+			[51] (492,589)<span >Bug Fixing />
+		[52] (635,612)<td  />
+			[53] (635,581)<div  />
+				[54] (621,581)<span >Staging Passed />
+		[55] (729,612)<td  />
+			[56] (710,587)<div >DOOM ×
+4 />
+		[57] (800,612)<td  />
+			[58] (800,581)<span >45
+h />
+		[59] (882,612)<td  />
+			[60] (835,589)<span >— />
+		[61] (949,612)<td  />
+			[62] (949,583)<div  />
+	[63] (498,714)<tr  />
+		[64] (51,714)<td  />
+			[65] (51,678)<div  />
+		[66] (102,714)<td  />
+			[67] (97,691)<span >recv3K6oWOWQsx />
+		[68] (247,714)<td  />
+			[69] (177,690)<span >Xử lí yêu cầu tài khoản />
+		[70] (411,714)<td  />
+			[71] (409,716)<span >Nguyễn Đình Hồng Phong,Nguyễn Thảo Linh,Lưu Thị Dung,Nguyễn Văn Nam />
+		[72] (525,714)<td  />
+			[73] (488,692)<span >Pending />
+		[74] (635,714)<td  />
+			[75] (635,684)<div  />
+				[76] (621,684)<span >Staging Passed />
+		[77] (729,714)<td  />
+			[78] (710,690)<div >DOOM ×
+2 />
+		[79] (800,714)<td  />
+			[80] (800,684)<span >45
+h />
+		[81] (882,714)<td  />
+			[82] (835,692)<span >— />
+		[83] (949,714)<td  />
+			[84] (949,686)<div  />
+	[85] (498,804)<tr  />
+		[86] (51,804)<td  />
+			[87] (51,781)<div  />
+		[88] (102,804)<td  />
+			[89] (97,794)<span >recv3K7Ed9poE0 />
+		[90] (247,804)<td  />
+			[91] (168,793)<span >Cài đặt cảnh báo />
+		[92] (411,804)<td  />
+			[93] (411,806)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh />
+		[94] (525,804)<td  />
+			[95] (492,794)<span >Bug Fixing />
+		[96] (635,804)<td  />
+			[97] (635,787)<div  />
+				[98] (621,787)<span >Staging Passed />
+		[99] (729,804)<td  />
+			[100] (710,793)<div >DOOM ×
+3 />
+		[101] (800,804)<td  />
+			[102] (800,787)<span >45
+h />
+		[103] (882,804)<td  />
+			[104] (835,794)<span >— />
+		[105] (949,804)<td  />
+			[106] (949,788)<div  />
+	[107] (498,894)<tr  />
+		[108] (51,894)<td  />
+			[109] (51,858)<div  />
+		[110] (102,894)<td  />
+			[111] (97,871)<span >recv3K7M2jDAau />
+		[112] (247,894)<td  />
+			[113] (177,870)<span >Xem chi tiết chiến dịch />
+		[114] (411,894)<td  />
+			[115] (411,896)<span >Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh,Lưu Thị Dung />
+		[116] (525,894)<td  />
+			[117] (492,871)<span >Bug Fixing />
+		[118] (635,894)<td  />
+			[119] (635,864)<div  />
+				[120] (621,864)<span >Staging Passed />
+		[121] (729,894)<td  />
+			[122] (710,870)<div >DOOM ×
+4 />
+		[123] (800,894)<td  />
+			[124] (800,864)<span >45
+h />
+		[125] (882,894)<td  />
+			[126] (835,871)<span >— />
+		[127] (949,894)<td  />
+			[128] (949,866)<div  />
+	[129] (51,984)<td  />
+		[130] (51,961)<div  />
+	[131] (102,984)<td  />
+		[132] (97,974)<span >recvaTSTAtMsLJ />
+	[133] (247,984)<td  />
+		[134] (158,973)<span >Sửa nhiều />
+	[135] (411,984)<td  />
+		[136] (406,986)<span >Lưu Thị Dung,Nguyễn Thảo Linh />
+	Pending
+	[137] (635,984)<td  />
+		[138] (635,967)<div  />
+			[139] (614,967)<span >Reprocess />
+	[140] (729,984)<td  />
+		[141] (710,972)<div >DOOM ×
+7 />
+	[142] (800,984)<td  />
+		[143] (800,967)<span >45
+h />
+	[144] (882,984)<td  />
+		[145] (835,974)<span >— />
+	[146] (949,984)<td  />
+		[147] (949,968)<div  />
+
+</current_dom>

@@ -1,0 +1,19 @@
+# Fix pnpm Installation Issue
+
+The objective is to update the [start_all.bat](file:///c:/Users/Admin/Desktop/paperclip/start_all.bat) script to use `npx pnpm` as a fallback when a global `pnpm` installation is missing or fails.
+
+## Proposed Changes
+
+### [Component Name]
+Update the startup script in the root directory.
+
+#### [MODIFY] [start_all.bat](file:///c:/Users/Admin/Desktop/paperclip/start_all.bat)
+- Detect if `pnpm` is in PATH.
+- If not, check for [npm](file:///c:/Users/Admin/Desktop/paperclip/scripts/dev-runner.mjs#248-281) and use `npx pnpm` for all commands.
+- This avoids permission issues related to global installs.
+
+## Verification Plan
+
+### Manual Verification
+- Run the [.bat](file:///c:/Users/Admin/Desktop/paperclip/start_all.bat) file in an environment where `pnpm` is not installed.
+- Ensure it successfully runs `npx pnpm install` and `npx pnpm dev`.

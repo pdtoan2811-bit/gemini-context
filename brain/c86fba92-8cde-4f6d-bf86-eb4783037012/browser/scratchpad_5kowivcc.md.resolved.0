@@ -1,0 +1,17 @@
+# Sprint Start Verification Plan
+
+- [x] Navigate to http://localhost:3000 and wait for load.
+- [x] Confirm Sprint 7 is active.
+- [x] Click "Sprint Start" tab.
+- [-] Verify table data (Found 0 tasks - Investigation ongoing).
+- [ ] Click a task to open inspector.
+- [ ] Verify "Record Link" in inspector and take screenshot.
+- [ ] Report results.
+
+## Observations
+- Sprint 7 is selected.
+- "Sprint Start" tab clicked.
+- "No tasks found for this sprint" message displayed.
+- Network requests show Sprint 7 data fetched successfully from Google Scripts.
+- Console logs show a previous error about duplicate `StandupInspector` import, but it seems to have reloaded.
+- "Total Tasks" header shows 0.

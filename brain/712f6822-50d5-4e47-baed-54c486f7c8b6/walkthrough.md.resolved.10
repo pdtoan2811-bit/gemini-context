@@ -1,0 +1,43 @@
+# Walkthrough - Unified Lark Webhook Settings and Sandbox Visibility
+
+I have improved the discoverability and consistency of the Lark integration test features.
+
+## Changes Made
+
+### 1. Unified Webhook Settings
+I replaced the simple inline webhook settings in the main dashboard with the more comprehensive [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#26-306). This modal now includes a "Test Lark Connection" section, allowing you to run test POST requests directly from the dashboard.
+
+### 2. Improved Sandbox Visibility
+I added a "SANDBOX TEST" button directly to the header of the application. This provides immediate access to the dedicated sandbox environment where you can test sprint movements and Lark payloads in isolation.
+
+## Webhook Modal Fixes
+I have resolved the issues that made it difficult to use the test feature:
+
+1.  **Styled Inputs**: The "Webhook URL to Test" field is now correctly styled and easy to read.
+2.  **Enabled "Run Test" Button**: The button is now correctly enabled once a webhook URL is provided.
+3.  **Correct Payload Mapping**: The "Mock Task URL" is now correctly mapped to `recordLink` in the JSON payload sent to Lark.
+4.  **"Moved to Next Sprint" Simulation**: The test payload now correctly reflects the sprint movement scenario, including a `tag` for Lark automation.
+
+### Verified Functionality
+````carousel
+![Styled Inputs and Enabled Button](file:///C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/styled_inputs_and_enabled_button_1773975243228.png)
+The modal now features clearly styled input fields and an active "Run Test" button.
+<!-- slide -->
+![Test Result Feedback](file:///C:/Users/Admin/.gemini/antigravity/brain/712f6822-50d5-4e47-baed-54c486f7c8b6/test_result_failure_1773975259515.png)
+Clear feedback is provided after clicking "Run Test", showing success or specific error details.
+````
+---
+
+### 🚀 Updated Startup Scripts
+I have updated [start-sprint-relay.bat](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint-relay.bat) and [start-sprint.command](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint.command) to automatically clear the `.next` cache before starting the dev server. This prevents the "disappearing UI" issue by ensuring a clean build every time you start the app.
+
+---
+
+### ⚠️ Note on "Disappearing" UI (Legacy)
+If you are still using an old terminal session, please stop it and use the updated [start-sprint-relay.bat](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint-relay.bat) or [start-sprint.command](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/start-sprint.command) files to launch the application on the default port 3000.
+
+## How to Test
+1. Click the **"SANDBOX TEST"** button in the header to visit the dedicated sandbox.
+2. Click the **"9 Members"** button (or similar) in the header to open the Webhook Settings.
+3. Scroll down to the **"Test Lark Connection"** section in the modal.
+4. Select a person, (optionally) enter a task URL, and click **"Run Test"**.

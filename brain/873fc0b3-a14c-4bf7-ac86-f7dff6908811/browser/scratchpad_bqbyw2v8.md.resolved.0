@@ -1,0 +1,23 @@
+# Visual Audit Checklist
+
+- [ ] Navigate to http://localhost:3000
+- [ ] Verify application loads correctly
+- [ ] Visual Audit: TaskCard in Daily Meeting view
+    - [ ] Task title weight balanced
+    - [ ] Module (navy background) readable
+    - [ ] Screen (gray background) readable
+    - [ ] "Sync task to others" button is GONE
+    - [ ] Status badges and stale indicators look correct in light mode
+- [ ] Visual Audit: TaskCard in Squad Planner view
+    - [ ] Task title weight balanced
+    - [ ] Module (navy background) readable
+    - [ ] Screen (gray background) readable
+    - [ ] Status badges and stale indicators look correct in light mode
+- [ ] Visual Audit: TaskCard in Tasks view
+    - [ ] Task title weight balanced
+    - [ ] Module (navy background) readable
+    - [ ] Screen (gray background) readable
+    - [ ] Status badges and stale indicators look correct in light mode
+- [ ] Capture screenshots of refined TaskCard
+- [ ] Capture screenshot of Personnel view
+- [ ] Final summary of the visual audit

@@ -1,0 +1,29 @@
+- [x] Phase 7: Dynamic LLM Synthesis
+  - [x] Install `openai` SDK
+  - [x] Create `.env.local` configuration for keys
+  - [x] Rewrite `src/app/api/synthesize/route.ts` to use structured AI outputs
+- [x] Phase 8: Interactive Settings UI
+  - [x] Add Input and Label components via shadcn
+  - [x] Update `targetList.json` schema for API keys and WS Endpoints
+  - [x] Refactor `src/app/settings/page.tsx` with interactive saving logic
+  - [x] Bind endpoints to the live JSON configs
+- [x] Phase 9: Metadata Extraction (The Wow Factor)
+  - [x] Install Cheerio and Shadcn Avatar components
+  - [x] Create `/api/metadata/route.ts` for dynamic OG graph resolution
+  - [x] Update `targetList.json` schema to include `imageUrl`
+  - [x] Enhance `/settings` with Exact Sites and dynamic logo UI
+- [x] Phase 10: Gemini & Persistent Chrome
+  - [x] Uninstall OpenAI, Install Gemini SDK
+  - [x] Refactor `/settings` and configs to use Gemini API Key
+  - [x] Implement Gemini JSON Schema rendering in `synthesize/route.ts`
+  - [x] Upgrade Scraper Engine to use Persistent Context Profiles
+- [x] Phase 11: System Resilience & BYOB Strategy
+  - [x] Generate `launch_chrome.bat` for native Chrome integration
+  - [x] Install Shadcn Toaster (Sonner)
+  - [x] Incorporate comprehensive try/catch Toasts in `page.tsx`
+  - [x] Redesign `/settings` tables to support inline dual-binding editing
+- [ ] Phase 12: Crawl4AI Python Migration
+  - [ ] Create `install_spider.bat` for strict venv isolation
+  - [ ] Program `crawl_bridge.py` utilizing `PruningContentFilter`
+  - [ ] Refactor `engine.ts` to bridge Node.js child_process with Python
+  - [ ] Adjust `trigger/route.ts` pipeline to accept generated pure-Markdown

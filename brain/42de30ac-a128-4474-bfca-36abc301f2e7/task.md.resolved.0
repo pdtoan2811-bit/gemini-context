@@ -1,0 +1,15 @@
+# Next Sprint Planning Feature
+
+- [ ] Investigate [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx) (Daily Meeting View) to understand the "squads and individual approach" for task to-do lists.
+- [ ] Understand how current tasks are fetched, filtered by sprint, and displayed by personnel/squad.
+- [ ] Design the UI/UX for the "Next Sprint Planning" feature:
+    - Should it be a new route (e.g., `/planning`) or a tab in the current view?
+    - How to select "the sprint I choose"?
+    - How to filter "tasks from current sprint that are not completed"?
+    - How to assign tasks to personnel (individual/squad approach)?
+    - How to draft the status, target sprint, and sprintGoal.
+- [ ] Create an Implementation Plan.
+- [ ] Get User Approval.
+- [ ] Implement the UI components.
+- [ ] Implement the bulk Lark webhook update logic.
+- [ ] Verify functionality.

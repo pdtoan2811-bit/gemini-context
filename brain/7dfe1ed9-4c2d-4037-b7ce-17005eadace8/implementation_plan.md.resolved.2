@@ -1,0 +1,35 @@
+# Bento Grid Dark Mode Compatibility Fix
+
+The goal is to ensure all animations and static elements within the feature bento grid are fully compatible and readable in dark mode.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I am proposing to change the "high-contrast" inverted bars in the AI Agent animation (which were white in dark mode) to a more subtle dark theme style. This will reduce visual eye-strain in dark mode while maintaining clarity.
+
+## Proposed Changes
+
+### [Component] Landing Features Refinement
+
+I will modify `LandingFeatures.tsx` to fix consistent theme behaviors.
+
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- **Fix Project Management Skeleton**: Update `SkeletonFour` background to avoid white highlights in dark mode (change `to-neutral-100` to `dark:to-neutral-950`).
+- **Improve AI Agent Contrast**: 
+    - Adjust X-axis labels (days) from `neutral-400` to `neutral-300` in dark mode.
+    - Soften the "Suggested Action" banner: change `bg-neutral-900 dark:bg-white` to `bg-neutral-900 dark:bg-neutral-800` and update text color accordingly.
+- **Improve Deep Research Contrast**:
+    - Increase visibility of search query text and progress logs (move from `neutral-400` to `neutral-200/300` in dark mode).
+- **Refine Analytics KPIs**:
+    - Ensure headers like ROAS/ROI have better contrast in dark mode.
+
+## Open Questions
+
+- For the "Suggested Action" banner in the AI Agent animation, would you prefer it to remain pure white (inverted) for extreme prominence, or would a dark-gray themed box be more "elegant" for your taste?
+
+## Verification Plan
+
+### Manual Verification
+- I will use the browser tool to switch between light and dark modes.
+- I will verify that the Project Management skeleton is no longer "bright white" in dark mode.
+- I will ensure all text in the Deep Research and AI Agent animations is easily readable.

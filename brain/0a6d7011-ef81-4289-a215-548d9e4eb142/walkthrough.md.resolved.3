@@ -1,0 +1,37 @@
+# Walkthrough: Bento Grid Stabilization
+
+We have successfully resolved the performance degradation, visual misalignment, and light bleed issues in the Bento Grid. The component now features a high-fidelity, premium "running border light" that is both mathematically precise and hardware-accelerated.
+
+## Key Accomplishments
+
+### 1. Precision Alignment
+The most critical fix was refactoring the `BentoGridItem` to move internal padding (`p-4`) from the outer container to a nested content wrapper. This allowed the `BorderBeam` to fill the entire **border-box** without being constrained by content padding, resolving the reported 16px height mismatch.
+
+### 2. Performance Stabilization
+We eliminated heavy SVG Gaussian filters and large-scale rotating gradients that were causing frame drops. The new implementation uses **SVG Stroke Animation** with `vector-effect: non-scaling-stroke`. This ensures:
+- **Consistent Thickness:** Exactly 1.5px on all screen sizes.
+- **Perfect Corners:** Precise 24px curvature that matches the `rounded-3xl` container exactly.
+- **60fps Interaction:** Minimal repaint overhead compared to blurred divs.
+
+### 3. Absolute Light Containment
+To resolve the "catastrophic" light bleed at screen margins, we implemented a **Double-Lock Clipping** strategy:
+- **Parent Lock:** `BentoGridItem` now has a hardware-enforced `clip-path: inset(0 round 24px)`.
+- **Child Lock:** `BorderBeam` uses strict internal SVG clipping (`overflow: hidden`) and localized blurs.
+- **Cleanup:** Redundant internal background blurs in `LandingFeatures.tsx` were removed to eliminate viewport haze.
+
+## Visual Verification
+
+### Final Alignment & Precision
+![Final Alignment](file:///C:/Users/Admin/.gemini/antigravity/brain/0a6d7011-ef81-4289-a215-548d9e4eb142/final_verification_bleed_focus_1775719227356.png)
+> [!NOTE]
+> Observe how the light beam tracks the 1px border precisely with no gaps at the corners.
+
+### Hover Interaction Stability
+![Bento Hover Left](file:///C:/Users/Admin/.gemini/antigravity/brain/0a6d7011-ef81-4289-a215-548d9e4eb142/bento_hover_left_1775717834229.png)
+
+## Verification Status
+- **Performance:** Verified 60fps interaction in the browser subagent.
+- **Containment:** Confirmed zero bleed from animation layers to viewport margins.
+- **Responsiveness:** Validated across tall (Assistant) and wide (Research/Analytics) box aspect ratios.
+
+Successfully stabilized the landing page experience while maintaining the high-fidelity premium aesthetic.

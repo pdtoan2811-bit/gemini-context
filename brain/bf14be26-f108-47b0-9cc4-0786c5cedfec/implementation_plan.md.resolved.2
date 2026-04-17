@@ -1,0 +1,30 @@
+# UI Fix: AI Agent Card Layout Refinement
+
+The current implementation of the AI Agent bento card has significant visual imbalances, including excessive empty space and poor vertical centering in the feature demonstration.
+
+## Proposed Changes
+
+### [Component] AI Agent Preview Optimization
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- **Remove Fixed Height**: Replace `h-[32rem]` with a flexible `h-full` or `aspect-ratio` based layout to respect the grid's row height naturally.
+- **Vertical Centering**:
+    - Update the Chat stage (Step 0 & 1) to be vertically centered within the card so it doesn't leave huge gaps.
+    - Ensure the Bar Chart (Step 2+) scales appropriately without stretching.
+- **Improved Spacing**: Adjust the internal padding and gaps to create a tighter, more cohesive look.
+- **Visual Depth**: Enhance the background pattern and add a subtle inner glow or gradient to make the "empty" areas feel like a part of the interface rather than a missing element.
+
+### [Component] Grid Balance
+- Refine the `BentoGridItem` structure to use a more centered approach for large cards, or reduce the row span if the content doesn't justify it.
+- I will stick with `row-span-2` but ensure the internal layout is "Visually Full".
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Centering Approach**: I will implement a "Phone/Device" frame feel for the AI Agent chat, making it centered in the large card. This prevents the "floating bubble at the top" look while maintaining a premium Vercel aesthetic.
+
+## Verification Plan
+
+### Manual Verification
+- Verify the vertical alignment of the chat bubbles.
+- Ensure the chart doesn't look squashed or artificially stretched.
+- Switch between Light and Dark modes to ensure the background pattern is subtle but visible.

@@ -1,0 +1,15 @@
+# Analytics Page Verification Plan
+
+- [ ] Navigate to `/vi/analytics`
+- [ ] Verify "Tổng quan" tab and take screenshot
+- [ ] Verify all 6 tabs are present:
+    - [ ] Tổng quan
+    - [ ] Chiến dịch
+    - [ ] Quảng cáo
+    - [ ] Từ khóa
+    - [ ] Cụm từ tìm kiếm
+    - [ ] Chiến lược giá thầu
+- [ ] Click and verify "Chiến dịch" (screenshot)
+- [ ] Click and verify "Từ khóa" (screenshot)
+- [ ] Click and verify "Chiến lược giá thầu" (screenshot)
+- [ ] Document findings and any errors.

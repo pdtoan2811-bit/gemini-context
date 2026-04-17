@@ -1,0 +1,39 @@
+# Unify Lark Webhook Settings and Improve Visibility
+
+The user is unable to find the Lark test feature. My research shows that the test functionality is present in the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#27-336) (used in [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2538-2997)) and on the `/sandbox` page, but the [Home](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx#47-437) page uses an older, inline webhook settings UI that lacks the "Run Test" button.
+
+## Proposed Changes
+
+### Webhook Settings Modal
+Fix the UI glitches and the "Run Test" button logic.
+
+#### [MODIFY] [WebhookSettingsModal.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx)
+- [x] Fix unstyled input for "Webhook URL to Test".
+- [x] Ensure `testWebhookUrl` is correctly initialized and updated.
+- [x] Map `testTaskUrl` to `recordLink` in the test payload.
+- [x] Add status/feedback display for the test execution.
+- [/] Refine JSON Payload structure:
+    - [ ] Top-level: `currentSprint`, `nextSprint`.
+    - [ ] Per Task: [status](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#245-259), `sprintGoal`, `recordLink`, `isMoved`.
+- [ ] Update [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx) production payload with `nextSprint` (calculated).
+- [ ] Update [WebhookSettingsModal.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx) test payload and UI with `nextSprint`.
+
+### [Component Name] Dashboard / UI
+
+#### [MODIFY] [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+- Import [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#27-336) from `@/components/dashboard/WebhookSettingsModal`.
+- Replace the inline webhook settings overlay with the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#27-336) component.
+- Ensure the `SANDBOX TEST` link in the header is easily identifiable (it already is, but maybe adding a "New" badge or making it more prominent).
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` to ensure no regressions in routing or component imports.
+
+### Manual Verification
+1. Open the application.
+2. Click the "Members" button in the header.
+3. Verify that the [WebhookSettingsModal](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/WebhookSettingsModal.tsx#27-336) opens and contains the "Run Test" section.
+4. Input a test webhook URL and click "Run Test".
+5. Verify that the test result is displayed correctly.
+6. Navigate to the "Sandbox" tab or click the "SANDBOX TEST" button in the header to ensure the dedicated test page is also accessible.

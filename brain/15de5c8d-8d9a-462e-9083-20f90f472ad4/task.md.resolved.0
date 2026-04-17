@@ -1,0 +1,7 @@
+# Pulling Latest Updates
+
+- [ ] Check git status
+- [ ] Stash local changes if necessary
+- [/] Pull latest changes from git
+- [ ] Resolve merge commit
+- [ ] Restore stashed changes

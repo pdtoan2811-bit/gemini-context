@@ -1,0 +1,50 @@
+# Task Card Componentization & UI Refresh
+
+Consolidate the diverse task card implementations into a single, highly-configurable [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247) component. This component will feature a modern, high-contrast light mode UI, include module/screen metadata, and remove redundant interactive elements.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The "sync squad" button currently in the task card will be removed as requested. Please confirm if there are any other interactive elements that should be simplified or removed during this refactor.
+
+## Proposed Changes
+
+### Global Styles & Color Branding
+
+#### [MODIFY] [globals.css](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/globals.css)
+- Change `--primary` (and related accent colors) to `#1D3557`.
+- Ensure consistent application of the new accent color across interactive elements (buttons, selectors, logo indicators).
+
+### Dashboard Components
+
+#### [NEW] [TaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/TaskCard.tsx)
+- Unified component supporting:
+    - Click interactions for details.
+    - Drag-and-drop for squad planning.
+    - Status/Category badges.
+    - **Module & Screen labels** for quick overview.
+    - **High-contrast Status UI** (optimized for light mode).
+
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- Update [renderCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/NextSprintPlanningView.tsx#347-405) to use the new [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247).
+- Remove the `renderActions` block that contains the member toggle buttons (formerly used for squad sync).
+
+#### [DELETE] [DraggableTaskCard.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx)
+- Replaced by the unified [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247).
+
+#### [MODIFY] [utils.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/utils.ts)
+- Refactor [statusBadge](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx#81-95) and [priorityDotColor](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/PersonnelOverview.tsx#49-60) to use high-contrast, light-mode friendly styles (e.g., using solid colors for dots and tinted backgrounds for badges).
+
+## Verification Plan
+
+### Automated Tests
+- N/A (Visual verification preferred).
+
+### Manual Verification
+- **Chrome Visual Audit:**
+    - Verify [TaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/daily-meeting/DraggableTaskCard.tsx#38-247) aesthetics in Single Person, Fleet View, and Squad Ops modes.
+    - Confirm status badges are readable and "premium" looking.
+- **Functional Testing:**
+    - Test task clicking (should open inspector).
+    - Test drag-and-drop in Squad Ops (should correctly add/move tasks).
+    - Ensure the "Deploy" button and "Remove" button (trash icon) still function as expected in their respective contexts.

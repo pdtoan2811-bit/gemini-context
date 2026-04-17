@@ -1,0 +1,7 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation Plan for migrating the core engine to Crawl4AI Python library while bridging it natively into the NextJS application.",
+  "updatedAt":  "2026-04-07T07:47:24.114431200Z",
+  "version":  "8",
+  "requestFeedback":  true
+}

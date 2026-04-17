@@ -1,0 +1,14 @@
+# Squad Filter added to Daily Recap View
+
+I have successfully applied the squad filtering logic to the `DailyRecapView`! 
+
+## Changes Made
+- Imported the `useRoles` hook and `ROLE_ORDER` configuration to fetch role hierarchy in `DailyRecapView.tsx`.
+- Added a `selectedPersonsFilter` state to keep track of the chosen squad members.
+- Added a `filteredMovementData` list that recalculates the movement summaries (Total Forward, Total Backward, Same Status, No Change) specifically for the selected squad members.
+- Added the "Gradually form your squad" UI row with checkboxes for all team members, sorted by role hierarchy (Tester -> BE dev -> FE dev -> Team Leader -> Other).
+- Mapped all the UI sections (`Summary Card`, `PersonCards`) to use `filteredMovementData`.
+
+## Validation
+- Successfully ran `tsc --noEmit` locally, which passed all type checks!
+- The list handles an empty state ("Try selecting a different date or different squad members") seamlessly when a selected person has no active logs for the day.

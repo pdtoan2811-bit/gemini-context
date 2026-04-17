@@ -1,0 +1,6 @@
+# Tasks
+
+- [x] Connect Gemini CLI to Telegram Bot
+  - [x] Create task.md
+  - [x] Modify default message handler in [index.ts](file:///c:/Users/Admin/Desktop/openclawAlternative/bot/src/index.ts) to execute gemini cli
+  - [x] Add `/gemini` command in [commandHandler.ts](file:///c:/Users/Admin/Desktop/openclawAlternative/bot/src/bot/handlers/commandHandler.ts)

@@ -1,0 +1,36 @@
+# Affiliate Analytics & Project Management Walkthrough
+
+This update introduces a comprehensive system for managing affiliate projects, separating AI-generated leads from official projects, and tracking ROI through manual data entry integrated with Ads data.
+
+## Key Features
+
+### 1. Project Categorization
+Projects are now divided into two tabs in the **Quản lý dự án** page:
+- **Dự án chính thức**: Projects you are actively running and tracking.
+- **Dự án từ AI Agents**: Leads saved from search results that need review.
+
+### 2. Manual Affiliate Tracking
+For official projects, a new **Phân tích ROAS & CVR** tab is available in the detail page. This allows you to:
+- **Link Ads Campaigns**: Select which Google/Facebook ads are driving traffic to this project.
+- **Manual Data Entry**: Enter daily results (RefCount, Conversions, Revenue) directly from your affiliate program dashboard.
+- **ROI Visualization**: View real-time ROAS and CVR charts that combine your actual Ads Spend with your manual Revenue data.
+
+### 3. Workflow Automation
+- **Promote to Official**: Easily move an AI Agent lead to the official list with one click.
+- **Persistent Storage**: All data is saved locally for immediate use without backend overhead.
+
+## Screenshots & Demos
+
+> [!TIP]
+> Use the "Phân tích ROAS & CVR" tab on any official project to start tracking your ROI. Select your campaigns first to see the Ads Spend reflected in the charts.
+
+### Project List with Tabs
+![Tabs for Project Management](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/pages/ProjectsPage.jsx)
+
+### Analytics Dashboard
+![Analytics and Data Entry](file:///c:/Users/Admin/Desktop/adecosmvp/frontend/src/components/ProjectAnalytics.jsx)
+
+## Technical Summary
+- **State Management**: Extended `useProjects` hook with promotion and daily stats logic.
+- **Data Visualization**: Integrated `recharts` for multi-axis performance tracking.
+- **UI Architecture**: Component-based design for analytics and data entry to ensure maintainability.

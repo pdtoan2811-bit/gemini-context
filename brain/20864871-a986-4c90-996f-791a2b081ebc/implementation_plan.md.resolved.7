@@ -1,0 +1,51 @@
+# Phase 11: System Resilience & "Your Browser" Integration
+
+You asked to use **your own browser** with all of your active credentials (like being fully logged into Facebook) rather than a blank "bot browser", as well as wanting to edit settings directly and see exactly why things fail!
+
+Here is the architectural plan to solve this exactly:
+
+## User Review Required
+
+> [!WARNING]
+> Please review the "Native Chrome Bridge" section. Because Windows restricts two separate applications from owning your Chrome User Data at exactly the same time, we have to launch your Chrome in "Debug Mode" to connect to it. Let me know if you approve this approach!
+
+## Proposed Changes
+
+---
+
+### Part 1: The Native Chrome Bridge
+Currently, the scraper launches a separate Chrome profile folder acting like a clean slate "bot browser."
+To open a new tab in your **actual, everyday browser** with your exact Facebook/Reddit logged-in sessions:
+
+1. **[NEW] `launch_chrome.bat`**: I will generate a simple 1-click Windows batch file for you. When you double click it, it will securely relaunch your actual Google Chrome with a flag (`--remote-debugging-port=9222`).
+2. **[MODIFY] Settings UI**: You will simply type `http://localhost:9222` into the **Anti-Detect WebSocket** box we built earlier.
+3. **The Result**: Whenever you hit "Live Scrape", Playwright will instantly tunnel into your main active Google Chrome browser, pop open a new tab containing all your active history and logins, rip the data, and securely close the tab, perfectly bypassing bot detection!
+
+---
+
+### Part 2: Inline Settings Editing
+You requested the ability to edit existing targets.
+#### [MODIFY] `src/app/settings/page.tsx`
+- We will convert the static table cells into editable `Input` boxes directly inside the grid.
+- This allows you to simply double-click a Weight, URL, or Keyword, change the number/string, and hit "Save Config" instantly instead of manually deleting and re-creating them.
+
+---
+
+### Part 3: Robust Error & Fallback UI
+You mentioned the scrape failed and you didn't receive feedback.
+#### [MODIFY] `src/app/layout.tsx` & `src/app/page.tsx`
+- I will install the Shadcn `Toaster` component.
+- The `triggerLiveIngestion` and LLM synthesis routes will be heavily wrapped in `try/catch` blocks.
+- If a site blocks the scraper, the browser crashes, or Gemini throws a quota error, a high-contrast Toast alert will immediately slide onto the screen detailing the exact internal error message (e.g. `[Scraper Error]: Element not found on DOM`).
+- We will integrate proper UX `<Loader2>` spinners inside the individual view layouts.
+
+## Open Questions
+
+> [!IMPORTANT]
+> Do you approve of me creating the `launch_chrome.bat` script? It's the most reliable way to let Playwright control your everyday browser securely.
+
+## Verification Plan
+1. You will run `launch_chrome.bat`.
+2. You will put `http://localhost:9222` in the WS Endpoint Setting.
+3. You will trigger a Scrape, and Playwright will pop a tab in your actual Chrome.
+4. You will change a weight in the settings inline and save it safely!

@@ -1,0 +1,8 @@
+# Troubleshooting White Screen
+
+- [ ] Open http://localhost:5173/
+- [ ] Wait for page load
+- [ ] Check console logs for errors
+- [ ] Check network requests for failures
+- [ ] Log `document.getElementById('root').innerHTML` after 5s
+- [ ] Analyze findings to identify the cause

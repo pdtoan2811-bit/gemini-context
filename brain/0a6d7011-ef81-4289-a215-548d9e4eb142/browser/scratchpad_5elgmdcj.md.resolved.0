@@ -1,0 +1,11 @@
+# Verification Plan for Bento Box Border Light Effect
+
+- [ ] Navigate to http://localhost:3000/vi
+- [ ] Observe page performance (smoothness, no lag)
+- [ ] Check for blue light bleed at viewport margins
+- [ ] Inspect Bento boxes on hover:
+    - [ ] Full height/width coverage
+    - [ ] 1px center alignment on border
+    - [ ] Perfect corner matching (rounded-3xl)
+- [ ] Capture final definitive screenshot
+- [ ] Report results

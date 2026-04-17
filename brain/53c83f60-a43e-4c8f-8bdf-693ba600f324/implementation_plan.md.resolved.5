@@ -1,0 +1,36 @@
+# Goal: Swap Source Media to 100% Meme GIFs
+
+Based on your request, we are completely removing the static Tavily images and migrating the visual layer to use your `memeDatabase` of animated GIFs. This ensures high-engagement, hyper-ironic visuals while preserving the fast rhythm and "letterbox blur" cinematic layout.
+
+## Proposed Changes
+
+### 1. Semantic Meme Copy Script (`scripts/copy-meme-gifs.ts`)
+Instead of fetching images, I will write a script to map and copy the GIFs from your local database directly into `public/images/mythos-sarcastic/`. 
+The semantic mapping will be structured intuitively based on the script:
+- `s01-customer`: Futurama Sus
+- `s02-megacorps`: Classic Rich Man
+- `s03-risky` & `s13-wait`: Dexter's "Doakes" Suspicious
+- `s04-narrative`: ChatGPT/OpenAI logo gif
+- `s05-glasswing`: Amazing Surprise
+- `s07-patch` & `s12-pricing`: Splashing Money
+- `s08-claude`: ClaudeCode
+- `s09-reddit` & `s15-apocalypse`: Chaos/Community Fire
+- `s18-loop`: "Let me in"
+
+*The script will systematically map the 13 available GIFs across the 18 scenes, renaming them to strictly match the `<scene-id>.gif` format.*
+
+### 2. Component Refactoring: Integratng `<AnimatedImage>`
+Within `src/components/MythosSarcasticShort.tsx`:
+- Swap the `<Img>` component with Remotion's built in `<AnimatedImage>` component which naturally supports synchronized looping and timeline scrubbing for `.gif` files.
+- We will replace the `IMAGE_EXT` mappings, making `.gif` the definitive and exclusive format for this composition. 
+
+### 3. Preserving Fast-Cut & Layout
+- The `isFlash`, `isSplit`, and Parallax logic (Mastermind editing hooks) will remain intact.
+- The dual-layered background logic will also be applied to the newly added `AnimatedImage`:
+    - Layer 1: Blurred, `fit="cover"`
+    - Layer 2: Core focus, `fit="contain"` 
+- Because `<AnimatedImage>` integrates seamlessly with Remotion's engine, video generation will remain totally synchronous and glitchless, preserving the rigid 18-beat structural timing!
+
+## User Review Required
+> [!IMPORTANT]
+> The implementation strictly drops Tavily images in favor of the `memeDatabase` GIFs. Do you approve this mapping, or would you like me to tweak how specific GIFs are distributed across the 18 scenes? If approved, I will immediately develop and run the copy pipeline script.

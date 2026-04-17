@@ -1,0 +1,9 @@
+# Browser Task Plan
+
+- [ ] Navigate to http://localhost:3000
+- [ ] Verify "SANDBOX TEST" button in header
+- [ ] Click "SANDBOX TEST" and verify URL is /sandbox
+- [ ] Go back to /
+- [ ] Click "Members" button (Users icon)
+- [ ] Verify "Lark Webhook Settings" modal appears
+- [ ] Verify "Run Test" button is in the modal

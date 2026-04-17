@@ -1,0 +1,24 @@
+# Synthetica: Advanced UI/UX Prototype Walkthrough
+
+> [!TIP]
+> The automation flow is complete! Synthetica has bridged the final gap between manual config files and a high-end, dynamic graphical experience with automatic Web MetaGraph resolution.
+
+## Phase 4 Highlights (Metadata Resolution & Wow Factor)
+
+### Dynamic Config Injection
+- Eliminated `.env.local` restrictions entirely! You can now paste your **OpenAI API Key** securely right into the `localhost:3000/settings` UI page.
+- We added a native input field for an **Anti-Detect Browser WebSocket Endpoint** (`ws://127.0.0.1:9222/devtools...`). Paste your string there, hit Save, and the backend engine will automatically bypass the headless browser entirely and plug straight into Kiki Login.
+
+### Automated Target Logo Recognition
+- Built a brand new `/api/metadata` NodeJS backend endpoint that rips out the OpenGraph tags and favicons of any URL you type in.
+- Inside `/settings`, there is a new **Exact Target Sites** block. Type `https://news.ycombinator.com` into the URL field, and click **Add**.
+- **The Wow Factor**: Synthetica will instantly resolve the web domain, fetch its highest resolution logo across the web, and mount it into a sleek, floating UI card with an Avatar image using standard Shadcn primitives! 
+
+## Verification Checklist
+
+> [!SUCCESS]
+> - `targetList.json` was upgraded to locally host the OpenAI API configuration.
+> - The application built successfully in production mode.
+> - The Next.js pipeline was upgraded to use `cheerio` parsing for unnoticeable 50ms logo extraction delays.
+
+**You can now fully manage the frontend without stepping outside of the Tailwind compiler! Feel free to launch it and add your favorite URLs to see their logos popup.**

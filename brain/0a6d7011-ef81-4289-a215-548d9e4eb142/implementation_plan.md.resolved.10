@@ -1,0 +1,25 @@
+# Ultimate Stabilization of Bento Grid Border Light
+
+The current implementation using large rotating gradients is causing persistent viewport-wide light bleed artifacts and lingering performance overhead. I will switch to a localized light source approach (Vercel-style) which is 100% stable and high-performance.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Localized Light Source:** Replace the large rotating gradient with a single small `<motion.div>` (approx. 200px wide).
+- **Precision Pathing:** Use `offsetPath: "inset(0 round 24px)"` to move this localized light precisely along the border.
+- **Hardware Shading:** Create the "glow" using standard CSS `box-shadow` and `linear-gradient` on this small div.
+- **Zero Bleed:** Since the light source is small and confined to the path, it is physically impossible for it to bleed to the viewport margins.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Keep the current structure (Inner wrapper for padding). This ensures the `offset-path` (inset 0) stays perfectly flush with the box borders.
+
+## Why this will resolve the issue
+- **Previous Mismatch Fix:** The earlier "mismatch" was caused by the parent's internal padding. With the new inner wrapper structure, `offsetPath: inset(0)` will now match the border line with 100% precision.
+- **Bleed Fix:** Large rotating elements often cause rendering glitches in hardware-accelerated layers. A small, moving div is the industry standard for this effect and is 100% stable.
+
+## Verification Plan
+- **Performance:** Verify stable 60fps.
+- **Bleed Check:** Confirm ABSOLUTELY ZERO blue light at screen margins.
+- **Alignment:** Verify the 200px light beam is flush with all 4 borders.

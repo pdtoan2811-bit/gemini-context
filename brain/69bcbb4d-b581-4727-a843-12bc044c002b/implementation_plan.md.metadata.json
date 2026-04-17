@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Detailed implementation plan for enhancing the Ads Management UI to comply with Google Ads API requirements. Covers 3 phases: (1) Campaign Creation Wizard with 6 steps covering geo/language targeting, bidding strategies, conversion tracking, callout extensions, and ad group/keyword management; (2) Campaign Management actions including edit, pause/enable/remove for campaigns, ads, and keywords; (3) API hooks and type definitions. Includes gap analysis comparing current state to checklist requirements, file-by-file change descriptions, and open questions about backend readiness.",
+  "updatedAt": "2026-04-17T08:11:11.551949400Z",
+  "requestFeedback": true
+}

@@ -1,0 +1,28 @@
+# Final Terminal Stabilization for Bento Grid
+
+The border light is perfectly aligned, but a catastrophic "blue bleed" is reaching the viewport edges. I have identified the source: the SVG container in `BorderBeam.tsx` is set to `overflow: visible`, allowing its blurred animated layers to bypass parental clipping in some GPU configurations. I will strictly contain this.
+
+## User Review Required
+
+> [!IMPORTANT]
+> I am disabling `overflow: visible` on the SVG and enforcing a hardware-level `clip-path` on the bento items. This will resolve the "blue bars at screen edges" issue immediately.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Strict SVG Clipping:** Set the SVG container to `overflow: hidden`.
+- **Localized Glow:** Reduce the `strokeWidth` of the glow layer and ensure its `filter: blur` radius is small enough to stay within the box boundaries.
+- **Remove Non-Essential Layers:** Simplify to a single sharp core and a single soft glow.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Ensure the `BentoGridItem` has `relative overflow-hidden` and `clip-path` (already implemented, but will double-check).
+
+### Component: [LandingFeatures.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/containers/landing/LandingFeatures.tsx)
+- **Cleanup Background Glows:** Check for any remaining `blur-3xl` or `blur-2xl` divs in the bento previews that might be contributing to the "haze."
+
+## Verification Plan
+- **Performance:** Verify 60fps interaction.
+- **Bleed Check:** Confirm ABSOLUTELY ZERO blue light at screen margins.
+- **Alignment:** Confirm the running light is 100% flush with the borders.

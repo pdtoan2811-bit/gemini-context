@@ -1,0 +1,9 @@
+# Refactoring Plan
+
+- [ ] Read agent skill: code refactor
+- [ ] Analyze `DailyMeetingView.tsx` and `NextSprintPlanningView.tsx`
+- [ ] Draft an implementation plan
+- [ ] Get user approval
+- [ ] Refactor `DailyMeetingView.tsx`
+- [ ] Refactor `NextSprintPlanningView.tsx`
+- [ ] Verify functionality

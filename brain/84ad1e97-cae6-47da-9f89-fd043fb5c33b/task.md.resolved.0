@@ -1,0 +1,21 @@
+# Sprint Debugger Enhancement Tasks
+
+## Feature 1: Default Sprint Filter
+- [ ] Add sprint config (current sprint number, date range) to [page.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/app/page.tsx)
+- [ ] Auto-select current sprint based on today's date
+- [ ] Show sprint date range in the header
+
+## Feature 2: Personnel View UI/UX Improvements
+- [ ] Sort tasks within each person by stall hours (descending)
+- [ ] Sort tasks by status priority: Reprocess > Waiting to Integrate > In Process > Not Started > others > Staging Passed
+- [ ] Visual improvements to the personnel cards
+
+## Feature 3: Enhanced Task View (Meeting Notes)
+- [ ] Show all people assigned on the task in the inspector
+- [ ] Add structured "Daily Meeting Note" quick-add form (stall reason, blocked by dropdown, solution)
+- [ ] Persist meeting notes in localStorage with new hook `useMeetingNotes.ts`
+- [ ] Display meeting notes as a timeline/log with good traceability
+- [ ] Blocked-by dropdown includes task assignees + team leaders (Bùi Anh Đức, Phạm Đức Toàn)
+
+## Feature 4: Context Documentation
+- [ ] Create `CONTEXT.md` documenting statuses, terminologies, doom loop, bottleneck, team members and leaders

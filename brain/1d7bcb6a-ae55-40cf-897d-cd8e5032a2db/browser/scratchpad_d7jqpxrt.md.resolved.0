@@ -1,0 +1,12 @@
+# Debugging Sprint 7 Task Loading
+
+## Task Checklist
+- [ ] Navigate to http://localhost:3000/
+- [ ] Wait for initial tasks to load
+- [ ] Find sprint selection dropdown
+- [ ] Select "Sprint 7"
+- [ ] Observe behavior (flashing, final state, console errors)
+- [ ] Describe findings
+
+## Findings
+- 

@@ -1,0 +1,20 @@
+# Task: Verify Analytics Bento Box Animation
+
+## Checklist
+- [x] Open `http://localhost:3001/en` and locate Analytics bento box
+- [x] Verify 3-stage animation (Connect, Manual, Dashboard) in English
+- [x] Verify light/dark mode contrast
+- [x] Open `http://localhost:3001/vi` and verify Vietnamese translations
+- [x] Check for layout issues in Vietnamese
+- [x] Capture visual proof (screenshots)
+
+## Notes
+- Animation loop is ~16 seconds.
+- Stages:
+  1. Connect Ads (Google Ads icon + link) - Verified in EN (analytics_en_stage_1)
+  2. Manual Entry (Mini table with Ref Count) - Verified in EN (analytics_en_stage_3 - actually stage 2, renamed to stage_2 in my notes)
+  3. Dashboard (KPI cards: ROAS, ROI, CPA, EPC) - Verified in EN (analytics_en_stage_3_v2)
+- Vietnamese:
+  - Stage 1: "KẾT NỐI ADS" - Verified in DOM
+  - Stage 2: "NHẬP THỦ CÔNG" - To be verified
+  - Stage 3: "DASHBOARD TỔNG HỢP" - Verified in DOM

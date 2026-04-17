@@ -1,0 +1,12 @@
+- `[/]` Create `task.md` to track progress.
+- `[ ]` Write `scripts/generate-voiceover-mythos-sarcastic.ts` to generate audio with ElevenLabs.
+- `[ ]` Write `scripts/fetch-images-mythos-sarcastic.ts` (if needed) or use placeholders / explicit URLs for images representing Reddit / Anthropic.
+- `[ ]` Implement `src/components/MythosSarcasticShort.tsx` adhering to the `@youtube-shorts-mastermind` skill perfectly:
+    - `[ ]` Phase 1: Kinetic Punch, Audio J-Cut, Subliminal Flash Montage.
+    - `[ ]` Phase 2: Punch-In Jump Cut, Z-Depth Parallax, Programmatic SFX.
+    - `[ ]` Phase 3: Match Cut Transition, Split-Screen Divergence, Document Sentiment Highlighter.
+    - `[ ]` Phase 4: CSS Filter Glitch, Whip Pan, Dynamic B-Roll Injection.
+    - `[ ]` Phase 5: Psychological Retention Bar, Seamless Mobius Strip.
+- `[ ]` Register `MythosSarcasticShort` in `src/Root.tsx`.
+- `[ ]` Run the voice generation script to generate MP3s and timed JSON.
+- `[ ]` Verify component compiles cleanly.

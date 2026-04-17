@@ -1,0 +1,231 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Sprint Relay
+Debugger
+Workflow-aware diagnostics — bottleneck detection, doom loop tracking, and PM decision support.
+Sprint 8 · Mar 9 – Mar 13
+Live Logs
+10
+Members
+Total Tasks
+67
+Met Goal
+15
+Bottlenecked
+11
+Doom Loops
+8
+Stale (24h+)
+25
+📌 High Risk
+0
+Daily Meeting
+Daily Recap
+Personnel
+Tasks
+Sprint Start
+Next Sprint
+Prioritized view for daily standups: Doing → Blocking → Blocked → Not Started
+[0] (301,431)<div class='flex overflow-x-auto custom-scrollbar gap-2 w-full sm:w-auto pb-1 sm:pb-0' scrollable='true'>View All (
+9
+)
+Squads
+Nguyễn Thảo Linh
+Lưu Thị Dung
+Nguyễn Đình Hồng Phong
+Bùi Anh Đức
+Đặng Minh Quân
+Phạm Đức Toàn
+Trần Quý Đạt
+Nguyễn Văn Nam
+Duyên NT />
+	View All (
+	9
+	)
+	Squads
+	Nguyễn Thảo Linh
+	Lưu Thị Dung
+	Nguyễn Đình Hồng Phong
+	Bùi Anh Đức
+	Đặng Minh Quân
+	Phạm Đức Toàn
+	Trần Quý Đạt
+	Nguyễn Văn Nam
+	Duyên NT
+Team Active:
+175
+|
+20
+|
+38
+|
+73
+Squad Planning Context
+Manage Roles
+Today
+Gradually form your squad
+[1] (378,625)<div class='flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar' scrollable='true' />
+	Nguyễn Thảo Linh
+	Nguyễn Đình Hồng Phong
+	Nguyễn Văn Nam
+	Trần Quý Đạt
+	Đặng Minh Quân
+	Lưu Thị Dung
+	Bùi Anh Đức
+	Phạm Đức Toàn
+	Duyên NT
+Squad Backlog
+51
+tasks
+Drag tasks to the Squad Plan to plan them
+[2] (202,1074)<div class='flex-1 overflow-y-auto custom-scrollbar pr-1 space-y-6 pb-8' scrollable='true' />
+	Shared Tasks (
+	24
+	)
+	recv3K7Ed9poE0
+	Cài đặt cảnh báo
+	Bug Fixing
+	Active
+	STALE
+	7d 17h
+	Blocked by
+	Đặng Minh Quân
+	recv3K7M2jDAau
+	Xem chi tiết chiến dịch
+	DOOM
+	Bug Fixing
+	Active
+	STALE
+	3d 17h
+	Blocked by
+	Nguyễn Đình Hồng Phong
+	recvaMJPh9Q4wP
+	Bug: Bổ sung thêm cờ và danh sách các quốc gia đang quét thiếu > hiển thị danh sách quốc gia vị trí phù hợp theo google (click cao nhất)
+	DOOM
+Squad Plan for
+Today
+No tasks planned for the squad
+Drag tasks from the backlog to plan
+Workflow Legend
+Status flow & risk indicators
+Workflow Statuses
+0
+Not Started
+1
+In Process
+2
+Waiting to Integrate
+3
+Reviewing
+4
+Ready for Test
+5
+Testing
+6
+Reprocess
+7
+Bug Fixing
+8
+Staging Passed
+9
+Completed
+The Doom Loop
+Reprocess
+Ready for Test
+Testing
+Reprocess
+If a task hits
+Reprocess
+more than once, risk level escalates automatically.
+1× = Elevated
+2×+ = Critical
+Module Colors
+Auth / Identity
+UI / Design
+API / Graph
+Backend / Infra
+[3] (500,500)<div  />
+	[4] (850,500)<div class='fixed z-50 gap-4 bg-zinc-950 shadow-lg transition ease-in-out inset-y-0 right-0 border-l border-zinc-800 flex flex-col h-full overflow-y-auto sm:max-w-xl w-[90%] p-6' scrollable='true' />
+		recv3K7M2jDAau
+		Bug Fixing
+		Xem chi tiết chiến dịch
+		Mar 17, 15:06
+		→
+		Mar 21, 09:06
+		Assigned People
+		Nguyễn Đình Hồng Phong
+		Đặng Minh Quân
+		Nguyễn Thảo Linh
+		Lưu Thị Dung
+		[5] (849,291)<button class='w-full flex items-center justify-between px-3 py-2.5 rounded-lg border transition-all border-zinc-800 bg-zinc-900/50 text-zinc-400' />
+			High Risk
+		Doom Loop Detected
+		3
+		cycle(s)
+		Reprocessed
+		4
+		× — Risk:
+		CRITICAL
+		Long Status Durations
+		2
+		blocking
+		Status changes that took more than 8 working hours
+		Reprocess
+		→
+		Reprocess
+		9.5
+		h
+		Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh
+		Reprocess
+		→
+		Bug Fixing
+		14.3
+		h
+		Nguyễn Đình Hồng Phong,Đặng Minh Quân,Nguyễn Thảo Linh,Lưu Thị Dung
+		Assignee
+		Nguyễn Đình Hồng Phong
+		Module
+		Digital
+		Screen
+		Chiến dịch
+		Sprint Goal
+		Staging Passed
+		Record Link
+		[6] (849,771)<a class='inline-flex items-center gap-2 font-mono text-blue-400 hover:text-blue-300 hover:underline transition-colors' href='https://jsg35lsl9g0c.sg.larksuite.com/record/ApmBrSEeDer2i1cglQHl8TUXgVd' />
+			[7] (779,771)<span >Open in Source System />
+		Daily Meeting Notes
+		[8] (947,858)<button class='flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-md shadow-blue-900/30'>Add Today's Note />
+		[9] (765,910)<button class='flex items-center gap-2 group'>Timeline Overview />
+			Timeline Overview
+		[10] (940,911)<button class='text-[9px] uppercase font-bold px-2 py-1 rounded transition-colors tracking-widest text-zinc-500 hover:text-zinc-300'>Sequence />
+		[11] (971,911)<button class='text-[9px] uppercase font-bold px-2 py-1 rounded transition-colors tracking-widest bg-zinc-700 text-white shadow-sm'>Daily />
+		[12] (736,970)<div  />
+			[13] (736,947)<div  />
+			[14] (736,987)<div  />
+				[15] (736,987)<span >Mar 16 />
+		[16] (781,970)<div  />
+			[17] (781,947)<div  />
+			[18] (781,987)<div  />
+				[19] (781,987)<span >Mar 17 />
+		[20] (826,970)<div  />
+			[21] (826,947)<div  />
+			[22] (826,987)<div  />
+				[23] (826,987)<span >Mar 18 />
+		[24] (872,970)<div  />
+			[25] (871,947)<div  />
+			[26] (871,987)<div  />
+				[27] (871,987)<span >Mar 19 />
+		[28] (917,970)<div  />
+			[29] (916,947)<div  />
+			[30] (916,987)<div  />
+				[31] (916,987)<span >Mar 20 />
+		[32] (962,970)<div  />
+			[33] (962,947)<div  />
+			[34] (962,987)<div  />
+				[35] (962,987)<span >Mar 21 />
+		[36] (984,25)<button class='absolute right-4 top-4 rounded-sm opacity-70 ring-offset-zinc-950 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-300 focus:ring-offset-2'>Close />
+			Close
+
+</current_dom>

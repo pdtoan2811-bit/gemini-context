@@ -1,0 +1,26 @@
+# Dynamic Squad View
+
+The Dynamic Squad View enhancement to the Daily Meeting dashboard is complete!
+
+## Changes Made
+1. **Dynamic Personnel Selection:** Replaced the static "Squad Filter" dropdown with a horizontally scrollable list of interactive "pills" for all available personnel. Users can easily toggle individuals to gradually assemble a squad.
+2. **2-Column Layout:** Implemented a split-view design that mirrors the "Single Person" view but tailored for multiple people.
+   - **Left Column (Squad Backlog):** Intelligently analyzes all tasks associated with the selected squad members. It groups tasks into *Shared Tasks* (assigned to multiple members of the squad) and *Individual Tasks* (specific to a single member).
+   - **Right Column (Squad Plan):** Displays the consolidated daily plan for the squad. Shared deliverables are grouped together, and individual plans are separated below.
+3. **Interactive Planning:** 
+   - **Drag & Drop:** Users can drag tasks from the Squad Backlog and drop them into the Squad Plan.
+   - **Smart Assignment:** Dropping a shared task instantly adds it to the daily to-do list for *all* involved squad members simultaneously. Individual tasks are added only to the respective person's plan.
+   - **Quick Add:** Hover over any task in the backlog to reveal a quick "Add for Squad" button.
+
+## Validation Results
+- The underlying codebase was thoroughly refactored inside [src/components/dashboard/DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx).
+- The application compiled successfully using Next.js Turbopack (`npm run build`).
+- State management seamlessly handles complex matching logic between tasks spanning multiple assignees and their varied completion statuses.
+
+## Try It Out!
+To test this feature manually:
+1. Reload your local development server (`http://localhost:3000`).
+2. Navigate to the **Daily Meeting** section and click the **Squads** tab.
+3. Select an individual, watch their backlog generate.
+4. Select a second individual (e.g., a tester pairing with a developer) and observe the Backlog split into "Shared Tasks" vs "Individual Tasks".
+5. Drag a shared task into the plan column to plan for both users simultaneously!

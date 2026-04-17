@@ -1,0 +1,26 @@
+# Fix Sprint Filtering + Align Shared Task Logic
+
+## Root Cause Analysis
+
+### Sprint Filtering
+The sprint field in [RawLogEvent](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/types.ts#1-13) comes from Google Sheets JSON, where numeric sprint values are deserialized as **numbers** (e.g., `sprint: 9`), not strings. However, `activeSprint` from [useSprintConfig](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/hooks/useSprintConfig.ts#24-103) is always a **string** (`"9"`). The strict inequality `task.sprint !== activeSprint` fails silently (`9 !== "9"` → `true` in JS), so all tasks get filtered out or no filtering happens at all depending on the guard condition.
+
+**Fix**: Use `String()` coercion for robust comparison in all sprint comparison points:
+- [analyzeTask](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#111-175) when setting `sprint` field
+- [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-229) when filtering
+- [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2008-2602) when filtering planned tasks
+
+### Shared Task Logic  
+The SquadsView derives its backlog from `allPersonData` (indirect approach), while NextSprintPlanningView uses `task.currentPerson` directly to determine which squad members are involved. The direct approach from NextSprintPlanningView is cleaner and should be adopted.
+
+## Proposed Changes
+
+### [Workflow Engine]
+#### [MODIFY] [workflow-engine.ts](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts)
+- Coerce `sprint` to `String()` in [analyzeTask](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/lib/workflow-engine.ts#111-175)
+
+### [Daily Meeting View]
+#### [MODIFY] [DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+- Fix sprint comparison in [computePersonMeetingData](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#115-229) with `String()` coercion
+- Align [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2008-2602) backlog with NextSprintPlanningView's approach: use `task.currentPerson` directly to determine shared vs individual tasks
+- Fix sprint comparison in [SquadsView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#2008-2602) plan computation

@@ -1,0 +1,26 @@
+# Concrete Ad Campaign Mapping System
+
+The ad campaign mapping process has been upgraded from a simple checkbox selection to a formal management system that ensures data integrity and a professional setup experience.
+
+## New Mapping Workflow
+
+### 1. Centralized Management
+Instead of navigating a long list of checkboxes, linked campaigns are now presented in a clean, high-contrast list view. Each linked campaign shows its program name and provides a quick "Unlink" action.
+
+### 2. Searchable Link Interface
+Selecting a new campaign now happens in a dedicated **Link New Campaign** searchable menu:
+- **Real-time Filtering**: Type to search through hundreds of campaigns by name or affiliate program.
+- **Visual Selection**: Choose from filtered results with clear visual feedback.
+
+### 3. Formal CRUD Procedures
+Mapping actions are now more deliberate:
+- **Link**: Requires an intentional search and select action.
+- **Unlink**: Triggers a **Confirmation Warning** to prevent accidental data loss from ROI charts.
+
+> [!WARNING]
+> **Data Integrity Notice**: Unlinking a campaign will immediately remove its past "Ads Spend" contributions from the project's profitability charts. All ROI and ROAS metrics will be recalculated accordingly.
+
+## Technical Summary
+- **Component**: `ProjectAnalytics.jsx` now manages internal search and modal states.
+- **Integrations**: Uses the `ConfirmationModal` component for dangerous unlinking actions.
+- **Reactivity**: ROI charts and aggregated totals update instantly upon confirming mapping changes.

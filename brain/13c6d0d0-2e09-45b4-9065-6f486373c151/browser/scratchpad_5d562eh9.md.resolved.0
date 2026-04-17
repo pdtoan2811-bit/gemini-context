@@ -1,0 +1,9 @@
+# Dashboard verification checklist
+- [ ] Navigate to localhost:3000
+- [ ] Capture 'Daily Meeting' tab (default)
+- [ ] Click 'Squad Planner' and capture
+- [ ] Click 'Daily Recap' and capture
+- [ ] Click 'Personnel' and capture
+- [ ] Click 'Tasks' and capture
+- [ ] Open 'Webhook Settings' and capture
+- [ ] Review the screenshots for UI density and consistency

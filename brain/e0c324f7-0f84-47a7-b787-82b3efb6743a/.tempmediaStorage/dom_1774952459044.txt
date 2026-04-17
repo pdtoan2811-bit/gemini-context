@@ -1,0 +1,19 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div class='landing-page h-screen w-screen overflow-y-auto flex flex-col' scrollable='true' />
+	Adecos
+	Tính năng
+	Mở App
+	Hân hạnh là đối tác của
+	Meta Ads
+	Google Ads
+	Mic Group
+	Accesstrade
+	Meta Ads
+	Google Ads
+	Mic Group
+	Accesstrade
+
+</current_dom>

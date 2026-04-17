@@ -1,0 +1,43 @@
+# Tiananmen Square Short — Extreme Density Overhaul
+
+We are revamping the video from 8 scenes to **24 micro-scenes** to vastly increase the visual density, ensuring that no GIF loops more than twice and maximizing engagement. Each segment will be roughly 3-4 seconds (10-14 words).
+
+## User Review Required
+
+> [!IMPORTANT]
+> The script has been expanded to a highly-aggressive 24-part sarcastic monologue to hit the 90-second mark exactly without requiring any GIF to exceed 4 seconds. There are exactly 24 unique GIFs mapped securely from your newly updated `/memeDatabase`.
+> Please review the visual mappings below!
+
+## Proposed Changes
+
+### [MODIFY] `scripts/generate-voiceover-tiananmen.ts`
+- Rescript the `TIANANMEN_SCENES` array from 8 items to 24 items.
+- Maintain the ElevenLabs `/with-timestamps` API integration to perfectly sync the high-speed text. Wait times or sentence fragments will match natively.
+
+### [MODIFY] `scripts/copy-media-tiananmen.ts`
+- Completely overhaul mapping to pipe 24 completely unique GIFs into `s01-intro.gif` through `s24-finally.gif`.
+- Examples of the new structural mappings across 24 GIFs:
+  - `s01`: `absolute-cinema.gif`
+  - `s03`: `fake-news-claim.gif`
+  - `s10`: `chatGPT-or-openAI.gif`
+  - `s11`: `missile-fire-animated.gif`
+  - `s13`: `james-doakes-sus-face.gif`
+  - `s18`: `community-chaos.gif`
+  - `s20`: `dodge-and-counter.gif`
+  - `s24`: `time-to-stop.gif`
+
+### [MODIFY] `src/components/TiananmenSquareShort.tsx`
+- Replace the legacy 8-item `SCENES` array with the expanded 24-item timeline array. 
+- Ensure that the logic still relies statically on exactly generating standard timings from `calculateMetadata` and `wordTimings`.
+
+## Open Questions
+
+> [!WARNING]
+> Since we're doing 24 generation requests to ElevenLabs in serial, it might deduct 24 API quota items and take a bit of extra compilation execution time. Are you alright with proceeding, assuming quota allows?
+
+## Verification Plan
+
+### Automated Tests
+1. Verify `scripts/copy-media-tiananmen.ts` moves exactly 24 assets without crashing.
+2. Verify `scripts/generate-voiceover-tiananmen.ts` produces 24 MP3s and 24 cleanly-timed JSON files.
+3. Validate compilation `npx tsc --noEmit` and build without React warning arrays mapping missing clips.

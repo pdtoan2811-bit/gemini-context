@@ -1,0 +1,27 @@
+# Final Robust Fix for Bento Grid Border Light
+
+The current implementation using `offset-path` is causing catastrophic performance issues and visual "bleeding" at screen edges. I will switch to the industry-standard "Rotating Gradient + Mask" technique, which is hardware-accelerated and strictly contained.
+
+## Proposed Changes
+
+### Component: [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+
+#### [MODIFY] [BorderBeam.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/ui/border-beam.tsx)
+- **Rotating Gradient:** Use a `conic-gradient` background on an `absolute` element.
+- **Strict Masking:** 
+    - Apply a CSS `mask-image` with `mask-clip: content-box, border-box` to isolate exactly the 1px-2px border area.
+    - Set `mask-composite: exclude` to "cut out" the center, leaving only the animated border.
+- **Hardware Acceleration:** Animate the `rotate` property of the gradient. This is extremely efficient on all GPUs and prevents layout thrashing.
+- **Total Clipping:** Ensure the container has `overflow-hidden` and `rounded-[inherit]`.
+
+### Component: [BentoGrid.tsx](file:///c:/Users/Admin/Desktop/prod-2-adecos/src/components/BentoGrid.tsx)
+- Keep the current structure: **Outer container** handles the border and `overflow-hidden`, while the **Inner container** handles the padding. This is the optimal structure for border effects.
+
+## Why this will work
+- **Performance:** Rotations are handled entirely by the GPU compositor.
+- **Stability:** CSS masks are strictly bounded by the element's box model. No light can bleed to screen margins.
+- **Alignment:** Since the effect is a simple background on a box-model element, it will be 100% flush with the parent's actual borders.
+
+## Verification Plan
+- **Performance Monitor:** Verify 60fps on hover/scroll.
+- **Visual Check:** Confirm zero bleed at viewport edges and perfect alignment on all bento boxes.

@@ -1,0 +1,37 @@
+# Paperclip Setup Walkthrough
+
+I have successfully cloned the Paperclip repository, installed all dependencies, and created a startup script to get you running quickly.
+
+## Changes Made
+
+### 1. Repository Setup
+- **Cloned**: `https://github.com/paperclipai/paperclip` into [paperclip](file:///c:/Users/Admin/Desktop/paperclip).
+- **Dependencies**: Ran `pnpm install` across the entire workspace.
+- **Database Reset**: Fixed a PostgreSQL initialization issue on Windows by resetting the embedded database directory.
+
+### 2. Startup Automation
+- **Startup Automation**: Created [run.bat](file:///c:/Users/Admin/Desktop/paperclip/run.bat) which:
+    - Starts the dev server using `pnpm dev`.
+    - Monitors server health via `/api/health`.
+    - **Auto Browser Entry**: Once the server is ready, it automatically opens `http://localhost:3100` in your default browser.
+
+## Getting Started
+
+To launch the project, simply double-click the `run.bat` file in the root directory or run it from your terminal:
+
+```powershell
+./run.bat
+```
+
+> [!NOTE]
+> The first time you run the project, it will automatically apply migrations to your local embedded database. This process is handled by the `pnpm dev` command.
+
+> [!TIP]
+> If you encounter any database errors in the future, you can reset the local database by deleting the `C:\Users\Admin\.paperclip\instances\default\db` folder.
+
+## Verification Results
+
+- [x] **Cloning**: Success.
+- [x] **Dependencies**: `pnpm install` completed successfully.
+- [x] **Startup**: `run.bat` is ready and verified to start correctly after database initialization.
+- [x] **Health Check**: Verified that the server responds to health checks once initialized.

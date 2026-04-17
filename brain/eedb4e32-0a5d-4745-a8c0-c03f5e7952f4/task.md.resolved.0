@@ -1,0 +1,7 @@
+# Task Breakdown
+
+- [ ] Research openclaw architecture and orchestration concepts from github
+- [ ] Determine how to adapt openclaw orchestration concepts to the telegram bot/gemini CLI architecture
+- [ ] Design the agent workflow markdown file
+- [ ] Create the `.agents/workflows/orchestration.md` file for the bot
+- [ ] Review the workflow and update the user

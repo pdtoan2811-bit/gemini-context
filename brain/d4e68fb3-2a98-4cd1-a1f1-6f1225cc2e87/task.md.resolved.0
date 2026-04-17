@@ -1,0 +1,18 @@
+# Task Checklist for Antigravity Telegram Portal
+
+- [ ] Project Initialization
+  - [ ] Initialize Node.js project with TypeScript
+  - [ ] Setup ESLint, Prettier, and basic project structure
+  - [ ] Install Telegram Bot API package (e.g., `grammy`)
+- [ ] Core Bot Middleware
+  - [ ] Setup bot instance with environment variables (Token, Whitelist IDs)
+  - [ ] Implement Security/Whitelisting middleware
+  - [ ] Implement basic chat handlers (`/start`, `/ping`, text forwarding)
+- [ ] Execution Layer (Local Shell)
+  - [ ] Implement shell command execution service (`child_process.spawn`/`exec`)
+  - [ ] Create Telegram command to evaluate shell commands securely
+- [ ] Gemini/Antigravity Agent Integration Stub
+  - [ ] Setup stub for handling natural language prompts
+  - [ ] Forward complex prompts to an external agent script or Gemini API
+- [ ] Context & Session Management
+  - [ ] Implement simple in-memory or SQLite session state for long-running commands

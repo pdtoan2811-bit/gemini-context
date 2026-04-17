@@ -1,0 +1,29 @@
+# Business Hours Duration & "On the Line" UI
+
+## User Request
+1. **"On the line" UI**: Add visual separators (dates) directly on the stacked duration bar.
+2. **Business Hours Logic**: For every day, working hours are `08:30` to `17:30` with a lunch gap from `12:00` to `13:30`.
+3. **Overtime/Off-hours**: These periods affect stall calculations because overnight/weekend waits shouldn't skew metrics. But if tasks move outside these hours, that signifies overtime/incidents, requiring proper UX.
+
+## Proposed Changes
+
+### part 1: Business Hours Math (`src/lib/date-utils.ts`)
+Create a utility function `calculateWorkingDuration(startTimestamp, endTimestamp, sprintStartDate?, sprintEndDate?)` that algorithmically breaks down the absolute time difference into two buckets:
+1. `workingMs`: Time spent during valid working hours (08:30-12:00 and 13:30-17:30) on days that fall within the sprint date range. All days within the range are treated as working days, regardless of whether they are weekends.
+2. `offHoursMs`: Time spent outside those windows (including lunch break and days completely outside the sprint).
+
+### Part 2: TaskTimeline.tsx UX Updates
+
+**Duration Bar (The "Line")**
+We will still use total absolute time to scale the width of segments (or perhaps use `workingMs + offHoursMs` representing continuous time). We will add a small vertical notch or tick mark on the stacked bar wherever the date rolls over, to help you "visualize by date on the line".
+
+**Duration Badges & Chips**
+Since overnight stalls shouldn't make a task look like it took "3 days" of active work, we will update the format:
+- Calculate `workingMs` and `offHoursMs` for each segment.
+- Instead of just `2d 19h`, we will display the **Working Time** prominently (e.g. `1h 30m (Work)`).
+- If the segment also includes off-hours (e.g., crossed a weekend or overnight), we will display a smaller, secondary indicator next to it: `+ 15h off-hours`.
+- If a task's step happens entirely out-of-hours (`workingMs === 0` but `offHoursMs > 0`), we will style the duration badge specifically as an "Overtime/Off-hours incident" (e.g. distinct purple or orange text) to make it obvious that activity happened when it shouldn't have.
+
+## User Approval Required
+- Do you agree with calculating weekends as "off-hours" by default?
+- Does the idea of showing primarily "Working Hours" with a subtle "+ [X] off-hours" label sound like the right UI solution for distinguishing typical stall times from overnight gaps?

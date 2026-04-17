@@ -1,0 +1,38 @@
+# Dynamic Blocker Person from Meeting Notes
+
+## Goal Objective
+In the "Sprint daily note" feature, the person blocking a task should be dynamically determined based on the **latest** meeting note. For example, if "yesterday Person A blocked it, but today Person B blocks it", the system should recognize Person B as the current blocker.
+
+## Proposed Changes
+
+We will modify how `PersonSummary` computes `blockingTasks` and general tasks by factoring in the `blockedBy` field from the latest meeting note for each task.
+
+### 1. `src/lib/types.ts`
+- Add `blockedBy?: string` to the `TaskAnalysis` interface so the UI knows if a task is explicitly blocked by someone based on the most recent meeting note.
+
+### 2. `src/lib/workflow-engine.ts`
+- Update `analyzeAllTasks` or `getPersonSummaries` to accept meeting notes (`Record<string, MeetingNote[]>`).
+- Modify `getPersonSummaries`:
+  - For each task, find its **latest** meeting note (sorted by `createdAt` descending).
+  - Extract the `blockedBy` value.
+  - If a task has a `blockedBy` person, add this task to the `blockedBy` person's `tasks` and `blockingTasks` list in addition to (or instead of) the assignee's list.
+  - Or, add it to the assignee's list but ensure we highlight who is blocking it. Given that a blocker is responsible for a bottleneck, adding the task to the blocker's `personTaskIds` makes the most sense so it shows up in their swimlane as a `blockingTask`.
+
+### 3. `src/app/page.tsx`
+- Pass `getAllNotes()` into `getPersonSummaries` or `analyzeAllTasks` so the engine has access to the meeting notes data.
+
+### 4. `src/components/dashboard/PersonnelOverview.tsx`
+- Update the UI to render `Blocked by: {task.blockedBy}` visually on the task card if it differs from the assignee. 
+- Filter/adjust the display so that it's clear why the task is appearing under this person (e.g., if it's appearing under a Team Leader because they were marked as `blockedBy`).
+
+## Verification Plan
+### Automated testing
+- Not applicable (no automated test suite present).
+
+### Manual verification
+- Open `page.tsx` in a browser.
+- Open the inspector for a bottleneck task (e.g. "Waiting to Integrate").
+- Add a meeting note for today and specify "Blocked By: [Some Person]".
+- Verify that in the Personnel Overview, [Some Person] now has a `blockingTasks` count containing this task, and the task card says "Blocked by: [Some Person]".
+- Add a newer meeting note for the same task and change "Blocked By" to a different person or "Not blocked".
+- Verify that the Personnel Overview dynamically updates the blocker to the *latest* person (or removes it from the previous one).

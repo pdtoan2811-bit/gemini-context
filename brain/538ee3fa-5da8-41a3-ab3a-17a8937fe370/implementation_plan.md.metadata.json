@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Plan to wire existing updateNote/deleteNote hook functions to the StandupInspector UI by adding props through page.tsx and building inline edit/delete UI on each note card.",
+  "updatedAt":  "2026-03-09T06:32:27.505010600Z"
+}

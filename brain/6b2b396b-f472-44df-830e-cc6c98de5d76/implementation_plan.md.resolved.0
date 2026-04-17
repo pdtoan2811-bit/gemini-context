@@ -1,0 +1,30 @@
+# Dynamic Squad Planning
+
+This plan proposes how to add dynamic squad (combination of people) planning for daily meetings without needing an entirely new page or major structural changes. We will integrate it directly into the [DailyMeetingView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#1803-2174) workflow.
+
+## Proposed Changes
+
+### [src/components/dashboard/DailyMeetingView.tsx](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx)
+We will make the following modifications to this file:
+
+1. **View Mode Expansion**: Update the `viewMode` state to include `'squads'` along with `'single'` and `'all'`. Add the corresponding toggle button in the control bar.
+2. **Squad Grouping Logic**: Implement a helper to group all active tasks (not fully completed) by their exact assignment combinations (e.g., tasks assigned to "Person A, Person B"). We will only surface combos that have 2 or more people.
+3. **`SquadsView` Component**: Add a new internal component within the file. It will display the extracted combos. For each combo, it will show the backlog of shared active tasks.
+4. **Squad Quick Add**: In the `SquadsView`, we'll provide a button to "Add to Squad's Today Plan" for a task. This will invoke `dailyTodos.addTodo(person, todayStr, taskId)` for every member of the squad.
+5. **Single Person View Quick Add**: In [PersonSingleView](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#673-983) (the left backlog column), if a task is assigned to multiple people, we will add an "Add to Squad" fast-action button next to "Add to Today" to quickly assign it to all involved.
+6. **Task Card Indicator**: Update [DraggableTaskCard](file:///c:/Users/Admin/Desktop/Sprintdebug/sprint-relay/src/components/dashboard/DailyMeetingView.tsx#469-649) to accept a `showAssignees` boolean prop. When true, it displays a small badge `<Users className="w-2.5 h-2.5"/> {task.currentPerson}` to clearly identify the squad for block-level visibility.
+
+## Verification Plan
+
+### Automated Tests
+- We will rely on TypeScript type checking (`npx tsc --noEmit`) to ensure our props and state modifications are sound.
+- We will run the Next.js dev server and check for any build or runtime errors.
+
+### Manual Verification
+1. Run `npm run dev`.
+2. Open the browser and go to the "Daily Meeting" tab.
+3. Verify that the "Squads" toggle button is present.
+4. Click "Squads" and verify it renders tasks grouped by multiple assignees (e.g., "Person A, Person B").
+5. Click "Add to Squad's Today Plan" on a task.
+6. Switch back to "Single Person" view and verify that the task has been added to *both/all* assignees' "Today's Plan".
+7. Check the right column ("Today's Plan") and verify the task cards now show the multi-person badge (e.g., "👥 Person A, Person B").

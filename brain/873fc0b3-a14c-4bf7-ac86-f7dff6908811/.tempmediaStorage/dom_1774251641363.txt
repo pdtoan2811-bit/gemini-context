@@ -1,0 +1,136 @@
+Total Activity
+0
+Forward
+0
+Backward
+0
+Same Status
+0
+No Change
+126
+Nguyễn Đình Hồng Phong
+0
+events
+43
+unchanged
+[0] (261,206)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+43
+) />
+	No Change (
+	43
+	)
+Đặng Minh Quân
+0
+events
+40
+unchanged
+[1] (739,206)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+40
+) />
+	No Change (
+	40
+	)
+Nguyễn Thảo Linh
+0
+events
+63
+unchanged
+[2] (261,324)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+63
+) />
+	No Change (
+	63
+	)
+Trần Quý Đạt
+0
+events
+20
+unchanged
+[3] (739,324)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+20
+) />
+	No Change (
+	20
+	)
+Lưu Thị Dung
+0
+events
+51
+unchanged
+[4] (261,442)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+51
+) />
+	No Change (
+	51
+	)
+Nguyễn Văn Nam
+0
+events
+28
+unchanged
+[5] (739,442)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+28
+) />
+	No Change (
+	28
+	)
+Bùi Anh Đức
+0
+events
+6
+unchanged
+[6] (261,560)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+6
+) />
+	No Change (
+	6
+	)
+Phạm Đức Toàn
+0
+events
+6
+unchanged
+[7] (739,560)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+6
+) />
+	No Change (
+	6
+	)
+Unassigned
+0
+events
+12
+unchanged
+[8] (261,678)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+12
+) />
+	No Change (
+	12
+	)
+Lê Thị Thùy Linh
+0
+events
+1
+unchanged
+[9] (739,678)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+1
+) />
+	No Change (
+	1
+	)
+Duyên NT
+0
+events
+5
+unchanged
+[10] (261,796)<button class='flex items-center gap-2 mb-2 text-muted-foreground hover:text-foreground transition-colors w-full'>No Change (
+5
+) />
+	No Change (
+	5
+	)
+Legend
+Moved Forward
+Regressed
+Activity, Same Status
+No Change

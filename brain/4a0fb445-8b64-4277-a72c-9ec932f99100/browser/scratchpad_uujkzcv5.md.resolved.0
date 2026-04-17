@@ -1,0 +1,7 @@
+# Typography Verification Checklist
+
+- [ ] Verify headings (Lora - serif)
+- [ ] Verify body text (Inter - sans-serif)
+- [ ] Check Vietnamese character rendering
+- [ ] Take screenshot of the main dashboard
+- [ ] Take screenshot of a specific view (e.g., Daily Meeting View)

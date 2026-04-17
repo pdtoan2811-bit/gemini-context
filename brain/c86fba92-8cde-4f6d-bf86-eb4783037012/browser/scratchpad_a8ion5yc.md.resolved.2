@@ -1,0 +1,15 @@
+# Verification Plan
+- [x] Open http://localhost:3000 and verify page load.
+- [/] Navigate to "Sprint Start" tab and verify the table. (Issue: No tasks showing in Sprint 7, but 67 tasks exist in 'Tasks' tab)
+- [ ] Take a screenshot of the "Sprint Start" tab.
+- [ ] Click on a task in "Personnel" or "Tasks" tab.
+- [ ] Verify "Record Link" section in the inspector.
+- [ ] Take a screenshot of the "Record Link" section.
+- [ ] Final summary and reporting.
+
+## Findings
+- API returns data for `sprint_relay_sprint_config`, `sprint_relay_meeting_notes`, etc.
+- "Tasks" tab shows 67 tasks for Sprint 7.
+- "Sprint Start" tab shows "No tasks found for this sprint" for Sprint 7.
+- Telemetry takes a few seconds to load.
+- Sprint 11 also showed 0 tasks initially.

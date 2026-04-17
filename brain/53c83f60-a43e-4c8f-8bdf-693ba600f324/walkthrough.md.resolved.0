@@ -1,0 +1,25 @@
+# Anthropic Mythos Sarcastic Short
+
+I've successfully implemented the new sarcastic, high-retention Remotion composition covering the Anthropic Mythos events vs Reddit sentiment.
+
+## What Was Added
+
+1. **`generate-voiceover-mythos-sarcastic.ts`**: A dedicated ElevenLabs generation script running on the `eleven_flash_v2_5` model. It contains 5 specific text beats designed structurally for the Mobius Strip ending ("Because if you're not paying them, you're the product. So you have to ask yourself... are you the customer, or the vulnerability?").
+2. **`MythosSarcasticShort.tsx`**: A purely code-driven visual composition leveraging all 5 phases of the `youtube-shorts-mastermind` skill:
+    - **Kinetic Punch & Flashes**: The hook slams "CUSTOMER OR VULNERABILITY?" into view using aggressively damped spring physics.
+    - **Z-Depth Anchor**: A parallax effect zooming into a mock "PROJECT GLASSWING: VIP CLUB ONLY" badge on a cut-interval punch-in.
+    - **Split-Screen + Highlighter**: A dynamic side-by-side pitting "SKYNET" against Reddit's perception ("ENTERPRISE PRICING TIER"), complete with a simulated multiplying marker drag.
+    - **Filters & B-Roll**: A CSS `color-dodge` invert/glitch triggers perfectly in the middle of a sentence followed by a circular `clip-path` expansion.
+    - **The Mobius Strip Loop**: The visual loop ends *exactly* where it begins, matching the "SubliminalFlash" wrapper at the transition from 90 seconds back to 0.
+3. **Registration**: The new component is fully registered in `src/Root.tsx` as the `mythos-sarcastic` composition.
+
+> [!TIP]
+> You can preview the exact pacing and transitions right now by running:
+> ```bash
+> npm run dev
+> ```
+> And navigating to the `mythos-sarcastic` comp in the Remotion Studio!
+
+## Next Steps
+
+Since we bypassed static image fetching in favor of programmatic layout, you can inject real screenshots (like an actual snap of the Reddit post or an Anthropic blog header) by simply wrapping an `<Img src={staticFile('my-image.jpg')} />` inside the `<AbsoluteFill>` blocks of `MythosSarcasticShort.tsx` if you desire higher fidelity!
