@@ -1,0 +1,27 @@
+# Task: Vietnamese Translation for Ad Optimization
+
+- [x] Research existing Ad Optimization UX writing and mock campaigns <!-- id: 0 -->
+- [x] Update PRD and SRS for Vietnamese translation <!-- id: 1 -->
+- [x] Implement Vietnamese translation and campaign alignment in frontend <!-- id: 2 -->
+    - [x] Update `mockWorkflowData.js` <!-- id: 5 -->
+    - [x] Update `ResultsTable.jsx` <!-- id: 6 -->
+    - [x] Update `CampaignSelectionTable.jsx` <!-- id: 7 -->
+    - [x] Update `onboardingData.js` <!-- id: 8 -->
+- [x] Refine backend agents and generator for Vietnamese localization <!-- id: 3 -->
+    - [x] Update `agents.py` prompts <!-- id: 9 -->
+    - [x] Update `generator.py` thinking prompts <!-- id: 10 -->
+- [x] Verify changes with manual and automated steps <!-- id: 4 -->
+- [x] Round 2: Refine remaining English labels in UI <!-- id: 11 -->
+    - [x] Update `ChatMessage.jsx` user mimic <!-- id: 12 -->
+    - [x] Update `CompactWorkflowMessage.jsx` layout and headers <!-- id: 13 -->
+    - [x] Update `WorkflowMessage.jsx` headers and labels <!-- id: 14 -->
+    - [x] Update `SmartTaskCard.jsx` SMART framework labels <!-- id: 15 -->
+    - [x] Update `ApprovalPanel.jsx` status and buttons <!-- id: 16 -->
+    - [x] Update `TodoList.jsx` status and buttons <!-- id: 17 -->
+- [x] Final verification of all localized components <!-- id: 18 -->
+- [x] Debug "Deep Dive" trigger results not showing confirmation <!-- id: 19 -->
+- [x] UI/UX Revamp: Premium To-Do List experience <!-- id: 20 -->
+    - [x] Design immersive task cards with better motion <!-- id: 21 -->
+    - [x] Enhanced approval experience with high tactile feedback <!-- id: 22 -->
+    - [x] Correct Checkbox Logic (Review & Confirm vs Completed) <!-- id: 23 -->
+- [x] Final Verification & Walkthrough <!-- id: 18 -->

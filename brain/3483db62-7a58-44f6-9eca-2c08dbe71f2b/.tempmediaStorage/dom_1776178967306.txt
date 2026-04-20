@@ -1,0 +1,35 @@
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+AInewsvideo
+/
+[6] (523,19)<a title='ai-news-short'>ai-news-short />
+[7] (972,19)<button  />
+[8] (984,19)<button  />
+[9] (50,60)<div role='button'>Compositions />
+[10] (150,60)<div role='button'>Assets />
+[11] (100,167)<button >Search... />
+	[12] (180,167)<span >Ctrl
++K />
+[13] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[14] (100,238)<a class='__remotion-composition' title='ai-editor-short'>ai-editor-short />
+	ai-editor-short
+[15] (100,272)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+Running
+calculateMetadata()
+...
+[16] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[17] (87,728)<button role='button' title='Zoom in timeline' />
+[18] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[19] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[20] (535,728)<button aria-label='Loop video' title='Loop video' />
+[21] (552,728)<button aria-label='Mute video' title='Mute video' />
+[22] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[23] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />

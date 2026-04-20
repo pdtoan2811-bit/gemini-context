@@ -1,0 +1,36 @@
+# Walkthrough: Prompt Configuration UI
+
+I have successfully implemented the Prompt Configuration UI, allowing you to modify the AI personas (Analyst, Strategist, Writer, Editor) directly from the application.
+
+## Changes Verified
+
+### 1. Backend API (`/api/prompts`)
+- **Prompts Storage:** Prompts are now stored in [backend/data/prompts.json](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/data/prompts.json) instead of being hardcoded.
+- **Dynamic Loading:** The [chains.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/chains.py) service now loads prompts dynamically at runtime.
+- **Endpoints:**
+    - `GET /api/prompts`: Returns current prompts.
+    - `POST /api/prompts`: Updates prompts.
+
+### 2. Frontend (`/prompts`)
+- **New Page:** Added a configuration page at `/prompts` (accessible via the "Prompts" link in the header).
+- **Features:**
+    - View all 4 active prompts.
+    - Edit prompt text in a large code-friendly textarea.
+    - "Save Changes" button persists updates to the backend.
+
+## How to Test
+
+1. **Navigate to Prompts Page**: Click the "Prompts" link in the top header (next to the settings icon).
+2. **Edit a Prompt**: Change the "Analyst" prompt. For example, add a line: `Context: You are a deeply cynical researcher.`
+3. **Save**: Click "Save Changes".
+4. **Run Ingestion**: Go back to the main page and ingest a URL.
+5. **Observe Result**: The AI output should now reflect the "cynical" tone (or whatever change you made).
+
+## Screenshots
+
+> [!NOTE]
+> Since this is a text-based walkthrough, verify by running the app locally: `http://localhost:3000`.
+
+## Next Steps
+- Add "Reset to Default" functionality (placeholder exists).
+- Add version history for prompts.

@@ -1,0 +1,32 @@
+# Project Walkthrough: AI Slideshow Generator
+
+## 🚀 Recent Updates: Interactive Editor & Core Repairs
+
+We have addressed critical user feedback regarding layout quality and the inability to edit content.
+
+### 1. Interactive Editor (New Feature)
+The application now supports **Full Interactivity**.
+-   **Click-to-Edit Text**: Click on any title, subtitle, or body text to edit it in place.
+-   **Image Drag-and-Drop**: Drag images directly onto placeholders to update them instantly.
+-   **Upload Support**: Click on any image placeholder to upload a file from your device.
+
+### 2. "Top Tier" Layout Repairs
+We fixed the "awful" layout rendering issues identified during testing.
+-   **Grid Slide**: Switched to a robust CSS Grid (`grid-cols-2`) architecture. No more vertical stacking or whitespace waste.
+-   **Hero Slide**: Implement responsive text wrapping (`break-words`, `max-width`) to prevent title truncation.
+-   **Split Slide**: Added proper padding (`px-8`, `gap-16`) and text balancing to prevent text from crashing into images.
+
+### 3. Image Pipeline & Grounding
+-   **Crawler Restoration**: Re-enabled the local crawler to fetch real images.
+-   **Google Grounding Toggle**: Added a clear ON/OFF toggle in the toolbar.
+-   **Strict Validation**: Preventing "search query" text from appearing as broken images.
+
+## Architecture Status
+-   **Frontend**: React + Tailwind (Verified Build)
+-   **Backend**: Node.js (Crawler Service)
+-   **AI**: Gemini 2.0 Flash (JSON-based generation)
+
+## Verification
+-   **Build**: Successful (`npm run build` passed).
+-   **Browser Test (Before Fixes)**: Confirmed truncated text and broken grid.
+-   **Code Fixes**: Applied specific CSS and React component updates to resolve these defects.

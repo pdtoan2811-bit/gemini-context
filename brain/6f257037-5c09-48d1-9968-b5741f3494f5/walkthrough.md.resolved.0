@@ -1,0 +1,36 @@
+# Walkthrough: Transition to Ecommerce Mock Data
+
+I have successfully transitioned the Adecos MVP mockup data from a general mix of programs to a dedicated **E-commerce and Retail** focus.
+
+## Changes Made
+
+### 1. Documentation Update
+*   **PRD.md**: Updated user personas, stories, and feature descriptions to reflect E-commerce use cases.
+*   **SRS.md**: Updated data models and JSON examples with E-commerce specific values (Shopee, Lazada, etc.).
+
+### 2. Backend Logic
+*   **mock_data_generator.py**: Replaced Forex/Crypto programs with Shopee, Lazada, Amazon, TikTok Shop, Tiki, Uniqlo, Adidas, Sephora, Razer, and PetSmart. Adjusted metric generation for E-commerce CTR/ROAS.
+*   **intent_classifier.py**: Updated few-shot examples to focus on E-commerce intents.
+
+### 3. Frontend Data & Context
+*   **mockAdsData.js**: Updated all mock campaigns to E-commerce themes (e.g., "Shopee 11.11 - Flash Sale").
+*   **mockAdsManager.js**: Updated all ad accounts and creative assets.
+*   **mockEcommerceAffiliates.js**: Created a new file for deep research data (renamed from [mockCryptoAffiliates.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockCryptoAffiliates.js)).
+*   **AdsContext.jsx**: Incremented `localStorage` version keys to force a refresh, ensuring the new data is displayed without manual cache clearing.
+
+## Verification Results
+
+### Ads Management (Quản lý Ads)
+The tables now correctly display E-commerce accounts and campaigns. Legacy names like "Exness" and "Binance" have been removed.
+
+![Ads Management Dashboard](file:///C:/Users/ADMIN/.gemini/antigravity/brain/6f257037-5c09-48d1-9968-b5741f3494f5/.system_generated/click_feedback/click_feedback_1773504174949.png)
+
+### Deep Research Page
+The research report demo now shows E-commerce brands with realistic traffic and commission metrics.
+
+![Deep Research E-commerce](file:///C:/Users/ADMIN/.gemini/antigravity/brain/6f257037-5c09-48d1-9968-b5741f3494f5/.system_generated/click_feedback/click_feedback_1773503549378.png)
+
+### Analytics Dashboard
+The analytics filters and keywords are now fully aligned with E-commerce trends.
+
+![Analytics Dashboard](file:///C:/Users/ADMIN/.gemini/antigravity/brain/6f257037-5c09-48d1-9968-b5741f3494f5/.system_generated/click_feedback/click_feedback_1773503457820.png)

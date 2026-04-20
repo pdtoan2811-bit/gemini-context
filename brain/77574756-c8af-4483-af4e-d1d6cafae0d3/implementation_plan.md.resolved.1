@@ -1,0 +1,31 @@
+# Refinement of AI Interaction & UX
+
+This plan addresses three specific requests to refine the user experience and AI interaction:
+1. Extracting/Defining the traffic generation prompt.
+2. Removing the autocomplete feature.
+3. Implementing dynamic thinking process prompts to replace the static loading message.
+
+## User Review Required
+> [!IMPORTANT]
+> The thinking process prompts will be generated dynamically by an AI request. This may add a slight overhead to the initial request.
+
+## Proposed Changes
+
+### Backend
+- **Mock Data:** Identify if there's a hidden prompt for traffic generation or if it should be externalized.
+- **Thinking Prompts:** Create a new endpoint or update `chat/stream` to return 10 "thinking" strings based on the user's query.
+
+### Frontend
+- **Autocomplete Elimination:** Remove usage of `useAutocomplete.js` and any related UI components in `ChatInterface.jsx`.
+- **Loading UI Update:** Replace "Adecos đang suy nghĩ" with a rotating list of 10 dynamic thinking prompts received from the backend.
+
+### Documentation
+- **PRD:** Update section 4.3 (UX) and 3.1 (AI Chat) to reflect the removal of autocomplete and addition of dynamic thinking states.
+- **SRS:** Update the message flow to include the "Thinking" state generation.
+
+## Verification Plan
+### Automated Tests
+- Verify `npm run dev` and `python main.py` still start correctly.
+- Check that the search bar no longer shows autocomplete suggestions.
+### Manual Verification
+- Send a message in chat and verify that 10 different, context-relevant "thinking" messages appear before the actual response.

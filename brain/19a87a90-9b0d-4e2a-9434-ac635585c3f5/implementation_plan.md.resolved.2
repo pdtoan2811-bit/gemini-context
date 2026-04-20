@@ -1,0 +1,28 @@
+# Implementation Plan: Refining Intent Classification
+
+**Goal**: Ensure queries like "Top campaigns by CPC" or "Ranking" result in **Charts** (Data Analysis), not Table Lists (Data Query).
+
+## User Review Required
+> [!IMPORTANT]
+> This changes how "list" vs "chart" intents are decided. Explicit requests for "list" or "table" will still get tables, but ambiguous "which is best" queries will now default to visual charts.
+
+## Proposed Changes
+
+### Backend
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py)
+- **[classify_intent](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/intent_classifier.py#49-119) Prompt**:
+    -   **[data_analysis](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-316)**: Covers ALL internal data queries. "List", "Show", "Rank", "Compare" own campaigns/accounts -> ALWAYS [data_analysis](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-316).
+    -   **[research](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/intent_classifier.py#134-147)**: Covers external data. "Find programs", "Search niche", "Affiliate networks" -> [research](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/intent_classifier.py#134-147).
+    -   **[data_query](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#345-388)**: REMOVE or Deprecate. User explicitly banned tables for internal data.
+- **[execute_data_query_crew](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#345-388)**: Warn or redirect if routed here for internal data, or just remove the routing path.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Test Internal "List" Query**:
+    -   Query: "List all campaigns"
+    -   Expectation: Intent [data_analysis](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-316). Result: Bar Chart (Top 10-20).
+2.  **Test Research Query**:
+    -   Query: "Find gaming affiliate programs"
+    -   Expectation: Intent [research](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/intent_classifier.py#134-147). Result: Table.

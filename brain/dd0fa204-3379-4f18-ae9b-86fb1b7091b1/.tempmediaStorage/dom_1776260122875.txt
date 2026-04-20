@@ -1,0 +1,96 @@
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+[6] (483,19)<a title='Open GitHub Repo'>remotion />
+/
+[7] (522,19)<a title='mythos-short'>mythos-short />
+[8] (972,19)<button  />
+[9] (984,19)<button  />
+[10] (50,60)<div role='button'>Compositions />
+[11] (150,60)<div role='button'>Assets />
+mythos-short
+1080
+x
+1920
+, 30 FPS
+Duration
+01:40.20
+[12] (100,167)<button >Search... />
+	[13] (180,167)<span >Ctrl
++K />
+[14] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[15] (100,238)<a class='__remotion-composition' title='ai-editor-short'>ai-editor-short />
+	ai-editor-short
+[16] (100,272)<a class='__remotion-composition' title='trump-iran-short'>trump-iran-short />
+	trump-iran-short
+[17] (100,307)<a class='__remotion-composition' title='trump-iran-apr14'>trump-iran-apr14 />
+	trump-iran-apr14
+[18] (100,342)<a class='__remotion-composition' title='news-short-v2'>news-short-v2 />
+	news-short-v2
+[19] (100,377)<a class='__remotion-composition' title='mythos-short'>mythos-short />
+	mythos-short
+	[20] (176,377)<button  />
+	[21] (188,377)<button  />
+[22] (100,412)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+[23] (480,368)<div  />
+[24] (821,60)<div role='button'>Props />
+[25] (940,60)<div role='button'>Renders />
+	Renders
+Make the props of this composition interactively editable by adding a
+schema
+prop to the
+<Composition>
+component.
+[26] (880,420)<button  />
+	[27] (880,420)<div >Learn how />
+[28] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[29] (87,728)<button role='button' title='Zoom in timeline' />
+[30] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[31] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[32] (499,728)<button aria-label='Play' title='Play' />
+[33] (513,728)<button aria-label='Step forward one frame' title='Step forward one frame' />
+[34] (535,728)<button aria-label='Loop video' title='Loop video' />
+[35] (552,728)<button aria-label='Mute video' title='Mute video' />
+[36] (591,728)<button aria-label='Mark Out (O) - right click to clear' title='Mark Out (O) - right click to clear' />
+[37] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[38] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />
+[39] (969,728)<div  />
+	[40] (969,728)<button id='render-modal-button' />
+		[41] (969,728)<div  />
+			[42] (974,728)<span >Render />
+[43] (500,880)<div class='css-reset __remotion-vertical-scrollbar' scrollable='true' />
+	[44] (40,815)<div ><TransitionSeries> />
+	[45] (100,815)<div >MythosShort.tsx:935 />
+	[46] (47,842)<div ><TS.Sequence> />
+	[47] (103,842)<div >MythosShort.tsx:941 />
+	[48] (57,883)<div >s01-cold-open.jpg />
+	[49] (116,883)<div >MythosShort.tsx:282 />
+	[50] (67,924)<div >s01-cold-open.mp3 />
+	[51] (127,924)<div >MythosShort.tsx:879 />
+	[52] (47,951)<div ><TS.Sequence> />
+	[53] (103,951)<div >MythosShort.tsx:941 />
+	[54] (47,979)<div ><TS.Sequence> />
+	[55] (103,979)<div >MythosShort.tsx:941 />
+	<TS.Sequence>
+	MythosShort.tsx:941
+	00:00.00
+	[56] (237,781)<button class='__remotion_input_dragger' />
+		[57] (237,780)<span >0 />
+	0
+	0
+	00:11.00
+	00:22.00
+	00:33.00
+	00:44.00
+	00:55.00
+	01:06.00
+	01:17.00
+	01:28.00
+	01:39.00

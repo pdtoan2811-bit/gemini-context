@@ -1,0 +1,46 @@
+# Project SpecOps - Walkthrough
+
+## Overview
+SpecOps is an adversarial product design engine. It uses AI agents (Strategist, Architect, Manager) to roast and refine your product ideas in real-time.
+
+## Architecture
+- **Frontend**: Next.js 15 + Tailwind CSS v4. Split-pane UI ("War Room" & "Living Doc").
+- **Backend**: FastAPI + WebSocket. Handles real-time agent streaming.
+- **Agents**: CrewAI (Mocked for UI demo, ready for integration).
+
+## Setup & Run
+
+### 1. Backend
+```powershell
+cd backend
+python -m venv venv
+venv\scripts\activate
+pip install fastapi uvicorn crewai langchain_openai python-dotenv
+uvicorn main:app --reload
+```
+Server runs at: `http://localhost:8000`
+
+### 2. Frontend
+```powershell
+cd frontend
+npm install
+npm run dev
+### 3. All-in-One Launch (Recommended)
+You can run both the backend and frontend simultaneously using the provided batch script:
+```powershell
+.\run_app.bat
+```
+This will open two new terminal windows for the backend and frontend services.
+1. **Open the App**: Navigate to the local URL.
+2. **War Room (Left)**: You will see a "Waiting for agents..." status.
+3. **Launch**: Enter an idea (e.g., "AI Toaster") in the floating bar and click "Launch".
+4. **Observe**:
+    - **Logs**: The "War Room" fills with thought logs from the Strategist, Architect, and Manager.
+    - **Doc**: The "Living Doc" (Right) updates continuously with the drafted PRD.
+5. **Interrupt**: Click "Stop" to halt the generation (simulated).
+
+## Code Structure
+- `backend/main.py`: WebSocket entry point.
+- `backend/agents.py`: CrewAI Agent definitions.
+- `frontend/hooks/use-socket.ts`: Manages the WebSocket connection.
+- `frontend/components/WarRoom.tsx`: Visualizes the agent logs.

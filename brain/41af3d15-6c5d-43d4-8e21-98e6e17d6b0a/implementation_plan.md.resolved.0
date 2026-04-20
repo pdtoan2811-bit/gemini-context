@@ -1,0 +1,66 @@
+# Implementation Plan - NextStep v2.0
+
+# Goal Description
+Implement NextStep v2.0, a visual orchestration platform for AI Agents using the **Model Context Protocol (MCP)**.
+The goal is to transition from a proprietary plugin system to a universal MCP Host architecture where "Maestro" orchestrates MCP Servers (Agents) and visualizes the interaction on an infinite React Flow canvas.
+
+## User Review Required
+> [!IMPORTANT]
+> **Neo4j Requirement**: The SRS specifies Neo4j. This plan assumes a local Neo4j instance is available at standard ports. If not, we may need to fallback to a mock or embedded graph for development.
+> **Gemini API Key**: Requires `GOOGLE_API_KEY` for the Orchestrator.
+> **MCP SDKs**: We will use standard `mcp` for Python and `@modelcontextprotocol/sdk` if needed for TS agents (though the first agent is Python).
+
+## Proposed Changes
+
+### Structure
+The project will be split into `backend/` and `frontend/`.
+
+### Backend (Maestro)
+Built with FastAPI. Acts as the MCP Host.
+
+#### [NEW] [backend/main.py]
+Entry point. Sets up FastAPI app, initializes Maestro, and exposes HTTP endpoints for the frontend.
+
+#### [NEW] [backend/maestro/orchestrator.py]
+The core logic.
+- Manages MCP Client connections to sub-processes.
+- Handles the "Meta-Graph" generation using Gemini.
+- Routes data between agents.
+
+#### [NEW] [backend/maestro/graph_db.py]
+Neo4j interface for persisting the playlist state.
+
+#### [NEW] [backend/agents/researcher/server.py]
+A sample MCP Server ("Researcher") using `mcp.server.fastmcp` (if available) or standard `Server`.
+- Tool: `research_topic(query)`
+
+### Frontend (The Canvas)
+React 18 + Vite + React Flow.
+
+#### [NEW] [frontend/src/App.tsx]
+Main layout with the Glassmorphism UI.
+
+#### [NEW] [frontend/src/components/Canvas.tsx]
+Wraps React Flow. Renders `AgentNode` and `DataNode` custom node types.
+
+#### [NEW] [frontend/src/components/Hud.tsx]
+The "Visual Debugger" overlay showing raw MCP JSON-RPC messages.
+
+#### [NEW] [frontend/src/services/api.ts]
+Communication with Maestro (HTTP/WebSocket).
+
+## Verification Plan
+
+### Automated Tests
+- Backend: `pytest` to verify MCP connection and graph generation logic.
+- Frontend: Browser-based verification.
+
+### Manual Verification
+1.  Start Neo4j (User provided).
+2.  Start Backend (`uvicorn backend.main:app`).
+3.  Start Frontend (`npm run dev`).
+4.  Enter prompt: "Research Quantum Computing".
+5.  Verify:
+    - Maestro spawns Researcher agent.
+    - Graph updates on Canvas.
+    - HUD shows tool calls.

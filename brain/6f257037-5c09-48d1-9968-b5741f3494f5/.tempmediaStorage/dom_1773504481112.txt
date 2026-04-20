@@ -1,0 +1,195 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+		[12] (121,230)<span >1 />
+	[13] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,291)<div  />
+			[15] (20,291)<span  />
+			[16] (53,291)<span >Quản lý Ads />
+	[17] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (44,351)<div  />
+			[19] (20,351)<span  />
+			[20] (52,351)<span >Thí nghiệm />
+	[21] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (51,411)<div  />
+			[23] (20,411)<span  />
+			[24] (59,411)<span >Deep Research />
+	[25] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,471)<div  />
+			[27] (20,471)<span  />
+			[28] (48,471)<span >Analytics />
+	[29] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,532)<div  />
+			[31] (20,532)<span  />
+			[32] (51,532)<span >Thông báo />
+	MVP v1.0
+	[33] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	[34] (572,500)<div class='flex-1 overflow-y-auto flex flex-col' scrollable='true' />
+		Quản lý tài khoản
+		Theo dõi, kiểm tra và quản lý tài sản quảng cáo
+		[35] (852,63)<button class='px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] text-sm font-medium rounded hover:opacity-90 transition-opacity'>+ Thêm tài khoản />
+		↻ Kiếm tra Status
+		[36] (191,144)<button class='
+                            pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                            text-[var(--text-primary)]
+                        '>Tài khoản Ads />
+		[37] (276,144)<button class='
+                            pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                            text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                        '>Quản lý Email />
+		[38] (351,144)<button class='
+                            pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                            text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                        '>Quản lý ID />
+		[39] (438,144)<button class='
+                            pb-3 text-sm font-medium uppercase tracking-widest transition-colors relative
+                            text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                        '>Quản lý chiến dịch />
+		Tổng ngân sách đã nạp
+		1.905.000.000 ₫
+		Tổng chi tiêu
+		1.751.100.000 ₫
+		Số dư còn lại
+		153.900.000 ₫
+		[40] (176,359)<button class='px-4 py-1.5 rounded-full text-xs font-medium border transition-colors bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]'>Tất cả />
+		[41] (226,359)<button class='px-4 py-1.5 rounded-full text-xs font-medium border transition-colors bg-transparent text-[var(--text-secondary)] border-[var(--border-color)] hover:border-[var(--text-secondary)]'>Google Ads />
+		[42] (281,359)<button class='px-4 py-1.5 rounded-full text-xs font-medium border transition-colors bg-transparent text-[var(--text-secondary)] border-[var(--border-color)] hover:border-[var(--text-secondary)]'>Meta Ads />
+		[43] (336,359)<button class='px-4 py-1.5 rounded-full text-xs font-medium border transition-colors bg-transparent text-[var(--text-secondary)] border-[var(--border-color)] hover:border-[var(--text-secondary)]'>TikTok Ads />
+		[44] (229,417)<input class='w-64 bg-[var(--bg-surface)] border border-[var(--border-color)] rounded px-3 py-2 text-sm text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:border-[var(--text-primary)] outline-none' placeholder='Tìm kiếm tài khoản / ID...' />
+		[45] (947,474)<button class='flex items-center gap-2 text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] px-3 py-1.5 border border-[var(--border-color)] rounded bg-[var(--bg-surface)] transition-colors'>👁️
+Tùy chỉnh cột />
+			👁️
+		[46] (569,719)<div class='overflow-x-auto rounded-md border border-[var(--border-color)]' scrollable='true' />
+			[47] (170,528)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			STT
+			ID
+			Tên ID
+			Ngân sách còn lại
+			Status tài khoản
+			Email
+			Nguồn
+			TK nguồn
+			Thời gian
+			Nhân sự Digital
+			Ngân sách đã nạp
+			Ngân sách đã nạp (API)
+			Chức năng
+			[48] (170,591)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			1
+			9923841102
+			MDW_Nike_Search_US
+			80.000.000 ₫
+			Active
+			growth@nike-direct.com
+			Via
+			John Smith
+			2026-01-15
+			Thomas
+			500.000.000 ₫
+			500.000.000 ₫
+			[49] (944,594)<button class='p-1 hover:text-[var(--text-primary)] text-[var(--text-secondary)] transition-colors' title='Edit'>✏️ />
+			[50] (964,594)<button class='p-1 hover:text-red-400 text-[var(--text-secondary)] transition-colors' title='Delete'>🗑️ />
+			[51] (170,665)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			2
+			1120039485
+			MDW_Sephora_Display_US
+			5.000.000 ₫
+			Low Budget
+			Warning
+			media@sephora.com
+			Clone
+			Jane Doe
+			2026-01-16
+			Thomas
+			200.000.000 ₫
+			200.000.000 ₫
+			[52] (944,664)<button class='p-1 hover:text-[var(--text-primary)] text-[var(--text-secondary)] transition-colors' title='Edit'>✏️ />
+			[53] (964,664)<button class='p-1 hover:text-red-400 text-[var(--text-secondary)] transition-colors' title='Delete'>🗑️ />
+			[54] (170,743)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			3
+			8829102039
+			MDW_BestBuy_Performance
+			20.000.000 ₫
+			Low Budget
+			Disabled
+			affiliate@bestbuy.com
+			Agency
+			Agency Partner
+			2026-01-20
+			Sarah
+			1.000.000.000 ₫
+			1.000.000.000 ₫
+			[55] (944,742)<button class='p-1 hover:text-[var(--text-primary)] text-[var(--text-secondary)] transition-colors' title='Edit'>✏️ />
+			[56] (964,742)<button class='p-1 hover:text-red-400 text-[var(--text-secondary)] transition-colors' title='Delete'>🗑️ />
+			[57] (170,817)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			4
+			FB_29384811
+			MDW_Sephora_Social
+			4.900.000 ₫
+			Pending
+			fb01@social-ads.com
+			BM50
+			Le Van C
+			2026-02-01
+			Thomas
+			5.000.000 ₫
+			[58] (944,820)<button class='p-1 hover:text-[var(--text-primary)] text-[var(--text-secondary)] transition-colors' title='Edit'>✏️ />
+			[59] (964,820)<button class='p-1 hover:text-red-400 text-[var(--text-secondary)] transition-colors' title='Delete'>🗑️ />
+			[60] (170,888)<input class='rounded bg-[var(--bg-surface)] border-[var(--border-color)]' />
+			5
+			FB_99887766
+			MDW_Amazon_Store_US
+			44.000.000 ₫
+			Active
+			amz01@social-ads.com
+			BM2500
+			Doan Van D
+			2026-01-25
+			Sarah
+			200.000.000 ₫
+			200.000.000 ₫
+			[61] (944,890)<button class='p-1 hover:text-[var(--text-primary)] text-[var(--text-secondary)] transition-colors' title='Edit'>✏️ />
+			[62] (964,890)<button class='p-1 hover:text-red-400 text-[var(--text-secondary)] transition-colors' title='Delete'>🗑️ />
+
+</current_dom>

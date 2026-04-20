@@ -1,0 +1,21 @@
+# Repository Synchronization & Verification
+
+- [x] Pull changes from remote `origin/main`
+- [x] Verify documentation consistency (PRD/SRS) <!-- id: 1 -->
+    - [x] Check for UI changes in `ProjectSettingsPage` and [ChatMessage](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatMessage.jsx#8-144)
+    - [x] Ensure docs reflect the current codebase
+
+# System Configuration
+- [x] Update [run_app.bat](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/run_app.bat) to start both Backend and Frontend <!-- id: 2 -->
+- [x] Install backend dependencies from [backend/requirements.txt](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/requirements.txt) <!-- id: 3 -->
+
+# Debugging
+- [x] Fix `'NoneType' object has no attribute 'lower'` error <!-- id: 4 -->
+- [x] Fix Date Range parsing ignoring "last X days" <!-- id: 5 -->
+- [x] Improve Narrative Relevance <!-- id: 6 -->
+
+# Feature: Rich Mock Data
+- [x] Create [backend/generate_mock_db.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/generate_mock_db.py) to generate realistic data <!-- id: 7 -->
+    - [x] Accounts, Campaigns, Keywords, Base Metrics
+- [x] Run generation script to create [backend/mock_db.json](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/mock_db.json) <!-- id: 8 -->
+- [x] Update [data_tools.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py) to load data from `mock_db.json` <!-- id: 9 -->

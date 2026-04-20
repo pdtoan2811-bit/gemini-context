@@ -1,0 +1,9 @@
+# Task: Debug white blank screen on localhost:5173
+
+## Checklist
+- [ ] Open http://localhost:5173/
+- [ ] Check for console errors
+- [ ] Capture screenshot of blank screen
+- [ ] Capture console logs
+- [ ] Identify error and location
+- [ ] Report findings

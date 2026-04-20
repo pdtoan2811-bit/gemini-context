@@ -1,0 +1,21 @@
+# Feature: Rich Mock Data
+- [x] Create `backend/generate_mock_db.py` to generate realistic data <!-- id: 7 -->
+    - [x] Accounts, Campaigns, Keywords, Base Metrics
+- [x] Run generation script to create `backend/mock_db.json` <!-- id: 8 -->
+- [x] Update `data_tools.py` to load data from `mock_db.json` <!-- id: 9 -->
+
+# Feature: Categorical Charts
+- [x] Upgrade `QueryAdsCampaignsTool` in `data_tools.py` <!-- id: 10 -->
+    - [x] Add support for `group_by` = "campaign" | "program" | "account"
+    - [x] Return aggregated metrics per category
+- [x] Update `agents.py` to handle "by [dimension]" queries <!-- id: 11 -->
+    - [x] Detect "by campaign", "by account" in user query
+    - [x] Select appropriate `chart_type` (Bar vs Line)
+    - [x] Configure chart `dataKey` and `xAxis` dynamically
+
+# Refinement: Strict Visuals for Own Data
+- [x] Update `classify_intent` Prompt <!-- id: 12 -->
+    - [x] `data_analysis` = All Own Data (List/Rank/Stats)
+    - [x] `research` = External Program Research ONLY (Tables)
+    - [x] Remove `data_query` usage for internal data
+- [x] Verify Chart vs Table output behavior <!-- id: 13 -->

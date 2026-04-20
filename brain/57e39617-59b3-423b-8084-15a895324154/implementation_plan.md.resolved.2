@@ -1,0 +1,46 @@
+# Debug & UI/UX Revamp: Ad Optimization Workflow
+
+Ensure the "Deep Dive" trigger consistently shows the to-do list confirmation and revamp the task management experience to be "WOW" and premium.
+
+## User Review Required
+> [!IMPORTANT]
+> I am revamping the to-do list to be more immersive and tactile. This includes transition animations and a "Control Center" feel for AI-generated actions.
+
+## Proposed Changes
+
+### [Frontend Debug]
+
+#### [MODIFY] [ChatMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ChatMessage.jsx)
+- Ensure the [workflow](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py#497-557) type is handled with the correct component and that state is properly initialized.
+- Add a "confirmation" hint if the approval bar is not immediately obvious.
+
+#### [MODIFY] [mockWorkflowData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockWorkflowData.js)
+- Refine the "Deep Dive" trigger to be more robust.
+- Ensure all workflows have high-quality to-do items.
+
+### [UI/UX Revamp]
+
+#### [MODIFY] [CompactWorkflowMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CompactWorkflowMessage.jsx)
+- Transform the right column into a "Tactile Task Center" with better glassmorphism.
+- Improve the progress visualization with smoother animations and premium colors.
+- Make the approval bar more prominent or integrate the sticky [ApprovalPanel](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/ApprovalPanel.jsx#3-174).
+
+#### [MODIFY] [SmartTaskCard.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/SmartTaskCard.jsx)
+- Add micro-animations using `framer-motion` for expansion and state changes.
+- Enhance the SMART detail view with better layout, "glass" effects, and clearer icons.
+- Add "AI Logic" tooltips to show *why* the AI recommended this specific parameter.
+
+#### [MODIFY] [ApprovalPanel.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/ApprovalPanel.jsx)
+- Upgrade the design to "Premium Glassmorphism" with better blur and border effects.
+- Add tactile success states with confetti or subtle particle effects on approval.
+
+## Verification Plan
+
+### Automated Tests
+- N/A (Manual UI verification)
+
+### Manual Verification
+1. Click "Deep Affiliate Research" on a campaign.
+2. Verify the workflow appears with a "WOW" task list.
+3. Verify the "Approval" bar is clearly visible and sticky (if applicable).
+4. Review the SMART detail animations and tactile feedback.

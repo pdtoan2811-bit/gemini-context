@@ -1,0 +1,103 @@
+# Microsoft Agent Framework Guide
+
+## 1. Navigating the Codebase
+The repository is structured to support both Python and .NET ecosystems. Here is how to navigate the key directories:
+
+| Directory | Purpose |
+| :--- | :--- |
+| **`python/packages`** | Contains the core libraries and integrations. Look here to see what modules are available (e.g., `azure-openai`, `ollama`, `devui`). |
+| **`python/samples`** | The best place to learn. Split into `getting_started/agents` (basic bots) and `getting_started/workflows` (complex orchestration). |
+| **`dotnet/src`** | Source code for the .NET implementation. |
+| **`dotnet/samples`** | Equivalent samples for .NET developers. |
+| **`docs`** | High-level design documents and architectural decisions. |
+
+### Key Files for Beginners
+- [README.md](file:///c:/Users/ADMIN/Desktop/nextstep%20ver%204/microsoft-agent-framework/README.md): The starting point with installation instructions and links to official docs.
+- `python/samples/getting_started/agents/openai_chat_client_with_function_tools.py`: Demonstrates the core loop of Agent + Tools.
+- [python/samples/getting_started/workflows/orchestration/group_chat_agent_manager.py](file:///c:/Users/ADMIN/Desktop/nextstep%20ver%204/microsoft-agent-framework/python/samples/getting_started/workflows/orchestration/group_chat_agent_manager.py): Shows how to orchestrate multiple agents.
+
+## 2. Available AI Tools and Capabilities
+The framework provides a modular set of tools and agent providers.
+
+### Core Integrations (Providers)
+- **OpenAI**: `agent_framework.openai` - Support for GPT models.
+- **Azure OpenAI**: `azure.ai.openai` - Enterprise-grade AI on Azure.
+- **Azure AI Search**: Integration for RAG (Retrieval-Augmented Generation).
+- **Ollama**: `ollama` - Support for local models like Llama 3, Mistral.
+- **Anthropic**: Support for Claude models.
+- **Model Context Protocol (MCP)**: Built-in support for connecting to external tools via MCP.
+
+### Built-in Capabilities
+- **Function Calling**: Automatically convert Python/C# functions into tools for agents.
+- **Orchestration**:
+    - **Group Chat**: Multiple agents debating or collaborating.
+    - **Handoffs**: Transferring control from one agent to another (e.g., Triage -> Specialist).
+    - **Sequential**: Linear pipelines of agents.
+- **Human-in-the-loop**: Mechanisms to pause and wait for user approval or input.
+- **Observability**: OpenTelemetry integration for tracing agent thoughts and execution.
+- **DevUI**: A visual interface for debugging and testing agents.
+
+## 3. How to Develop an App
+Here is the standard workflow for building a Python-based agent application.
+
+### Step 1: Installation
+```bash
+pip install agent-framework --pre
+# For specific providers, e.g., Azure
+pip install azure-ai-agent-openai
+```
+
+### Step 2: Define Tools
+Create standard Python functions. The framework uses type hints and docstrings to generate schemas for the LLM.
+```python
+from typing import Annotated
+from pydantic import Field
+
+def get_stock_price(symbol: Annotated[str, Field(description="The stock symbol")]) -> str:
+    """Get the current stock price."""
+    return f"{symbol} is trading at $150.00"
+```
+
+### Step 3: Create an Agent
+Initialize an agent with a client (LLM provider), instructions, and tools.
+```python
+from agent_framework import ChatAgent
+from agent_framework.openai import OpenAIChatClient
+
+agent = ChatAgent(
+    chat_client=OpenAIChatClient(), # Reads OPENAI_API_KEY from env
+    instructions="You are a helpful financial assistant.",
+    tools=[get_stock_price]
+)
+```
+
+### Step 4: Run the Agent
+Execute the agent with a query.
+```python
+import asyncio
+
+async def main():
+    response = await agent.run("How is MSFT doing today?")
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Step 5: Advanced Orchestration (Workflows)
+For complex apps, use the workflow primitives to connect agents.
+```python
+# Conceptual example of a handoff
+from agent_framework.orchestration import Handoff
+# Define logic to transfer from TriageAgent to SupportAgent
+handoff = Handoff(
+    from_agent=triage_agent,
+    to_agent=support_agent,
+    when=lambda history: "help" in history.last_message
+)
+```
+
+### Recommendations
+1. **Start with Samples**: Copy a file from `python/samples/getting_started/agents` that matches your use case.
+2. **Use DevUI**: Run the DevUI to visualize your agent's decision-making process.
+3. **Environment**: Ensure `.env` files are set up with your API keys (Azure or OpenAI).

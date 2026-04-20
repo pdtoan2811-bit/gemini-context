@@ -1,0 +1,35 @@
+# Implementation Plan - Server-Side Parser (Local)
+
+## Goal Description
+Implement a local Node.js/Express server to handle URL content parsing.
+This replaces the third-party Jina proxy service and ensures all content processing happens locally, adhering to the "Server Side Call" requirement.
+
+## Proposed Changes
+
+### [Server Infrastructure]
+#### [NEW] [server/package.json](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/server/package.json)
+- Dependencies: `express`, `cors`, `axios`, `jsdom`, `@mozilla/readability`.
+#### [NEW] [server/index.js](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/server/index.js)
+- **Endpoint**: `GET /parse?url=...`
+- **Logic**:
+    1.  Fetch HTML using `axios`.
+    2.  Parse with `jsdom` + `readability`.
+    3.  Return JSON: `{ title, content, textContent, excerpt }`.
+
+### [Client Application]
+#### [MODIFY] [client/src/App.jsx](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/client/src/App.jsx)
+- **Update `fetchContent` helper**:
+    - Replacing `r.jina.ai` fetch with `http://localhost:3001/parse?url=...`.
+    - Handle the new JSON response format.
+
+## Verification Plan
+
+### Automated Tests
+- Run `node server/index.js` and `curl "http://localhost:3001/parse?url=https://example.com"` to verify JSON output.
+
+### Manual Verification
+1.  Start Server (`cd server && npm start`).
+2.  Start Client (`npm run dev`).
+3.  Paste a URL into the Client Input.
+4.  Verify that the Node is created with `Thinking...` and then populates with the Parsed Title/Summary.
+5.  Open "Read Mode" and verify clean content is displayed.

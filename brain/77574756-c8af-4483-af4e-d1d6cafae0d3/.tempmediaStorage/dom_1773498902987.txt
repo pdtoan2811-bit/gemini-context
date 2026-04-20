@@ -1,0 +1,157 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+	[12] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,291)<div  />
+			[14] (20,291)<span  />
+			[15] (53,291)<span >Quản lý Ads />
+	[16] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (44,351)<div  />
+			[18] (20,351)<span  />
+			[19] (52,351)<span >Thí nghiệm />
+	[20] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (51,411)<div  />
+			[22] (20,411)<span  />
+			[23] (59,411)<span >Deep Research />
+	[24] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,471)<div  />
+			[26] (20,471)<span  />
+			[27] (48,471)<span >Analytics />
+	[28] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,532)<div  />
+			[30] (20,532)<span  />
+			[31] (51,532)<span >Thông báo />
+	MVP v1.0
+	[32] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (572,492)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Dossier
+		Visit Link ↗
+		15
+		%
+		CPS
+		✕
+		✕
+		NaN
+		M
+		8.8
+		Ulta Beauty
+		Visit Link ↗
+		4
+		%
+		CPA
+		✕
+		✕
+		NaN
+		M
+		9.8
+		FragranceX
+		[34] (341,141)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://fragrancex.com' title='Visit Program Link'>Visit Link ↗ />
+		12
+		%
+		CPS
+		✕
+		✕
+		NaN
+		M
+		9.2
+		[35] (959,141)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		Macy's
+		[36] (341,207)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://macys.com' title='Visit Program Link'>Visit Link ↗ />
+		6
+		%
+		CPA
+		✕
+		✕
+		NaN
+		M
+		9.6
+		[37] (959,207)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		Nordstrom
+		[38] (341,273)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://nordstrom.com' title='Visit Program Link'>Visit Link ↗ />
+		7
+		%
+		CPA
+		✕
+		✕
+		NaN
+		M
+		9.7
+		[39] (959,273)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		Saks Fifth Avenue
+		[40] (341,339)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://saksfifthavenue.com' title='Visit Program Link'>Visit Link ↗ />
+		8
+		%
+		CPA
+		✕
+		✕
+		NaN
+		M
+		9.4
+		[41] (959,339)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		MicroPerfumes
+		[42] (341,405)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://microperfumes.com' title='Visit Program Link'>Visit Link ↗ />
+		10
+		%
+		CPS
+		✕
+		✕
+		NaN
+		M
+		8.5
+		[43] (959,405)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		10 Kết quả
+		[44] (897,476)<button class='flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full transition-all duration-300 text-xs uppercase tracking-widest'>⚡
+Deep Affiliate Research />
+			⚡
+		CPC nước hoa biến động thế nào tuần qua?
+		Adecos đang suy nghĩ...
+	[45] (314,968)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+		[46] (289,968)<input class='w-4 h-4 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+		[47] (320,968)<span >Deep Research />
+	i
+	[48] (812,968)<button class='text-[10px] uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'>⟲ Restart Onboarding Demo />
+
+</current_dom>

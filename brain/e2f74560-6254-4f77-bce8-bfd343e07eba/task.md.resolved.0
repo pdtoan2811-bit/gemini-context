@@ -1,0 +1,14 @@
+# Task: Trump-Iran Apr14 YouTube Short
+
+## Pipeline
+- [ ] Create image fetching script (`fetch-images-apr14.ts`)
+- [ ] Run image fetching
+- [ ] Generate AI fallback images for missing scenes
+- [ ] Create voiceover generation script (`generate-voiceover-apr14.ts`)
+- [ ] Run voiceover generation
+- [ ] Create Remotion composition (`TrumpIranApr14.tsx`)
+- [ ] Register in Root.tsx
+- [ ] Update BRD.md
+- [ ] Update PRD.md
+- [ ] Update SRS.md
+- [ ] Verify in Remotion Studio

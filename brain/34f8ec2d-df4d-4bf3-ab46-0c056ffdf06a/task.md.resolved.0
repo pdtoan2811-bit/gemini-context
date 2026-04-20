@@ -1,0 +1,19 @@
+# Trump-Iran Short — Task Tracker
+
+## Phase 1: Documentation
+- [/] Update BRD.md
+- [/] Update PRD.md
+- [/] Update SRS.md
+
+## Phase 2: Assets
+- [/] Generate 10 AI background images
+- [ ] Create voiceover generation script
+- [ ] Run voiceover generation
+
+## Phase 3: Composition
+- [ ] Create TrumpIranShort.tsx component
+- [ ] Update Root.tsx with new composition
+
+## Phase 4: Verification
+- [ ] Preview in Remotion Studio
+- [ ] Verify audio sync and transitions

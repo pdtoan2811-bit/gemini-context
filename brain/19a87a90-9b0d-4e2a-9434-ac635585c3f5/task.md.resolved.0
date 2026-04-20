@@ -1,0 +1,6 @@
+# Repository Synchronization & Verification
+
+- [x] Pull changes from remote `origin/main`
+- [ ] Verify documentation consistency (PRD/SRS) <!-- id: 1 -->
+    - [ ] Check for UI changes in `ProjectSettingsPage` and `ChatMessage`
+    - [ ] Ensure docs reflect the current codebase

@@ -1,0 +1,52 @@
+# Task List
+
+- [x] Debug connection creation failure
+- [x] Implement Smart Hierarchy (Auto-Flip Child->Parent)
+- [x] Upgrade Auto-Linker Support
+    - [x] Analyze current prompt logic
+    - [x] Update Prompt to include 5 connection types
+    - [x] Update Parser to handle new connection types
+    - [x] Verify AI edge creation
+- [x] Implement Smart Parenting Logic
+    - [x] Update extract_metadata to accept folder context
+    - [x] Modify Weaver to provide folder list
+    - [x] Update Prompt to prioritize existing folders
+    - [x] Verify no "Inbox" creation
+    - [x] Verify semantic connection to closest node
+    - [x] Verify connection limits match config
+
+- [ ] Universal Search & RAG
+    - [x] Research & Plan RAG Architecture
+        - [x] Check `google-generativeai` capabilities for File Search
+        - [x] Design Online Search -> Graph Ingestion flow
+    - [x] Implement Online Search Agent
+        - [x] Create Google Search wrapper (Search Tool)
+        - [x] Implement result parsing & node creation
+        - [x] Integrate with Auto-Linker
+    - [x] Implement Local File RAG (Gemini)
+        - [x] Implement logic to upload/sync canvas files to Gemini
+        - [x] Implement retrieval for chat context
+    - [x] Orchestrate Universal Chat Workflow
+        - [x] Update `/api/v2/chat/message` endpoint
+        - [x] Step 1: Online Search & Populate
+        - [x] Step 2: Context Retrieval (Local + New Nodes)
+        - [x] Step 3: Generate Answer
+    - [x] Frontend Updates
+        - [x] Add Search Mode toggle or integrate into Chat
+        - [x] Visualize "Searching..." and "Populating..." states
+
+- [x] Chat Logic Revamp
+    - [x] Frontend: Make Universal Mode Default
+    - [x] Frontend: Remove "No Node Selected" blocker
+    - [x] Frontend: Implement "Global Context" vs "Focused Context" indicator
+    - [x] Backend: Ensure Universal Chat uses full graph summaries when no context is provided
+
+- [x] Improvements
+    - [x] Fix "Not Populating Canvas" (Verified Logic)
+    - [x] Enforce "ChatGPT-style" Citations (Markdown Hyperlinks)
+
+- [ ] Vertex AI Search Integration
+    - [ ] Install `google-cloud-discoveryengine`
+    - [ ] Update [SearchAgent](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py#12-112) to use Discovery Engine API
+    - [ ] Configure `PROJECT_ID`, `LOCATION`, `DATA_STORE_ID`
+    - [ ] Clean up/Deprecate legacy scrapers if unused

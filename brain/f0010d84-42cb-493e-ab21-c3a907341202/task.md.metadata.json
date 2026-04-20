@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Project task list for 'Adecos MVP', an AI-powered affiliate research tool.\nIncludes phases for Specifications (BRD/PRD/SRS), Environment Setup, Backend (FastAPI), Frontend (React), and Verification.\nCurrent focus: Specification and Initialization.",
+  "updatedAt": "2026-02-02T12:51:23.155814100Z"
+}

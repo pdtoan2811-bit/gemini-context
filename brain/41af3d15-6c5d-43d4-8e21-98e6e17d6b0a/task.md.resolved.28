@@ -1,0 +1,13 @@
+# Task Checklist
+
+- [x] Create [NodeDetailPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/NodeDetailPanel.tsx) for viewing rich content.
+- [x] Integrate [NodeDetailPanel](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/NodeDetailPanel.tsx#18-71) into [App.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/App.tsx) with sidebar layout.
+- [x] Update `analyst_agent` prompt to generating Markdown content.
+- [x] Implement `onNodeClick` handler in [Canvas.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/Canvas.tsx) and pass data to App.
+- [x] Style the sidebar with CSS for markdown rendering.
+- [x] Update [add_node](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#329-348) in [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py) to store `content` and `metadata`.
+- [x] Update [execute_tool](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#97-230) to pass content from expansion to [add_node](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#329-348).
+- [x] Create `synthesis_agent` prompt for article generation.
+- [x] Implement [synthesize_research](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#114-184) in [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py).
+- [/] Verify the full flow: Search -> Expand -> Synthesize -> View Article.
+- [ ] Refine prompts if content quality is low.

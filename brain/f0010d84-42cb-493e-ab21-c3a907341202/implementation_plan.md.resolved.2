@@ -1,0 +1,42 @@
+# Implementation Plan - Adecos MVP
+
+## User Review Required
+> [!IMPORTANT]
+> **Model Selection**: You specified `gemini-3-flash-preview`. Verify if this model ID is active. I will configure the backend to allow easy switching if `gemini-2.0-flash-exp` is the actual intended target. I'll invoke the API with the user-provided string first.
+
+## Proposed Changes
+
+### Documentation (Protocol Phase 1)
+#### [NEW] [BRD.md](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/BRD.md)
+- [x] Created. Defines the Business Value.
+#### [NEW] [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/PRD.md)
+- [x] Created. Defines## Conversational AI & Agentic Logic (Phase 2)
+### Backend (`backend/`)
+#### [MODIFY] [generator.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/generator.py)
+- **New Logic**: "Intent Router" (Simulated Agent).
+- **Function**: `generate_chat_stream(history: list)`
+- **Behavior**:
+    - If user needs data -> Generate JSON Table.
+    - If user needs explanation -> Generate Markdown Text.
+
+#### [MODIFY] [main.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/main.py)
+- **New Endpoint**: `POST /api/chat/stream` (Starts accepting conversation history).
+
+### Frontend (`frontend/`)
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/App.jsx)
+- **State**: Switch from single `data` state to `messages: Array<{type, content, role}>`.
+- **Layout**: "Chat Stream" layout (scrollable list) + "Sticky Input" (bottom).
+
+#### [MODIFY] [ChatInterface.jsx](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ChatInterface.jsx)
+- **Change**: Convert from "Center Hero" to "Bottom Bar" after first search.
+
+#### [NEW] [ChatMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ChatMessage.jsx)
+- **Purpose**: Renders User/AI messages. Handles "Table Widget" vs "Text Bubble".
+
+## Verification Plan
+### Automated Tests
+- Run backend and curl the streaming endpoint to verify JSON chunks.
+### Manual Verification
+- Open WebApp, type a specific niche (e.g., "Camping Gear").
+- Observe streaming results in the table.
+- Verify "Glassmorphism" look and "Vietnamese" text.

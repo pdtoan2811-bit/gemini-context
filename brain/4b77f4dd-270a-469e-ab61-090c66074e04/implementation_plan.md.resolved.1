@@ -1,0 +1,52 @@
+# Universal Search & RAG Implementation Plan
+
+The goal is to enable "Universal Search" where the system searches both the web (Google) and the local graph (RAG) to answer user queries, populating the canvas with relevant external information.
+
+## User Review Required
+
+> [!NOTE]
+> This introduces a new "Universal Search" toggle in the Chat Interface. When enabled, queries will take longer as they perform a real-time web search.
+
+## Proposed Changes
+
+### Backend - Search Infrastructure
+#### [NEW] [core/search_agent.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py)
+- Implements [SearchAgent](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py#11-92) class wrapping `googlesearch-python`.
+- Handles Google Search execution and content fetching/parsing.
+
+### Backend - Chat Logic
+#### [MODIFY] [core/chat_bridge.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py)
+- Added [perform_universal_chat](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py#652-729) method.
+- Orchestrates:
+    1.  **Online Search**: Query Google -> Get Results.
+    2.  **Ingestion**: Create "External Research" nodes from search results.
+    3.  **Local RAG**: Retrieve graph context (including new nodes).
+    4.  **Synthesis**: Generate answer using Gemini 1.5 Flash (Long Context).
+
+#### [MODIFY] [main.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/main.py)
+- Added `POST /api/v2/chat/universal` endpoint.
+
+### Frontend - UI/UX
+#### [MODIFY] [api.js](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js)
+- Added [sendUniversalMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js#186-193) function.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx)
+- Added `isUniversalMode` state.
+- Updated [handleSendMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx#303-385) to route to universal endpoint when enabled.
+
+#### [MODIFY] [ChatInterface.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/ChatInterface.jsx)
+- Added **Globe Icon** toggle in the input bar.
+- visual indication of Search Mode (Blue border/glow).
+- Renders **Sources** (citations) below the assistant's message.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Launch App**: `npm run dev`.
+2.  **Toggle Search**: Click the Globe icon in the chat input.
+3.  **Ask Question**: Ask about a recent event (e.g., "What is the latest with Gemini 1.5?").
+4.  **Observe**:
+    - "Searching..." UI state/logs (in backend).
+    - New nodes appearing in the graph (or context) representing search results.
+    - Answer citing these sources.
+    - Sources list appearing below the answer.

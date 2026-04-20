@@ -1,0 +1,45 @@
+# Refinement of AI Interaction & UX
+
+This plan addresses three specific requests to refine the user experience and AI interaction:
+1. Extracting/Defining the traffic generation prompt.
+2. Removing the autocomplete feature.
+3. Implementing dynamic thinking process prompts to replace the static loading message.
+
+## User Review Required
+> [!IMPORTANT]
+> The thinking process prompts will be generated dynamically by an AI request. This may add a slight overhead to the initial request.
+
+## Proposed Changes
+
+### Backend
+- **Mock Data prompt:** Externalize the traffic generation logic into a prompt:
+  ```markdown
+  Generate mock advertisement traffic data for [CAMPAIGN_NAME]. 
+  Include daily records for the last 90 days with:
+  - Clicks: based on a base CTR of 1.5-8%
+  - Impressions: 100-5000 per day
+  - Cost: based on a base CPC of 2000-15000 VND
+  - Revenue: based on a conversion rate of 0.5-5.0% and AOV of 200k-5M VND
+  Apply weekend seasonality (0.9x impressions) and daily variance (0.7-1.3x).
+  ```
+- **Thinking Prompt API:** Create `POST /api/chat/thinking` to generate 10 "fake thinking" steps (e.g., "Analyzing campaign structure...", "Identifying top performing keywords...").
+
+### Frontend
+- **Remove Autocomplete:** 
+    - [DELETE] [useAutocomplete.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/hooks/useAutocomplete.js)
+    - [DELETE] [AutocompleteDropdown.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/chat/AutocompleteDropdown.jsx)
+    - [MODIFY] [ChatInput.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/chat/ChatInput.jsx) to remove all autocomplete logic.
+- **Dynamic Thinking UI:**
+    - [MODIFY] [ThinkingIndicator.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/ThinkingIndicator.jsx) to accept an array of 10 prompts and cycle through them every 1.5 seconds.
+    - [MODIFY] [ChatPage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/pages/ChatPage.jsx) to fetch these prompts from the backend when a request starts.
+
+### Documentation
+- **PRD:** Update section 4.3 (UX) and 3.1 (AI Chat) to reflect the removal of autocomplete and addition of dynamic thinking states.
+- **SRS:** Update the message flow to include the "Thinking" state generation.
+
+## Verification Plan
+### Automated Tests
+- Verify `npm run dev` and `python main.py` still start correctly.
+- Check that the search bar no longer shows autocomplete suggestions.
+### Manual Verification
+- Send a message in chat and verify that 10 different, context-relevant "thinking" messages appear before the actual response.

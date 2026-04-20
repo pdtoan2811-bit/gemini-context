@@ -1,0 +1,48 @@
+# Implementation Plan - Cognitive Canvas v2.0 Initialization
+
+# Goal Description
+Initialize the codebase for the "Cognitive Canvas v2.0" including the FastAPI backend, React frontend with React Flow, and necessary configuration for Neo4j and Gemini.
+
+## User Review Required
+> [!IMPORTANT]
+> This plan assumes a fresh start in the `nextstep-ver1` directory.
+> Ensure Neo4j instance is running and credentials will be available in `.env`.
+> Ensure Gemini API Key will be available in `.env`.
+
+## Proposed Changes
+
+### Backend
+#### [NEW] [main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/main.py)
+- Setup FastAPI app.
+- Configure CORS.
+- Define basic routes.
+
+#### [NEW] [database.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/database.py)
+- Neo4j driver connection logic.
+
+#### [NEW] [models.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/models.py)
+- Pydantic models for Node, Edge, and Graph responses.
+
+#### [NEW] [requirements.txt](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/requirements.txt)
+- `fastapi`, `uvicorn`, `neo4j`, `langgraph`, `google-generativeai`.
+
+### Frontend
+#### [NEW] [package.json](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/package.json)
+- React, React Flow, Axios.
+
+#### [NEW] [vite.config.js](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/vite.config.js)
+- Vite configuration.
+
+#### [NEW] [App.jsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/src/App.jsx)
+- Main entry point with React Flow canvas.
+
+#### [NEW] [index.css](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/src/index.css)
+- Tailwind imports and basic styles.
+
+## Verification Plan
+
+### Automated Tests
+- Run backend server: `uvicorn backend.main:app --reload`
+- Run frontend dev server: `npm run dev` in frontend dir.
+- Verify frontend loads and displays an empty React Flow canvas.
+- Verify backend health check endpoint.

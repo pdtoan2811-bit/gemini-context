@@ -1,0 +1,39 @@
+# Walkthrough - Structured Data Model & UI Fixes
+
+## Changes Implemented
+
+### 1. Robust JSON Generation
+-   **Service Layer**: Refactored [src/services/gemini.js](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/services/gemini.js) to prompt the AI for a strict JSON array instead of Markdown.
+-   **Parsing**: Removed fragile regex/markdown parsing. Implemented `JSON.parse` with error handling and sanitization (stripping code blocks).
+-   **Documentation**: Updated [SRS.md](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/docs/SRS.md) and [PRD.md](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/docs/PRD.md) to reflect the new data model (Array of Objects) and output format.
+
+### 2. UI/UX Polish
+-   **Slide Preview**: Implemented `ResizeObserver` in [ScaledSlide.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/ScaledSlide.jsx) to ensure the slide always fits the viewport without overflowing.
+-   **Layout**: Fixed flexbox constraints in [index.css](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/index.css) and removed inline style conflicts in [App.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/App.jsx). Sidebar now has a proper max-width.
+-   **Thumbnails**: Fixed [SlideSidebar.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideSidebar.jsx) to correctly scale mini-slides, ensuring content is visible and not blank.
+-   **Aesthetics**: Added subtle shadows to the slide paper and improved spacing.
+
+## Verification Steps
+
+### 1. Manual Verification
+> [!IMPORTANT]
+> Since this is a logic change to the AI response format, verification requires running the app and generating content.
+
+1.  **Start the Application**:
+    ```bash
+    npm run dev
+    ```
+2.  **Generate Slides**:
+    -   Enter a prompt (e.g., "History of AI").
+    -   Click "Generate".
+3.  **Confirm Success**:
+    -   **Visual**: Slides should appear in the preview and editor list.
+    -   **Scale**: The main slide should be fully visible and centered.
+    -   **Thumbnails**: Sidebar thumbnails should show text content, not white boxes.
+    -   **Console**: Open DevTools (F12) -> Console. Look for:
+        -   `Raw AI Output`: Should show a JSON string (possibly inside ` ```json `).
+        -   Start of slide array generation.
+
+### 2. Automated Test (Mental Check)
+-   **Why this works**: By enforcing a schema in the prompt, we eliminate the ambiguity of where a slide starts or ends (`---` was unreliable).
+-   **Sanitization**: Added `.replace` calls to handle cases where the AI adds markdown formatting around the JSON, ensuring robustness.

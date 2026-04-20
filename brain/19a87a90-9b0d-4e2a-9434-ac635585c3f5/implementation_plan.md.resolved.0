@@ -1,0 +1,41 @@
+# Implementation Plan: Categorical Chart Breakdowns
+
+**Goal**: Enable the AI Agent to generate charts broken down by dimensions like Campaign, Ad Account, Program, or Keyword (e.g., "ROAS by campaign"), not just time trends.
+
+## User Review Required
+> [!IMPORTANT]
+> This change modifies the core data aggregation logic. While time-series charts (default) should remain unaffected, please verify that existing time-based queries still work as expected.
+
+## Proposed Changes
+
+### Backend
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py)
+- **[classify_intent](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/intent_classifier.py#49-119)**: Update the prompt to extract a `group_by` entity (values: 'campaign', 'account', 'program', 'keyword', or null).
+- **[execute_data_analysis_crew](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-294)**: 
+    - Pass the extracted `group_by` to the data tool.
+    - Update chart generation logic:
+        - If `group_by` is categorical:
+            - Default `chart_type` to **'bar'** (or **'pie'** if implied).
+            - Set `xAxis` to the grouping key (e.g., 'campaign').
+            - Ensure `series` dataKeys match the calculated metrics.
+
+#### [MODIFY] [data_tools.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py)
+- **`QueryAdsCampaignsTool._run`**:
+    - Expand `group_by` logic.
+    - If `group_by` is in ['campaign', 'program', 'accountId', 'platform', 'keyword']:
+        - Iterate through standard daily data generation but aggregate based on the chosen key instead of date.
+        - Return data structure compatible with the frontend chart (list of objects with group key and metrics).
+
+## Verification Plan
+
+### Manual Verification
+1.  **Test Time Series (Regression Test)**:
+    - Query: "Show me clicks last 30 days"
+    - Expectation: Area/Line chart, x-axis = date.
+2.  **Test Categorical Breakdown**:
+    - Query: "Compare ROAS by campaign"
+    - Expectation: Bar chart, x-axis = campaign names, y-axis = ROAS.
+3.  **Test Account Breakdown**:
+    - Query: "Which account has the most cost?" (implies group by account)
+    - Expectation: Bar chart, x-axis = account names.

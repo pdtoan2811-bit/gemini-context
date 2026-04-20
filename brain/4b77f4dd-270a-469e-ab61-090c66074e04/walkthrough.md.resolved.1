@@ -1,0 +1,26 @@
+# Walkthrough - Universal Search & RAG
+
+I have successfully pulled the repository and implemented **Universal Search**, bridging the gap between Online Retrieval and Local Knowledge.
+
+## New Features
+1.  **Online Search Agent**: Utilizes Google Search to fetch real-time information.
+2.  **Smart Ingestion**: Automatically creates "External Research" nodes from search results, populating the canvas with fresh context.
+3.  **Universal Chat**: A new RAG pipeline that combines:
+    -   **Web Context**: Fresh results from Google.
+    -   **Graph Context**: Your existing notes and documents.
+    -   **Gemini 1.5 Flash**: Orchestrates the answer using a massive context window.
+4.  **UI Integration**: Added a "Globe" toggle to the chat bar for easy switching.
+
+## Previous Fixes
+1.  **Floating Edges**: Implemented dynamic edge connections.
+2.  **Interaction**: Fixed node dragging handles.
+3.  **Visualization**: Resolved invisible edges.
+
+## Verification results
+-   **Toggle**: The Globe icon correctly toggles `isUniversalMode`.
+-   **Search**: Verified backend logs show Google Search execution.
+-   **Citations**: Answers now include clickable source links.
+
+### Automated Session Recording
+Here is a recording of the graph interaction verification:
+![Verification Session](/verify_graph_fix_1765458023281.webp)

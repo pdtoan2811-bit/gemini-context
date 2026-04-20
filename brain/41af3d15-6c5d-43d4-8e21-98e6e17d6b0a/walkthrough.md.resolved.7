@@ -1,0 +1,82 @@
+# NextStep v2.0 Walkthrough
+
+We have successfully implemented the core architecture for NextStep v2.0.
+
+## 1. System Components
+
+### Backend (Maestro)
+- **Framework**: FastAPI (running on port 8000).
+- **Orchestrator**: [MaestroOrchestrator](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#9-189) initialized with Gemini 2.5 Flash.
+- **MCP Host**: `stdio` transport enabled.
+- **Agents**: `Researcher` agent configured as subprocess.
+
+### Frontend (The Canvas)
+- **Framework**: React 18 + Vite (running on port 5174).
+- **UI**: Glassmorphism design system using TailwindCSS.
+- **Canvas**: React Flow v11.
+- **Enhanced UI**:
+    - **Auto-Layout**: Integrated `dagre` for smart node positioning.
+    - **Custom Nodes**: Glassmorphic [AgentNode](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/AgentNode.tsx#5-31) and [DataNode](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/DataNode.tsx#5-29) cards.
+
+## 2. Verification
+
+### Manual Verification Steps
+1.  Run [start_nextstep.bat](file:///c:/Users/ADMIN/Desktop/nextstepver2/start_nextstep.bat) (Ensure previous instances are killed).
+2.  Open [Frontend](http://localhost:5174).
+3.  Enter a prompt: "Research Quantum Computing".
+4.  **Expect**:
+    - Canvas displays beautiful glass cards instead of gray boxes.
+    - Nodes are arranged top-down automatically.
+    - No "Okay I understand" error nodes.
+
+## 3. Screenshots (Placeholder)
+*(Embed screenshots here when available)*
+
+## 4. Work Completed (Phase 3)
+### Backend Fixes
+- Implemented Regex-based JSON extraction in [MaestroOrchestrator](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#9-189) to handle Gemini's conversational outputs robustly.
+
+### Frontend Polish
+- Created [AgentNode.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/AgentNode.tsx): Glassmorphic card with "Thinking" spinner.
+- Created [DataNode.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/DataNode.tsx): Scrollable result container.
+- Integrated `dagre` layout engine in [Canvas.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/Canvas.tsx) to solve overlap issues.
+
+### Phase 4: UI/UX Repair
+- **White Box Fix**: Overrode `.react-flow__node` styles in [index.css](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/index.css).
+- **Maestro Node**: Implemented [MaestroNode.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/MaestroNode.tsx) with premium Gold/Glass design.
+- **Animated Edges**: Enabled animated gradient edges by default.
+- **Debugger**: Enhanced [Hud.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/Hud.tsx) to show a live event stream.
+
+### Phase 5: Advanced Creative Workflow
+- **Maestro First**: Implemented Plan/Execute separation. User requests generate a "Playlist" (Plan) first.
+- **Context Menu**: Added Right-Click menu for "Add Note" and "Delete Node".
+- **Workspaces**: Implemented Multi-Canvas support with Sidebar switching.
+- **Backend**: Refactored [MaestroOrchestrator](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#9-189) to support multiple graph states keyed by `canvas_id`.
+
+### Phase 6: Real Integrations
+- **Google Search MCP**: Integrated `google-search-mcp` (v3).
+- **Backend Switched**: [MaestroOrchestrator](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#9-189) now spawns the real MCP server for [research_topic](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/agents/researcher/server.py#7-15) calls.
+- **Config**: Added Google API Keys to [.env](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/.env).
+
+## Phase 7: Deep Research & Semantic Expansion
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- **Breakdown Agent**: Update [generate_plan](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/main.py#25-31) to recursively break topics into sub-arguments.
+- **Deep Execution Loop**: 
+    1.  **Search**: Get URLs from Google Search MCP.
+    2.  **Extract**: Use `extract_webpage_content` tool (already in MCP) to get full text.
+    3.  **Synthesize**: Send text to Gemini to extract "Entities" and "Facts".
+    4.  **Graph Update**: Create nodes for Entities/Facts, linked to the Topic.
+- **Prompts**: Load prompts from a configurable `prompts.yaml` or database.
+
+#### [MODIFY] [frontend/src/components/PlaylistPanel.tsx]
+- Add "Play All" button to iterate through `playlist` automatically.
+
+#### [NEW] [frontend/src/components/PromptSettings.tsx]
+- Modal/Panel to edit the system prompts for "Breakdown", "Search Query", and "Synthesis".
+
+## Verification
+1.  **Flow**: Request "Christopher Nolan on IMAX".
+2.  **Expect**: 
+    - Plan breaks down into "Cameras", "Sound", "Visual Style".
+    - Clicking "Play All" triggers autonomous loop.
+    - Canvas populates with *specific facts* as nodes, not just one big search result.

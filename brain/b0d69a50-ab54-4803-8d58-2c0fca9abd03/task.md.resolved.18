@@ -1,0 +1,28 @@
+# Task: Implement CanvasMind with Microsoft Agent Framework
+
+- [x] Analyze Requirements and Design Agent Architecture <!-- id: 0 -->
+    - [x] Review PRD (CanvasMind.txt) and Agent Framework capabilities
+    - [x] Define Agent List and responsibilities
+    - [x] Design Data Models (Node, Edge, GraphState)
+- [x] Create Implementation Plan ([implementation_plan.md](file:///C:/Users/ADMIN/.gemini/antigravity/brain/b0d69a50-ab54-4803-8d58-2c0fca9abd03/implementation_plan.md)) <!-- id: 1 -->
+- [/] Initialize Project Structure <!-- id: 2 -->
+    - [/] Frontend: React + ReactFlow setup
+    - [x] Backend: Python + Agent Framework setup
+- [/] Implement Backend (Agent Framework Layer) <!-- id: 3 -->
+    - [x] Define Pydantic Models for Graph/Nodes
+    - [x] Implement [GraphAgent](file:///c:/Users/ADMIN/Desktop/nextstep%20ver%204/canvas-mind/backend/app/agents.py#11-65) with Structured Outputs
+    - [x] Create API endpoints for Frontend communication
+- [x] Implement Frontend (Visual Layer) <!-- id: 4 -->
+    - [x] Setup ReactFlow canvas
+    - [x] Implement Node rendering and Selection logic
+    - [x] Connect to Backend API
+- [x] Verify "Context Boundary" Logic <!-- id: 5 -->
+    - [x] Test node selection -> Prompt injection flow
+- [x] Write Walkthrough and Documentation <!-- id: 6 -->
+- [x] Debug Blank Screen Issue <!-- id: 7 -->
+- [x] Refactor UI/UX to match Premium Design <!-- id: 8 -->
+    - [x] Create Custom Node Component (Card Style)
+    - [x] Implement Floating Chat Panel Overlay
+    - [x] Apply "Dot Grid" and Light Theme aesthetic
+    - [x] Fix Missing Tailwind Configuration
+    - [x] Match Layout to Second Reference Image

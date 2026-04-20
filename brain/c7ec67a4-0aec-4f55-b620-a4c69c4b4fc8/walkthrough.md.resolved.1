@@ -1,0 +1,38 @@
+# Component-Based Slide Generation Walkthrough
+
+I have successfully transitioned the application to a component-based architecture ("Headless Slides") and addressed key user feedback regarding images, control, and aesthetics.
+
+## Changes Implemented
+
+### 1. New Data Model & Types
+- Updated [SlideLayout](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/types/index.ts#1-13) to support new master layouts: `hero`, `grid`, `timeline`, `split`, `metric`, `quote`.
+- Extended [SlideContent](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/types/index.ts#14-53) to support flexible props like `items`, `steps`, `stats`, and `quote`.
+
+### 2. Premium "Elastic" Components (UI Polish)
+I have applied a "Top-Tier" design aesthetic (inspired by Apple/Stripe) to all master layouts:
+-   **HeroSlide**: Added decorative gradient meshes, smart typography scaling (6xl-9xl), and elegant subtitle tracking.
+-   **GridSlide**: Implemented card-based layouts with `shadow-xl`, rounded corners (`rounded-[2rem]`), and dynamic grid sizing.
+-   **TimelineSlide**: Created a sleek horizontal flow with floating step nodes, shadow effects, and connecting lines.
+-   **SplitSlide**: Enhanced with a "floating" image container, deep shadows, and refined whitespace.
+-   **MetricSlide**: Uses massive ("14rem") gradient text for numbers to create high-impact data visualizations.
+-   **QuoteSlide**: Features classical serif typography for quotes, elegant positioning of oversized quotation marks, and polished citation styles.
+
+### 3. AI Service & Image Pipeline Updates
+-   **Image Fixing**: Restored the `crawlSourceForImages` service in [gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts).
+-   **Grounding Toggle**: Added a user-controlled "Google Grounding" toggle in the Toolbar.
+-   **Logic**: The [generateSlides](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts#28-136) function now accepts a `useGrounding` flag. If enabled, it searches the web, crawls distinct sources, and uses a second AI pass ("Fusion") to intelligently assign relevant images to slides.
+
+## Verification
+
+### Build Verification
+Ran `npm run build` to ensure type safety and successful compilation of all new components and logic.
+-   **Result**: ✅ Build Successful
+
+### Validated Scenarios
+-   **Images**: Verified that the code now attempts to fetch images from the local crawler service when Grounding is ON.
+-   **Toggle**: Validated that the Toolbar toggles the `useGrounding` state which is passed to the generation service.
+-   **Elasticity**: Confirmed via code that components adapt to 2 vs 3 columns ([GridSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/GridSlide.tsx#9-56)) and long vs short titles ([HeroSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/HeroSlide.tsx#9-53)).
+
+## Next Steps
+-   **Run the Backend**: Ensure the local crawler server (port 3001) is running so the image fetching actually works.
+-   **Generate**: Try generating a deck with Grounding ON to see the new images and polished UI in action.

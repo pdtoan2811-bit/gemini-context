@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for the Remotion Prompt Studio — a Vite + React web application that provides a prompt-based UI for generating Remotion videos through the Antigravity IDE. The architecture uses a local Express server as middleware between the web UI and the Remotion project, with WebSocket for real-time status updates. Users type a video prompt in the UI, the backend writes a task file that Antigravity processes, monitors for completion, then triggers server-side rendering and streams the output video back to the UI player.",
+  "updatedAt": "2026-04-20T14:41:52.208112700Z",
+  "requestFeedback": true
+}

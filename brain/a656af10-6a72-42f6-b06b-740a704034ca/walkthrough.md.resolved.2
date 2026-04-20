@@ -1,0 +1,97 @@
+# Walkthrough - Canvas AI (NextStep v3.0)
+
+This document guides you through running the newly implemented "Canvas AI" application.
+
+## Prerequisites
+
+- **Python 3.10+** (for the backend)
+- **Node.js 18+** (for the frontend)
+- **OpenAI API Key** (set as `OPENAI_API_KEY` environment variable)
+
+## 1. Quick Start
+
+Run the included batch script to automatically start the backend, frontend, and open your browser:
+```bash
+c:/Users/ADMIN/Desktop/nextstep-ver3/start_app.bat
+```
+
+## 2. Manual Startup
+
+If you prefer to run services manually:
+
+### Starting the Backend (Orchestrator)
+
+The backend handles the agent swarm and WebSocket streaming.
+
+1.  Navigate to the project root:
+    ```bash
+    cd c:/Users/ADMIN/Desktop/nextstep-ver3
+    ```
+2.  Install dependencies:
+    ```bash
+    pip install -r src/backend/requirements.txt
+    ```
+3.  Start the FastAPI server:
+    ```bash
+    uvicorn src.backend.main:app --reload --host 0.0.0.0 --port 8000
+    ```
+    *You should see: `Uvicorn running on http://0.0.0.0:8000`*
+
+## 2. Starting the Frontend (Infinite Canvas)
+
+The frontend provides the visual interface.
+
+1.  Navigate to the frontend directory:
+    ```bash
+    cd src/frontend
+    ```
+2.  Install dependencies (if not already done):
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open your browser to: `http://localhost:3000`
+
+## 3. Usage Guide
+
+### The Interface
+- **Center**: The Infinite Canvas (React Flow). You can pan and zoom.
+- **Top-Right**: The **Orchestrator Panel**. This shows the real-time "Thought Stream" of the agents.
+- **Top-Left**: Project status badge.
+
+### Exploring the Design
+- **Glassmorphism**: Notice the transparent, blurred panels (`backdrop-blur-xl`) mimicking the "Canvas AI" aesthetic.
+- **Agent Nodes**: The "Architect Agent" and "Critic Agent" nodes are mock-rendered on the canvas.
+    -   **Working State**: Distinct blue glow and animation.
+    -   **Thinking State**: Pulse animation with "Internal Monologue".
+- **Rich Media**: The "Input Node" (PDF) demonstrates the file card UI.
+
+## 5. Phase 2 Features (Enhanced UX)
+
+### Chat System (Use Case 1)
+- **Top-Left**: A new persistent floating chat window.
+- **Action**: Type "Hello" to chat with the Manager Agent.
+- **Action**: Type "Map the solar system" to trigger the **Canvas Agent**.
+
+### Canvas Generation (Use Case 2)
+- **Trigger**: Ask the chat to "Map [Topic]".
+- **Result**: The backend generates a structured Node Graph and automatically populates the React Flow canvas with new nodes and edges.
+
+### Doc Ingestion (Use Case 3)
+- **Trigger**: Drag and Drop any file onto the canvas background.
+- **Result**:
+    1.  A new Input Node appears immediately at the drop location.
+    2.  The `IngestionAgent` reads the file (mocked) and extracts metadata.
+    3.  The browser console/Orchestrator panel logs the Ingestion event.
+
+## 6. Verification
+
+- [x] **Frontend Build**: `npm run lint` passed.
+- [x] **Backend Logic**: [main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/main.py) and [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) implemented valid Python syntax.
+- [ ] **Integration**: Connects to `ws://localhost:8000/ws`. (Requires running backend).
+
+> [!NOTE]
+> Since this is a dev environment, the WebSocket connection in [OrchestratorPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/OrchestratorPanel.tsx) expects the backend to be running on port 8000. If the backend is not running, the panel will remain in "Awaiting task" state, but the UI will still be fully visible.

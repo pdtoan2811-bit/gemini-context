@@ -1,0 +1,10 @@
+# Task: Verify "ai-editor-short" Remotion Composition
+
+## Plan
+- [ ] Open http://localhost:3000
+- [ ] Locate and click "ai-editor-short" in sidebar
+- [ ] Wait for composition to load
+- [ ] Take screenshot of preview and timeline (frame 0)
+- [ ] Scrub to middle of timeline
+- [ ] Take screenshot of middle frame
+- [ ] Extract duration, verify source video, describe captions

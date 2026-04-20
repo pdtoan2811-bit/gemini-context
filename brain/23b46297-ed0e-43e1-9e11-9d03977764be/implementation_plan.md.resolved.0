@@ -1,0 +1,57 @@
+# Implementation Plan - DataToCharts Web UI
+
+## Goal Description
+Create a modern, "premium" web interface to interact with the existing CrewAI agent. The UI will allow users to upload CSV files or input text to generate Tremor chart configurations and implementation guides.
+
+## User Review Required
+> [!IMPORTANT]
+> The UI will require `node.js` and `npm` to be installed for the frontend, and `fastapi` `uvicorn` `python-multipart` for the backend.
+> The CrewAI agent will be executed as a library call within the FastAPI server.
+
+## Proposed Changes
+
+### Backend (`src/`)
+
+#### [NEW] [api.py](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/src/data_to_charts_automation/api.py)
+- FastAPI application.
+- Endpoint `POST /analyze`:
+    - Accepts `file: UploadFile` or `text: str`.
+    - Saves uploaded file to `temp/` (if provided).
+    - Initializes [DataToChartsAutomationCrew](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/src/data_to_charts_automation/crew.py#17-95).
+    - Calls [crew().kickoff(inputs={'data_source': ...})](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/src/data_to_charts_automation/crew.py#79-89).
+    - Returns the result (Markdown/JSON).
+- CORS middleware to allow frontend access.
+
+### Frontend ([ui/](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/src/data_to_charts_automation/crew.py#69-77))
+
+#### [NEW] [Vite Project](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/ui/)
+- Initialize using `npm create vite@latest`.
+- **Tech Stack**: React, TailwindCSS, Lucide-React (icons).
+- **Components**:
+    - `App.jsx`: Main layout.
+    - `InputSection.jsx`: Tabs for "Text Input" and "File Upload".
+    - `ResultSection.jsx`: Markdown renderer for the agent output.
+    - `LoadingState.jsx`: Premium loading animation (e.g., "Agents working...").
+
+### Configuration
+
+#### [MODIFY] [pyproject.toml](file:///c:/Users/ADMIN/Downloads/data_to_charts_automation_v1_crewai-project/pyproject.toml)
+- Add `fastapi`, `uvicorn`, `python-multipart`.
+
+## Verification Plan
+
+### Automated Tests
+- None planned for UI in this iteration (manual verification preferred for UI/UX).
+
+### Manual Verification
+1.  **Setup**:
+    - `pip install fastapi uvicorn python-multipart`
+    - `cd ui && npm install`
+2.  **Run Backend**: `uvicorn src.data_to_charts_automation.api:app --reload`
+3.  **Run Frontend**: `cd ui && npm run dev`
+4.  **Test Flow**:
+    - Open `http://localhost:5173`.
+    - Upload a sample CSV (I will create one).
+    - Click "Generate Charts".
+    - Verify the loading animation appears.
+    - Verify the agent logs (on backend console) and final output (on UI).

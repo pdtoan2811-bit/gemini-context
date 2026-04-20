@@ -1,0 +1,7 @@
+# Remotion Prompt-to-Video Setup
+
+- [x] Clone "Prompt to Video" template into AInewsvideo workspace
+- [/] Install npm dependencies
+- [/] Create Antigravity workspace skill (`.agents/skills/remotion/SKILL.md`)
+- [ ] Create docs (BRD, PRD, SRS)
+- [ ] Verify: `npm run dev` launches Remotion Studio

@@ -1,0 +1,3 @@
+- [x] Research Model Context Protocol (MCP) <!-- id: 23 -->
+- [x] Create NextstepPRD.md (Value & Behavior with MCP) <!-- id: 24 -->
+- [x] Create NextstepSRS.md (Architecture & Stack with MCP) <!-- id: 25 -->

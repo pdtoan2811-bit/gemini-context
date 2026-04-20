@@ -1,0 +1,36 @@
+# AI Slideshow Generator Walkthrough
+
+## Overview
+We have successfully built a premium "AI Slideshow Generator" web application. This tool allows users to generate professional slide decks using Gemini 3 Flash, edit them via a real-time Markdown editor, and export the results to PowerPoint or PDF.
+
+## User Flow
+1.  **Chat Interface**: User enters a prompt to generate slides.
+2.  **Visual Editor**: 
+    -   **Navigation**: Slides appear as thumbnails in the left sidebar. Click to navigate.
+    -   **Canvas**: The center pane shows the slide with "Apple Basic" style.
+    -   **Editing**: Click directly on the title or body text to edit inline (WYSIWYG).
+3.  **View Toggle**: Switch between "Chat Mode" (for AI interaction) and "Edit Mode" (full canvas focus).
+4.  **Export**: Export to PPTX or PDF using the top-right controls.
+
+## Technical Implementation
+-   **State Management**: `JSON Object Model` (`[{ id, title, content }]`). No markdown parsing.
+-   **Visual Editor**: [SlideCanvas](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideCanvas.jsx#4-42) with [ScaledSlide](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/ScaledSlide.jsx#3-59) (CSS Transforms) for resolution-independent 1920x1080 layout.
+-   **Theme**: "Light Mode" (Google Slides Fidelity).
+## Technical Implementation
+-   **State Management**: `JSON Object Model` (`[{ id, title, content }]`). No markdown parsing.
+-   **Visual Editor**: [SlideCanvas](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideCanvas.jsx#4-42) with [ScaledSlide](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/ScaledSlide.jsx#3-59) (CSS Transforms) for resolution-independent 1920x1080 layout.
+-   **Theme**: "Light Mode" (Google Slides Fidelity).
+-   **AI**: Gemini 1.5 Flash (JSON Mode) for reliable generation.
+
+## Validation
+-   **Build**: Production build passed (`vite build`).
+-   **Linting**: Fixed compatibility issues in styling.
+-   **Functionality**:
+    -   API integration verified with environment variables.
+    -   Markdown parsing handles titles and bullets.
+    -   Export utilities correctly parse the slide structure.
+
+## Next Steps
+-   Deploy to Vercel/Netlify.
+-   Add custom image generation using a specialized agent.
+-   Implement custom themes for the slide preview.

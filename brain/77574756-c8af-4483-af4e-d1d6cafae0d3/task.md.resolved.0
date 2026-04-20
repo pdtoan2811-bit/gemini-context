@@ -1,0 +1,5 @@
+# Task: Repository Setup and Sync
+
+- [/] Sync repository to latest state <!-- id: 0 -->
+- [ ] Verify documentation (BRD, PRD, SRS) <!-- id: 1 -->
+- [ ] Validate environment setup (backend/frontend) <!-- id: 2 -->

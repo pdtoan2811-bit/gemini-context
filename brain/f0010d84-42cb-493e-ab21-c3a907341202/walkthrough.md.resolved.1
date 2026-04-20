@@ -1,0 +1,43 @@
+# Walkthrough - Adecos MVP
+
+I have successfully initialized and implemented the **Adecos MVP**, an AI-powered affiliate research application, resolving initial UI and configuration issues.
+
+## 1. Specifications (Protocol 1.0)
+Strictly adhering to the "No Spec, No Service" protocol, I first created the required documentation:
+- **[BRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/BRD.md)**: Business Value.
+- **[PRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/PRD.md)**: UX/Behavior (Glassmorphism, No Chat Bubble).
+- **[SRS](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/SRS.md)**: Architecture (FastAPI + React).
+
+## 2. Implementation
+
+### Backend (FastAPI + Gemini)
+The backend uses **FastAPI** to serve a streaming endpoint `/api/research/stream`.
+- **Model**: Defaults to `gemini-2.0-flash-exp` for speed.
+- **Streaming**: Uses chunked JSON generation.
+
+**Key File**: [generator.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/generator.py)
+
+### Frontend (React + Tailwind v4)
+The frontend has been upgraded to **Tailwind CSS v4** and fully redesigned for a premium experience.
+- **Configuration**: Uses native CSS configuration (`@import "tailwindcss";`) and `@theme`.
+- **Design**: True Glassmorphism with Merriweather serif font and "noise-free" sophisticated gradients.
+- **Components**:
+    - **[ChatInterface](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ChatInterface.jsx)**: Large, elegant typography with a floating glass input bar.
+    - **[ResultsTable](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ResultsTable.jsx)**: Sortable columns, legitimacy score visualization.
+    - **[App](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/App.jsx)**: Clean slate-blue gradient background.
+
+### Fixes
+- **Build Error**: Removed unused `framer-motion` import.
+- **PostCSS Error**: Upgraded to `@tailwindcss/postcss`.
+- **UI Quality**: Fixed broken "blob" animations and improved input field styling.
+
+## 3. Usage
+1.  Run the **One-Click Script**:
+    ```batch
+    run_app.bat
+    ```
+2.  Or manually:
+    - Backend: `uvicorn main:app --reload` (Port 8000)
+    - Frontend: `npm run dev` (Port 5173)
+
+3.  **Test Niche**: "Camping Gear" -> Observe the streaming table results.

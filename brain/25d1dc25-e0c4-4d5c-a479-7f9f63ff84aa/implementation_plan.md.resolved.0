@@ -1,0 +1,65 @@
+# Implementation Plan - Prompt Configuration UI
+
+The goal is to allow users to configure the AI prompts (Analyst, Strategist, Writer, Editor) directly from the UI, rather than having them hardcoded in the backend.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This change moves prompts from [backend/services/chains.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/chains.py) to a JSON file `backend/data/prompts.json`.
+> - The initial migration will copy current hardcoded prompts to this JSON file.
+> - [chains.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/chains.py) will be refactored to load prompts dynamically.
+
+## Proposed Changes
+
+### Backend
+
+#### [NEW] [backend/data/prompts.json](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/data/prompts.json)
+- Store the 4 template strings: `analyst`, `strategist`, `writer`, `editor`.
+
+#### [NEW] [backend/services/prompts.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/prompts.py)
+- Service to handle reading/writing the JSON file.
+- `get_all_prompts()`
+- `update_prompt(key, new_template)`
+- Default initialization if file doesn't exist (using current hardcoded values).
+
+#### [NEW] [backend/api/prompts.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/api/prompts.py)
+- FastAPI router.
+- `GET /`: Returns all prompts.
+- `POST /`: Updates prompts.
+
+#### [MODIFY] [backend/services/chains.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/chains.py)
+- Remove hardcoded `ChatPromptTemplate` definitions.
+- Export functions `get_analyst_chain()`, `get_strategist_chain()`, etc.
+- These functions will:
+    1. Fetch the latest prompt string from `services.prompts`.
+    2. Create a `ChatPromptTemplate`.
+    3. Return the chain (`prompt | llm | parser`).
+
+#### [MODIFY] [backend/api/ingest.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/api/ingest.py)
+- Update usages of `chains.analyst_chain` to `chains.get_analyst_chain()`.
+
+#### [MODIFY] [backend/main.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/main.py)
+- Register the new `prompts` router.
+
+### Frontend
+
+#### [NEW] [frontend/lib/api.js](file:///c:/Users/ADMIN/Desktop/nexuslite/frontend/lib/api.js)
+- Helper functions to fetch and save prompts.
+
+#### [NEW] [frontend/app/prompts/page.js](file:///c:/Users/ADMIN/Desktop/nexuslite/frontend/app/prompts/page.js)
+- New page for editing prompts.
+- Fetch prompts on load.
+- Render text areas for each prompt.
+- "Save Configuration" button.
+
+#### [MODIFY] [frontend/app/page.js](file:///c:/Users/ADMIN/Desktop/nexuslite/frontend/app/page.js)
+- Add a "Configure Prompts" button/link to navigate to `/prompts`.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Check Defaults**: Start backend. Ensure `backend/data/prompts.json` is created with default values.
+2.  **UI Check**: Navigate to `http://localhost:3000/prompts`. Verify default prompts are loaded.
+3.  **Edit & Save**: Change the "Analyst" prompt (e.g., add a specific instruction like "Start response with 'ANALYSIS:'"). Save.
+4.  **Verify Persistence**: Restart backend. Reload UI. Verify change persists.
+5.  **Functional Test**: Run an ingestion on the main page. Verify the output reflects the prompt change (e.g., check logs or output for "ANALYSIS:").

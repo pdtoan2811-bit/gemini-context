@@ -1,0 +1,14 @@
+# Debugging Image Pipeline
+
+- [x] Debug "non-image" issue <!-- id: 0 -->
+    - [x] Analyze [gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts) fallback logic (suspected root cause: prompt returns description, not URL) <!-- id: 1 -->
+    - [x] Fix [gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts): Ensure `content.image` is only used if it is a valid URL, otherwise null <!-- id: 2 -->
+    - [x] Enhance [server/crawler.js](file:///c:/Users/ADMIN/Desktop/ai_slideshow/server/crawler.js): Resolve relative URLs to absolute to increase image yield <!-- id: 3 -->
+- [/] Verification <!-- id: 4 -->
+    - [x] Run `node server/test_crawler_local.js` to verify image extraction <!-- id: 6 -->
+    - [x] Investigate "no images" -> **Root Cause Found: Renderer ignores images.** <!-- id: 9 -->
+- [ ] Fix Frontend Templates <!-- id: 10 -->
+    - [ ] Create `SplitSlide.tsx` (Left Text / Right Image) <!-- id: 11 -->
+    - [ ] Update [SlideRenderer.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Renderer/SlideRenderer.tsx) to handle 'split' and 'image-center' layouts <!-- id: 12 -->
+    - [ ] Update [BulletsSlide.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Renderer/BulletsSlide.tsx) to optionally show image if present <!-- id: 13 -->
+- [ ] Investigate "5 slides" limit (Check `App.tsx` call site) <!-- id: 8 -->

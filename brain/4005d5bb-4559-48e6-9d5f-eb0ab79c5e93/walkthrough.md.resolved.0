@@ -1,0 +1,40 @@
+# Walkthrough - Cognitive Canvas v2.0
+
+## Features Implemented
+
+### 1. Architectural Foundation
+- **Backend**: FastAPI app initialized with CORS and database connectivity.
+- **Frontend**: Vite + React + Tailwind CSS setup.
+
+### 2. The Cognitive Canvas (React Flow)
+- **Visualization**: Integrated React Flow for the node-based interface.
+- **Data Binding**: Wired up `Api.jsx` to fetch graph data from the backend.
+
+### 3. Neo4j Integration
+- **Database Driver**: Configured [database.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/database.py) with `neo4j` driver.
+- **CRUD**: Implemented [upsert_node](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/database.py#25-49) and [upsert_edge](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/database.py#50-69) using Cypher `MERGE`.
+- **Mapping**: Data models ([models.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/models.py)) align Neo4j `:Block` nodes to React Flow nodes.
+
+### 4. Maestro Agent (Gemini)
+- **Framework**: [backend/agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agent.py) uses `google-generativeai` library.
+- **Text-to-Flow**: [generate_flow_from_text](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agent.py#16-75) prompts Gemini to output strict JSON for the graph structure.
+- **Integration**: `/agent/generate` endpoint exposed to the frontend.
+
+## Verification
+- **Backend**: Verified startup of FastAPI server.
+- **Frontend**: Verified successful build (`npm run build`).
+
+## How to Run
+
+1. **Start Neo4j**: Ensure your Neo4j instance is running.
+2. **Configure Env**: Copy [.env.example](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/.env.example) to `.env` in `backend/` and add your `GEMINI_API_KEY`.
+3. **Run Backend**:
+   ```bash
+   uvicorn backend.main:app --reload
+   ```
+4. **Run Frontend**:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+5. **Test**: Open browser, type a prompt (e.g., "Map dependencies for a web app") and hit the Generate button.

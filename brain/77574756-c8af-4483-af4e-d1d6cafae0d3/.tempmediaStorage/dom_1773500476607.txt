@@ -1,0 +1,197 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+	[12] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,291)<div  />
+			[14] (20,291)<span  />
+			[15] (53,291)<span >Quản lý Ads />
+	[16] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (44,351)<div  />
+			[18] (20,351)<span  />
+			[19] (52,351)<span >Thí nghiệm />
+	[20] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (51,411)<div  />
+			[22] (20,411)<span  />
+			[23] (59,411)<span >Deep Research />
+	[24] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,471)<div  />
+			[26] (20,471)<span  />
+			[27] (48,471)<span >Analytics />
+	[28] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,532)<div  />
+			[30] (20,532)<span  />
+			[31] (51,532)<span >Thông báo />
+	MVP v1.0
+	[32] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (572,491)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Vua Hàng Hiệu
+		Visit Link ↗
+		5
+		%
+		percentage
+		✕
+		✓
+		1.2M/tháng
+		View Traffic →
+		9
+		FragranceX
+		Visit Link ↗
+		10
+		%
+		percentage
+		✕
+		✓
+		3.5M/tháng
+		View Traffic →
+		10
+		[34] (185,147)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_003'>Farfetch />
+		[35] (342,147)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.farfetch.com/vn/affiliates' title='Visit Program Link'>Visit Link ↗ />
+		7
+		%
+		percentage
+		✕
+		✓
+		[36] (787,137)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_003'>28M+ />
+		[37] (787,161)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_003'>View Traffic → />
+		[38] (871,147)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_003' />
+			[39] (856,147)<div  />
+				[40] (856,147)<div  />
+		10
+		[41] (959,147)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[42] (189,219)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_004'>Orchard.vn />
+		[43] (342,220)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://orchard.vn/affiliate-program/' title='Visit Program Link'>Visit Link ↗ />
+		6
+		%
+		percentage
+		✕
+		✓
+		[44] (787,210)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_004'>250k/tháng />
+		[45] (787,234)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_004'>View Traffic → />
+		[46] (874,220)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_004' />
+			[47] (856,220)<div  />
+				[48] (854,220)<div  />
+		8
+		[49] (959,220)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[50] (193,291)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_005'>Net-A-Porter />
+		[51] (342,292)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.net-a-porter.com/en-vn/content/affiliates' title='Visit Program Link'>Visit Link ↗ />
+		6
+		%
+		percentage
+		✕
+		✕
+		[52] (787,282)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_005'>7M+ />
+		[53] (787,306)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_005'>View Traffic → />
+		[54] (871,292)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_005' />
+			[55] (856,292)<div  />
+				[56] (856,292)<div  />
+		10
+		[57] (959,292)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[58] (188,363)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_006'>Selfridges />
+		[59] (342,364)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.selfridges.com/GB/en/features/info/affiliates' title='Visit Program Link'>Visit Link ↗ />
+		8
+		%
+		percentage
+		✕
+		✓
+		[60] (787,354)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_006'>5.5M/tháng />
+		[61] (787,378)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_006'>View Traffic → />
+		[62] (871,364)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_006' />
+			[63] (856,364)<div  />
+				[64] (856,364)<div  />
+		10
+		[65] (959,364)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[66] (194,436)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_007'>FragranceNet />
+		[67] (342,436)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.fragrancenet.com/services/affiliate-program' title='Visit Program Link'>Visit Link ↗ />
+		5
+		%
+		percentage
+		✕
+		✓
+		[68] (787,426)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_007'>4.8M/tháng />
+		[69] (787,450)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_007'>View Traffic → />
+		[70] (871,436)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_007' />
+			[71] (856,436)<div  />
+				[72] (856,436)<div  />
+		10
+		[73] (959,436)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[74] (202,508)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_008'>The Luxury Closet />
+		[75] (342,509)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://theluxurycloset.com/en-vn/affiliate-program' title='Visit Program Link'>Visit Link ↗ />
+		7
+		%
+		percentage
+		✕
+		✓
+		[76] (787,499)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=proj_ht_perf_008'>1.1M/tháng />
+		[77] (787,523)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=proj_ht_perf_008'>View Traffic → />
+		[78] (874,509)<a class='flex-1' href='/projects/detail?id=proj_ht_perf_008' />
+			[79] (856,509)<div  />
+				[80] (855,509)<div  />
+		9
+		[81] (959,509)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		8 Kết quả
+		[82] (897,584)<button class='flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full transition-all duration-300 text-xs uppercase tracking-widest'>⚡
+Deep Affiliate Research />
+			⚡
+		[83] (462,673)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Thêm programs trong lĩnh vực high ticket />
+		[84] (604,673)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>So sánh commission rates />
+		[85] (711,673)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Ngách liên quan khác />
+	[86] (572,913)<input class='w-full bg-transparent border-none focus:ring-0 focus:outline-none text-[var(--text-primary)] placeholder-[var(--text-secondary)] font-serif font-light placeholder:italic text-center relative z-10
+                    text-base md:text-lg py-2 placeholder:text-sm md:placeholder:text-base
+                    
+                ' placeholder='Nhập yêu cầu tìm kiếm của bạn' />
+	[87] (314,968)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+		[88] (289,968)<input class='w-4 h-4 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+		[89] (320,968)<span >Deep Research />
+	i
+	[90] (812,968)<button class='text-[10px] uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'>⟲ Restart Onboarding Demo />
+
+</current_dom>

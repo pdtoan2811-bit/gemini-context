@@ -1,0 +1,96 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	Deep Research đang chạy
+	[1] (957,136)<button class='text-[10px] uppercase tracking-wider text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'>Xem tất cả />
+	Nike
+	15:00
+	[2] (71,56)<a class='group block' href='/' />
+		[3] (71,45)<h1 >Adecos />
+		[4] (71,76)<p >AI-Powered Platform />
+	[5] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[6] (39,165)<div  />
+			[7] (20,165)<span  />
+			[8] (47,165)<span >AI Agent />
+	[9] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[10] (48,224)<div  />
+			[11] (20,224)<span  />
+			[12] (56,224)<span >Quản lý dự án />
+	[13] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,282)<div  />
+			[15] (20,282)<span  />
+			[16] (53,282)<span >Quản lý Ads />
+	[17] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (43,341)<div  />
+			[19] (20,341)<span  />
+			[20] (51,341)<span >Thí nghiệm />
+	[21] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (50,399)<div  />
+			[23] (20,399)<span  />
+			[24] (58,399)<span >Deep Research />
+	[25] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,458)<div  />
+			[27] (20,458)<span  />
+			[28] (48,458)<span >Analytics />
+	[29] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,516)<div  />
+			[31] (20,516)<span  />
+			[32] (51,516)<span >Thông báo />
+		[33] (119,516)<span >1 />
+	MVP v1.0
+	[34] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[35] (571,558)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		cho thấy nội dung quảng cáo có sức hấp dẫn cao và nhắm đúng đối tượng mục tiêu, giúp duy trì lượng truy cập lớn (hơn 166 nghìn clicks) với chi phí CPC ổn định.
+		Hiệu suất quảng cáo
+		[36] (240,160)<input class='bg-transparent text-xs text-[var(--text-secondary)] border-none p-0 focus:ring-0 cursor-pointer w-48 font-mono hover:text-[var(--text-primary)] transition-colors' placeholder='Select date range' />
+		PIE
+		LINE
+		BAR
+		[37] (568,357)<div  />
+			Chi phí
+			Doanh thu
+		[38] (457,592)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>So sánh với tháng trước />
+		[39] (565,592)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Phân tích theo chiến dịch />
+		[40] (676,592)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Chi tiết hơn về dữ liệu này />
+		Nike
+		Adecos đang suy nghĩ...
+
+</current_dom>

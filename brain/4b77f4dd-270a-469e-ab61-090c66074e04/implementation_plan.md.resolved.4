@@ -1,0 +1,66 @@
+# Universal Search & Chat Revamp Implementation Plan
+
+The goal is to enable "Universal Search" where the system searches both the web (Google) and the local graph (RAG) to answer user queries, populating the canvas with relevant external information.
+
+## User Review Required
+
+> [!NOTE]
+> This introduces a new "Universal Search" toggle in the Chat Interface. When enabled, queries will take longer as they perform a real-time web search.
+
+## Proposed Changes
+
+### Backend - Search Infrastructure
+#### [NEW] [core/search_agent.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py)
+- Implements [SearchAgent](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py#20-190) class wrapping `googlesearch-python`.
+- Handles Google Search execution and content fetching/parsing.
+- **Updated**: Now supports `google-cloud-discoveryengine` for Vertex AI Search.
+
+### Backend - Chat Logic
+#### [MODIFY] [core/chat_bridge.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py)
+- Added [perform_universal_chat](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py#652-735) method.
+- Orchestrates:
+    1.  **Online Search**: Query -> Get Results.
+    2.  **Ingestion**: Create "External Research" nodes.
+    3.  **Local RAG**: Retrieve graph context.
+    4.  **Synthesis**: Generate answer.
+
+#### [MODIFY] [main.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/main.py)
+- Added `POST /api/v2/chat/universal` endpoint.
+
+### Frontend - UI/UX
+#### [MODIFY] [api.js](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js)
+- Added [sendUniversalMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js#186-193) function.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx)
+- Added `isUniversalMode` state.
+- Updated [handleSendMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx#303-407) to route to universal endpoint when enabled.
+
+#### [MODIFY] [ChatInterface.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/ChatInterface.jsx)
+- Added **Globe Icon** toggle in the input bar.
+- visual indication of Search Mode (Blue border/glow).
+- Renders **Sources** (citations) below the assistant's message.
+
+## Chat Logic Revamp
+The chat system has been updated to be "Universal First":
+1.  **Frontend**: `isUniversalMode` defaults to `true`.
+2.  **Global Context**: If no nodes are selected, the backend uses "All Node Summaries".
+3.  **Focused Context**: If nodes are selected, the system focuses on those nodes.
+4.  **UI**: Added visual indicators for "Global Context" vs "Focused Context".
+
+## Vertex AI Search Integration
+As requested, the system now prioritizes **Vertex AI Search** (Discovery Engine) for enterprise-grade retrieval.
+1.  **Configuration**: Set `VERTEX_SEARCH_DATA_STORE_ID`, `GOOGLE_CLOUD_PROJECT`, and `GOOGLE_CLOUD_LOCATION` (default: global) in [.env](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/.env).
+2.  **Implementation**: Uses `google-cloud-discoveryengine` client.
+3.  **Fallback Chain**: Vertex AI -> Google Custom Search API -> Scraper.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Launch App**: `npm run dev`.
+2.  **Configure Env**: Add `VERTEX_SEARCH_DATA_STORE_ID` and `PROJECT_ID`.
+3.  **Toggle Search**: Click the Globe icon in the chat input.
+4.  **Ask Question**: Ask about a recent event.
+5.  **Observe**:
+    - "Searching..." UI state.
+    - Logs confirm "Using Vertex AI Search".
+    - Answer cites Vertex results.

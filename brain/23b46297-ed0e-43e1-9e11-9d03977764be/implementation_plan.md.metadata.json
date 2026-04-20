@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Plan to build a Web UI using FastAPI and React/Vite to interact with the DataToChartsAutomation CrewAI. The UI will allow users to upload CSV files or enter text, which will be processed by the agent to generate chart configurations and implementation guides.",
+  "updatedAt":  "2025-12-30T08:18:13.111127500Z"
+}

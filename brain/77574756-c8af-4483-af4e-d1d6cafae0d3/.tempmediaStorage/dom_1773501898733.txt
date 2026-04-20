@@ -1,0 +1,140 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	Adecos
+	AI-Powered Platform
+	AI Agent
+	Quản lý dự án
+	1
+	Quản lý Ads
+	Thí nghiệm
+	Deep Research
+	Analytics
+	Thông báo
+	MVP v1.0
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[1] (572,491)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Shopee Vietnam
+		Truy cập link ↗
+		7
+		%
+		percentage
+		✕
+		✓
+		85M+
+		View Affiliate Traffic →
+		10
+		Lazada Vietnam
+		Truy cập link ↗
+		10
+		%
+		percentage
+		✕
+		✓
+		18M+
+		View Affiliate Traffic →
+		10
+		Tiki
+		Truy cập link ↗
+		8
+		%
+		percentage
+		✕
+		✓
+		9M+
+		View Affiliate Traffic →
+		10
+		Accesstrade Vietnam
+		Truy cập link ↗
+		0
+		%
+		hybrid
+		✕
+		✓
+		1.2M
+		View Affiliate Traffic →
+		10
+		Unica
+		Truy cập link ↗
+		40
+		%
+		percentage
+		✕
+		✓
+		600k
+		View Affiliate Traffic →
+		9
+		Klook Vietnam
+		Truy cập link ↗
+		5
+		%
+		percentage
+		✕
+		✓
+		25M+
+		View Affiliate Traffic →
+		10
+		FPT Shop
+		Truy cập link ↗
+		3
+		%
+		percentage
+		✕
+		✓
+		12M+
+		View Affiliate Traffic →
+		10
+		Vexere
+		Truy cập link ↗
+		0
+		%
+		cpa
+		✕
+		✓
+		3M+
+		View Affiliate Traffic →
+		9
+		8 Kết quả
+		⚡
+		Deep Affiliate Research
+		Thêm programs trong lĩnh vực None
+		So sánh commission rates
+		Ngách liên quan khác
+	[2] (500,500)<div  />
+	Tiki
+	Chi tiết dự án & Affiliate Traffic
+	[3] (975,56)<button class='p-2 hover:bg-[var(--bg-surface)] rounded-full transition-colors' />
+	[4] (658,140)<button class='
+                                        py-4 text-xs font-medium uppercase tracking-widest transition-colors relative
+                                        text-[var(--text-primary)]
+                                    '>Thông tin />
+	[5] (732,140)<button class='
+                                        py-4 text-xs font-medium uppercase tracking-widest transition-colors relative
+                                        text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                                    '>Traffic Affiliate />
+	[6] (721,208)<a class='block text-sm text-blue-400 hover:underline' href='https://tiki.vn/lp/tiki-affiliate'>Ghé thăm nhãn hàng ↗ />
+	Trạng thái
+	Đang tìm hiểu
+	Ngách
+	beauty and skincare
+	/
+	perfume
+	Hoa hồng
+	8%
+	Hoa hồng tăng theo cấp bậc dựa trên doanh thu.
+	Chính sách Brand Name
+	Không được chạy
+	Chạy quảng cáo
+	Được chạy
+	Giới thiệu
+	Dự án tập trung vào việc đơn giản hóa quy trình trang điểm cho những người có lối sống năng động và thường xuyên di chuyển.
+	[7] (723,948)<button class='flex-1 py-3 text-xs uppercase tracking-widest font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all rounded'>Phê duyệt />
+	[8] (901,948)<button class='flex-1 py-3 text-xs uppercase tracking-widest font-semibold bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-all rounded'>Từ chối />
+	Deep Research
+	i
+	⟲ Restart Onboarding Demo
+
+</current_dom>

@@ -1,0 +1,26 @@
+# Walkthrough: Repository Setup and Sync
+
+I have successfully cloned and synchronized the Adecos MVP Mockup repository.
+
+## Steps Taken
+
+### 1. Repository Synchronization
+- Initial checks revealed that while a `.git` directory existed, the local files were missing or marked as deleted.
+- I performed a `git fetch` followed by a `git reset --hard origin/main` to restore the repository to its intended state.
+- **Result:** All project files are now present in `c:\Users\ADMIN\Desktop\adecos-mvp-mockup`.
+
+### 2. Documentation Verification
+- Per the **Global User Rule (SYNC ENGINE)**, I verified that the following documents exist in the `docs/` directory:
+    - [BRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/BRD.md)
+    - [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md)
+    - [SRS.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS.md)
+- I also confirmed the existence of detailed technical specs like [SRS_01_Chat_Interface.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS_01_Chat_Interface.md).
+
+### 3. Project Structure
+The repository is organized into the following main components:
+- `backend/`: FastAPI implementation.
+- `frontend/`: React/Vite implementation.
+- `docs/`: Product and technical documentation.
+
+## Verification Result
+The repository is fully synced and compliant with the "No Spec, No Service" protocol.

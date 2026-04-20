@@ -1,0 +1,11 @@
+- [x] Create SRS.md based on PRD <!-- id: 0 -->
+- [x] Create Implementation Plan <!-- id: 1 -->
+- [x] Initialize Backend (FastAPI) <!-- id: 2 -->
+- [x] Initialize Frontend (React + React Flow) <!-- id: 3 -->
+- [x] Implement Neo4j Integration <!-- id: 4 -->
+- [x] Implement Gemini Agent (Maestro) <!-- id: 5 -->
+- [x] Verify System <!-- id: 6 -->
+- [/] Refactor Agents into Plugin System <!-- id: 7 -->
+- [/] Implement Dynamic Maestro Registry <!-- id: 8 -->
+- [ ] Create AGENT_DEV_GUIDE.md <!-- id: 9 -->
+- [ ] Create run_all.bat <!-- id: 10 -->

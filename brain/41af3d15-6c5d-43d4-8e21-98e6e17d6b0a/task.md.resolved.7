@@ -1,0 +1,48 @@
+# NextStep v2.0 Implementation Tasks
+
+- [/] **Project Setup**
+    - [x] Create directory structure (`frontend`, `backend`)
+    - [x] Initialize [implementation_plan.md](file:///c:/Users/ADMIN/.gemini/antigravity/brain/41af3d15-6c5d-43d4-8e21-98e6e17d6b0a/implementation_plan.md)
+    - [x] User Approval for Implementation Plan
+
+- [x] **Backend Core (Maestro)**
+    - [x] Setup FastAPI project with `uv` or `pip` (requirements.txt)
+    - [x] Implement MCP Host logic (Maestro) using `mcp` SDK
+    - [x] Implement Neo4j integration (Graph Database interface)
+    - [x] Implement Orchestrator logic (Gemini 2.5 integration)
+    - [x] Create `agents_config.json` loader
+
+- [x] **Agents (MCP Servers)**
+    - [x] Create `agents/researcher` (FastMCP/Server)
+    - [x] Implement [research_topic](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/agents/researcher/server.py#7-15) tool
+
+- [/] **Frontend (The Canvas)**
+    - [x] Initialize Vite + React project
+    - [/] Install React Flow, TailwindCSS, Lucide React
+    - [/] Implement "Glassmorphism" UI Shell
+    - [/] Implement React Flow Canvas
+    - [/] Implement "HUD" (Visual Debugger) for MCP traffic
+
+- [x] **Integration & Verification**
+    - [x] Connect Frontend to Backend (API)
+    - [x] Verify End-to-End Flow (User -> Maestro -> Researcher -> Canvas)
+    - [x] Verify "Time to First Graph" metric
+    - [x] Create [walkthrough.md](file:///c:/Users/ADMIN/.gemini/antigravity/brain/41af3d15-6c5d-43d4-8e21-98e6e17d6b0a/walkthrough.md)
+
+# Phase 2: Interactive MCP Flow
+
+- [x] **Frontend Interaction**
+    - [x] Wire Search Bar to API (`POST /prompt`)
+    - [x] Implement Graph State Sync (Nodes/Edges from Backend)
+    - [x] Visualize "Thinking" state
+
+- [x] **Backend Orchestration**
+    - [x] Implement `/prompt` endpoint in [main.py](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/main.py)
+    - [x] Implement `MaestroOrchestrator.process_request`
+    - [x] Connect Maestro to Researcher Agent (Subprocess/Stdio)
+    - [x] Implement Gemini logic to generate Tool Calls
+
+- [ ] **Graph Persistence & Updates**
+    - [ ] Save graph state to Neo4j
+    - [ ] Serve graph state to Frontend
+

@@ -1,0 +1,53 @@
+# Implementation Plan: Update Mock Data to Ecommerce
+
+This plan outlines the transition of the Adecos MVP mockup data from a general-purpose mix (Forex, Crypto, Finance) to a dedicated E-commerce and Retail focus. This includes updating the documentation, backend generators, and frontend static mock data.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This change will replace all existing mock programs (Exness, Binance, Sephora, etc.) with new E-commerce focused programs (Shopee, Lazada, Amazon, etc.). Historical data will be preserved but the names and niches will change.
+
+## Proposed Changes
+
+### Documentation (docs/)
+#### [MODIFY] [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md)
+* Update User Personas and Stories to focus on E-commerce/Retail Marketers.
+* Update feature descriptions to mention E-commerce affiliate programs.
+
+#### [MODIFY] [SRS.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS.md)
+* Update mock data examples in the JSON structure and Data Model sections to use ecommerce values.
+
+---
+
+### Backend (backend/)
+#### [MODIFY] [mock_data_generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/mock_data_generator.py)
+* Update `PROGRAMS_AND_NICHES` to include Shopee, Lazada, Tiki, Amazon, TikTok Shop, Shopify.
+* Remove Forex and Crypto entries.
+* Update metric generation logic to better reflect ecommerce ROAS/CPC (lower CPC, higher CR).
+
+#### [MODIFY] [intent_classifier.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/intent_classifier.py)
+* Update the `CLASSIFIER_PROMPT` examples to use E-commerce programs (e.g., "Shopee", "Amazon") instead of "Binance".
+
+---
+
+### Frontend (frontend/src/data/)
+#### [MODIFY] [mockAdsData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockAdsData.js)
+* Replace all campaigns in `mockCampaigns` with E-commerce campaigns (e.g., "Shopee 11.11 Flash Sale", "Amazon Holiday Tech").
+* Update keywords and program names.
+
+#### [MODIFY] [mockAdsManager.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockAdsManager.js)
+* Update account names in `mockAccounts` to ecommerce themes (e.g., `MDW_Shopee_VN_01`).
+
+#### [MODIFY] [mockCryptoAffiliates.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockCryptoAffiliates.js)
+* Update the content to be E-commerce affiliate programs.
+
+## Verification Plan
+
+### Automated Tests
+* I will run the backend and check the `/api/chat/thinking` and `/api/research/stream` endpoints to ensure they return the new ecommerce data.
+* I will use the browser tool to navigate to the "Quản lý tài khoản" page and verify the table shows ecommerce accounts and campaigns.
+
+### Manual Verification
+1. Open the Chat interface and ask "Tìm kiếm các chương trình affiliate về thời trang". Verify the results show ecommerce programs.
+2. Navigate to "Quản lý tài khoản ads" and verify "Shopee", "Lazada", etc. are present instead of "Exness".
+3. Check the Dashboard page to ensure charts are rendering with the new campaign names.

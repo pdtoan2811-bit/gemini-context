@@ -1,0 +1,24 @@
+- [x] Clone repository `microsoft/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator` <!-- id: 0 -->
+- [x] Analyze codebase for required credentials (environment variables, keys) <!-- id: 1 -->
+- [x] Create a list of required credentials <!-- id: 2 -->
+- [x] Create [launch_all.bat](file:///C:/Users/ADMIN/.gemini/antigravity/brain/ac0d7ca5-ecfa-4fd1-b381-cac14438ed76/launch_all.bat) to automate startup <!-- id: 3 -->
+- [x] Debug [launch_all.bat](file:///C:/Users/ADMIN/.gemini/antigravity/brain/ac0d7ca5-ecfa-4fd1-b381-cac14438ed76/launch_all.bat) failure <!-- id: 4 -->
+    - [x] Check if `azd` is installed <!-- id: 5 -->
+    - [x] Install `azd` <!-- id: 6 -->
+    - [x] Fix script or provide installation instructions <!-- id: 7 -->
+- [x] Apply credentials from [config.json](file:///c:/Users/ADMIN/Desktop/flowstepAI-ver1/config.json) <!-- id: 8 -->
+    - [x] Populate `src/mcp_server/.env` <!-- id: 9 -->
+    - [x] Populate `src/backend/.env` <!-- id: 10 -->
+    - [x] Populate `src/frontend/.env` <!-- id: 11 -->
+- [x] Fix [launch_all.bat](file:///C:/Users/ADMIN/.gemini/antigravity/brain/ac0d7ca5-ecfa-4fd1-b381-cac14438ed76/launch_all.bat) syntax crash <!-- id: 12 -->
+    - [x] Create `debug_launcher.bat` to capture error output <!-- id: 13 -->
+    - [x] Refactor [launch_all.bat](file:///C:/Users/ADMIN/.gemini/antigravity/brain/ac0d7ca5-ecfa-4fd1-b381-cac14438ed76/launch_all.bat) to avoid nested blocks <!-- id: 14 -->
+- [x] Create step-by-step credential guide <!-- id: 15 -->
+- [x] Implement Local Database Support <!-- id: 16 -->
+    - [x] Verify [query_items](file:///c:/Users/ADMIN/Desktop/flowstepAI-ver1/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator/src/backend/common/database/cosmosdb.py#144-169) usage <!-- id: 17 -->
+    - [x] Create [src/backend/common/database/local_db.py](file:///c:/Users/ADMIN/Desktop/flowstepAI-ver1/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator/src/backend/common/database/local_db.py) <!-- id: 18 -->
+    - [x] Update [src/backend/common/database/database_factory.py](file:///c:/Users/ADMIN/Desktop/flowstepAI-ver1/Multi-Agent-Custom-Automation-Engine-Solution-Accelerator/src/backend/common/database/database_factory.py) <!-- id: 19 -->
+    - [x] Verify local DB functionality <!-- id: 20 -->
+- [x] Configure `o4-mini` Model <!-- id: 21 -->
+    - [x] Update backend `.env` with new endpoint/key <!-- id: 22 -->
+    - [x] Update [launch_all.bat](file:///C:/Users/ADMIN/.gemini/antigravity/brain/ac0d7ca5-ecfa-4fd1-b381-cac14438ed76/launch_all.bat) defaults <!-- id: 23 -->

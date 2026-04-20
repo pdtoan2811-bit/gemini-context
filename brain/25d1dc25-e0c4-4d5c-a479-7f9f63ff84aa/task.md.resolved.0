@@ -1,0 +1,18 @@
+# Task: Implement Prompt Configuration UI
+
+- [/] Planning
+    - [ ] Create implementation plan <!-- id: 0 -->
+    - [ ] Review plan with user <!-- id: 1 -->
+- [ ] Backend Implementation <!-- id: 2 -->
+    - [ ] Extract prompts to `backend/data/prompts.json` <!-- id: 3 -->
+    - [ ] Create `PromptService` to manage prompt I/O <!-- id: 4 -->
+    - [ ] Refactor [chains.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/services/chains.py) to use dynamic prompts <!-- id: 5 -->
+    - [ ] Add API endpoints (`GET /api/prompts`, `POST /api/prompts`) in [main.py](file:///c:/Users/ADMIN/Desktop/nexuslite/backend/main.py) <!-- id: 6 -->
+- [ ] Frontend Implementation <!-- id: 7 -->
+    - [ ] Create API client functions for prompts <!-- id: 8 -->
+    - [ ] Create Prompt Configuration Page (`/prompts`) <!-- id: 9 -->
+    - [ ] Add navigation to the new page <!-- id: 10 -->
+- [ ] Verification <!-- id: 11 -->
+    - [ ] Verify prompts are loaded from JSON <!-- id: 12 -->
+    - [ ] Verify UI updates reflect in backend JSON <!-- id: 13 -->
+    - [ ] Run chains to ensure they still work with loaded prompts <!-- id: 14 -->

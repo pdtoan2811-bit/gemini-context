@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for setting up a Remotion prompt-to-video project in AInewsvideo workspace, bootstrapping the project with create-video CLI, installing media and transitions packages, and creating a comprehensive Antigravity workspace skill that consolidates all Remotion rules from the official GitHub repo.",
+  "updatedAt": "2026-04-14T13:57:11.521088200Z",
+  "requestFeedback": true
+}

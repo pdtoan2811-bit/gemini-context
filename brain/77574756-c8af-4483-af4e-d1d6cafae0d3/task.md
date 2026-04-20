@@ -1,0 +1,24 @@
+# Task: Repository Setup and Sync
+
+- [x] Sync repository to latest state <!-- id: 0 -->
+- [x] Verify documentation (BRD, PRD, SRS) <!-- id: 1 -->
+- [x] Validate environment setup (backend/frontend) <!-- id: 2 -->
+- [x] Resolve frontend dependencies (npm install) <!-- id: 3 -->
+- [x] Resolve backend dependencies (pip install) <!-- id: 4 -->
+- [x] Configure backend API key <!-- id: 5 -->
+- [x] Recover missing backend module (mock_data_generator) <!-- id: 6 -->
+- [x] Retrieve mock data traffic generation prompt <!-- id: 7 -->
+- [x] Remove autocomplete feature from frontend <!-- id: 8 -->
+- [x] Implement dynamic thinking process prompts <!-- id: 9 -->
+- [x] Update PRD and SRS to reflect changes <!-- id: 10 -->
+- [x] Refine thinking prompts (Project/Affiliate context) <!-- id: 11 -->
+- [/] Resolve missing Chat Input and 404 errors <!-- id: 12 -->
+- [x] Implement Split-Pane UI on `ChatPage.jsx` with `ProjectSidePane.jsx` component
+- [x] Update `ResultsTable.jsx` links to trigger side pane
+- [x] Fix "View Affiliate Traffic" click issue and translate UX to Vietnamese
+- [x] Ensure "Traffic" focus is on affiliate program metrics
+- [x] Refine AI result table for realistic `brand_name_allowed` and `ads_allowed` booleans
+- [x] Restore hyperlinks and formatting in `ResultsTable.jsx`
+- [x] Fix traffic numbers generated numerically and hyperlinked (Final fix)
+- [x] Sync `SRS.md` and `PRD.md` with new features (Full sync)
+- [x] Final verification of Split-Pane UI and Affiliate Traffic view

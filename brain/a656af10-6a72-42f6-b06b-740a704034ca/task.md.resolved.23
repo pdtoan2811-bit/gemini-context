@@ -1,0 +1,55 @@
+# Tasks
+
+- [ ] Research `agent-framework` repository <!-- id: 0 -->
+    - [x] Wait for clone to complete <!-- id: 1 -->
+    - [x] Read README and core documentation <!-- id: 2 -->
+    - [x] Analyze key concepts and architecture <!-- id: 3 -->
+- [ ] Align Project Documentation <!-- id: 4 -->
+    - [x] Update PRD/SRS based on framework capabilities if needed <!-- id: 5 -->
+    - [x] Define Canvas AI style interface in PRD <!-- id: 6 -->
+    - [x] Define Agent Framework architecture in SRS <!-- id: 7 -->
+- [ ] Create Implementation Plan <!-- id: 8 -->
+    - [x] Draft frontend architecture (Next.js + React Flow) <!-- id: 9 -->
+    - [x] Draft backend architecture (Python Agent Framework) <!-- id: 10 -->
+    - [x] Plan integration points <!-- id: 11 -->
+- [x] Implement Backend <!-- id: 12 -->
+    - [x] Create directory structure <!-- id: 13 -->
+    - [x] Create [requirements.txt](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/requirements.txt) <!-- id: 14 -->
+    - [x] Implement [src/backend/main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/main.py) (FastAPI) <!-- id: 15 -->
+    - [x] Implement [src/backend/orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) <!-- id: 16 -->
+    - [x] Implement [src/backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py) <!-- id: 17 -->
+- [/] Implement Frontend <!-- id: 18 -->
+    - [x] Initialize Next.js project <!-- id: 19 -->
+    - [x] Install dependencies (React Flow, Lucide, Framer) <!-- id: 20 -->
+    - [x] Create OrchestratorPanel component <!-- id: 21 -->
+    - [x] Create Custom Nodes <!-- id: 22 -->
+    - [x] Integrate WebSocket <!-- id: 23 -->
+- [x] Verification <!-- id: 24 -->
+    - [x] Run lint check <!-- id: 25 -->
+    - [x] Create walkthrough.md <!-- id: 26 -->
+- [ ] Phase 2: Enhanced Capabilities & UX <!-- id: 27 -->
+    - [/] Research MCP and Structured Output patterns <!-- id: 28 -->
+    - [ ] Update PRD with 3 Core Use Cases <!-- id: 29 -->
+    - [x] Update SRS with Technical Designs (Agent->Canvas, Ingestion) <!-- id: 30 -->
+    - [x] Create Phase 2 Implementation Plan <!-- id: 31 -->
+- [ ] Phase 2: Backend Implementation <!-- id: 32 -->
+    - [x] Create [src/backend/models.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/models.py) <!-- id: 33 -->
+    - [x] Create [src/backend/ingestion.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/ingestion.py) <!-- id: 34 -->
+    - [x] Update [src/backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py) with Canvas/Ingestion agents <!-- id: 35 -->
+    - [x] Update [src/backend/orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) with Router logic <!-- id: 36 -->
+- [ ] Phase 2.5: UI/UX Fixes <!-- id: 41 -->
+    - [x] Create [tailwind.config.ts](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/tailwind.config.ts) <!-- id: 42 -->
+    - [x] Downgrade to Tailwind v3 (Fix CSS) <!-- id: 43 -->
+    - [x] Verify Chat & Orchestrator Visibility <!-- id: 44 -->
+    - [x] Polish Styles (Glassmorphism) <!-- id: 45 -->
+
+- [ ] Phase 3: Observability & Debugging <!-- id: 46 -->
+    - [x] Create [src/backend/logger.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/logger.py) <!-- id: 47 -->
+    - [x] Instrument [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) with detailed logs <!-- id: 48 -->
+    - [ ] Install `azure-identity` & `azure-core` <!-- id: 50 -->
+    - [ ] Fix Frontend Z-Index & Visibility <!-- id: 51 -->
+
+- [/] Phase 2: Frontend Implementation <!-- id: 37 -->
+    - [x] Create [ChatInterface.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/ChatInterface.tsx) <!-- id: 38 -->
+    - [x] Update [OrchestratorPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/OrchestratorPanel.tsx) <!-- id: 39 -->
+    - [x] Update [page.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/app/page.tsx) with Drag & Drop and Chat <!-- id: 40 -->

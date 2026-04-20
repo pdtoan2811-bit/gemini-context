@@ -1,0 +1,33 @@
+# Project Walkthrough: AI Slideshow Generator
+
+## 🚀 Recent Updates: Timeline Layout & Visual Polish
+
+We have successfully resolved the layout issues on the Timeline slide and finalized the editor experience.
+
+### 1. Timeline Slide Repair
+-   **Problem**: Content was jammed at the top ("weird spacing") and overflowing horizontally.
+-   **Solution**:
+    -   **Grid Architecture**: Switched to a fixed 3-column grid (`grid-cols-3`) to guarantee perfect alignment for up to 3 items per row.
+    -   **Vertical Centering**: The entire timeline now floats in the optical center of the slide (`flex-1 items-center justify-center`).
+    -   **Editable Fields**: Added [EditableText](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Editor/EditableText.tsx#12-62) to Dates, Titles, and Descriptions, so you can fix any AI text weirdness instantly.
+
+### 2. Auto-Scaling Engine (New Feature)
+-   **Problem**: Slides were fixed at 1920x1080, causing them to overflow or look cut off on smaller screens.
+-   **Solution**: Implemented a `ResizeObserver` system in the main layout.
+    -   Automatically detects available screen space.
+    -   Dynamically calculates the perfect `scale` (e.g., 0.65) to fit the HD slide entirely within the view.
+
+### 3. Clean Editor Interface
+-   **Problem**: Raw "Choose File" inputs and visual clutter ruined the slide aesthetics.
+-   **Solution**:
+    -   **Hidden Inputs**: Completely removed visible file inputs.
+    -   **Contextual UI**: "Upload" and "Change Image" buttons now **only appear on hover/drag**.
+
+## Architecture Status
+-   **Frontend**: React + Tailwind + Auto-Scaling
+-   **Backend**: Node.js (Crawler Service)
+-   **AI**: Gemini 2.0 Flash (JSON-based generation)
+
+## Verification
+-   **Build**: Successful (`npm run build` passed).
+-   **Code Validation**: Confirmed Grid layout logic in [TimelineSlide.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/TimelineSlide.tsx).

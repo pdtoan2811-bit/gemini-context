@@ -1,0 +1,21 @@
+# Resolve Missing Dependencies & Setup Environment
+
+The user encountered a `'vite' is not recognized` error, which indicates that the `node_modules` are missing in the `frontend` directory. This plan outlines the steps to install dependencies for both the frontend and backend to ensure a functional development environment.
+
+## Proposed Changes
+
+### Frontend
+- Run `npm install` in the [frontend](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend) directory to install Vite and other required packages.
+
+### Backend
+- Run `pip install -r requirements.txt` in the [backend](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend) directory to ensure all Python dependencies are met.
+
+## Verification Plan
+
+### Automated Tests
+- **Frontend Startup:** Run `npm run dev` in the `frontend` directory and verify that Vite starts correctly.
+- **Backend Startup:** Run the backend server (e.g., `python main.py` or as specified in docs) to ensure dependencies are correctly installed.
+
+### Manual Verification
+- Access the local development URL (e.g., `http://localhost:5173`) to confirm the UI is rendered.
+- Check the console for any runtime errors related to missing modules.

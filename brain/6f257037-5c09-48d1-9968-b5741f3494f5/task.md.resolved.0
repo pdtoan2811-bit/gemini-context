@@ -1,0 +1,16 @@
+# Task: Update Mock Data to Ecommerce
+
+## Research & Planning
+- [ ] Read [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md) and [SRS.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS.md) to understand the current scope and definitions. [/]
+- [ ] Locate mock data in `frontend/src/data` or `backend`. [/]
+- [ ] Identify all views that use the ad account/campaign/product mock data. [/]
+- [ ] Propose new ecommerce mock data schema. [ ]
+
+## Implementation
+- [ ] Update `PRD.md` and `SRS.md` to reflect the change in data context (E-commerce). [ ]
+- [ ] Update mock data files in the codebase. [ ]
+- [ ] Verify that all views are updated and rendering correctly. [ ]
+
+## Verification
+- [ ] Build and check the UI for consistency. [ ]
+- [ ] Record a walkthrough showing the updated data. [ ]

@@ -1,0 +1,18 @@
+# Task: Fix Chat Conversation Issues
+
+## Root Cause Analysis
+- [x] Review documentation (SRS, PRD)
+- [x] Test chat functionality (browser test failed due to environment)
+- [x] Review frontend code ([App.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/App.jsx), [ChatInterface.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatInterface.jsx), [ChatMessage.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatMessage.jsx))
+- [x] Review backend code ([main.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/main.py), [generator.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py))
+- [x] Identified issue: Missing [generate_chat_stream](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py#94-180) function in [generator.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py)
+
+## Implementation
+- [x] Implement [generate_chat_stream](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py#94-180) function in [generator.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py)
+- [x] Add routing logic to determine chat type (table vs text)
+- [ ] Test chat functionality manually
+- [ ] Verify conversation history works
+
+## Documentation Updates
+- [ ] Update SRS.md with chat stream implementation details
+- [ ] Update PRD.md if user experience changes

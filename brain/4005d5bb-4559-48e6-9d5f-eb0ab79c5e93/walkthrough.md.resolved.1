@@ -1,0 +1,27 @@
+# Walkthrough - Cognitive Canvas v2.1
+
+## New Features (v2.1)
+### 1. Chat Interface (Right Panel)
+- **Maestro AI**: Interact with the orchestration engine via a dedicated chat panel.
+- **Markdown Support**: Responses are rendered with rich formatting (`react-markdown`).
+- **Orchestration**: The chat reflects Maestro's thought process (e.g., "Activating Researcher Agent...").
+
+### 2. Universal Node Search
+- **Search Bar**: Floating overlay on the top-left of the canvas.
+- **Functionality**: Type a query to find nodes. The canvas automatically zooms and centers (`fitView`) on the matching node.
+
+### 3. Agent Orchestration (Stub)
+- **Researcher Agent**: A specialized agent stub located in `backend/agents/researcher/`.
+- **Demo**: Ask "Research Christopher Nolan" to see Maestro delegate the task and populate the graph with "researched" data.
+
+## Deployment & configuration
+
+### API Keys Required
+1. **Google Gemini API**: `GEMINI_API_KEY` (Already configured in `.env`).
+2. **Neo4j**: Local instance credentials (default: `neo4j/password`).
+3. **(Future) SerpAPI**: If you implement the *real* internet search for the Researcher Agent, you will need `SERPAPI_API_KEY`.
+
+### How to Run
+1. Run `run_all.bat`.
+2. Open `http://localhost:5173`.
+3. Try the prompt: **"Research Christopher Nolan"**.

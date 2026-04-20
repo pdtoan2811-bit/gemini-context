@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation plan for moving prompts to a configuration UI. Includes backend refactoring to use dynamic prompts and a new frontend page for editing them.",
+  "updatedAt":  "2025-12-30T05:10:58.272572500Z"
+}

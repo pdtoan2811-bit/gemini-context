@@ -1,0 +1,109 @@
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+[6] (482,19)<a title='Open GitHub Repo'>remotion />
+/
+[7] (522,19)<a title='ai-news-short'>ai-news-short />
+[8] (972,19)<button  />
+[9] (984,19)<button  />
+[10] (50,60)<div role='button'>Compositions />
+[11] (150,60)<div role='button'>Assets />
+ai-news-short
+1080
+x
+1920
+, 30 FPS
+Duration
+00:19.25
+[12] (100,167)<button >Search... />
+	[13] (180,167)<span >Ctrl
++K />
+[14] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[15] (100,238)<a class='__remotion-composition' title='ai-editor-short'>ai-editor-short />
+	ai-editor-short
+[16] (100,272)<a class='__remotion-composition' title='trump-iran-short'>trump-iran-short />
+	trump-iran-short
+[17] (100,307)<a class='__remotion-composition' title='trump-iran-apr14'>trump-iran-apr14 />
+	trump-iran-apr14
+[18] (100,342)<a class='__remotion-composition' title='news-short-v2'>news-short-v2 />
+	news-short-v2
+[19] (100,377)<a class='__remotion-composition' title='mythos-short'>mythos-short />
+	mythos-short
+[20] (100,412)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+[21] (480,368)<div  />
+	Wait.
+	Stop
+	scrolling.
+	AI
+	made
+	this
+	video.
+	From
+	one
+	prompt.
+	1
+	/
+	5
+[22] (821,60)<div role='button'>Props />
+[23] (940,60)<div role='button'>Renders />
+	Renders
+Make the props of this composition interactively editable by adding a
+schema
+prop to the
+<Composition>
+component.
+[24] (880,420)<button  />
+	[25] (880,420)<div >Learn how />
+[26] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[27] (87,728)<button role='button' title='Zoom in timeline' />
+[28] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[29] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[30] (471,728)<button aria-label='Jump to beginning' title='Jump to beginning' />
+[31] (485,728)<button aria-label='Step back one frame' title='Step back one frame' />
+[32] (499,728)<button aria-label='Play' title='Play' />
+[33] (513,728)<button aria-label='Step forward one frame' title='Step forward one frame' />
+[34] (535,728)<button aria-label='Loop video' title='Loop video' />
+[35] (552,728)<button aria-label='Mute video' title='Mute video' />
+[36] (577,728)<button aria-label='Mark In (I) - right click to clear' title='Mark In (I) - right click to clear' />
+[37] (591,728)<button aria-label='Mark Out (O) - right click to clear' title='Mark Out (O) - right click to clear' />
+[38] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[39] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />
+[40] (969,728)<div  />
+	[41] (969,728)<button id='render-modal-button' />
+		[42] (969,728)<div  />
+			[43] (974,728)<span >Render />
+[44] (500,880)<div class='css-reset __remotion-vertical-scrollbar' scrollable='true' />
+	[45] (27,815)<div ><Series> />
+	[46] (73,815)<div >AINewsShort.tsx:375 />
+	[47] (52,842)<div ><Series.Sequence> />
+	[48] (114,842)<div >AINewsShort.tsx:377 />
+	[49] (50,870)<div >s1-hook.mp3 />
+	[50] (103,870)<div >AINewsShort.tsx:366 />
+	[51] (52,897)<div ><Series.Sequence> />
+	[52] (114,897)<div >AINewsShort.tsx:377 />
+	[53] (52,925)<div >s2-reveal.mp3 />
+	[54] (106,925)<div >AINewsShort.tsx:366 />
+	[55] (52,953)<div ><Series.Sequence> />
+	[56] (114,953)<div >AINewsShort.tsx:377 />
+	[57] (52,980)<div ><Series.Sequence> />
+	[58] (114,980)<div >AINewsShort.tsx:377 />
+	<Series.Sequence>
+	00:02.17
+	[59] (235,781)<button class='__remotion_input_dragger' />
+		[60] (235,780)<span >77 />
+	77
+	77
+	0 (Premounted)
+	00:03.00
+	00:06.00
+	00:09.00
+	00:12.00
+	00:15.00
+	00:18.00

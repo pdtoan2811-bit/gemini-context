@@ -1,0 +1,16 @@
+# Verification Plan
+
+- [x] Navigate to http://localhost:5173/chat
+- [x] Verify chat input is visible at the bottom
+- [x] Check console for 404 errors (useAutocomplete, AutocompleteDropdown)
+    - Found 404s for both, as expected since they were removed but still imported somewhere.
+- [x] Perform search: 'Best affiliate programs for software'
+- [x] Verify 'Thinking' indicator with context-aware steps
+    - Working! Showed "Phân tích sâu về thị trường..." and "Rà soát điều khoản thanh toán đối tác...".
+- [ ] Verify results table:
+    - [ ] Numeric traffic values
+    - [ ] 'Thương hiệu' links
+    - [ ] 'Traffic' links
+    - [!] COMPONENT CRASHED: <ResultsTable> caused a React error.
+- [ ] Capture screenshot of the table
+- [x] Report findings

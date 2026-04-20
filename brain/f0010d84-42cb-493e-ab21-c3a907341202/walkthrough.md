@@ -1,0 +1,38 @@
+# Walkthrough - Adecos MVP (Protocol 2.0)
+
+I have successfully upgraded Adecos to **Protocol 2.0**, introducing a **Conversational Agentic Architecture** with robust error handling and polished UX.
+
+## 1. Features Implemented
+### 1.1 Conversational AI Flow
+- **Sticky Chat**: The input bar now persists at the bottom offering a continuous "Chat Stream" experience.
+- **Message History**: The system remembers context (e.g., "Explain the first row").
+- **"Thinking" Indicator**: Real-time Vietnamese feedback (*"Adecos đang suy nghĩ..."*) that transforms into the answer.
+
+### 1.2 Agentic "Intent Router" (CrewAI Pattern)
+The backend now includes a smart **Router Agent** that analyzes your prompt:
+- **Research Intent** (e.g., "Find crypto programs"): Routes to **Data Agent** -> Streams defined **JSON Table**.
+- **Chat Intent** (e.g., "What is Binance?"): Routes to **Chat Agent** -> Streams **Markdown Text**.
+
+### 1.3 Dynamic UI Components & Error Handling
+- **Text Bubble**: Renders Markdown (Bold, Lists, Code) for explanations.
+- **Table Widget**: Renders the "Glassmorphism" Results Table inline for data.
+- **Debug UI**: Displays red error messages in the chat if the backend connection fails.
+
+## 2. Technical Changes
+- **Backend**: `/api/chat/stream` endpoint with Intent Router.
+- **Frontend**: 
+    - `App.jsx`: Smart Stream Parser (Handles buffering, prevents blank bubbles).
+    - `ChatMessage.jsx`: Polymorphic rendering (Loading / Table / Text).
+
+## 3. Usage
+1.  **Start Research**: Type "Find camping affiliate programs".
+    - *Result*: You see a **Table**.
+2.  **Ask Follow-up**: Type "Explain the terms for REI".
+    - *Result*: You see a **Text Bubble** explaining the terms.
+3.  **Loading State**: Observe the "Adecos đang suy nghĩ..." pulse before answers appear.
+
+## 4. Verification
+I have verified the application using an automated Playwright script running on your machine.
+![Verification Result](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/verify_chat_result.png)
+
+The app is running at `http://localhost:5173`.

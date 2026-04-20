@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan to synchronize documentation (SRS, PRD) with recent code changes (Workflow UI, US DTC Data) before pushing to Git.",
+  "updatedAt": "2026-03-14T23:39:08.985529100Z"
+}

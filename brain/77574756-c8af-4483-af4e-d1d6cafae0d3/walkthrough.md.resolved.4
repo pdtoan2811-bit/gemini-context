@@ -1,0 +1,38 @@
+# Walkthrough - Interaction Refinement & Bug Fixes
+
+I have completed the requested interaction refinements and fixed several UI glitches. The application now provides a more context-aware and stable experience for affiliate research.
+
+## Key Accomplishments
+
+### 1. Dynamic Thinking Indicator
+*   **Context-Aware Step Generation:** The backend now generates 10 specific "thinking" steps based on the user's query, with a focus on affiliate programs and project management.
+*   **Immediate Feedback:** The thinking indicator appears immediately with a default message ("Adecos đang suy nghĩ...") and updates seamlessly once the dynamic prompts are fetched.
+*   **Relevance:** Updated the prompt in [generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/generator.py) to ensure steps relate to product niches, ad campaigns, and affiliate metrics.
+
+### 2. Autocomplete Removal
+*   **Code Cleanup:** Removed all traces of the `useAutocomplete` hook and `AutocompleteDropdown` component.
+*   **Stable UI:** Resolved the white screen of death and missing chat input caused by 404 errors on deleted files. Project-wide searches confirm no stale references remain.
+
+### 3. Results Table Enhancements
+*   **Traffic NaNM Fix:** Corrected the "NaNM" display in the Traffic column by ensuring `traffic_3m` is returned as a number from the backend and formatted correctly in the frontend.
+*   **New Hyperlinks:**
+    *   **Thương hiệu:** Now links to the project details page (`/projects/detail`).
+    *   **Traffic:** Numeric value now links to project details, and a new "View Traffic →" link takes you to the specific dashboard view.
+
+## Verification
+
+### Local Environment
+*   **Backend:** Verified that `POST /api/chat/thinking` returns valid JSON arrays.
+*   **Frontend:** Confirmed the chat input is restored and the application loads without 404 errors.
+*   **Interactions:** Verified that the thinking indicator cycles through contextually relevant Vietnamese phrases.
+
+### Visual Proof
+
+![Thinking Indicator Demo](file:///C:/Users/ADMIN/.gemini/antigravity/brain/77574756-c8af-4483-af4e-d1d6cafae0d3/thinking_indicator_demo.webp)
+*The thinking indicator gracefully cycles through AI processing steps.*
+
+![Results Table Linking](file:///C:/Users/ADMIN/.gemini/antigravity/brain/77574756-c8af-4483-af4e-d1d6cafae0d3/results_table_links.webp)
+*Traffic numbers are formatted correctly and link to project dashboards.*
+
+## Next Steps
+*   The application is now stable and ready for further feature development or user testing.

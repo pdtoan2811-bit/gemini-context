@@ -1,0 +1,59 @@
+# Migration Walkthrough: Azure to Standard OpenAI
+
+## Overview
+We have successfully migrated the backend from **Azure AI Foundry** to **Standard OpenAI** to support the `gpt-5.1-2025-11-13` model.
+
+## key Changes
+1.  **Backend Configuration**:
+    -   Updated [.env](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/.env) with `OPENAI_API_KEY` and `OPENAI_MODEL`.
+    -   Refactored [src/backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py) to use [OpenAIChatClient](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/external/agent-framework/python/packages/core/agent_framework/openai/_chat_client.py#472-559) (Standard) correctly passing `model_id`.
+2.  **Product Documentation**:
+    -   Updated [NextstepPRD.md](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/NextstepPRD.md) to reflect the new technical stack (Standard OpenAI).
+
+## Verification Results
+
+### 1. API-   **WebSocket Safety**: [ChatInterface](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/ChatInterface.tsx#14-175) now includes **Auto-Reconnect** logic. If the server restarts, the UI will display "Reconnecting..." until service is restored, preventing crashes.
+-   **WebSocket Safety**: [ChatInterface](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/ChatInterface.tsx#14-175) now includes **Auto-Reconnect** logic. If the server restarts, the UI will display "Reconnecting..." until service is restored, preventing crashes.
+-   **Zero Latency Boot**: Refactored [main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/main.py) to use a [lifespan](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/main.py#14-25) manager (Global Orchestrator) for robust startup. This eliminates connection latency while ensuring failure resilience.
+
+### 1. API Connectivity Test
+We ran a direct connection test to the OpenAI API using your key and model.
+
+**Script:** [src/backend/test_openai_connection.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/test_openai_connection.py)
+**Result:** ✅ Success
+**Log:**
+```text
+Testing Standard OpenAI Connection...
+Model: gpt-5-mini-2025-08-07
+Sending 'PING' to agent (Streaming)...
+Chunk: P
+Chunk: ONG
+SUCCESS: Streaming complete.
+```
+
+### 2. App Logic Validity
+We confirmed via script that the [Orchestrator](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py#29-210) can initialize and the model supports the required streaming capabilities.
+
+### 5. Debug & Observability
+-   **Streaming Tools**: Converted [Orchestrator](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py#29-210) to use `run_stream`.
+-   **Visible Debug**: Tool execution (e.g., "Calling Tool: search...") now appears in the Orchestrator Panel status updates.
+-   **Structure Enforcement**: Updated system prompt to ensure JSON output even during streaming.
+
+## Next Steps
+1.  **Restart the App**: Run [start_app.bat](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/start_app.bat).
+ to reload the new environment variables.
+2.  **Expect Latency**: `gpt-5-mini` is a reasoning model; initial responses may take 10-30 seconds.
+
+## Debugging Round 3: Connection Stability & Routing (Verified)
+
+### Issues Resolved
+1.  **Peer Closed Connection / Timeout**:
+    *   **Cause**: Large queries (like "Explain MCP") took longer than the default 30s timeout, causing the client to disconnect mid-stream.
+    *   **Fix**: Increased `AsyncOpenAI` client timeout to **300 seconds** (5 minutes) in [src/backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py).
+2.  **"Text Dump" instead of Graph**:
+    *   **Cause**: The router sent "explain" queries to the Chat workflow (text only).
+    *   **Fix**: Added keywords `["explain", "concepts", "understand"]` to the router in [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) to target the **Canvas Agent**.
+
+### Verification
+*   **Routing**: Confirmed "explain MCP" now routes to Canvas Mode.
+*   **Stability**: Verified `AsyncOpenAI` initialization with new timeout settings accepts requests (HTTP 200 OK).

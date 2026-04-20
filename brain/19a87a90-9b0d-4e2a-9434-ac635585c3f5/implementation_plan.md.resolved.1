@@ -1,0 +1,27 @@
+# Implementation Plan: Refining Intent Classification
+
+**Goal**: Ensure queries like "Top campaigns by CPC" or "Ranking" result in **Charts** (Data Analysis), not Table Lists (Data Query).
+
+## User Review Required
+> [!IMPORTANT]
+> This changes how "list" vs "chart" intents are decided. Explicit requests for "list" or "table" will still get tables, but ambiguous "which is best" queries will now default to visual charts.
+
+## Proposed Changes
+
+### Backend
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py)
+- **[classify_intent](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#99-152) Prompt**:
+    -   **[data_analysis](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-316)**: Update definition to explicitly include "Top/Ranking/Best/Worst" queries.
+    -   **[data_query](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#345-388)**: Restrict definition to ONLY strict "List/Table/Export" requests. Remove "Which is best?" examples from here.
+    -   **`comparison`**: Explicitly mention "Compare X vs Y" or "Ranking".
+
+## Verification Plan
+
+### Manual Verification
+1.  **Test Ranking Query**:
+    -   Query: "Top campaign by CPC"
+    -   Expectation: Intent [data_analysis](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#154-316) or `comparison`. Result: Bar Chart.
+2.  **Test Table Query**:
+    -   Query: "List all campaigns"
+    -   Expectation: Intent [data_query](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#345-388). Result: Table.

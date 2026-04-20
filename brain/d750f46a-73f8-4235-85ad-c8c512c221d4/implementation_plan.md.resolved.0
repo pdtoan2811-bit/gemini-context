@@ -1,0 +1,27 @@
+# Implementation Plan - Refine Agent Logic (MECE & Search Limits)
+
+## Goal Description
+Enhance the n8n Agent Workflow ([agent_workflow_v3_hybrid.json](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/agent_workflow_v3_hybrid.json)) to strictly follow the user's new directive:
+1.  **Autonomous Query Generation**: The Agent must decide *how many* queries are needed for a MECE breakdown.
+2.  **Limited Search Results**: Tavily tool usage should be capped at **2 results** per query (down from 7) to reduce noise.
+3.  **Strict JSON**: Reinforce the requirement for ReactFlow-compatible JSON output.
+
+## Proposed Changes
+
+### [n8n Workflow]
+#### [MODIFY] [agent_workflow_v3_hybrid.json](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/agent_workflow_v3_hybrid.json)
+- **Agent Node (System Prompt)**:
+    - Update "Protocol" for `deep_dive` mode.
+    - Explicitly instruct the agent to "Decide how many distinct search queries are required...".
+    - Emphasize "Top 2 high-quality results" per query.
+- **Tavily Tool Node**:
+    - Change `max_results` parameter from `7` to `2`.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Visual Inspection**: Open [agent_workflow_v3_hybrid.json](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/agent_workflow_v3_hybrid.json) and verify:
+    - `systemMessage` contains the new MECE instructions.
+    - `tool-tavily-v3` has `max_results` set to `2`.
+2.  **User Handoff**: Notify user to re-import the JSON workflow into n8n and test a "Deep Dive" request (e.g., "Explain Quantum Computing").
+    - Expected Result: Agent should fire multiple specific queries (e.g., "Principles of Quantum Computing", "Quantum Hardware Types") instead of one generic broad search, and the process should be faster due to fewer results per search.

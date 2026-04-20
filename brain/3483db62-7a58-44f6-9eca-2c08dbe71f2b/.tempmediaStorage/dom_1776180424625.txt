@@ -1,0 +1,77 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+AInewsvideo
+/
+[6] (523,19)<a title='ai-editor-short'>ai-editor-short />
+[7] (972,19)<button  />
+[8] (984,19)<button  />
+[9] (50,60)<div role='button'>Compositions />
+[10] (150,60)<div role='button'>Assets />
+ai-editor-short
+1080
+x
+1920
+, 30 FPS
+Duration
+00:37.27
+[11] (100,167)<button >Search... />
+	[12] (180,167)<span >Ctrl
++K />
+[13] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[14] (100,238)<a class='__remotion-composition' title='ai-editor-short'>ai-editor-short />
+	ai-editor-short
+[15] (100,272)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+[16] (601,368)<div  />
+	🤯 WILD
+	1
+	/
+	6
+[17] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[18] (87,728)<button role='button' title='Zoom in timeline' />
+[19] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[20] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[21] (499,728)<button aria-label='Play' title='Play' />
+[22] (513,728)<button aria-label='Step forward one frame' title='Step forward one frame' />
+[23] (535,728)<button aria-label='Loop video' title='Loop video' />
+[24] (552,728)<button aria-label='Mute video' title='Mute video' />
+[25] (591,728)<button aria-label='Mark Out (O) - right click to clear' title='Mark Out (O) - right click to clear' />
+[26] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[27] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />
+[28] (969,728)<div  />
+	[29] (969,728)<button id='render-modal-button' />
+		[30] (969,728)<div  />
+			[31] (974,728)<span >Render />
+[32] (500,880)<div class='css-reset __remotion-vertical-scrollbar' scrollable='true' />
+	[33] (27,815)<div ><Series> />
+	[34] (74,815)<div >AIEditorShort.tsx:554 />
+	[35] (52,842)<div ><Series.Sequence> />
+	[36] (114,842)<div >AIEditorShort.tsx:556 />
+	[37] (138,896)<div >Best%20AI%20Video%20Editor%20for%202026%20(Can%20AI%20Video%20Editing%20Replace%20Humans_).mp4 />
+	AIEditorShort.tsx:180
+	[38] (138,977)<div >Best%20AI%20Video%20Editor%20for%202026%20(Can%20AI%20Video%20Editing%20Replace%20Humans_).mp4 />
+	AIEditorShort.tsx:230
+	00:00.00
+	[39] (187,781)<input  />
+	0
+	0
+	00:05.00
+	00:10.00
+	00:15.00
+	00:20.00
+	00:25.00
+	00:30.00
+	00:35.00
+
+</current_dom>

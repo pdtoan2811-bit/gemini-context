@@ -1,0 +1,19 @@
+# Task Checklist
+
+- [ ] Initial Documentation & Planning [/]
+    - [x] Research existing codebase and documentation
+    - [ ] Update BRD with Prototype CMS value
+    - [ ] Update PRD with Prototype CMS behavior and user stories
+    - [ ] Update SRS with Prototype CMS architecture and data model
+    - [ ] Create Implementation Plan
+- [ ] Implement Prototype CMS Frontend
+    - [ ] Create `PrototypeOverlay` component
+    - [ ] Implement `UserStoryList` and `AcceptanceCriteriaList`
+    - [ ] Add "Preview" functionality to link ACs to app states
+    - [ ] Add "Non-demonstrable" view for specific ACs
+- [ ] Integrate Prototype CMS into the App
+    - [ ] Add toggle/trigger for the Prototype CMS (e.g., a floating button or keyboard shortcut)
+    - [ ] Ensure it doesn't break existing app code
+- [ ] Verification & Walkthrough
+    - [ ] Verify CMS functionality
+    - [ ] Create walkthrough artifact

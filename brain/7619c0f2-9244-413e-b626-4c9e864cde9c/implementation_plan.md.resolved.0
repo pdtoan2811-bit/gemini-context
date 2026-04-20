@@ -1,0 +1,74 @@
+# Implementation Plan: AI Intent Classifier
+
+## Goal
+Implement a robust intent classification system using Gemini API to accurately route user queries between research mode (affiliate program tables) and explanation mode (conversational responses).
+
+## Approach
+
+### Two-Stage Classification System
+1. **Stage 1: Intent Classification** - Use Gemini to analyze query and classify intent
+2. **Stage 2: Response Generation** - Based on classification, generate appropriate response
+
+### Why Gemini API for Classification?
+- ✅ No additional ML dependencies (scikit-learn, transformers, etc.)
+- ✅ Understands context and nuance better than keyword matching
+- ✅ Can handle Vietnamese and English queries
+- ✅ Fast lightweight API call
+- ✅ Already authenticated and configured
+
+## Proposed Changes
+
+### New File: `backend/intent_classifier.py`
+
+```python
+import google.generativeai as genai
+import os
+
+# INTENT TYPES
+INTENT_RESEARCH = "research"      # User wants affiliate program recommendations
+INTENT_EXPLANATION = "explanation" # User wants to understand/learn something
+INTENT_FOLLOWUP = "followup"      # User asking about previous response
+
+async def classify_intent(user_query: str, conversation_history: list = None) -> dict:
+    """
+    Classify user intent using Gemini API.
+    Returns: {"intent": "research"|"explanation"|"followup", "confidence": 0-1}
+    """
+```
+
+### Updates to [backend/generator.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py)
+- Import intent_classifier
+- Replace keyword-based routing with AI classification
+- Use classification result to route to appropriate generation mode
+
+### No New Dependencies
+All required packages already installed:
+- `google-generativeai` ✅ 
+- `python-dotenv` ✅
+- `fastapi` ✅
+
+## Implementation Details
+
+### Intent Classifier Prompt
+The classifier will use a lightweight prompt to quickly categorize the query:
+
+**Input**: User query + optional conversation history  
+**Output**: JSON with intent type and confidence score
+
+### Classification Logic
+- **RESEARCH**: Niche names, product categories, "find X programs", industry terms
+- **EXPLANATION**: Questions starting with why/what/how, requests for clarification
+- **FOLLOWUP**: References to previous responses ("explain row 1", "tell me more about that")
+
+### Integration Flow
+```
+User Query → Intent Classifier → Route to Generator → Stream Response
+```
+
+## Verification Plan
+Test with:
+1. ✅ Single-word niches: "Forex", "Crypto", "Gaming"
+2. ✅ Multi-word descriptions: "beauty skincare and fragrance ecommerce"
+3. ✅ Explicit questions: "What is affiliate marketing?", "Why is this score high?"
+4. ✅ Follow-up queries: "tell me more", "explain the first one"
+5. ✅ Vietnamese queries: "tìm chương trình forex", "làm thế nào để..."

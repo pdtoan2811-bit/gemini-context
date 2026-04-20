@@ -1,0 +1,60 @@
+# AI Slideshow Generator Implementation Plan
+
+# Goal Description
+Build a premium web application that allows users to generate slideshows using Gemini AI (model: `gemini-3-flash-preview`), edit them via a markdown/text editor, and export them to PPTX or PDF.
+
+## User Review Required
+> [!IMPORTANT]
+> **API Key handling**: The API key provided will be stored in a local environment variable file (`.env.local`) for security during development, but since this is a client-side app, it will be exposed in the build if deployed publicly without a backend. For this local task, [.env](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/.env) is sufficient.
+
+## Proposed Changes
+
+### Project Structure
+- `src/`
+    - `components/`
+        - [ChatPanel.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/ChatPanel.jsx): Chat interface for AI interaction.
+        - [EditorPanel.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/EditorPanel.jsx): Markdown editor for slides.
+        - [PreviewPanel.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/PreviewPanel.jsx): Visual renderer of the slides.
+        - [ExportControls.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/ExportControls.jsx): Buttons for PPTX/PDF export.
+    - `services/`
+        - [gemini.js](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/services/gemini.js): Wrapper for Google Generative AI interactions.
+        - [export-utils.js](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/services/export-utils.js): Logic for generating PPTX and PDF files.
+    - [App.jsx](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/App.jsx): Main layout.
+    - [index.css](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/index.css): Global variables for the premium theme (Dark mode, glassmorphism).
+
+### AI Integration
+- Use `@google/generative-ai`.
+- Prompt strategy: Ask Gemini to return a specific Markdown format where `---` separates slides, and the first line of a slide is the title (e.g. `# Title`).
+- Model: `gemini-3-flash-preview`.
+
+### Export Logic
+- **PPTX**: Parse the markdown. Each "---" block becomes a slide. `#` headers become titles. Images `![]()` are embedded.
+- **PDF**: Render the DOM nodes of the slides to canvas using `html2canvas` then add to `jspdf`.
+
+## Verification Plan
+## V2: Visual Editor & Templates
+### Component Design
+- **Slide Model**:
+    - Transistion from pure Markdown string state to `slides` array state: `[{ id: uuid, content: string, layout: 'default' }]`.
+    - **Parsing**: `markdownToSlides` splits by `---`.
+    - **Serialization**: `slidesToMarkdown` joins with `\n---\n`.
+
+### UI Changes
+- **Google Slides Layout**:
+    - **Sidebar**: Flex col of `SlideThumbnail` components. Click to set active index.
+    - **Main Area**: `SlideCanvas` displaying the active slide.
+    - **Editing**: 
+        - Text elements in `SlideCanvas` are `contentEditable` or `input/textarea` with transparent styling.
+        - Updates sync directly to `slides` state array.
+
+### Theme: Apple Basic
+- **Typography**: Inter/System-UI. Large, bold headings.
+- **Colors**: Adaptation of Apple Basic to Dark Mode (Deep Greys, White text, Blue accents).
+- **Layouts**: 
+    - `Title`: Centered big text.
+    - `Bullets`: Title top-left, list below.
+
+## Verification
+- User can click a slide in sidebar -> Main view updates.
+- User clicks text in Main view -> Can type.
+- Export still works (Serializes state -> Markdown -> PPTX).

@@ -1,0 +1,15 @@
+# Task: Verify ResultsTable Functionality
+
+## Checklist
+- [ ] Navigate to http://localhost:5173/chat
+- [ ] Search for 'High ticket affiliate programs 2024'
+- [ ] Verify ResultsTable renders without crashing
+- [ ] Verify "Thương hiệu" column has clickable links
+- [ ] Verify "Traffic" column has formatted numbers and clickable links
+- [ ] Verify "View Traffic →" link is present
+- [ ] Verify "Brand Name" and "Ads" columns show ✓/✕ icons
+- [ ] Verify Brand link navigation to /projects/detail
+- [ ] Report findings
+
+## Progress
+- Initialized scratchpad.

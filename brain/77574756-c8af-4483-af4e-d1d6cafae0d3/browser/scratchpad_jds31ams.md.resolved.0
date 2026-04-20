@@ -1,0 +1,12 @@
+# Task Breakdown: Browser Verification
+
+- [ ] Go to http://localhost:5173/chat
+- [ ] Perform a research search for affiliate programs (e.g., "tìm kiếm dự án affiliate")
+- [ ] In the Results Table:
+    - [ ] Click on a Brand Name
+    - [ ] Verify side pane opens and text is in Vietnamese ("Trạng thái", "Ngách")
+    - [ ] Close the pane
+    - [ ] Click "Xem Traffic Affiliate →"
+    - [ ] Verify side pane opens to "Traffic Affiliate" tab and text is in Vietnamese ("Tổng lượt truy cập")
+- [ ] Take a screenshot of the localized side pane showing traffic data
+- [ ] Provide a summary of verification results

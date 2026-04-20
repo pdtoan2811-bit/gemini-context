@@ -1,0 +1,33 @@
+# Project Walkthrough: AI Slideshow Generator
+
+## 🚀 Recent Updates: Auto-Scaling & Visual Polish
+
+We have successfully resolved the "awful visibility" and sizing issues. The application now features a robust auto-scaling engine and a clean, clutter-free editor interface.
+
+### 1. Auto-Scaling Engine (New Feature)
+-   **Problem**: Slides were fixed at 1920x1080, causing them to overflow or look cut off on smaller screens.
+-   **Solution**: Implemented a `ResizeObserver` system in the main layout.
+    -   Automatically detects available screen space.
+    -   Dynamically calculates the perfect `scale` (e.g., 0.65) to fit the HD slide entirely within the view.
+    -   Adds an elegant shadow and breathing room (padding) around the slide.
+
+### 2. Clean Editor Interface
+-   **Problem**: Raw "Choose File" inputs and visual clutter ruined the slide aesthetics.
+-   **Solution**:
+    -   **Hidden Inputs**: Completely removed visible file inputs.
+    -   **Contextual UI**: "Upload" and "Change Image" buttons now **only appear on hover/drag**.
+    -   **Result**: Slides look pristine (like a finished presentation) until you interact with them.
+
+### 3. Interactive Editor (Core Feature)
+-   **Click-to-Edit**: Edit any text instantly.
+-   **Drag-and-Drop**: Drag images directly onto placeholders.
+-   **Layout Protection**: Edits respect the "Top Tier" layout constraints.
+
+## Architecture Status
+-   **Frontend**: React + Tailwind + Auto-Scaling
+-   **Backend**: Node.js (Crawler Service)
+-   **AI**: Gemini 2.0 Flash (JSON-based generation)
+
+## Verification
+-   **Build**: Successful (`npm run build` passed).
+-   **Code Validation**: Confirmed `ResizeObserver` logic and `display: none` for file inputs.

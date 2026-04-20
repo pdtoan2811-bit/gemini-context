@@ -1,0 +1,57 @@
+# Implementation Plan - AI Slideshow App
+
+## Goal Description
+Build a "Google Sheets-like" AI Slideshow generator and editor. The app will accept text prompts, generate multi-slide decks using Gemini 3.0 Flash Preview, and allow users to edit them in a high-fidelity WYSIWYG interface.
+
+## User Review Required
+> [!IMPORTANT]
+> **Tech Stack Selection**: Using **React (Vite) + TypeScript + Vanilla CSS**. This ensures maximum flexibility and follows the system guidelines. If you prefer a CSS framework like Tailwind, please specify.
+
+> [!NOTE]
+> **AI Model**: Hardcoded to `gemini-3-flash-preview` as requested.
+
+## Proposed Changes
+
+### Project Structure (New)
+The workspace is currently empty. I will initialize a new React project.
+
+#### [NEW] [Scaffolding]
+*   Initialize Vite project: `npm create vite@latest . -- --template react-ts`
+*   Install dependencies: `google-generative-ai` (official SDK if available, or just fetch), `react-router-dom`, `lucide-react` (for icons).
+
+#### [NEW] [src/types/index.ts]
+*   Define `Slide`, `Presentation`, `Theme` interfaces matching the SRS.
+
+#### [NEW] [src/services/gemini.ts]
+*   Implement `generateSlides(prompt: string)` function calling the Gemini API.
+*   Parses Markdown output into the `Slide[]` structure.
+
+#### [NEW] [src/components]
+*   **Layout**: `MainLayout.tsx` (Sidebar + Canvas + Toolbar).
+*   **Editor**: `SlideCanvas.tsx` (The render area), `Toolbar.tsx` (Actions).
+*   **Sidebar**: `SlideList.tsx` (Thumbnails).
+*   **Renderer**: `SlideRenderer.tsx` (Maps layout types to visual components).
+
+#### [NEW] [src/styles]
+*   `index.css`: Global styles, reset, and CSS variables for themes (`--bg-primary`, `--font-heading`).
+*   `Slide.css`: Specific styles for slide layouts.
+
+## Verification Plan
+
+### Automated Tests
+*   **Build Test**: Run `npm run build` to ensure type safety and build success.
+*   **Lint**: Run `npm run lint`.
+
+### Manual Verification
+1.  **AI Generation**:
+    *   Enter prompt "Startup Pitch Deck for a Coffee Shop".
+    *   Verify ~5 slides are generated with Titles, Bullets, and standard layouts.
+2.  **Rendering**:
+    *   Check "Casual" vs "Professional" theme toggle changes fonts and colors.
+    *   Verify Markdown tables render correctly as HTML tables.
+3.  **Editing**:
+    *   Click text on a slide -> Edit text -> Verify change persists.
+    *   Add a new slide manually.
+4.  **UI Layout**:
+    *   Verify Sidebar shows thumbnails.
+    *   Verify Canvas is centered 16:9.

@@ -1,0 +1,74 @@
+# Refinement of AI Interaction & UX
+
+This plan addresses three specific requests to refine the user experience and AI interaction:
+1. Extracting/Defining the traffic generation prompt.
+- [ ] Fix "View Affiliate Traffic" click issue in [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx).
+- [ ] Translate all UX strings in [ProjectSidePane.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ProjectSidePane.jsx) and [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx) to Vietnamese.
+- [ ] Implement Split-Pane UI on [ChatPage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/pages/ChatPage.jsx) (right-side drawer for project details).
+- [ ] Refactor [ProjectDetailPage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/pages/ProjectDetailPage.jsx) content into a reusable [ProjectSidePane.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ProjectSidePane.jsx) component.
+- [ ] Update [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx) links to trigger the side pane instead of page navigation.
+- [ ] Focus "Traffic" link on affiliate program traffic rather than general ad dashboard.
+- [x] Ensure AI result table provides realistic `brand_name_allowed` and `ads_allowed` booleans.
+2. Removing the autocomplete feature.
+3. Implementing dynamic thinking process prompts to replace the static loading message.
+
+## User Review Required
+> [!IMPORTANT]
+> The thinking process prompts will be generated dynamically by an AI request. This may add a slight overhead to the initial request.
+
+## Proposed Changes
+
+### Backend
+- **Mock Data prompt:** Externalize the traffic generation logic into a prompt:
+  ```markdown
+  Generate mock advertisement traffic data for [CAMPAIGN_NAME]. 
+  Include daily records for the last 90 days with:
+  - Clicks: based on a base CTR of 1.5-8%
+  - Impressions: 100-5000 per day
+  - Cost: based on a base CPC of 2000-15000 VND
+  - Revenue: based on a conversion rate of 0.5-5.0% and AOV of 200k-5M VND
+  Apply weekend seasonality (0.9x impressions) and daily variance (0.7-1.3x).
+  ```
+- **Thinking Prompt API:** Create `POST /api/chat/thinking` to generate 10 "fake thinking" steps (e.g., "Analyzing campaign structure...", "Identifying top performing keywords...").
+
+### Frontend
+- **Remove Autocomplete:** 
+    - [DELETE] [useAutocomplete.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/hooks/useAutocomplete.js)
+    - [DELETE] [AutocompleteDropdown.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/chat/AutocompleteDropdown.jsx)
+    - [MODIFY] [ChatInput.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/chat/ChatInput.jsx) to remove all autocomplete logic.
+- **Dynamic Thinking UI:**
+    - [MODIFY] [ThinkingIndicator.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/ThinkingIndicator.jsx) to accept an array of 10 prompts and cycle through them every 1.5 seconds.
+    - [MODIFY] [ChatPage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/pages/ChatPage.jsx) to fetch these prompts from the backend when a request starts.
+
+### Results Table Refinement
+- [x] Fix "NaNM" by ensuring traffic is numeric in backend and formatted in frontend.
+- [x] Add hyperlinks to "Thương hiệu" and "Traffic" columns.
+- [x] Link to `/projects/detail` and `/dashboard`.
+
+### Layout & Navigation
+#### [NEW] [ProjectSidePane.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ProjectSidePane.jsx)
+- [ ] Reusable component for project/program details.
+- [ ] Support "Info" and "Affiliate Traffic" tabs.
+
+#### [MODIFY] [ChatPage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/pages/ChatPage.jsx)
+- [ ] Implement `AnimatePresence` controlled right-side pane.
+- [ ] Manage `selectedProgram` state to populate the pane.
+
+#### [MODIFY] [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx)
+- [ ] Update Brand/Traffic links to call `onViewDetails(program)`.
+- [ ] Focus Traffic links on internal project metrics.
+
+### Backend Intelligence
+#### [MODIFY] [generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/generator.py)
+- [x] Update `PROMPT_TEMPLATE` for `brand_name_allowed` and `ads_allowed`.
+- [x] Add instructions for "realistic" boolean generation.
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py)
+- [x] Update [execute_research_crew](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py#409-494) prompt for realistic booleans.
+
+## Verification Plan
+### Automated Tests
+- Verify `npm run dev` and `python main.py` still start correctly.
+- Check that the search bar no longer shows autocomplete suggestions.
+### Manual Verification
+- Send a message in chat and verify that 10 different, context-relevant "thinking" messages appear before the actual response.

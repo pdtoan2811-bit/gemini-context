@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Task tracker for executing the Remotion Prompt Studio implementation plan. Covers project initialization, shared utilities, Remotion compositions, Express backend, Vite web UI, Antigravity agent skill, documentation, and verification.",
+  "updatedAt": "2026-04-20T14:42:34.365987300Z"
+}

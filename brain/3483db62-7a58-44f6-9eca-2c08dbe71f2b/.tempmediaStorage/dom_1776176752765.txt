@@ -1,0 +1,72 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+AInewsvideo
+/
+[6] (523,19)<a title='ai-news-short'>ai-news-short />
+[7] (972,19)<button  />
+[8] (984,19)<button  />
+[9] (50,60)<div role='button'>Compositions />
+[10] (150,60)<div role='button'>Assets />
+ai-news-short
+1080
+x
+1920
+, 30 FPS
+Duration
+00:30.00
+[11] (100,167)<button >Search... />
+	[12] (180,167)<span >Ctrl
++K />
+[13] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[14] (100,238)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+[15] (601,368)<div  />
+[16] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[17] (87,728)<button role='button' title='Zoom in timeline' />
+[18] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[19] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[20] (499,728)<button aria-label='Play' title='Play' />
+[21] (513,728)<button aria-label='Step forward one frame' title='Step forward one frame' />
+[22] (535,728)<button aria-label='Loop video' title='Loop video' />
+[23] (552,728)<button aria-label='Mute video' title='Mute video' />
+[24] (591,728)<button aria-label='Mark Out (O) - right click to clear' title='Mark Out (O) - right click to clear' />
+[25] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[26] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />
+[27] (969,728)<div  />
+	[28] (969,728)<button id='render-modal-button' />
+		[29] (969,728)<div  />
+			[30] (974,728)<span >Render />
+[31] (32,815)<div ><Sequence> />
+[32] (84,815)<div >AINewsShort.tsx:420 />
+[33] (32,842)<div ><Sequence> />
+[34] (84,842)<div >AINewsShort.tsx:423 />
+[35] (32,870)<div ><Sequence> />
+[36] (84,870)<div >AINewsShort.tsx:426 />
+[37] (32,897)<div ><Sequence> />
+[38] (84,897)<div >AINewsShort.tsx:429 />
+[39] (32,925)<div ><Sequence> />
+[40] (84,925)<div >AINewsShort.tsx:432 />
+00:00.00
+[41] (237,781)<button class='__remotion_input_dragger' />
+	[42] (237,780)<span >0 />
+0
+00:04.00
+00:08.00
+00:12.00
+00:16.00
+00:20.00
+00:24.00
+00:28.00
+
+</current_dom>

@@ -1,0 +1,91 @@
+[0] (13,19)<button class='__remotion-studio-menu-initiator' role='button' />
+[1] (33,19)<button class='__remotion-studio-menu-initiator' role='button'>File />
+[2] (56,19)<button class='__remotion-studio-menu-initiator' role='button'>View />
+[3] (81,19)<button class='__remotion-studio-menu-initiator' role='button'>Tools />
+[4] (114,19)<button class='__remotion-studio-menu-initiator' role='button'>Packages />
+[5] (147,19)<button class='__remotion-studio-menu-initiator' role='button'>Help />
+AInewsvideo
+/
+[6] (523,19)<a title='ai-news-short'>ai-news-short />
+[7] (972,19)<button  />
+[8] (984,19)<button  />
+[9] (50,60)<div role='button'>Compositions />
+[10] (150,60)<div role='button'>Assets />
+ai-news-short
+1080
+x
+1920
+, 30 FPS
+Duration
+00:19.25
+[11] (100,167)<button >Search... />
+	[12] (180,167)<span >Ctrl
++K />
+[13] (100,203)<a class='__remotion-composition' title='ai-news-short'>ai-news-short />
+	ai-news-short
+[14] (100,238)<a class='__remotion-composition' title='ai-editor-short'>ai-editor-short />
+	ai-editor-short
+[15] (100,272)<a class='__remotion-composition' title='history-of-venus'>history-of-venus />
+	history-of-venus
+[16] (601,368)<div  />
+	Wait.
+	Stop
+	scrolling.
+	AI
+	made
+	this
+	video.
+	From
+	one
+	prompt.
+	1
+	/
+	5
+[17] (51,728)<input alt='Timeline zoom (1x)' class='__remotion-timeline-slider' title='Timeline zoom (1x)' />
+[18] (87,728)<button role='button' title='Zoom in timeline' />
+[19] (383,728)<button class='__remotion-studio-menu-initiator' title='Preview Size'>Fit />
+	Fit
+[20] (431,728)<button class='__remotion-studio-menu-initiator' title='Change the playback rate'>1x />
+	1x
+[21] (471,728)<button aria-label='Jump to beginning' title='Jump to beginning' />
+[22] (485,728)<button aria-label='Step back one frame' title='Step back one frame' />
+[23] (499,728)<button aria-label='Play' title='Play' />
+[24] (513,728)<button aria-label='Step forward one frame' title='Step forward one frame' />
+[25] (535,728)<button aria-label='Loop video' title='Loop video' />
+[26] (552,728)<button aria-label='Mute video' title='Mute video' />
+[27] (577,728)<button aria-label='Mark In (I) - right click to clear' title='Mark In (I) - right click to clear' />
+[28] (591,728)<button aria-label='Mark Out (O) - right click to clear' title='Mark Out (O) - right click to clear' />
+[29] (614,728)<button aria-label='Show transparency as checkerboard (T)' title='Show transparency as checkerboard (T)' />
+[30] (633,728)<button aria-label='Enter fullscreen preview (F)' title='Enter fullscreen preview (F)' />
+[31] (969,728)<div  />
+	[32] (969,728)<button id='render-modal-button' />
+		[33] (969,728)<div  />
+			[34] (974,728)<span >Render />
+[35] (500,880)<div class='css-reset __remotion-vertical-scrollbar' scrollable='true' />
+	[36] (27,815)<div ><Series> />
+	[37] (73,815)<div >AINewsShort.tsx:375 />
+	[38] (52,842)<div ><Series.Sequence> />
+	[39] (114,842)<div >AINewsShort.tsx:377 />
+	[40] (50,870)<div >s1-hook.mp3 />
+	[41] (103,870)<div >AINewsShort.tsx:366 />
+	[42] (52,897)<div ><Series.Sequence> />
+	[43] (114,897)<div >AINewsShort.tsx:377 />
+	[44] (52,925)<div >s2-reveal.mp3 />
+	[45] (106,925)<div >AINewsShort.tsx:366 />
+	[46] (52,953)<div ><Series.Sequence> />
+	[47] (114,953)<div >AINewsShort.tsx:377 />
+	[48] (52,980)<div ><Series.Sequence> />
+	[49] (114,980)<div >AINewsShort.tsx:377 />
+	<Series.Sequence>
+	00:02.17
+	[50] (235,781)<button class='__remotion_input_dragger' />
+		[51] (235,780)<span >77 />
+	77
+	77
+	0 (Premounted)
+	00:03.00
+	00:06.00
+	00:09.00
+	00:12.00
+	00:15.00
+	00:18.00

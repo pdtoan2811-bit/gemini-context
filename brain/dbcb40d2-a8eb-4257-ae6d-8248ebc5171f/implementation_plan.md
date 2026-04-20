@@ -1,0 +1,93 @@
+# AI Slideshow Generator Implementation Plan
+
+# Goal Description
+Build a premium web application that allows users to generate slideshows using Gemini AI (model: `gemini-3-flash-preview`), edit them via a markdown/text editor, and export them to PPTX or PDF.
+
+## User Review Required
+> [!IMPORTANT]
+> **API Key handling**: The API key provided will be stored in a local environment variable file (`.env.local`) for security during development, but since this is a client-side app, it will be exposed in the build if deployed publicly without a backend. For this local task, `.env` is sufficient.
+
+## Proposed Changes
+
+### Project Structure
+- `src/`
+    - `components/`
+        - `ChatPanel.jsx`: Chat interface for AI interaction.
+        - `EditorPanel.jsx`: Markdown editor for slides.
+        - `PreviewPanel.jsx`: Visual renderer of the slides.
+        - `ExportControls.jsx`: Buttons for PPTX/PDF export.
+        - `SlideSidebar.jsx`: Thumbnail navigation.
+        - `SlideCanvas.jsx`: Main visual editor.
+        - `ViewToggle.jsx`: Toggle between Chat and Edit modes.
+    - `services/`
+        - `gemini.js`: Wrapper for Google Generative AI interactions.
+        - `export-utils.js`: Logic for generating PPTX and PDF files.
+    - `App.jsx`: Main layout.
+    - `index.css`: Global variables for the premium theme.
+    - `v2-styles.css`: V2 styling.
+
+### AI Integration
+- Use `@google/generative-ai`.
+- Prompt strategy: Ask Gemini to return a specific Markdown format where `---` separates slides, and the first line of a slide is the title (e.g. `# Title`).
+- Model: `gemini-3-flash-preview`.
+
+### Export Logic
+- **PPTX**: Parse the markdown. Each "---" block becomes a slide. `#` headers become titles. Images `![]()` are embedded.
+- **PDF**: Render the DOM nodes of the slides to canvas using `html2canvas` then add to `jspdf`.
+
+## V2: Visual Editor & Templates
+### Component Design
+- **Slide Model**:
+    - Transistion from pure Markdown string state to `slides` array state: `[{ id: uuid, content: string, layout: 'default' }]`.
+    - **Parsing**: `markdownToSlides` splits by `---`.
+    - **Serialization**: `slidesToMarkdown` joins with `\n---\n`.
+
+### UI Changes
+- **Google Slides Layout**:
+    - **Sidebar**: Flex col of `SlideThumbnail` components. Click to set active index.
+    - **Main Area**: `SlideCanvas` displaying the active slide.
+    - **Editing**: 
+        - Text elements in `SlideCanvas` are `contentEditable` or `input/textarea` with transparent styling.
+        - Updates sync directly to `slides` state array.
+
+### Theme: Apple Basic
+- **Typography**: Inter/System-UI. Large, bold headings.
+- **Colors**: Adaptation of Apple Basic to Dark Mode (Deep Greys, White text, Blue accents).
+- **Layouts**: 
+    - `Title`: Centered big text.
+    - `Bullets`: Title top-left, list below.
+
+## V2.5: UI/UX Polish (Google Slides Fidelity)
+### Objective
+Fix broken layout and styling to match "Google Slides" quality expectation.
+
+### Changes
+- **Layout Engine**: 
+    - Fix flexbox overflows in `App.jsx`. 
+    - Ensure Sidebar is scrollable and pinned.
+    - Ensure Main Canvas area is a viewport with "Zoom to fit" behavior.
+- **Slide Rendering**:
+    - Implement `ScaledSlide` component: A 1920x1080 (or 16:9) container that CSS-scales to fit the available UI space.
+    - **Thumbnails**: Re-use `ScaledSlide` at a small scale (e.g. 0.15x) instead of raw text.
+- **Theming**: 
+    - Improve "Apple Basic" to use gradients/backgrounds if applicable, or just clean typography.
+    - Fix text bleeding.
+
+## V3: Logic Rethink & UI Overhaul
+### Problem
+V2 failed because Markdown parsing is fragile, and Dark Mode conflicted with the "Google Slides" expectation. 1920x1080 scaling resulted in tiny text.
+
+### Architecture Shift: JSON-First
+- **AI Service**: Request strict JSON output `[{ title, content, type }]` instead of Markdown.
+- **State**: Use this JSON directly. No more markdown parsing.
+- **Service**: Update `gemini.js` to prompt for JSON.
+
+### UI Overhaul: Light Mode & Proportion
+- **Global Theme**: Switch to **White Background / Light Grey UI** (Classic Google Slides).
+- **Typography**: Use pixel-perfect font sizes for 1920x1080 (Title: 90px, Body: 40px).
+- **Canvas**: Ensure `ScaledSlide` centers perfectly on a gray backdrop.
+
+## Verification
+- Chat "Plan a wedding" -> Returns valid JSON slides.
+- UI looks like Google Slides (Light, clean, gray sidebar).
+- Text is readable and huge on the canvas.

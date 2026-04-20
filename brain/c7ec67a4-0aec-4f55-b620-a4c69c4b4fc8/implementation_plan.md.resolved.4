@@ -1,0 +1,49 @@
+# Implementation Plan - Auto-Scaling Layout
+
+The user reports that the slide "wrapper is too big". We need to ensure the 1920x1080 slides scale down to fit any viewport.
+
+## Goals
+1.  **Fit to Screen**: Dynamically calculate `scale` based on the available canvas size.
+2.  **Correct Base Size**: Ensure [SlideRenderer](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Renderer/SlideRenderer.tsx#19-86) enforces the 1920x1080 coordinate system so scaling works predictable.
+
+## 1. Update [SlideRenderer.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Renderer/SlideRenderer.tsx)
+Change the internal container to be fixed size, not percentage/flex.
+
+```tsx
+    const style: React.CSSProperties = {
+        width: '1920px', // Fixed base
+        height: '1080px', // Fixed base
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+        // ...
+    };
+```
+
+## 2. Update [MainLayout.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Layout/MainLayout.tsx)
+Implement a `ResizeObserver` to measure the `.canvas-area`.
+
+```tsx
+const [scale, setScale] = useState(1);
+const containerRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+    const updateScale = () => {
+        if (!containerRef.current) return;
+        const { clientWidth, clientHeight } = containerRef.current;
+        // Add some padding (e.g. 80px)
+        const availableWidth = clientWidth - 80;
+        const availableHeight = clientHeight - 80;
+        
+        const scaleX = availableWidth / 1920;
+        const scaleY = availableHeight / 1080;
+        const newScale = Math.min(scaleX, scaleY);
+        
+        setScale(newScale);
+    };
+    
+    // Setup ResizeObserver...
+}, []);
+```
+
+## 3. Verify [SlideList.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Sidebar/SlideList.tsx)
+Ensure the sidebar thumbnails still look correct (they likely pass a fixed small scale like 0.15).

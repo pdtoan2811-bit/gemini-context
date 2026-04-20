@@ -1,0 +1,35 @@
+# Walkthrough - Adecos MVP
+
+I have successfully initialized and implemented the **Adecos MVP**, fully refining the UI to a premium **"Elegant Monochrome"** aesthetic.
+
+## 1. Specifications (Protocol 1.0)
+- **[BRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/BRD.md)**: Business Value.
+- **[PRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/PRD.md)**: UX/Behavior.
+- **[SRS](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/SRS.md)**: Architecture.
+
+## 2. Implementation
+
+### Frontend Design Overhaul ("Elegant Monochrome")
+Based on user feedback, the UI has been transformed from "Glassmorphism" to a **Luxury Dark Editorial** style.
+
+- **Typography**: switched to **Playfair Display** (Serif) for headers and **Inter** (Sans) for data.
+- **Palette**: Strictly **Black (#0a0a0a)** and **Off-White (#fafafa)**. No colorful gradients.
+- **Components**:
+    - **App**: Deep luxury black background with subtle noise texture.
+    - **ChatInterface**: Minimalist "line-only" input field with elegant transitional animations.
+    - **ResultsTable**: High-fashion editorial layout. removed color-coding in favor of size/opacity hierarchy.
+
+**Key File**: [index.css](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/index.css)
+
+### Backend (FastAPI + Gemini)
+Streams mock data via `/api/research/stream`.
+**Key File**: [generator.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/generator.py)
+
+## 3. Usage
+1.  **One-Click Launch**:
+    ```batch
+    run_app.bat
+    ```
+2.  **Manual**:
+    - Backend: `uvicorn main:app --reload`
+    - Frontend: `npm run dev`

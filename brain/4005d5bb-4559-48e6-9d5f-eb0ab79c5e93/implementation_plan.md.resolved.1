@@ -1,0 +1,44 @@
+# Implementation Plan - Agent Architecture Refactor
+
+# Goal Description
+Refactor the backend to support a modular, plugin-based Agent architecture. This allows new agents to be added by simply creating a new folder/file, which the Maestro agent will automatically discover and utilize ("Flexible Playlist").
+
+## User Review Required
+> [!IMPORTANT]
+> This refactor changes the `backend/` structure significantly.
+> [backend/agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agent.py) will be deprecated in favor of `backend/agents/` directory.
+
+## Proposed Changes
+
+### Backend Refactor
+#### [NEW] [backend/agents/base.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agents/base.py)
+- Abstract Base Class `Agent`.
+- Attributes: `name`, `description`, `slug`.
+- Methods: `async def execute(self, context: dict) -> dict`.
+
+#### [NEW] [backend/agents/registry.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agents/registry.py)
+- `AgentRegistry` class.
+- Scans `backend/agents/` for subclasses of `Agent`.
+- Provides `get_all_agents()` and `get_agent(slug)`.
+
+#### [NEW] [backend/agents/maestro/agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agents/maestro/agent.py)
+- Moves logic from [agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agent.py).
+- Updates system prompt to dynamically include descriptions of ALL other agents found in the Registry.
+- This enables the "Flexible Playlist" - Maestro sees what tools are available at runtime.
+
+#### [MODIFY] [backend/main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/main.py)
+- Initialize `AgentRegistry` on startup.
+- Update `/agent/generate` to use the refactored Maestro.
+
+### Developer Experience
+#### [NEW] [run_all.bat](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/run_all.bat)
+- One-click script to start Neo4j (check), Backend, and Frontend.
+
+#### [NEW] [AGENT_DEV_GUIDE.md](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/AGENT_DEV_GUIDE.md)
+- Documentation on implementing the `Agent` class and registering it.
+
+## Verification Plan
+### Automated Tests
+- Create a dummy "EchoAgent" in `backend/agents/echo.py`.
+- Verify Maestro "sees" the EchoAgent in its prompt/tools.
+- Verify `run_all.bat` launches services correctly.

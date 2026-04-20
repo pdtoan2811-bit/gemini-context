@@ -1,0 +1,79 @@
+# Implementation Plan - CanvasMind
+
+CanvasMind is a Visual RAG Explorer that allows users to mutually interact with an AI agent through a visual node graph. This plan details the architecture to implement the "Context Boundary" and "Generative Graph" features using the Microsoft Agent Framework.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Token Usage Warning**: The "Context Boundary" feature involves re-injecting node content into the context window for every query. Large nodes or many selected nodes may consume significant tokens. A "Context Fuel Gauge" or summarization step is recommended.
+
+> [!NOTE]
+> **State Management**: The backend must persist the graph state (Nodes/Edges) so that the Agent can retrieve the content of "selected nodes" by ID. We will use a simple in-memory store for MVP, but a database (CosmosDB/Postgres) would be needed for production.
+
+## Technology Stack
+- **Frontend**: React, ReactFlow, TailwindCSS.
+- **Backend API**: Python (FastAPI).
+- **Agent Framework**: Microsoft Agent Framework (Python).
+- **AI Model**: OpenAI (GPT-4o) via Azure or Direct.
+
+## Proposed Changes
+
+### Backend (Python)
+
+#### [NEW] `backend/models.py`
+Define the Pydantic models for the graph and agent communication.
+- `Node`: id, label, content, type (concept, detail, root).
+- `Edge`: source, target, relationship.
+- `AgentResponse`: answer (markdown), new_nodes (List[Node]), new_edges (List[Edge]).
+
+#### [NEW] `backend/agents.py`
+Implementation of the specialized agents.
+- **`GraphAgent`**: The core orchestrator.
+    - **Tools**: None (uses Structured Outputs directly).
+    - **Instructions**: Dynamic instructions based on "Context Boundary".
+    - **Logic**: 
+        1. Receive `query` + `selected_node_ids`.
+        2. Retrieve content for `selected_node_ids`.
+        3. Formulate System Prompt: "You are an expert analyst. Answer strictly based on this context: {node_content}. Output format: JSON."
+        4. Call LLM with Structured Output (`AgentResponse`).
+
+- **`SummaryAgent`**: (Optional for MVP)
+    - **Instructions**: "Summarize this text into a concise concept card (max 100 words)."
+
+#### [NEW] `backend/server.py`
+FastAPI application to serve the agent.
+- `POST /chat`: Accepts `{ message, selectedNodeIds, graphState }`.
+- Returns `{ text, graph_updates }`.
+
+### Frontend (React)
+
+#### [NEW] `frontend/src/components/Canvas.tsx`
+- Setup `ReactFlow` with custom Node types.
+- Implement `onSelectionChange` to track `selectedNodeIds`.
+
+#### [NEW] `frontend/src/components/ChatInterface.tsx`
+- Input bar that visualizes the "Context Boundary" (e.g., "3 nodes selected").
+- Displays the streaming text response.
+
+## Integration Workflow
+
+1.  **Selection**: User selects nodes on Canvas. Frontend sends IDs to Backend.
+2.  **Context Construction**: Backend looks up content for IDs.
+3.  **Boundary Enforcement**: Backend creates a *temporary* Agent configuration with those specific nodes as the *only* context (System Prompt override).
+4.  **Generation**: Agent generates response + new nodes.
+5.  **Rendering**: Frontend merges new nodes into existing graph.
+
+## Verification Plan
+
+### Automated Tests
+- **Backend**: Unit tests for `GraphAgent` to verify it respects the context boundary (i.e., ask a question *outside* the boundary and ensure it refuses or relies only on provided info).
+- **Structured Output**: Verify `AgentResponse` schema validation works with the LLM.
+
+### Manual Verification
+1.  **Context Boundary Test**:
+    - Create a node "Project X" with content "Secret Code: 1234".
+    - Select Node "Project X". Ask "What is the secret code?". -> Expect "1234".
+    - Deselect Node. Ask "What is the secret code?". -> Expect "I don't know" or general hallucination checks.
+2.  **Visual Graph Test**:
+    - Ask "Explain 3 types of clouds".
+    - Verify 3 nodes (Cirrus, Stratus, Cumulus) appear connected to the root.

@@ -1,0 +1,36 @@
+# Task List
+
+- [x] Debug connection creation failure
+- [x] Implement Smart Hierarchy (Auto-Flip Child->Parent)
+- [x] Upgrade Auto-Linker Support
+    - [x] Analyze current prompt logic
+    - [x] Update Prompt to include 5 connection types
+    - [x] Update Parser to handle new connection types
+    - [x] Verify AI edge creation
+- [x] Implement Smart Parenting Logic
+    - [x] Update extract_metadata to accept folder context
+    - [x] Modify Weaver to provide folder list
+    - [x] Update Prompt to prioritize existing folders
+    - [x] Verify no "Inbox" creation
+    - [x] Verify semantic connection to closest node
+    - [x] Verify connection limits match config
+
+- [ ] Universal Search & RAG
+    - [ ] Research & Plan RAG Architecture
+        - [ ] Check `google-generativeai` capabilities for File Search
+        - [ ] Design Online Search -> Graph Ingestion flow
+    - [ ] Implement Online Search Agent
+        - [ ] Create Google Search wrapper (Search Tool)
+        - [ ] Implement result parsing & node creation
+        - [ ] Integrate with Auto-Linker
+    - [ ] Implement Local File RAG (Gemini)
+        - [ ] Implement logic to upload/sync canvas files to Gemini
+        - [ ] Implement retrieval for chat context
+    - [ ] Orchestrate Universal Chat Workflow
+        - [ ] Update `/api/v2/chat/message` endpoint
+        - [ ] Step 1: Online Search & Populate
+        - [ ] Step 2: Context Retrieval (Local + New Nodes)
+        - [ ] Step 3: Generate Answer
+    - [ ] Frontend Updates
+        - [ ] Add Search Mode toggle or integrate into Chat
+        - [ ] Visualize "Searching..." and "Populating..." states

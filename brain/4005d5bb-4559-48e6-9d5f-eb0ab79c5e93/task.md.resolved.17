@@ -1,0 +1,17 @@
+- [x] Create SRS.md based on PRD <!-- id: 0 -->
+- [x] Create Implementation Plan <!-- id: 1 -->
+- [x] Initialize Backend (FastAPI) <!-- id: 2 -->
+- [x] Initialize Frontend (React + React Flow) <!-- id: 3 -->
+- [x] Implement Neo4j Integration <!-- id: 4 -->
+- [x] Implement Gemini Agent (Maestro) <!-- id: 5 -->
+- [x] Verify System <!-- id: 6 -->
+- [x] Refactor Agents into Plugin System <!-- id: 7 -->
+- [x] Implement Dynamic Maestro Registry <!-- id: 8 -->
+- [x] Create AGENT_DEV_GUIDE.md <!-- id: 9 -->
+- [x] Create run_all.bat <!-- id: 10 -->
+- [x] Configure Environment (.env) <!-- id: 11 -->
+- [x] Implement Chat Interface (Right Panel + Markdown) <!-- id: 12 -->
+- [x] Implement Universal Node Search <!-- id: 13 -->
+- [x] Create Researcher Agent (Stub) for Orchestration Demo <!-- id: 14 -->
+- [x] Verify Christopher Nolan Use Case <!-- id: 15 -->
+- [x] Debug White Screen (Downgrade React) <!-- id: 16 -->

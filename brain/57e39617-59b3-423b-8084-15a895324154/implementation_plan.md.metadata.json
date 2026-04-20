@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Updating implementation plan to correct the checkbox logic from \"Completed\" to \"Confirmed\" for a better approval experience.",
+  "updatedAt": "2026-03-14T16:46:46.353074100Z",
+  "version": "3"
+}

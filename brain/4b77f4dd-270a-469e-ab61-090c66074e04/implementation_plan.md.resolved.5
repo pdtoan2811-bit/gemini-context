@@ -1,0 +1,58 @@
+# Universal Search & Chat Revamp Implementation Plan
+
+The goal is to enable "Universal Search" where the system searches both the web (Google) and the local graph (RAG) to answer user queries, populating the canvas with relevant external information.
+
+## User Review Required
+
+> [!NOTE]
+> This introduces a new "Universal Search" toggle in the Chat Interface. When enabled, queries will take longer as they perform a real-time web search.
+
+## Proposed Changes
+
+### Backend - Search Infrastructure
+#### [NEW] [core/search_agent.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py)
+- Implements [SearchAgent](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/search_agent.py#20-191) class wrapping `googlesearch-python` and Google Custom Search API.
+- **Updated**: Configured to use Programmable Search Engine (CX: `61282f7fb...`) as the primary search method.
+
+### Backend - Chat Logic
+#### [MODIFY] [core/chat_bridge.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py)
+- Added [perform_universal_chat](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/core/chat_bridge.py#652-739) method.
+- Orchestrates:
+    1.  **Online Search**: Query -> Get Results.
+    2.  **Ingestion**: Create "External Research" nodes.
+    3.  **Local RAG**: Retrieve graph context.
+    4.  **Synthesis**: Generate answer (Wrapped in robust error handling).
+
+#### [MODIFY] [main.py](file:///c:/Users/ADMIN/Desktop/nexus-ver3/backend/main.py)
+- Added `POST /api/v2/chat/universal` endpoint.
+
+### Frontend - UI/UX
+#### [MODIFY] [api.js](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js)
+- Added [sendUniversalMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/api.js#186-193) function.
+- **Fixed**: Port corrected to 8000.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx)
+- Added `isUniversalMode` state.
+- Updated [handleSendMessage](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx#303-407) to route to universal endpoint when enabled.
+
+#### [MODIFY] [ChatInterface.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/ChatInterface.jsx)
+- Added **Globe Icon** toggle in the input bar.
+- visual indication of Search Mode (Blue border/glow).
+- Renders **Sources** (citations) below the assistant's message.
+
+## Programmable Search Engine Integration
+Implementation pivoted to use the user's existing **Programmable Search Engine** (PSE) instead of Vertex AI.
+1.  **Configuration**: `GOOGLE_CX` set to `61282f7fb738c4a1c`.
+2.  **Authentication**: Uses `GOOGLE_API_KEY` for both Search and Gemini (Dual-use).
+3.  **Fallback**: Code still supports Scraper if API fails, but API is prioritized for RAG quality.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Launch App**: `npm run dev`.
+2.  **Backend**: Verified running on port 8000.
+3.  **Search**: Click Globe icon -> "Best smartphone 2025".
+4.  **Observe**:
+    - Backend logs show "Using Google Custom Search API".
+    - Chat responds with citations.
+    - No 500/Network Errors.

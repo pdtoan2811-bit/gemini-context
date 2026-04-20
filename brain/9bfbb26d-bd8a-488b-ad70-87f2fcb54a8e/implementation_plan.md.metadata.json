@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "A comprehensive implementation plan for building a V2 news short template that replaces the fake timed word-reveal with real ElevenLabs word-level timestamps, adds natural breathing pauses between scenes, and upgrades the visual layout. Covers 3 major components: voiceover generation with timestamps, the Remotion composition with true subtitle sync, and documentation updates.\n\nKey decisions:\n- Use ElevenLabs /with-timestamps API for character-level timing → aggregate to word-level\n- Store word timestamps as JSON sidecar files alongside MP3s\n- Add configurable inter-scene padding (15-24 frames) with fade-to-black breath\n- Upgrade layout with network logo, animated waveform bar, and improved typography\n- New composition: NewsShortV2 registered alongside existing compositions",
+  "updatedAt": "2026-04-15T07:18:22.819365500Z",
+  "requestFeedback": true
+}

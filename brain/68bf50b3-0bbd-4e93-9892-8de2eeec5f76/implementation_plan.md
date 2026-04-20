@@ -1,0 +1,55 @@
+# Implementation Plan - Phase 2: Advanced Features
+
+## Goal Description
+Enhance the AI Slideshow app with "Grounding with Google Search" for fact-based generation, a local backend for crawling images from cited sources, and a robust set of 10 advanced slide templates.
+
+## User Review Required
+> [!IMPORTANT]
+> This update introduces a **Node.js Backend**. The user must ensure Node.js is installed. The `run_app.bat` will be updated to start both the frontend and backend.
+
+## Proposed Changes
+
+### Backend (New `server/` directory)
+#### [NEW] [server/index.js](file:///c:/Users/ADMIN/Desktop/ai_slideshow/server/index.js)
+- Express server running on port 3001.
+- Endpoint: `POST /api/crawl` - Accepts a URL, returns list of image URLs.
+
+#### [NEW] [server/crawler.js](file:///c:/Users/ADMIN/Desktop/ai_slideshow/server/crawler.js)
+- Uses `puppeteer` or `cheerio` to fetch and parse HTML.
+- Extracts `<img>` tags, filters small icons/pixels.
+
+### Frontend Services
+#### [MODIFY] [src/services/gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts)
+- Update generation config to include `tools: [{ google_search: {} }]`.
+- Parse `groundingMetadata` from response.
+- Call local backend to fetch images from cited URLs.
+
+### Slide Templates (New `src/components/Templates/`)
+Define 10 Templates:
+1.  **Title Modern**: Large bold title, subtitle, bg image.
+2.  **Title Minimal**: Centered thin type, solid color.
+3.  **Bullets Glass**: Glassmorphism card for bullets.
+4.  **Three Column**: 3 distinct text columns.
+5.  **Image Top**: Large hero image top, text bottom.
+6.  **Image Split**: 50% image, 50% text.
+7.  **Grid Gallery**: 2x2 Image grid.
+8.  **Quote**: Huge quote typography.
+9.  **Data Highlight**: Big number emphasis.
+10. **Timeline**: Vertical list with distinct styling.
+
+#### [NEW] [src/components/Templates/TemplateRenderers.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/TemplateRenderers.tsx)
+- Contains valid React components for the above layouts.
+
+### Prompt Engineering
+#### [MODIFY] [src/services/promptUtils.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/promptUtils.ts)
+- New system prompt instruction: "Select the best template from the list [1-10] for this content. Ensure content structure matches template requirements (e.g. 3 items for Three Column)."
+
+## Verification Plan
+### Automated Tests
+- `npm test` (if available)
+
+### Manual Verification
+1.  **Backend**: `curl -X POST http://localhost:3001/api/crawl -d '{"url": "..."}'` -> returns images.
+2.  **Grounding**: Generate a topic (e.g., "Euro 2024 winners"). Verify response contains facts and citations.
+3.  **Images**: Verify slides populate with images crawled from the grounded sources.
+4.  **Templates**: Verify all 10 templates render correctly.

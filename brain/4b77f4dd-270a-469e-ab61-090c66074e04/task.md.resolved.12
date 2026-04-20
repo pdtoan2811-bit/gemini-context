@@ -1,0 +1,19 @@
+- [x] Pull from repository
+- [x] Fix missing remark-gfm dependency
+- [/] Research current handle implementation
+- [x] Design dynamic connection strategy (Floating Handles?)
+- [x] Implement dynamic handles
+- [x] Verify working tree status
+- [x] Debug connection creation failure
+- [x] Implement Smart Hierarchy (Auto-Flip Child->Parent)
+- [ ] Upgrade Auto-Linker Support
+    - [x] Analyze current prompt logic
+    - [x] Update Prompt to include 5 connection types
+    - [x] Update Parser to handle new connection types
+    - [x] Verify AI edge creation
+- [x] Implement Smart Parenting Logic
+    - [x] Update extract_metadata to accept folder context
+    - [x] Modify Weaver to provide folder list
+    - [x] Update Prompt to prioritize existing folders
+    - [x] Verify no "Inbox" creation
+    - [x] Verify semantic connection to closest node

@@ -1,0 +1,200 @@
+# Trump-Iran April 14, 2026 — New YouTube Short
+
+## Goal
+
+Create a **new 1-minute YouTube Short** covering the Trump-Iran crisis as of **April 14, 2026**. The video uses a **formal, documentary narrative** with real news data from Tavily, Reddit community sentiment, and a premium broadcast-style visual layout with word-by-word caption animation.
+
+This is a **new composition** (`trump-iran-apr14`), separate from the existing `trump-iran-short`.
+
+---
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Narrative Tone:** Formal & documentary — no hype language, no "Reddit is losing its mind" style. Think BBC/Reuters/Al Jazeera documentary narration.
+
+> [!IMPORTANT]
+> **Duration:** Strictly ~60 seconds. 8 scenes at ~7.5s each. Audio at normal 1× speed (no 1.5× acceleration).
+
+> [!IMPORTANT]
+> **Images:** Real news images fetched via Tavily API for each scene. Each image will be positioned as a **full-bleed background** with Ken Burns zoom + dark gradient overlay for text readability. AI-generated fallback images will be created for any scenes where Tavily fails to return usable photos.
+
+---
+
+## News Content (April 14, 2026 — Today)
+
+### Tavily Research Summary
+| # | Scene | Key Fact | Source |
+|---|---|---|---|
+| 1 | **Dateline Hook** | "April 14, 2026 — The US-Iran standoff enters its most critical phase." | Multiple |
+| 2 | **Blockade Active** | US naval blockade of Iranian ports & Strait of Hormuz began April 13. Trump: vessels approaching will be "immediately eliminated." | Washington Post, CFR |
+| 3 | **Talks Collapsed** | 21-hour marathon in Islamabad ended in deadlock. US demands 20-year enrichment freeze; Iran counters with 5 years. | Time, Al Jazeera |
+| 4 | **Oil Shock** | Brent crude surged 7%, hitting $104/barrel. Analysts warn $110+ if blockade holds. IMF downgrades Middle East growth forecasts. | Economic Times |
+| 5 | **Iran's Response** | Iran calls blockade "piracy." Threatens retaliation against Persian Gulf ports. IRGC on high alert. | KSAT, Gulf News |
+| 6 | **World Reacts** | France & UK planning naval escort conference. Pakistan offers to host Round 2 talks. Turkey & Egypt mediating. | CFR, Time |
+| 7 | **Reddit Sentiment** | r/worldnews: "Reckless." Strategic skepticism, concerns over civilian harm, criticism of "limited operation" labeling to bypass Congress. Market manipulation fears. | Reddit, LSE |
+| 8 | **Countdown CTA** | Ceasefire expires April 21. 7 days remain. Both sides may return to talks Thursday. | Washington Post |
+
+### Reddit Sentiment (Curated)
+- **Strategic Skepticism:** "Performative action — threats and negotiations are market manipulation theater."
+- **Civilian Harm Concern:** "Total war rhetoric violates international law. Civilians always pay."
+- **Congressional Bypass:** "'Limited operation' is a deliberate attempt to avoid war authorization."
+
+---
+
+## Proposed Changes
+
+### 1. Image Pipeline
+
+#### [NEW] [fetch-images-apr14.ts](file:///c:/Users/ADMIN/Desktop/AInewsvideo/scripts/fetch-images-apr14.ts)
+- Adapted from existing `fetch-images-tavily.ts`
+- 8 scene-specific Tavily queries targeting April 14 headlines
+- Downloads to `public/images/trump-iran-apr14/`
+- Fallback queries if primary returns no results
+
+#### [NEW] AI-Generated Fallback Images
+- For any scenes where Tavily returns no usable photos, use `generate_image` tool to create formal news-style backgrounds
+- Style: dark, moody, photojournalistic — no cartoon/illustration
+
+---
+
+### 2. Voiceover Pipeline
+
+#### [NEW] [generate-voiceover-apr14.ts](file:///c:/Users/ADMIN/Desktop/AInewsvideo/scripts/generate-voiceover-apr14.ts)
+- 8 scenes, formal documentary narration
+- Voice: `pNInz6obpgDQGcFmaJgB` (Adam — authoritative)
+- ElevenLabs `eleven_flash_v2_5` model
+- Voice settings: stability=0.55, similarity_boost=0.80, style=0.20 (more formal, less dramatic)
+- Output: `public/voiceover/trump-iran-apr14/s01-dateline.mp3` ... `s08-countdown.mp3`
+
+**Scene scripts (formal tone):**
+
+| Scene | Voiceover Text (~7-8s each) |
+|---|---|
+| s01-dateline | "April fourteenth, twenty twenty-six. The United States and Iran have entered the most dangerous phase of their confrontation in decades." |
+| s02-blockade | "A full naval blockade of Iranian ports and the Strait of Hormuz took effect yesterday. President Trump warned that any approaching vessel would be, quote, immediately eliminated." |
+| s03-talks | "This follows the collapse of twenty-one hours of marathon negotiations in Islamabad. The United States demanded a twenty-year freeze on uranium enrichment. Iran offered five." |
+| s04-oil | "Global markets responded immediately. Brent crude surged seven percent to one hundred four dollars per barrel. The IMF has downgraded growth forecasts for the entire Middle East." |
+| s05-iran | "Tehran has condemned the blockade as an act of piracy and warned of forceful retaliation against Persian Gulf ports. The Islamic Revolutionary Guard Corps remains on high alert." |
+| s06-world | "France and the United Kingdom are organizing a naval escort conference. Pakistan has offered to host a second round of negotiations, with Turkey and Egypt acting as mediators." |
+| s07-reddit | "Public sentiment reflects deep concern. Online communities describe the escalation as reckless, questioning whether the administration is bypassing congressional war authorization." |
+| s08-countdown | "The ceasefire expires on April twenty-first. Seven days remain. This story is developing. Follow for verified updates." |
+
+---
+
+### 3. Remotion Composition
+
+#### [NEW] [TrumpIranApr14.tsx](file:///c:/Users/ADMIN/Desktop/AInewsvideo/src/components/TrumpIranApr14.tsx)
+
+**Layout Design — Formal Broadcast Style:**
+
+```
+┌─────────────────────────────────────────┐
+│  ┌─ DATELINE HEADER ──────────────────┐ │  ← top 80px
+│  │ 📅 APRIL 14, 2026 │ DEVELOPING     │ │
+│  └────────────────────────────────────┘ │
+│                                         │
+│         ┌──────────────────────┐        │
+│         │                      │        │
+│         │   BACKGROUND IMAGE   │        │  ← full-bleed, Ken Burns
+│         │   (dark overlay)     │        │
+│         │                      │        │
+│         └──────────────────────┘        │
+│                                         │
+│  ┌─ SCENE TAG ────────────────────────┐ │  ← 60% down
+│  │ ⬤ NAVAL BLOCKADE                  │ │
+│  └────────────────────────────────────┘ │
+│                                         │
+│  ┌─ CAPTION LOWER THIRD ─────────────┐ │  ← bottom 35%
+│  │                                    │ │
+│  │  Word-by-word animated caption     │ │  ← each word springs in
+│  │  with active word highlight        │ │  ← current word = accent
+│  │                                    │ │
+│  └────────────────────────────────────┘ │
+│                                         │
+│  ┌─ SOURCE BAR ──────────────────────┐ │  ← bottom 40px
+│  │ Sources: WashPost • CFR • Reddit  │ │
+│  └────────────────────────────────────┘ │
+│  ▓▓▓▓▓▓▓░░░░░░░░░░░░  ← progress bar  │  ← bottom 4px
+└─────────────────────────────────────────┘
+```
+
+**Component Architecture:**
+
+| Layer | Component | Description |
+|---|---|---|
+| 0 | `BackgroundImage` | Full-bleed `<Img>` with Ken Burns zoom (1.0→1.05), dark gradient overlay |
+| 1 | `DatelineHeader` | Fixed top bar: "APRIL 14, 2026 • DEVELOPING" with pulse dot |
+| 2 | `SceneTag` | Glassmorphic badge at ~60% height with scene label |
+| 3 | `CaptionLowerThird` | **Word-by-word animation** — each word springs in with `spring()` (stiffness=350, damping=22). Active word highlighted in accent color. Uses `whiteSpace: "pre"` |
+| 4 | `SourceBar` | Bottom attribution: "Sources: Washington Post • CFR • Reddit" |
+| 5 | `ProgressBar` | Thin accent-colored bar at very bottom |
+| 6 | `LightLeak` | Subtle flash on scene transitions |
+| 7 | `Grain` | Animated SVG noise overlay |
+| 8 | `<Audio>` | ElevenLabs voiceover at 1× speed |
+
+**Key Design Decisions:**
+- **No 1.5× playback** — formal tone requires natural speech speed
+- **TransitionSeries with fade()** between scenes (15-frame crossfades) for documentary feel
+- **Color palette:** Muted, serious tones (dark navy, slate, crimson accents)
+- **Typography:** System UI at 48-52px for captions, bold weight
+- **Word-by-word reveal** synced to estimated word timing based on scene duration
+
+**Scene Palettes (formal/muted):**
+
+| Scene | Accent | Background |
+|---|---|---|
+| s01-dateline | `#dc2626` (red) | `#0a0a0f` → `#1a0505` |
+| s02-blockade | `#2563eb` (blue) | `#050d1a` → `#0a1628` |
+| s03-talks | `#7c3aed` (violet) | `#0f051a` → `#1a0d2e` |
+| s04-oil | `#d97706` (amber) | `#1a1400` → `#251c04` |
+| s05-iran | `#ea580c` (orange) | `#1a0a00` → `#2a1206` |
+| s06-world | `#0891b2` (cyan) | `#001520` → `#0a2030` |
+| s07-reddit | `#4f46e5` (indigo) | `#0a0a20` → `#14143a` |
+| s08-countdown | `#e11d48` (rose) | `#200010` → `#30081a` |
+
+#### [MODIFY] [Root.tsx](file:///c:/Users/ADMIN/Desktop/AInewsvideo/src/Root.tsx)
+- Register new `<Composition id="trump-iran-apr14">` with 1080×1920, 30fps
+- Import `TrumpIranApr14` component and its `calculateMetadata`
+
+---
+
+### 4. Documentation Updates
+
+#### [MODIFY] [BRD.md](file:///c:/Users/ADMIN/Desktop/AInewsvideo/docs/BRD.md)
+- Add success criteria for formal documentary shorts
+
+#### [MODIFY] [PRD.md](file:///c:/Users/ADMIN/Desktop/AInewsvideo/docs/PRD.md)
+- Add F6: Formal Documentary Short feature
+- Document formal layout design and word-by-word caption behavior
+
+#### [MODIFY] [SRS.md](file:///c:/Users/ADMIN/Desktop/AInewsvideo/docs/SRS.md)
+- Add TrumpIranApr14 architecture diagram
+- Document new scripts, component, and layer stack
+- Update project structure
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> **Voice Selection:** The plan uses "Adam" (authoritative male). Would you prefer a different ElevenLabs voice for a more formal/news-anchor tone?
+
+> [!IMPORTANT]
+> **Image Strategy Priority:** Should we prioritize Tavily-fetched real photos, or generate all 8 backgrounds with the AI image tool for visual consistency? The plan currently tries Tavily first with AI fallback.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+1. Run `npx tsx scripts/fetch-images-apr14.ts` — verify 8 images downloaded
+2. Run `npx tsx scripts/generate-voiceover-apr14.ts` — verify 8 MP3 files generated
+3. Run `npm run dev` — open Remotion Studio, verify `trump-iran-apr14` composition loads
+4. Preview composition — verify all 8 scenes render with images, captions, and audio
+
+### Manual Verification
+- Confirm word-by-word caption animation is smooth and readable
+- Verify formal tone matches documentary style (no hype)
+- Check 1-minute total duration
+- Validate image positioning (full-bleed, no stretching, proper Ken Burns)

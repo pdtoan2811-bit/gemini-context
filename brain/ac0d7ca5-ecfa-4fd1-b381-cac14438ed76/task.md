@@ -1,0 +1,10 @@
+- [x] Create `run_local.bat` for local execution <!-- id: 24 -->
+    - [x] Create partial scripts for each service <!-- id: 25 -->
+    - [x] verify local start <!-- id: 26 -->
+- [x] Debug Plan Creation Failure <!-- id: 27 -->
+    - [x] Create reproduction script `repro_issue.py` <!-- id: 28 -->
+    - [x] Run reproduction script and analyze error (Missing `agent-framework` & Config Mismatch) <!-- id: 29 -->
+    - [x] Fix identified issue (Update requirements.txt & .env) <!-- id: 30 -->
+- [/] Fix Dependency Conflicts <!-- id: 31 -->
+    - [/] Update `src/backend/requirements.txt` with compatible versions <!-- id: 32 -->
+    - [ ] Verify backend startup <!-- id: 33 -->

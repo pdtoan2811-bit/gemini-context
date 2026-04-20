@@ -1,0 +1,59 @@
+# Implementation Plan - Canvas AI (NextStep v3.0)
+
+This plan outlines the steps to build the "Canvas AI" application, a visual orchestration OS powered by the Microsoft Agent Framework.
+
+## User Review Required
+> [!IMPORTANT]
+> This is a greenfield implementation. We are creating the `src` directory from scratch.
+
+## Proposed Changes
+
+### Backend (Python / Microsoft Agent Framework)
+#### [NEW] [backend/main.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/main.py)
+- **Goal**: FastAPI entry point.
+- **Details**: Expose WebSocket endpoint `/ws` for real-time agent streaming.
+
+#### [NEW] [backend/orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py)
+- **Goal**: Wrap `agent-framework`.
+- **Details**: Implement `MagenticBuilder` to create a manager, researcher, and coder agent swarm. Handle `MagenticBuilder.run_stream()` and broadcast events to WebSocket.
+
+#### [NEW] [backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py)
+- **Goal**: Define specific ChatAgents (Architect, Critic).
+- **Details**: Configure specific system instructions and tools (if any).
+
+### Frontend (Next.js / React Flow)
+#### [NEW] [frontend/package.json](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/package.json)
+- **Goal**: Project manifesto.
+- **Details**: Next.js, React Flow, TailwindCSS, Lucide React, Framer Motion.
+
+#### [NEW] [frontend/app/page.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/app/page.tsx)
+- **Goal**: Main Canvas Interface.
+- **Details**: Full-screen React Flow instance.
+
+#### [NEW] [frontend/components/OrchestratorPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/OrchestratorPanel.tsx)
+- **Goal**: The "Cockpit".
+- **Details**: Glassmorphism panel showing the Chat Stream and Active Agent indicators (as per inspiration image).
+
+#### [NEW] [frontend/components/nodes/InputNode.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/nodes/InputNode.tsx)
+- **Goal**: Rich media card.
+- **Details**: Displays file icon, name, and metadata.
+
+#### [NEW] [frontend/components/nodes/AgentNode.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/nodes/AgentNode.tsx)
+- **Goal**: Visualizing the agent process.
+- **Details**: Animated node showing "Thinking" state.
+
+## Verification Plan
+
+### Automated Tests
+- **Backend**: Run `pytest` on `backend/tests` (will create basic smoke tests).
+- **Frontend**: Run `npm run build` to verify type safety.
+
+### Manual Verification
+1.  **Start Backend**: `uvicorn src.backend.main:app --reload`
+2.  **Start Frontend**: `npm run dev`
+3.  **Action**: Open `localhost:3000`.
+4.  **Test**: Click "Start Workflow" (mock or real).
+5.  **Verify**:
+    -   Orchestrator Panel appears.
+    -   "Architect" and "Critic" agents appear in the stream.
+    -   React Flow canvas updates with new nodes.

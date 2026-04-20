@@ -1,0 +1,27 @@
+# Task List - Project SpecOps
+
+- [/] **Initialization**
+    - [x] Create project structure (backend/ and frontend/)
+    - [x] Initialize Python virtual environment and install dependencies (CrewAI, FastAPI, Uvicorn)
+    - [x] Initialize Next.js project with Tailwind CSS
+    - [x] Create run_app.bat script
+
+- [ ] **Backend Implementation (FastAPI + CrewAI)**
+    - [x] Setup `main.py` with FastAPI and WebSocket endpoint
+    - [x] Implement `agents.py` (Strategist, Architect, Manager)
+    - [x] Implement `tasks.py` (Define the workflow: Idea -> Strategy -> Spec)
+    - [x] Implement `crew.py` (CrewAI orchestration with `Process.hierarchical` if applicable, or sequential with manager oversight)
+    - [x] Implement WebSocket manager for streaming "thoughts" and "output"
+
+- [ ] **Frontend Implementation (Next.js)**
+    - [x] Setup shadcn/ui or basic Tailwind components
+    - [x] Create `SplitPane` layout (War Room vs Living Doc)
+    - [x] Implement WebSocket client hook
+    - [x] Create `AgentFeed` component (Left Pane)
+    - [x] Create `MarkdownRenderer` component (Right Pane)
+    - [x] Create Control Bar (Input, Stop/Revise buttons)
+
+- [ ] **Integration & Verification**
+    - [ ] Verify Agent Loop (Idea -> Strategy -> Spec flow)
+    - [ ] Verify Pause/Interrupt functionality (Concept)
+    - [ ] Verify Real-time streaming

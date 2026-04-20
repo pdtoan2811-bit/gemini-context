@@ -1,0 +1,53 @@
+# Walkthrough - Adecos MVP
+
+I have successfully initialized and implemented the **Adecos MVP**, an AI-powered affiliate research application.
+
+## 1. Specifications (Protocol 1.0)
+Strictly adhering to the "No Spec, No Service" protocol, I first created the required documentation:
+- **[BRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/BRD.md)**: Business Value.
+- **[PRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/PRD.md)**: UX/Behavior (Glassmorphism, No Chat Bubble).
+- **[SRS](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/SRS.md)**: Architecture (FastAPI + React).
+
+## 2. Implementation
+
+### Backend (FastAPI + Gemini)
+The backend uses **FastAPI** to serve a streaming endpoint `/api/research/stream`.
+It integrates with **Google Gemini API** (defaulting to `gemini-2.0-flash-exp` with fallback/user-preference support) to generate mock affiliate program data.
+
+**Key File**: [generator.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/generator.py)
+```python
+# Streaming logic using generate_content_async(stream=True)
+async for chunk in response:
+    yield chunk.text
+```
+
+### Frontend (React + Tailwind)
+The frontend is a **Vite React** app styled with **Tailwind CSS**.
+- **Design**: Glassmorphism (blur effects, white transparency).
+- **Logic**: No chat bubbles. Input fades out/moves, output streams directly into a [ResultsTable](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ResultsTable.jsx#3-95).
+- **Language**: Vietnamese.
+
+**Key File**: [App.jsx](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/App.jsx)
+render_diffs(file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/App.jsx)
+
+### Components
+- **ChatInterface**: Minimalist input with "orb" background effects.
+- **ResultsTable**: Glassmorphism table with Real-time sorting and "Save" button.
+
+## 3. Verification Results
+
+### Backend
+- **Health Check**: `http://localhost:8000/` -> `{ "status": "ok" }`. (Verified via curl).
+- **Streaming Endpoint**: `POST /api/research/stream` is active and validating JSON input.
+
+### Frontend
+- **Dev Server**: Running at `http://localhost:5173`.
+- **UI**: Configured with `Merriweather` serif font and Glassmorphism utilities.
+
+> [!NOTE]
+> Browser verification was limited due to a local environment issue, but backend connectivity is confirmed.
+
+## Next Steps
+1.  Run [backend/main.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/main.py) -> `python main.py` or `uvicorn main:app --reload`.
+2.  Run `frontend` -> `npm run dev`.
+3.  Open `http://localhost:5173` and test the "Camping Gear" niche.

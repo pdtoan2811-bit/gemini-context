@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Updated task list to include the results table refinements (traffic fix and linking). All core features are now implemented and ready for final verification.",
+  "updatedAt": "2026-03-14T14:43:53.103044300Z",
+  "version": "11"
+}

@@ -1,0 +1,132 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+	[12] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,291)<div  />
+			[14] (20,291)<span  />
+			[15] (53,291)<span >Quản lý Ads />
+	[16] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (44,351)<div  />
+			[18] (20,351)<span  />
+			[19] (52,351)<span >Thí nghiệm />
+	[20] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (51,411)<div  />
+			[22] (20,411)<span  />
+			[23] (59,411)<span >Deep Research />
+	[24] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,471)<div  />
+			[26] (20,471)<span  />
+			[27] (48,471)<span >Analytics />
+	[28] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,532)<div  />
+			[30] (20,532)<span  />
+			[31] (51,532)<span >Thông báo />
+	MVP v1.0
+	[32] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (572,560)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Orchard.vn
+		Visit Link ↗
+		5
+		%
+		percentage
+		✕
+		✕
+		180k
+		View Traffic →
+		8
+		TikTok Shop Vietnam
+		Visit Link ↗
+		15
+		%
+		percentage
+		✕
+		✕
+		50M+
+		View Traffic →
+		10
+		8 Kết quả
+		[34] (897,177)<button class='flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full transition-all duration-300 text-xs uppercase tracking-widest'>⚡
+Deep Affiliate Research />
+			⚡
+		[35] (462,266)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Thêm programs trong lĩnh vực Perfume />
+		[36] (600,266)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>So sánh commission rates />
+		[37] (708,266)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Ngách liên quan khác />
+		Bắt đầu phiên nghiên cứu mới
+		Hãy cho tôi biết ngách sản phẩm hoặc chủ đề bạn muốn phân tích
+		[38] (569,524)<input class='w-full bg-transparent border-none focus:ring-0 focus:outline-none text-[var(--text-primary)] placeholder-[var(--text-secondary)] font-sans font-light text-center text-xl md:text-2xl py-2' id='message-search-input' placeholder='Nhập yêu cầu tìm kiếm của bạn...' />
+		[39] (569,584)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+			[40] (536,584)<input class='w-3.5 h-3.5 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+			[41] (575,584)<span >Deep Research Mode />
+		[42] (446,674)<button class='
+                            group/card flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 border
+                            cursor-pointer border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--text-primary)] hover:bg-[var(--bg-primary)]
+                        ' />
+			[43] (344,674)<div  />
+			[44] (459,674)<div  />
+				[45] (459,665)<h4 >Nghiên cứu nhanh />
+				[46] (459,686)<p >Phân tích thị trường & đối thủ />
+		[47] (692,674)<button class='
+                            group/card flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 border
+                            cursor-pointer border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--text-primary)] hover:bg-[var(--bg-primary)]
+                        ' />
+			[48] (589,674)<div  />
+			[49] (704,674)<div  />
+				[50] (704,665)<h4 >Nghiên cứu sâu />
+				[51] (704,686)<p >Báo cáo chi tiết đa chiều />
+		Chat với data
+		Soon
+		Hỏi đáp trực tiếp trên dữ liệu
+		Tối ưu AI
+		Soon
+		Tự động tối ưu chiến dịch QC
+
+</current_dom>

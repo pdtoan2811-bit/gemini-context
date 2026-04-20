@@ -1,0 +1,21 @@
+# Walkthrough - Universal Search & Chat Revamp
+
+I have successfully pulled the repository and implemented **Universal Search** and **Revamped Chat Logic**.
+
+## New Features
+1.  **Universal Default**: The "Universal Search" mode is now enabled by default.
+2.  **Global Context**: You can now chat without selecting any nodes. The AI will use **all** node summaries in the graph as context.
+3.  **Focused Context**: If you select nodes, the AI automatically focuses **only** on those nodes.
+4.  **UI Indicators**: The chat header now clearly shows "Global Context (All Nodes)" or "Focused Context (X Nodes)".
+5.  **Online Search Agent**: Utilizes Google Search to fetch real-time information.
+6.  **Smart Ingestion**: Automatically creates "External Research" nodes from search results.
+
+## Verification results
+-   **Toggle**: The Globe icon defaults to ON.
+-   **Global Chat**: Sending a message with no selection works (logs show "Using GLOBAL context").
+-   **Focused Chat**: Selecting nodes acts as a filter (logs show "Using FOCUSED context").
+-   **Citations**: Answers now include clickable source links.
+
+### Automated Session Recording
+Here is a recording of the graph interaction verification:
+![Verification Session](/verify_graph_fix_1765458023281.webp)

@@ -1,0 +1,49 @@
+# Implementation Plan - Smart Slide Templates
+
+## Goal Description
+Implement a "Code as Design" system for the AI Slideshow app, replacing static/basic slides with intelligent, responsive React components styled with Tailwind CSS. This will enable "Elastic" designs that adapt to content length and variations.
+
+## User Review Required
+> [!IMPORTANT]
+> This plan involves installing **Tailwind CSS**. Ensure your environment supports `npm install`.
+> I will optionally create a `TestPage.tsx` or modify `App.tsx` temporarily to showcase the new templates during verification.
+
+## Proposed Changes
+
+### Infrastructure
+#### [NEW] Tailwind Configuration
+*   Install `tailwindcss`, `postcss`, `autoprefixer`.
+*   Initialize `tailwind.config.js` with specific design tokens (colors, font sizes).
+*   Update `src/index.css` to include `@tailwind` directives.
+
+### Component Architecture
+
+#### [NEW] `src/components/SlideContainer.tsx`
+*   A wrapper component ensuring 1920x1080 (16:9) aspect ratio.
+*   Handles background scaling and theme application.
+
+#### [NEW] `src/components/Templates/` available layouts:
+1.  **BigBang.tsx** (Hero/Title) - Logic for font scaling.
+2.  **Grid.tsx** (Multi-column) - Logic for 2, 3, or 4 item layouts.
+3.  **Timeline.tsx** (Process) - Horizontal flow.
+4.  **Split.tsx** (Refactor existing) - Enhanced with "Elastic" text handling.
+5.  **Metric.tsx** (Data) - Large number focus.
+6.  **Quote.tsx** (Testimonial) - Centered layout.
+
+### Integration
+
+#### [MODIFY] `src/components/Renderer/SlideRenderer.tsx`
+*   Update switch case to render new components from `src/components/Templates/`.
+*   Pass strict props types.
+
+#### [MODIFY] `src/types/index.ts`
+*   Update `SlideContent` and `SlideLayout` types to match the new schema defined in SRS.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Install & Build**: Run `npm install` and `npm run dev` to ensure no build errors.
+2.  **Visual Check**:
+    *   I will modify `App.tsx` (or a specific test route) to render a carousel of all 6 new slide types with example data.
+    *   I will test "Elasticity" by manually injecting long text vs short text to see the font size adjustment (e.g., in `BigBang` title).
+3.  **Browser Tool**: Use the browser tool to take a screenshot of the running localhost app to confirm visual fidelity.

@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Detailed implementation plan to fix two classes of bugs on the landing page:\n1. Hardcoded Vietnamese strings in LandingFeatures.tsx preview components (AIAgentPreview, DeepResearchPreview, AnalyticsPreview) and Hero.tsx social proof badge that bypass the i18n system\n2. Hardcoded bg-white/bg-black and other non-theme-aware colors in BentoGrid.tsx, LandingUseCases.tsx, and preview sub-components\n\nIncludes exact line numbers, proposed translation keys for both EN and VI, and specific CSS class replacements.",
+  "updatedAt": "2026-04-09T13:46:49.786059600Z",
+  "requestFeedback": true
+}

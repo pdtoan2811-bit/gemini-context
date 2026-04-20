@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Task breakdown for debugging and fixing the chat conversation functionality. The root issue is that the `generate_chat_stream` function is missing from the backend generator module, causing the chat API to fail.",
+  "updatedAt": "2026-02-02T13:46:24.330559500Z"
+}

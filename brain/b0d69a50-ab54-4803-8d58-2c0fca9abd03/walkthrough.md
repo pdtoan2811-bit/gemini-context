@@ -1,0 +1,56 @@
+# CanvasMind - Run Guide
+
+You have successfully implemented the **CanvasMind** application with the **Microsoft Agent Framework**.
+
+## Prerequisites
+1.  **Node.js** (v18+)
+2.  **Python** (v3.10+)
+3.  **OpenAI API Key** or Azure OpenAI Credentials.
+
+## Setup Instructions
+
+### 1. Backend Setup
+Navigate to the backend folder and install dependencies.
+```bash
+cd canvas-mind/backend
+pip install -r requirements.txt
+```
+Create a `.env` file based on `.env.example` and add your keys.
+
+### 2. Frontend Setup
+Navigate to the frontend folder.
+```bash
+cd canvas-mind/frontend
+npm install
+# Ensure Tailwind CSS is built
+npm run build
+```
+
+## Running the Application
+
+### Quick Start (Windows)
+Simply double-click the `run_app.bat` file in the `canvas-mind` folder. This will open two terminal windows and start both services for you.
+
+### Manual Start
+
+#### Start Backend
+```bash
+# In terminal 1
+cd canvas-mind/backend
+uvicorn app.server:app --reload
+```
+API will run at `http://localhost:8000`.
+
+#### Start Frontend
+
+```bash
+# In terminal 2
+cd canvas-mind/frontend
+npm run dev
+```
+Open your browser at `http://localhost:5173`.
+
+## Verification of Features
+1.  **Context Boundary**: Select any node on the canvas. Notice the "X Nodes In Context" badge in the chat. Ask a specific question about that node.
+2.  **Generative Graph**: Watch as the AI response generates new nodes that automatically layout on the canvas.
+3.  **Premium UI**: Experience the new floating chat panel, custom card-styled nodes (hover to see handles), and infinite dot-grid canvas.

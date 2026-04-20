@@ -1,0 +1,30 @@
+# NextStep v2.0 Implementation Tasks
+
+- [/] **Project Setup**
+    - [x] Create directory structure (`frontend`, `backend`)
+    - [x] Initialize [implementation_plan.md](file:///c:/Users/ADMIN/.gemini/antigravity/brain/41af3d15-6c5d-43d4-8e21-98e6e17d6b0a/implementation_plan.md)
+    - [x] User Approval for Implementation Plan
+
+- [/] **Backend Core (Maestro)**
+    - [/] Setup FastAPI project with `uv` or `pip` (requirements.txt)
+    - [ ] Implement MCP Host logic (Maestro) using `mcp` SDK
+    - [ ] Implement Neo4j integration (Graph Database interface)
+    - [ ] Implement Orchestrator logic (Gemini 2.5 integration)
+    - [ ] Create `agents_config.json` loader
+
+- [ ] **Agents (MCP Servers)**
+    - [ ] Create `agents/researcher` (FastMCP/Server)
+    - [ ] Implement `research_topic` tool
+
+- [ ] **Frontend (The Canvas)**
+    - [ ] Initialize Vite + React project
+    - [ ] Install React Flow, TailwindCSS, Lucide React
+    - [ ] Implement "Glassmorphism" UI Shell
+    - [ ] Implement React Flow Canvas
+    - [ ] Implement "HUD" (Visual Debugger) for MCP traffic
+
+- [ ] **Integration & Verification**
+    - [ ] Connect Frontend to Backend (API)
+    - [ ] Verify End-to-End Flow (User -> Maestro -> Researcher -> Canvas)
+    - [ ] Verify "Time to First Graph" metric
+    - [ ] Create `walkthrough.md`

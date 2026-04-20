@@ -1,0 +1,21 @@
+# Task list
+
+- [x] Analyze Project Configuration <!-- id: 0 -->
+    - [x] Check `tasks.yaml` for input variables <!-- id: 1 -->
+    - [x] Check `agents.yaml` for agent details <!-- id: 2 -->
+- [x] Design System & Planning <!-- id: 3 -->
+    - [x] Create `implementation_plan.md` <!-- id: 4 -->
+- [x] Backend Implementation (FastAPI) <!-- id: 5 -->
+    - [x] Integrate `fastapi`, `uvicorn`, `python-multipart` dependencies <!-- id: 6 -->
+    - [x] Create `src/data_to_charts_automation/api.py` (FastAPI app) <!-- id: 7 -->
+    - [x] Implement endpoint to trigger CrewAI <!-- id: 8 -->
+    - [x] Handle file uploads <!-- id: 9 -->
+- [x] Frontend Implementation (React/Vite) <!-- id: 10 -->
+    - [x] Initialize Vite project in `ui/` <!-- id: 11 -->
+    - [x] Create Input Form (Text + File Upload) <!-- id: 12 -->
+    - [x] Display Results (Markdown/Code) <!-- id: 13 -->
+    - [x] Styling (Modern/Premium) <!-- id: 14 -->
+- [x] Integration & Testing <!-- id: 15 -->
+    - [x] Connect Frontend to Backend <!-- id: 16 -->
+    - [x] Verify End-to-End flow <!-- id: 17 -->
+    - [x] Create `run_app.bat` <!-- id: 18 -->

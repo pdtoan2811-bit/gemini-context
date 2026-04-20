@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Detailed implementation plan for a 2-minute YouTube Short covering the Trump-Iran crisis (April 2026). Covers 10 scenes: collapsed Islamabad peace talks, naval blockade of Strait of Hormuz, oil price spikes, Reddit/public sentiment, and ceasefire deadline. Uses the existing Remotion project architecture (AIEditorShort pattern) with ElevenLabs TTS voiceover, AI-generated scene images, kinetic typography, audio-reactive visuals, and hostile easing per the youtube-shorts-mastermind protocol. Includes documentation updates to BRD/PRD/SRS.",
+  "updatedAt": "2026-04-14T15:36:44.440573800Z",
+  "requestFeedback": true
+}

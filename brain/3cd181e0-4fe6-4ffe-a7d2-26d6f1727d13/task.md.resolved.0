@@ -1,0 +1,7 @@
+# Task: Clone and Deploy n8n
+
+- [ ] Clone n8n repository <!-- id: 0 -->
+- [ ] Install dependencies/Setup environment <!-- id: 1 -->
+- [ ] Start n8n locally <!-- id: 2 -->
+- [ ] Verify deployment <!-- id: 3 -->
+- [ ] Configure persistence ("Save my work") <!-- id: 4 -->

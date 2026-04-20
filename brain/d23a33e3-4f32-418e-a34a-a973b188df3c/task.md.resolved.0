@@ -1,0 +1,11 @@
+# Task: Implement Structured Data Model for Slide Generation
+
+- [ ] Analyze current Markdown parsing logic in [src/services/gemini.js](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/services/gemini.js) <!-- id: 0 -->
+- [ ] Review and Update Documentation <!-- id: 1 -->
+    - [ ] Update [docs/SRS.md](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/docs/SRS.md) with new structured data schema <!-- id: 2 -->
+    - [ ] Update [docs/PRD.md](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/docs/PRD.md) if UX changes (likely safer to check) <!-- id: 3 -->
+- [ ] Create Implementation Plan (`implementation_plan.md`) <!-- id: 4 -->
+- [ ] Implement Structured JSON Generation in [src/services/gemini.js](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/services/gemini.js) <!-- id: 5 -->
+    - [ ] Update prompt to output JSON <!-- id: 6 -->
+    - [ ] Remove/Replace regex parsing logic <!-- id: 7 -->
+- [ ] Verify the fix <!-- id: 8 -->

@@ -1,0 +1,47 @@
+# Implementation Plan - Chat, Search & Orchestration
+
+# Goal Description
+Implement a Chat Interface (Right Panel), Universal Node Search, and configure the environment. Demonstrate Orchestration by adding a "Researcher" agent stub that Maestro can delegate to.
+
+## User Review Required
+> [!IMPORTANT]
+> I will use the provided Gemini API Key in the `.env` file.
+> I will add a `ResearcherAgent` stub to demonstrate the "thinking" process, but it won't actually call Google/SerpAPI unless we add that later. It will simulate research.
+
+## Proposed Changes
+
+### Configuration
+#### [NEW] [backend/.env](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/.env)
+- Store `GEMINI_API_KEY`.
+
+### Frontend
+#### [NEW] [frontend/src/components/ChatPanel.jsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/src/components/ChatPanel.jsx)
+- Right-sided panel.
+- Chat input and list.
+- `react-markdown` for rendering.
+
+#### [NEW] [frontend/src/components/NodeSearch.jsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/src/components/NodeSearch.jsx)
+- Search input overlay.
+- Filters nodes by label using `useReactFlow` to `fitView` or highlight.
+
+#### [MODIFY] [frontend/src/App.jsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/frontend/src/App.jsx)
+- Integrate `ChatPanel` and `NodeSearch`.
+- Update layout to Flexbox (Canvas Left, Chat Right).
+
+### Backend
+#### [MODIFY] [backend/agents/maestro/agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agents/maestro/agent.py)
+- Update output schema to include a `message` field (Markdown) alongside [graph](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/main.py#28-74).
+- Ensure it explains *why* it chose an agent in the message.
+
+#### [NEW] [backend/agents/researcher/agent.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/backend/agents/researcher/agent.py)
+- A stub agent describing itself as a "Web Researcher".
+- Maestro will see this and "use" it for the Christopher Nolan prompt.
+
+## Verification Plan
+### Manual Verification
+- Run [run_all.bat](file:///c:/Users/ADMIN/Desktop/nextstep-ver1/run_all.bat).
+- Enter "Research Christopher Nolan".
+- Verify:
+    1. Chat responds with Markdown text (Maestro's thought process).
+    2. Graph updates with nodes related to Nolan.
+    3. Search bar can find "Inception" node.

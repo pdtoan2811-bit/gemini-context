@@ -1,0 +1,277 @@
+# Walkthrough: Dashboard & Navigation System
+
+## Overview
+Implemented a complete dashboard system with sidebar navigation, saved projects management, and Google Ads analytics with advanced filtering and visualization.
+
+## What Was Built
+
+### 1. Save Button Alignment ✅
+**File:** [ResultsTable.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ResultsTable.jsx)
+
+**Changes:**
+- Moved "Lưu dự án" button from footer to each table row
+- Added new column for save button
+- Implemented localStorage save functionality
+- Added duplicate detection
+- Event dispatch to update sidebar counter
+
+**Usage:**
+- Click "Lưu" button on any program row
+- Program saved to localStorage with timestamp
+- Alert confirms save or notifies if already saved
+- Sidebar counter updates automatically
+
+### 2. Sidebar Navigation ✅
+**File:** [Sidebar.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/Sidebar.jsx)
+
+**Features:**
+- 3 navigation items:
+  - 💬 Chat Research (/)
+  - 📁 Dự án đã lưu (/projects) - with badge counter
+  - 📊 Google Ads (/dashboard)
+- Active state highlighting (white background for active)
+- Live counter badge for saved projects
+- Event listeners for real-time updates
+- Minimalist aesthetic matching app design
+
+**Tech:**
+- React Router for navigation
+- localStorage monitoring
+- Custom event handling
+
+### 3. Saved Projects Page ✅
+**File:** [ProjectsPage.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/pages/ProjectsPage.jsx)
+
+**Features:**
+- Grid layout (1/2/3 columns responsive)
+- Display all saved program details:
+  - Commission percentage (large display)
+  - Commission type
+  - Brand name usage (colored badges)
+  - Traffic metrics
+  - AI legitimacy score
+- Delete functionality
+- Empty state with friendly message
+- Direct link to program signup
+
+**UI:**
+- Card-based design
+- Hover effects
+- Delete button (X) in top-right
+- "Tham gia" CTA button
+
+### 4. Google Ads Dashboard ✅
+**File:** [DashboardPage.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/pages/DashboardPage.jsx)
+
+**Features:**
+
+#### Filters
+1. **Date Range Picker**
+   - Start date: Oct 1, 2026
+   - End date: Dec 31, 2026
+   - Custom range selection
+
+2. **Grouping Options**
+   - Day: Daily data points
+   - Week: Weekly aggregation
+   - Month: Monthly aggregation
+
+3. **Program Filter**
+   - Checkboxes for each program (Exness, Binance, Sephora, Razer, XM)
+   - Multi-select capability
+   - Real-time chart updates
+
+4. **Keyword Filter**
+   - Filter by specific keywords
+   - Scrollable list
+   - Multi-select checkboxes
+
+#### Stats Cards
+4 metric cards showing:
+- **Total clicks** - Aggregated across selected campaigns
+- **Total cost (VND)** - With average CPC
+- **Conversions** - Total conversion count
+- **ROI** - Percentage with color coding (green/red)
+
+#### Charts
+1. **Cost & Revenue Area Chart**
+   - Dual-area visualization
+   - Red gradient for cost
+   - Green gradient for revenue
+   - Easy ROI analysis
+
+2. **Clicks Line Chart**
+   - Clean white line on dark background
+   - Dot markers on data points
+   - Traffic trends over time
+
+3. **Conversions Bar Chart**
+   - White bars
+   - Conversion patterns visualization
+
+**All charts feature:**
+- Custom tooltips with glassmorphic effect
+- Minimal grid lines (white/5 opacity)
+- Subtle axis styling
+- Smooth animations
+- Responsive design
+
+### 5. Mock Data System ✅
+**File:** [mockAdsData.js](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/data/mockAdsData.js)
+
+**Mock Campaigns:**
+1. Forex Exness - General (Oct 1 - Dec 31)
+2. Crypto Binance - Brand (Oct 1 - Dec 31)
+3. Beauty Sephora - High Intent (Oct 1 - Dec 31)
+4. Gaming Razer - Accessories (Oct 15 - Dec 31)
+5. Forex XM Trading - Broad (Nov 1 - Dec 31)
+
+**Data Points per Day:**
+- Clicks
+- Impressions
+- Cost (VND)
+- Conversions
+- Revenue (VND)
+
+**Aggregation Functions:**
+- [aggregateData()](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/data/mockAdsData.js#114-208) - Groups by day/week/month
+- [getPrograms()](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/data/mockAdsData.js#100-104) - Lists all unique programs
+- [getKeywords()](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/data/mockAdsData.js#105-113) - Lists all unique keywords
+
+### 6. Routing System ✅
+**File:** [App.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/App.jsx)
+
+**Structure:**
+```
+/ - ChatPage
+/projects - ProjectsPage
+/dashboard - DashboardPage
+```
+
+**Layout:**
+- Sidebar (fixed left, 256px width)
+- Main content area (flex-1, scrollable)
+
+## Dependencies Installed
+
+```bash
+npm install react-router-dom recharts date-fns
+```
+
+- **react-router-dom**: Page routing
+- **recharts**: Chart library (MIT license, highly customizable)
+- **date-fns**: Date manipulation (not heavily used yet, but available)
+
+## Design Aesthetic
+
+### Colors
+- Background: `bg-black`
+- Borders: `border-white/10` to `border-white/30`
+- Text primary: `text-white`
+- Text secondary: `text-luxury-gray`
+- Accents: Green for positive, Red for negative
+
+### Typography
+- Headers: `font-serif`
+- Body: `font-sans`
+- Numbers: `font-mono`
+- Uppercase tracking: `uppercase tracking-widest`
+
+### Charts
+- Grid: `stroke="rgba(255,255,255,0.05)"`
+- Lines: `stroke="rgba(255,255,255,0.8)" strokeWidth={2}`
+- Areas: Gradient fills with 30% opacity
+- Tooltips: Glassmorphic (`bg-black/90 backdrop-blur-md`)
+
+## File Structure
+
+```
+frontend/src/
+├── components/
+│   ├── Sidebar.jsx (NEW)
+│   ├── ResultsTable.jsx (MODIFIED)
+│   ├── ChatInterface.jsx
+│   └── ChatMessage.jsx
+├── pages/
+│   ├── ChatPage.jsx (NEW)
+│   ├── ProjectsPage.jsx (NEW)
+│   └── DashboardPage.jsx (NEW)
+├── data/
+│   └── mockAdsData.js (NEW)
+└── App.jsx (REPLACED with routing)
+```
+
+## Usage Guide
+
+### For Users:
+
+1. **Research Affiliate Programs**
+   - Navigate to Chat (default page)
+   - Type niche query (e.g., "Forex", "Crypto")
+   - View results table
+   - Click "Lưu" to save programs
+
+2. **Manage Saved Projects**
+   - Click "Dự án đã lưu" in sidebar
+   - View all saved programs in grid
+   - Click "X" to delete
+   - Click "Tham gia" to visit program
+
+3. **Analyze Campaign Performance**
+   - Click "Google Ads" in sidebar
+   - Select date range
+   - Choose grouping (day/week/month)
+   - Filter by program or keyword
+   - View metrics and charts
+
+### Key Metrics Explained:
+
+- **CPC (Cost Per Click)**: Total cost ÷ Total clicks
+- **ROI**: (Revenue - Cost) ÷ Cost × 100%
+- **Conversions**: Number of successful sign-ups/sales
+
+## Testing Checklist
+
+To verify everything works:
+
+1. ✅ Install dependencies completed
+2. ⏳ Navigate to Chat page, search "Forex"
+3. ⏳ Click "Lưu" on a program, check alert
+4. ⏳ Check sidebar badge increments
+5. ⏳ Navigate to Projects page, verify saved program appears
+6. ⏳ Delete a project, check sidebar badge decrements
+7. ⏳ Navigate to Dashboard
+8. ⏳ Change date range, verify charts update
+9. ⏳ Toggle grouping (day→week→month)
+10. ⏳ Select program filter, verify data filters
+11. ⏳ Select keyword filter, verify data filters
+
+## Technical Highlights
+
+1. **Real-time Updates**: Custom events for sidebar counter
+2. **Responsive Charts**: ResponsiveContainer from Recharts
+3. **Efficient Filtering**: useMemo for data aggregation
+4. **localStorage Persistence**: Projects saved across sessions
+5. **Clean Routing**: React Router with layout wrapper
+
+## Known Limitations
+
+- Mock data only (no real Google Ads API integration)
+- localStorage-based (no backend persistence)
+- No export functionality yet
+- No campaign creation UI
+
+## Future Enhancements
+
+- Connect to real Google Ads API
+- Backend API for data persistence
+- Export reports (PDF/CSV)
+- Campaign creation and editing
+- Email alerts for performance thresholds
+- Multi-user support with authentication
+
+---
+
+**The dashboard system is now complete and ready for user testing! 🎉**
+
+All components follow the app's minimalist aesthetic with clean lines, subtle animations, and professional data visualization.

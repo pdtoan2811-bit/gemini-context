@@ -1,0 +1,154 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,56)<a class='group block' href='/' />
+		[2] (71,45)<h1 >Adecos />
+		[3] (71,76)<p >AI-Powered Platform />
+	[4] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,165)<div  />
+			[6] (20,165)<span  />
+			[7] (47,165)<span >AI Agent />
+	[8] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,224)<div  />
+			[10] (20,224)<span  />
+			[11] (56,224)<span >Quản lý dự án />
+	[12] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,282)<div  />
+			[14] (20,282)<span  />
+			[15] (53,282)<span >Quản lý Ads />
+	[16] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (43,341)<div  />
+			[18] (20,341)<span  />
+			[19] (51,341)<span >Thí nghiệm />
+	[20] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (50,399)<div  />
+			[22] (20,399)<span  />
+			[23] (58,399)<span >Deep Research />
+	[24] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,458)<div  />
+			[26] (20,458)<span  />
+			[27] (48,458)<span >Analytics />
+	[28] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,516)<div  />
+			[30] (20,516)<span  />
+			[31] (51,516)<span >Thông báo />
+	MVP v1.0
+	[32] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (571,558)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		[34] (384,179)<div class='w-[35%] border-r border-white/5 p-5 overflow-y-auto bg-black/5' scrollable='true' />
+			2.8x
+			+12%
+			ROI Mục tiêu
+			$4.5k
+			Ngân sách còn lại
+			Phân tích AI
+			"
+			Chiến dịch "Nike - Running Shoes Q1" đang có hiệu suất vượt trội với ROAS 5.2x. Đề xuất tăng ngân sách cho chiến dịch này trong 7 ngày tới.
+			"
+		Cấu hình các tham số SMART trước khi thực thi
+		Tăng ngân sách chiến dịch "Nike - Running Shoes Q1" thêm 20%
+		high
+		[35] (667,126)<div  />
+			[36] (509,126)<button class='w-5 h-5 rounded border-2 flex-shrink-0 transition-all
+                               flex items-center justify-center bg-green-500 border-green-500' />
+			[37] (638,126)<span >Tạm dừng 3 nhóm quảng cáo có CPA > 50,000 ₫ />
+			[38] (775,126)<div  />
+				[39] (764,126)<div  />
+				[40] (769,126)<div  />
+				[41] (775,126)<div  />
+				[42] (780,126)<div  />
+				[43] (786,126)<div  />
+			[44] (805,126)<span >high />
+		[45] (667,191)<div  />
+			[46] (509,191)<button class='w-5 h-5 rounded border-2 flex-shrink-0 transition-all
+                               flex items-center justify-center border-[var(--border-hover)] hover:border-[var(--text-secondary)]' />
+			[47] (635,191)<span >Thử nghiệm A/B tiêu đề mới cho quảng cáo có CTR thấp />
+			[48] (767,191)<div  />
+				[49] (756,191)<div  />
+				[50] (762,191)<div  />
+				[51] (767,191)<div  />
+				[52] (773,191)<div  />
+				[53] (779,191)<div  />
+			[54] (801,191)<span >medium />
+		[55] (667,256)<div  />
+			[56] (509,256)<button class='w-5 h-5 rounded border-2 flex-shrink-0 transition-all
+                               flex items-center justify-center border-[var(--border-hover)] hover:border-[var(--text-secondary)]' />
+			[57] (639,256)<span >Đánh giá lại đối tượng mục tiêu sau 7 ngày />
+			[58] (776,256)<div  />
+				[59] (765,256)<div  />
+				[60] (771,256)<div  />
+				[61] (776,256)<div  />
+				[62] (782,256)<div  />
+				[63] (787,256)<div  />
+			[64] (805,256)<span >low />
+		Mức độ duyệt
+		25
+		%
+		1
+		/
+		4
+		Đã xác nhận
+		[65] (719,456)<button class='px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-[var(--text-secondary)] hover:text-white transition-colors'>Bỏ qua />
+		[66] (793,456)<button class='px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl border transition-all flex items-center gap-2 shadow-xl bg-blue-600 hover:bg-blue-500 text-white border-blue-400/30'>Duyệt & Thực thi />
+		Bắt đầu phiên nghiên cứu mới
+		Hãy cho tôi biết ngách sản phẩm hoặc chủ đề bạn muốn phân tích
+		[67] (568,725)<input class='w-full bg-transparent border-none focus:ring-0 focus:outline-none text-[var(--text-primary)] placeholder-[var(--text-secondary)] font-sans font-light text-center text-xl md:text-2xl py-2' id='message-search-input' placeholder='Nhập yêu cầu tìm kiếm của bạn...' />
+		[68] (568,783)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+			[69] (536,783)<input class='w-3.5 h-3.5 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+			[70] (574,783)<span >Deep Research Mode />
+		[71] (447,871)<button class='
+                            group/card flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 border
+                            cursor-pointer border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--text-primary)] hover:bg-[var(--bg-primary)]
+                        ' />
+			[72] (345,871)<div  />
+			[73] (459,871)<div  />
+				[74] (459,862)<h4 >Nghiên cứu nhanh />
+				[75] (459,882)<p >Phân tích thị trường & đối thủ />
+		[76] (689,871)<button class='
+                            group/card flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-300 border
+                            cursor-pointer border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--text-primary)] hover:bg-[var(--bg-primary)]
+                        ' />
+			[77] (588,871)<div  />
+			[78] (702,871)<div  />
+				[79] (702,862)<h4 >Nghiên cứu sâu />
+				[80] (702,882)<p >Báo cáo chi tiết đa chiều />
+		Chat với data
+		Soon
+		Hỏi đáp trực tiếp trên dữ liệu
+		Tối ưu AI
+		Soon
+		Tự động tối ưu chiến dịch QC
+
+</current_dom>

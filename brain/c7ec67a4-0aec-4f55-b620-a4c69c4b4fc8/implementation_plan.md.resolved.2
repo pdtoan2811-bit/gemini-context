@@ -1,0 +1,50 @@
+# Implementation Plan - Interactive Editor
+
+The user needs to edit the AI-generated slides. We will transform static displays into interactive components.
+
+## Goals
+1.  **Inline Text Editing**: Click to edit titles, bodies, and list items.
+2.  **Image Control**: Drag-and-drop images onto placeholders, or click to upload new ones.
+3.  **Layout Refinement**: Ensure editing doesn't break the "Premium" layout/spacing.
+
+## Proposed Components
+
+### 1. `EditableText.tsx`
+A wrapper around a `contentEditable` div or `textarea` (auto-resizing).
+-   **Props**: `value`, `onChange`, `className`, `tagName` (h1, p, etc.)
+-   **Behavior**:
+    -   Displays plain text style.
+    -   On click/focus: Shows active edit state (outline).
+    -   On blur: Commits change via `onChange`.
+
+### 2. `EditableImage.tsx`
+A wrapper for `<img>` that adds an overlay for interactions.
+-   **Props**: `src`, `alt`, `className`, `onUpload`
+-   **Behavior**:
+    -   Default: Shows image.
+    -   Hover: Shows "Change Image" button.
+    -   Drag Over: Shows drop zone.
+    -   Drop/Select: Reads file -> ObjectURL -> Calls `onUpload`.
+
+## Integration Strategy
+
+We will update the Master Templates ([HeroSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/HeroSlide.tsx#9-53), [SplitSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/SplitSlide.tsx#9-38), etc.) to use these components instead of raw HTML tags.
+
+**Example (HeroSlide):**
+```tsx
+// Before
+<h1>{title}</h1>
+
+// After
+<EditableText
+  tagName="h1"
+  value={title}
+  onChange={(newVal) => onUpdate({ ...content, title: newVal })}
+  className="..."
+/>
+```
+
+## Verify
+-   Test changing a title.
+-   Test uploading a custom image from disk.
+-   Ensure layout remains "Apple-quality" during edits.

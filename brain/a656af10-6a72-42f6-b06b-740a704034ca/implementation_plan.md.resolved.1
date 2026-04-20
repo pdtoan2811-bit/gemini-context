@@ -1,0 +1,51 @@
+# Implementation Plan - Phase 2: Enhanced Capabilities (NextStep v3.0)
+
+This plan details the implementation of the "Broken UI/UX" fixes and the 3 core use cases.
+
+## User Review Required
+> [!IMPORTANT]
+> This requires significant changes to [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py) to support multi-agent structured outputs.
+
+## Proposed Changes
+
+### Backend (Python / Agent Framework)
+#### [MODIFY] [backend/orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py)
+- **Goal**: Support multiple agent types and routing.
+- **Details**:
+    -   Add `CanvasAgent` (OpenAIResponses) for Use Case 2.
+    -   Add `IngestionAgent` for Use Case 3.
+    -   Implement "Router" logic to decide if a user query needs a Chat response or a Canvas update.
+
+#### [NEW] [backend/models.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/models.py)
+- **Goal**: Shared Pydantic models.
+- **Details**: `CanvasNode`, `CanvasEdge`, `NodeGraph`, `DocumentMetadata`.
+
+#### [NEW] [backend/ingestion.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/ingestion.py)
+- **Goal**: File processing logic.
+- **Details**: `parse_pdf`, `parse_txt` functions used by Ingestion Agent.
+
+### Frontend (Next.js / React Flow)
+#### [MODIFY] [frontend/app/page.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/app/page.tsx)
+- **Goal**: UI Polish & Real Integration.
+- **Details**:
+    -   Replace "Mock" nodes with state-driven nodes from WebSocket.
+    -   Implement Drag-and-Drop file upload zone.
+
+#### [NEW] [frontend/components/ChatInterface.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/ChatInterface.tsx)
+- **Goal**: Use Case 1.
+- **Details**: A premium, floating chat window (like Cursor) that persists history and allows "Ask Anything".
+
+#### [MODIFY] [frontend/components/OrchestratorPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/OrchestratorPanel.tsx)
+- **Goal**: UX Polish.
+- **Details**: Improved animations, clearer "Active Agent" indicators, and distinct "Thinking" vs "Output" states.
+
+## Verification Plan
+
+### Automated Tests
+- **Backend Test**: `pytest tests/test_ingestion.py` (Verify PDF parsing).
+- **Backend Test**: `pytest tests/test_canvas_agent.py` (Verify JSON output structure).
+
+### Manual Verification
+1.  **Chat**: Send "Hello" -> Verify text response in ChatInterface.
+2.  **Canvas**: Send "Map out the solar system" -> Verify `CanvasAgent` creates 9+ nodes and links them.
+3.  **Ingest**: Drag PDF -> Verify `IngestionAgent` summarizes it and updates the node.

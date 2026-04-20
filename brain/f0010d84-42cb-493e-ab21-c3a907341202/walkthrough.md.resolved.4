@@ -1,0 +1,29 @@
+# Walkthrough - Adecos MVP (Protocol 2.0)
+
+I have successfully upgraded Adecos to **Protocol 2.0**, introducing a **Conversational Agentic Architecture**.
+
+## 1. Features Implemented
+### 1.1 Conversational AI Flow
+- **Sticky Chat**: The input bar now persists at the bottom offering a continuous "Chat Stream" experience.
+- **Message History**: The system remembers context (e.g., "Explain the first row").
+
+### 1.2 Agentic "Intent Router" (CrewAI Pattern)
+The backend now includes a smart **Router Agent** that analyzes your prompt:
+- **Research Intent** (e.g., "Find crypto programs"): Routes to **Data Agent** -> Streams defined **JSON Table**.
+- **Chat Intent** (e.g., "What is Binance?"): Routes to **Chat Agent** -> Streams **Markdown Text**.
+
+### 1.3 Dynamic UI Components
+- **Text Bubble**: Renders Markdown (Bold, Lists, Code) for explanations.
+- **Table Widget**: Renders the "Glassmorphism" Results Table inline for data.
+
+## 2. Technical Changes
+- **Backend**: Added `/api/chat/stream` endpoint and `generate_chat_stream` logic in [generator.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py).
+- **Frontend**: Refactored [App.jsx](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/App.jsx) to manage `messages[]` state and added [ChatMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatMessage.jsx) for polymorphic rendering.
+
+## 3. Usage
+1.  **Start Research**: Type "Find camping affiliate programs".
+    - *Result*: You see a **Table**.
+2.  **Ask Follow-up**: Type "Explain the terms for REI".
+    - *Result*: You see a **Text Bubble** explaining the terms.
+
+The app is running at `http://localhost:5173`.

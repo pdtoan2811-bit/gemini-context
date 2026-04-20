@@ -1,0 +1,5 @@
+# Verification Plan
+- [ ] Navigate to http://localhost:5173/ads
+- [ ] Verify present: 'MDW_Shopee_Search_01', 'MDW_Lazada_Display_Low', 'MDW_TikTok_Shop_Fashion', 'MDW_Amazon_Store_US'
+- [ ] Verify absent: 'Exness', 'Binance'
+- [ ] Document findings

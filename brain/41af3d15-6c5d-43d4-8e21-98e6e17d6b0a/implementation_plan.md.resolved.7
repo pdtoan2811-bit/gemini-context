@@ -1,0 +1,135 @@
+# Implementation Plan - Phase 2: Interactive MCP Flow
+
+# Goal Description
+Enable the "Text-to-Graph" flow. User enters a prompt, Maestro analyzes it, calls the Researcher Agent, and updates the Graph on the Canvas.
+
+## User Review Required
+> [!IMPORTANT]
+> **MCP Transport**: We will implement the `stdio` transport for the Python Researcher agent.
+> **Gemini Prompts**: We will need to tune the "Meta-Graph" prompt to output structured JSON that Maestro can parse into Graph Nodes.
+
+## Proposed Changes
+
+### Frontend (Canvas)
+#### [MODIFY] [frontend/src/App.tsx]
+- Add [handleSearch](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/App.tsx#38-47) function.
+- Call `api.sendPrompt(query)`.
+- Poll `api.getGraph()` (or similar) to update the canvas.
+
+#### [MODIFY] [frontend/src/services/api.ts]
+- Add [getGraph()](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/services/api.ts#44-53) to fetch current nodes/edges.
+
+### Backend (Maestro)
+#### [MODIFY] [backend/main.py]
+- POST `/prompt`: Accepts user query, triggers Orchestrator.
+- GET `/graph`: Returns current graph state (Nodes/Edges).
+
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- Implement `process_request(query)`:
+    1.  Ask Gemini: "What tools should I use for '{query}'?"
+    2.  Parse Gemini response (Expected: List of Tool Calls).
+    3.  **Execute Tool Call**:
+        - Spawn/Connect to [agents/researcher/server.py](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/agents/researcher/server.py) via `stdio` (using `mcp` Client).
+        - Send `CallToolRequest`.
+        - Receive `CallToolResult`.
+    4.  Update Graph (Neo4j + In-Memory).
+
+#### [MODIFY] [backend/agents/researcher/server.py]
+- Ensure it accepts standard input/output for MCP protocol.
+
+## Verification Plan
+
+### Manual Verification
+1.  Enter "Research MCP Protocol" in Frontend.
+2.  **Expect**:
+    - "Maestro" node emits an edge to a new "Researcher" node (Status: Thinking).
+    - "Researcher" node turns into "Data Node" with results.
+    - Canvas updates automatically.
+
+## Phase 4: UI/UX Repair & Enhancement
+### Frontend (Canvas)
+#### [MODIFY] [frontend/src/index.css]
+- Override `.react-flow__node` to be transparent.
+
+#### [NEW] [frontend/src/components/nodes/MaestroNode.tsx]
+- Special "Host" node design (Gold/Premium).
+
+#### [MODIFY] [frontend/src/components/Canvas.tsx]
+- Use `MarkerType` for edges.
+- Implement animated custom edges.
+
+#### [MODIFY] [frontend/src/components/Hud.tsx]
+- Add "Event Stream" monitoring MCP JSON-RPC messages.
+
+## Phase 5: Advanced Creative Workflow
+
+### Backend (Maestro)
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- **Split Execution**: Create `plan_request` (returns JSON plan) and `execute_plan` (runs tools).
+- **Graph Management**: Add [create_node](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/main.py#45-49), [delete_node](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#247-252) endpoints.
+- **Workspaces**: Add `canvas_id` support to isolation graphs.
+
+### Frontend (Canvas)
+#### [NEW] [frontend/src/components/PlaylistPanel.tsx]
+- Sidebar/Overlay component to display the "To-Do List" (Maestro's Plan).
+- Controls to Approve/Reject/Modify the plan.
+
+#### [MODIFY] [frontend/src/components/Canvas.tsx]
+- **Context Menu**: Right-click to Add/Delete nodes.
+- **Content Inspector**: Click a [DataNode](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/components/nodes/DataNode.tsx#5-29) to view full markdown content in a sidebar/modal.
+
+#### [MODIFY] [frontend/src/App.tsx]
+- **Multi-Canvas**: Sidebar for switching between "Project 1", "Project 2", etc.
+- **State Management**: `useCanvasState` hook to manage the active graph.
+
+## Phase 6: Real Integrations
+#### [NEW] [backend/mcp_servers/google_search]
+- Clone `https://github.com/mixelpixx/Google-Search-MCP-Server`.
+
+#### [MODIFY] [backend/.env]
+- Add `GOOGLE_API_KEY` (Search enabled) and `GOOGLE_SEARCH_ENGINE_ID`.
+
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- Update [execute_tool](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/maestro/orchestrator.py#97-230) to spawn the `google_search` MCP server.
+- Map [research_topic](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/agents/researcher/server.py#7-15) -> `google_search` tool.
+
+## Phase 7: Deep Research & Semantic Expansion
+### Backend
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- Implement `extract_and_expand(url)`:
+    - Call `google_search` MCP -> `extract_webpage_content`.
+    - Call Gemini: "Extract key entities/facts from this text as JSON".
+    - Create Nodes/Edges from JSON.
+- Load prompts from [backend/prompts/agents.yaml](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/prompts/agents.yaml).
+
+### Frontend
+#### [MODIFY] [frontend/src/components/PlaylistPanel.tsx]
+- Add `Play All` button.
+- Logic to execute steps sequentially.
+
+#### [NEW] [frontend/src/components/AgentSettings.tsx]
+- Interface to view/edit [agents.yaml](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/prompts/agents.yaml) prompts.
+
+## Verification
+1.  **Search Test**: "Christopher Nolan on IMAX".
+2.  **Expect**: Graph explodes with specific nodes (e.g., "70mm Film", "Hans Zimmer", "Dunkirk").
+
+## Phase 8: Deep Research Refinement & Article Synthesis
+### Frontend
+#### [NEW] [frontend/src/components/NodeDetailPanel.tsx]
+- Right-side slide-over panel.
+- Displays `node.data.label` (Title) and `node.data.content` (Markdown Body).
+- Triggered by `onNodeClick` in [App.tsx](file:///c:/Users/ADMIN/Desktop/nextstepver2/frontend/src/App.tsx).
+
+### Backend
+#### [MODIFY] [backend/prompts/agents.yaml]
+- Update `analyst_agent` to produce detailed markdown paragraphs.
+- Add `synthesis_agent` prompt.
+
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- **Enrichment**: Ensure `extract_and_expand` stores full markdown in `node.data.content`.
+- **Final Synthesis**: Add a method `synthesize_article(canvas_id)`:
+    - Collect all texts from current canvas.
+    - Send to Gemini (`synthesis_agent`).
+    - Create a distinct "Article Node" (e.g., Type: `ArticleNode`) with the full essay.
+

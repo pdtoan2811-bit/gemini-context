@@ -1,0 +1,9 @@
+# Debugging Image Pipeline
+
+- [/] Debug "non-image" issue <!-- id: 0 -->
+    - [x] Analyze [gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts) fallback logic (suspected root cause: prompt returns description, not URL) <!-- id: 1 -->
+    - [x] Fix [gemini.ts](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/services/gemini.ts): Ensure `content.image` is only used if it is a valid URL, otherwise null <!-- id: 2 -->
+    - [x] Enhance [server/crawler.js](file:///c:/Users/ADMIN/Desktop/ai_slideshow/server/crawler.js): Resolve relative URLs to absolute to increase image yield <!-- id: 3 -->
+- [/] Verification <!-- id: 4 -->
+    - [ ] Run `node server/test_crawler_local.js` to verify image extraction <!-- id: 6 -->
+    - [ ] Test with "Explain Tenet by Nolan" <!-- id: 5 -->

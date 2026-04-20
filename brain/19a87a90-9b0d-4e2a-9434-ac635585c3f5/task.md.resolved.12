@@ -1,0 +1,14 @@
+# Feature: Rich Mock Data
+- [x] Create [backend/generate_mock_db.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/generate_mock_db.py) to generate realistic data <!-- id: 7 -->
+    - [x] Accounts, Campaigns, Keywords, Base Metrics
+- [x] Run generation script to create [backend/mock_db.json](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/mock_db.json) <!-- id: 8 -->
+- [x] Update [data_tools.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py) to load data from `mock_db.json` <!-- id: 9 -->
+
+# Feature: Categorical Charts
+- [ ] Upgrade [QueryAdsCampaignsTool](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py#135-270) in [data_tools.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py) <!-- id: 10 -->
+    - [ ] Add support for `group_by` = "campaign" | "program" | "account"
+    - [ ] Return aggregated metrics per category
+- [ ] Update [agents.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py) to handle "by [dimension]" queries <!-- id: 11 -->
+    - [ ] Detect "by campaign", "by account" in user query
+    - [ ] Select appropriate `chart_type` (Bar vs Line)
+    - [ ] Configure chart `dataKey` and `xAxis` dynamically

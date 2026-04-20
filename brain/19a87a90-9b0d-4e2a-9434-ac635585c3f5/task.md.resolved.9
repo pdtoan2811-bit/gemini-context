@@ -1,0 +1,18 @@
+# Repository Synchronization & Verification
+
+- [x] Pull changes from remote `origin/main`
+- [x] Verify documentation consistency (PRD/SRS) <!-- id: 1 -->
+    - [x] Check for UI changes in `ProjectSettingsPage` and [ChatMessage](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatMessage.jsx#8-144)
+    - [x] Ensure docs reflect the current codebase
+
+# System Configuration
+- [x] Update [run_app.bat](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/run_app.bat) to start both Backend and Frontend <!-- id: 2 -->
+- [x] Install backend dependencies from [backend/requirements.txt](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/requirements.txt) <!-- id: 3 -->
+
+# Debugging
+- [x] Fix `'NoneType' object has no attribute 'lower'` error <!-- id: 4 -->
+- [x] Fix Date Range parsing ignoring "last X days" <!-- id: 5 -->
+    - [x] Check [classify_intent](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py#99-152) in [agents.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/agents.py) for entity extraction
+    - [x] Check [parse_date_range](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py#92-163) in [data_tools.py](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/backend/data_tools.py)
+- [x] Improve Narrative Relevance <!-- id: 6 -->
+    - [x] Ensure narrative focuses on the requested metric (e.g., CPC) instead of generic summary

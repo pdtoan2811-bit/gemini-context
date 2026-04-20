@@ -1,0 +1,43 @@
+# Walkthrough: Vietnamese Localization & Campaign Alignment
+
+I have localized the "Ad Optimization" feature to Vietnamese and aligned all mock campaigns with US DTC brands (Nike, Sephora, etc.).
+
+## Changes Made
+
+### Documentation
+- Updated [PRD](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md) and [SRS](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS_01_Chat_Interface.md) to explicitly state that UX writing and AI insights are in Vietnamese.
+
+### Frontend
+- **Localizations (Round 1)**:
+    - [mockWorkflowData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockWorkflowData.js): Translated headers, narratives, comparison labels, and TODO items.
+    - [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx): Localized table headers and action buttons.
+    - [CampaignSelectionTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CampaignSelectionTable.jsx): Localized UI strings and summary labels.
+    - [onboardingData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/onboardingData.js): Localized marketing notes and feature descriptions.
+- **Localizations (Round 2 Re-refinement)**:
+    - [ChatMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ChatMessage.jsx): Localized user mimic strings ("Phân tích chuyên sâu cho...").
+    - [CompactWorkflowMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CompactWorkflowMessage.jsx) & [WorkflowMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/WorkflowMessage.jsx): Localized all remaining layout headers, section labels ("Performance" -> "Hiệu suất"), and buttons.
+    - [SmartTaskCard.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/SmartTaskCard.jsx): Translated SMART framework (Specific, Measurable, etc.) and trade-off labels.
+    - [ApprovalPanel.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/ApprovalPanel.jsx) & [TodoList.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/TodoList.jsx): Localized status badges (Draft -> Bản nháp), success messages, and action buttons.
+- **Brand Alignment**: Updated campaign names to Nike, Sephora US, Best Buy, etc., across all mock data.
+
+### Backend
+- **Agent Prompts**: Updated `Narrative Writer` backstory in [agents.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py) to reinforce Vietnamese writing and US brand awareness.
+- **Thinking Steps**: Localized the 10-step thinking process generator in [generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/generator.py) to Vietnamese.
+
+## Verification Results
+
+### Manual Check: Chat Flow
+1. **Query**: "Phân tích chiến dịch Nike"
+2. **Thinking State**: Displays 10 localized steps (e.g., "Đang truy xuất dữ liệu chiến dịch từ Google Ads API...").
+3. **Response Header**: "Đang tối ưu: Nike - Running Shoes Q1".
+4. **Narrative**: Fully in Vietnamese, highlighting Nike's performance.
+5. **TODO Items**: SMART goals are in Vietnamese (e.g., "Tăng ngân sách chiến dịch...").
+
+### UI Consistency
+- Table headers are fully localized (e.g., "Chiến dịch", "Trạng thái").
+- Workflow status badges and buttons are now in Vietnamese (e.g., "Bản nháp", "Duyệt & Thực thi").
+- SMART framework properties in task details are translated.
+- AI Insight and Performance labels are localized.
+
+> [!NOTE]
+> The mock data generation in [mock_data_generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/mock_data_generator.py) remains in English for database consistency, but all user-facing strings are now Vietnamese.

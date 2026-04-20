@@ -1,0 +1,30 @@
+# Task List
+
+- [ ] Exploration & Documentation <!-- id: 0 -->
+    - [x] Explore existing codebase structure <!-- id: 1 -->
+    - [x] Create BRD (Business Requirement Document) <!-- id: 2 -->
+    - [x] Create PRD (Product Requirement Document) <!-- id: 3 -->
+    - [x] Create SRS (Software Requirements Specification) <!-- id: 4 -->
+- [ ] Implementation Planning <!-- id: 5 -->
+    - [x] Create Implementation Plan <!-- id: 6 -->
+- [ ] Core Development <!-- id: 7 -->
+    - [x] Setup/Update Project Scaffolding <!-- id: 8 -->
+    - [x] Implement Google-like UI Layout (Sidebar, Canvas, Toolbar) <!-- id: 9 -->
+    - [x] Implement AI Service (Gemini 2.0 Flash) <!-- id: 10 -->
+    - [x] Implement Markdown-to-Slide Rendering Engine <!-- id: 11 -->
+    - [x] Implement Slide Editing Actions (Font, Resize, Images) <!-- id: 12 -->
+- [x] Verification <!-- id: 13 -->
+    - [x] Verify AI Generation <!-- id: 14 -->
+    - [x] Verify Editing Capabilities <!-- id: 15 -->
+- [ ] Advanced Features (New) <!-- id: 16 -->
+    - [x] Backend Implementation <!-- id: 17 -->
+        - [x] Setup Node.js/Express Server <!-- id: 18 -->
+        - [x] Implement Image Crawler (Puppeteer) <!-- id: 19 -->
+        - [x] Update run_app.bat to launch full stack <!-- id: 20 -->
+    - [/] Google & Gemini Integration <!-- id: 21 -->
+        - [/] Enable Google Search Grounding in Client <!-- id: 22 -->
+        - [/] Integrate Crawler with Grounding Sources <!-- id: 23 -->
+    - [ ] Advanced Templates <!-- id: 24 -->
+        - [ ] Define 10 Distinct Layout Models <!-- id: 25 -->
+        - [ ] Implement Template-Specific Prompting <!-- id: 26 -->
+        - [ ] Create Renderers for 10 Templates <!-- id: 27 -->

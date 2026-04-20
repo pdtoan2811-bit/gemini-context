@@ -1,0 +1,27 @@
+# Walkthrough - Dynamic Connections & Hierarchy
+
+I have successfully pulled the repository and implemented the "Floating Edge" dynamic connection system, resolving the visualization and interaction issues.
+
+## Changes
+1.  **Repository Sync**: Pulled latest changes from `nexus-ver3`.
+2.  **Floating Edges**: Implemented [FloatingEdge.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/FloatingEdge.jsx) and [floatingEdgeUtils.js](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/utils/floatingEdgeUtils.js) to make connections dynamically snap to the closest point on the node perimeter.
+3.  **Interaction Fix**: Updated [CustomNode.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/CustomNode.jsx) to use perimeter handles, restoring the ability to drag nodes by their center.
+4.  **Hierarchy Indicators**: Added "Parent Group" and "Parent" badges to nodes to clearly show hierarchy.
+5.  **Visualization Fix**: Explicitly assigned handle IDs in [GraphCanvas.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/GraphCanvas.jsx) to ensure edges render correctly with the new node structure.
+
+## Verification Results
+
+### Automatic Verification
+I ran a browser automation test to verify the fix:
+
+**1. Initial Graph Load**
+Nodes are visible, and connections are correctly rendered (no longer invisible).
+![Initial Graph State](/initial_graph_load_1765458063312.png)
+
+**2. Drag Interaction**
+I dragged the "Steve Jobs - Wikipedia" node. The connection lines followed the node dynamically, confirming the "Floating Edge" behavior is working.
+![Graph After Drag](/graph_after_drag_1765458080213.png)
+
+### Automated Session Recording
+Here is a recording of the verification session:
+![Verification Session](/verify_graph_fix_1765458023281.webp)

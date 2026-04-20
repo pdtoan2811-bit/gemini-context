@@ -1,0 +1,55 @@
+# Clean Minimalist Aesthetic Update
+
+The user has requested to clean up the use of color across the landing page, enforcing a primarily black and white aesthetic and only using the accent color where absolutely necessary. This involves an aesthetic overhaul to make the landing page feel more premium, sleek, and minimalist.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The current landing page uses several colorful gradients (blue, green, purple, amber, rose) in the Use Cases section and blue `primary` spotlights in the Hero section. This plan removes those in favor of a strictly monochrome grayscale aesthetic (using foreground/neutral colors). Please review this to confirm this aligns with your expectation of a clean B&W vibe.
+
+## Proposed Changes
+
+---
+
+### Documentation (Synchronization Protocol)
+
+We will update the content docs to reflect the newly established aesthetic rules.
+
+#### [MODIFY] [landing-content.md](file:///C:/Users/ADMIN/Desktop/prod-adecos/docs/landing-content.md)
+- Append an "Aesthetics & Design System" section explicitly stating that the landing page strictly follows a black/white minimalist theme with minimal accent colors.
+
+---
+
+### Landing Page Components
+
+We will shift all major visual elements currently using brand or rainbow colors towards a neutral grayscale.
+
+#### [MODIFY] [Hero.tsx](file:///C:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/Hero.tsx)
+- Change the background spotlight gradient from `var(--primary)` to use `var(--foreground)` with low opacity.
+- Remove `shadow-primary/10` from the get started button, replacing it with a neutral shadow.
+- Change `text-primary` on the "Learn More" social proof link to `text-foreground hover:opacity-80`.
+
+#### [MODIFY] [LandingUseCases.tsx](file:///C:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/LandingUseCases.tsx)
+- Replace all rainbow gradients (blue, green, purple, amber, rose) in the `color` attribute of `useCases` with a clean `from-foreground/5 to-transparent` gradient.
+- Replace rainbow icon colors (`text-blue-500`, `text-green-500`, etc.) with `text-foreground`.
+- Change hover group text from `group-hover:text-primary` to `group-hover:text-foreground/80`.
+- Remove the background `bg-primary/5` blur, changing it to `bg-foreground/5` or `bg-neutral-500/5` to maintain the depth without the color.
+- Change the "Explore features" link from `text-primary` to `text-foreground`.
+
+#### [MODIFY] [OrbGradient.tsx](file:///C:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/OrbGradient.tsx)
+- Change `from-primary/20 via-primary/10` and `from-primary/15` color mixes to use neutral/foreground values (`from-foreground/10 via-foreground/5`, etc.) to keep the ambient glow but in monochrome.
+
+#### [MODIFY] [LandingTestimonial.tsx](file:///C:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/LandingTestimonial.tsx)
+- Change "Loved by" icons from `text-primary` to neutral (`text-foreground` or `text-muted-foreground`).
+
+## Open Questions
+
+> [!WARNING]
+> 1. Do you want to keep the "highlight-gradient" class (which uses slate colors `from-slate-900 to-slate-500`) as is, or do you want the hero title to be purely black/white without a gradient?
+> 2. Are there any specific Call To Action (CTA) buttons where you *do* want the `primary` blue accent to remain, or should all buttons be monochrome (black background/white text)? The Hero button is already `bg-foreground text-background`, which perfectly matches a B&W vibe.
+
+## Verification Plan
+
+### Manual Verification
+- We will review the source code to ensure `primary` and rainbow tailwind color classes are removed and superseded by `foreground`, `background`, and `neutral` classes.
+- The user can run the local dev server (`npm run dev`) and inspect the visual cleanliness on both light and dark mode, confirming the removal of excess color.

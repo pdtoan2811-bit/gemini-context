@@ -1,0 +1,13 @@
+# Verification Plan
+
+- [ ] Navigate to http://localhost:5173/chat
+- [ ] Verify chat input is visible at the bottom
+- [ ] Check console for 404 errors (useAutocomplete, AutocompleteDropdown)
+- [ ] Perform search: 'Best affiliate programs for software'
+- [ ] Verify 'Thinking' indicator with context-aware steps
+- [ ] Verify results table:
+    - [ ] Numeric traffic values
+    - [ ] 'Thương hiệu' links
+    - [ ] 'Traffic' links
+- [ ] Capture screenshot of the table
+- [ ] Report findings

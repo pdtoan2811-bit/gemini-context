@@ -1,0 +1,8 @@
+# Tasks - Finalize Landing & Push
+
+- [ ] Update `docs/landing-content.md` with FAQ and Contact definitions
+- [ ] Update structure section in `docs/landing-content.md` to include new components and routes
+- [ ] Verify build health (`npm run lint` / `npm run type-check`)
+- [ ] Stage all changes (including untracked terms page)
+- [ ] Commit with SYNC ENGINE compliant message
+- [ ] Push to `origin toan`

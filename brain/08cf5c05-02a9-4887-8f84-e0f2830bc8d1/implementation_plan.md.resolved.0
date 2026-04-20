@@ -1,0 +1,45 @@
+# Revamp Project Management Bento Box Demonstration
+
+The current `ProjectManagementPreview` component in `LandingFeatures.tsx` only demonstrates connecting a single Ads account to a project. To provide a "better and more dynamic demonstration on how we help user connect many Google Ads account into a project management suite, where they can input their actual ref count earned and make sense of all analytics", we will overhaul this component.
+
+## User Review Required
+
+> [!IMPORTANT]
+> Since this introduces a change to the User Experience, PRD documentation will also be synchronized to adhere to the "No Spec, No Service" and the "Living Document Rule". Are you satisfied with the proposed visual flow below?
+
+## Visual Flow Design
+
+We will replace the single-card modal sequence with a "mini-dashboard" split layout (still fitting within the 220px Bento Box height):
+1. **Left Sidebar (Accounts List):** Dynamically populates with multiple Ads Accounts (e.g., "NA Campaigns", "EU Campaigns").
+2. **Right Panel (Analytics & Input):** 
+   - Displays aggregated Ad Spend from the multiple connected accounts.
+   - Shows an automated typing sequence where a user "inputs" the aggregated Ref Count.
+   - Features dynamic metric cards (like True CPA and ROI) that recalculate instantaneously once the Ref Count is updated, emphasizing the analytical power.
+3. This entire flow will utilize `framer-motion` to smoothly sequence the connections, typing, and metric reveals while maintaining the monochrome, premium aesthetic.
+
+## Proposed Changes
+
+### `adecos mvp/docs` (Documentation Synchronization)
+
+#### [MODIFY] [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos%20mvp/docs/PRD.md)
+Update the PRD and functional requirements section to capture the multi-account aggregation and manual ref-count calculation feature in project management.
+
+### `prod-adecos` (Frontend Client Code)
+
+#### [MODIFY] [LandingFeatures.tsx](file:///c:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/LandingFeatures.tsx)
+- Re-architect `ProjectManagementPreview` to display a 2-column layout.
+- Create an animation loop featuring the new steps: connecting multiple accounts -> summing cost -> inputting Ref Count -> revealing True CPA and ROI analytics.
+
+#### [MODIFY] [landing-content.md](file:///c:/Users/ADMIN/Desktop/prod-adecos/docs/landing-content.md)
+- Update the translation keys documentation to accurately reflect the new text.
+
+#### [MODIFY] `messages/en/client.json` & `messages/vi/client.json`
+- Replace single-account keys (e.g. `connectAdsTitle`, `inputRefTitle`) with new pluralized, dynamic metric tracking keys:
+  - `accountsConnected`: "Connected Accounts"
+  - `aggregateSpend`: "Aggregated Spend"
+  - `globalRefCount`: "Global Ref Count"
+  - `trueCpa`: "True CPA"
+
+## Open Questions
+
+- Should the new animation include exact brand names for the fictitious ad accounts (e.g. Nike Search, Sephora Shopping) or keep it generic (NA Region, EU Region) to reflect your recent e-commerce shift? I will default to generic DTC names unless specified otherwise.

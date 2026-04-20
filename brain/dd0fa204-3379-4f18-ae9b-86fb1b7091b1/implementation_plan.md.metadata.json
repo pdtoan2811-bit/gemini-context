@@ -1,0 +1,7 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Updated implementation plan: 30 micro-scenes × 3 seconds each = 90 seconds total. Each scene is a single hard visual cut with one sentence of narration. Organized into 7 acts (Hook, What It Does, Glasswing, Developers, PMs, Reddit Reacts, Close). One background image per scene (30 total). Pipeline generates 30 MP3 + 30 JSON word-timing sidecars. Maximum cut rate for viewer retention.",
+  "updatedAt": "2026-04-15T12:15:42.348381Z",
+  "version": "1",
+  "requestFeedback": true
+}

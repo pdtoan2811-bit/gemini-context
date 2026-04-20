@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation plan for the Content Momentum Engine, covering Backend (FastAPI + LangChain) and Frontend (Next.js + Vanilla CSS).",
+  "updatedAt":  "2025-12-30T04:39:33.961237100Z"
+}

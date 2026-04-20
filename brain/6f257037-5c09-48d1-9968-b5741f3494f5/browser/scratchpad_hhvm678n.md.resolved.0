@@ -1,0 +1,18 @@
+# Task: Verify Mock Data Change on Ads Page
+
+## Plan
+- [ ] Navigate to http://localhost:5173/ads
+- [ ] Perform hard refresh (Ctrl+Shift+R)
+- [ ] Verify existence of ecommerce products:
+    - [ ] MDW_Shopee_Search_01
+    - [ ] MDW_Lazada_Display_Low
+    - [ ] MDW_TikTok_Shop_Fashion
+    - [ ] MDW_Amazon_Store_US
+- [ ] Check for persistence of old data:
+    - [ ] Exness
+    - [ ] Binance
+- [ ] If old data persists, investigate source (Network/Console)
+- [ ] Report findings
+
+## Observations
+- 

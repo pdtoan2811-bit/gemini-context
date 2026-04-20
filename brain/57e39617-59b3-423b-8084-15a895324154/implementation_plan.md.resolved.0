@@ -1,0 +1,53 @@
+# Vietnamese Translation & Campaign Alignment for Ad Optimization
+
+The goal is to fully localize the "Ad Optimization" (Deep Dive) flow in the chat screen to Vietnamese and ensure all mock content matches the US DTC brands (Nike, Sephora US, etc.) used in the backend mock data.
+
+## Proposed Changes
+
+### Documentation
+
+#### [MODIFY] [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md)
+Update to clarify that while the platform mocks US brands, the UX writing and AI insights are fully in Vietnamese.
+
+#### [MODIFY] [SRS_01_Chat_Interface.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS_01_Chat_Interface.md)
+Ensure all UI component descriptions and expected outputs are localized.
+
+---
+
+### Backend
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py)
+Refine prompts for `Data Analyst` and `Narrative Writer` to ensure they strictly speak Vietnamese and acknowledge the context of US DTC brands from a Vietnamese perspective.
+
+#### [MODIFY] [generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/generator.py)
+Fully localize the "thinking prompts" generator to Vietnamese.
+
+---
+
+### Frontend
+
+#### [MODIFY] [mockWorkflowData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockWorkflowData.js)
+- Translate all headers, insights, and TODO items to Vietnamese.
+- Update campaign names to match the mocked brands (e.g., "Nike Ads Optimization", "Sephora US Budget Analysis").
+
+#### [MODIFY] [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx)
+Translate table headers, action buttons (`View Affiliate Traffic`, `Deep Affiliate Research`), and tooltips to Vietnamese.
+
+#### [MODIFY] [CampaignSelectionTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CampaignSelectionTable.jsx)
+Translate all UI strings to Vietnamese.
+
+#### [MODIFY] [onboardingData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/onboardingData.js)
+Localize remaining English phrases in marketing notes and feature sections.
+
+## Verification Plan
+
+### Automated Tests
+- Run `node verify_ui.js` in the `frontend` directory (if applicable/working) to check for key UI elements.
+- I will create a script `verify_translations.py` in `/tmp` to grep for common English strings in the modified files to ensure they are gone.
+
+### Manual Verification
+1. Open the Chat Screen.
+2. Trigger a "Deep Dive" or "Analysis" for a campaign (e.g., Nike).
+3. Verify that the "thinking" steps are in Vietnamese.
+4. Verify that the resulting Workflow/Table/Chart sections are fully in Vietnamese.
+5. Verify that the campaign names match the mocked US brands.

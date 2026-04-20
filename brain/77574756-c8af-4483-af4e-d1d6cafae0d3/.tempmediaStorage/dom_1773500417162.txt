@@ -1,0 +1,167 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+	[12] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,291)<div  />
+			[14] (20,291)<span  />
+			[15] (53,291)<span >Quản lý Ads />
+	[16] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (44,351)<div  />
+			[18] (20,351)<span  />
+			[19] (52,351)<span >Thí nghiệm />
+	[20] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (51,411)<div  />
+			[22] (20,411)<span  />
+			[23] (59,411)<span >Deep Research />
+	[24] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,471)<div  />
+			[26] (20,471)<span  />
+			[27] (48,471)<span >Analytics />
+	[28] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,532)<div  />
+			[30] (20,532)<span  />
+			[31] (51,532)<span >Thông báo />
+	MVP v1.0
+	[32] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (572,560)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		View Traffic →
+		Vua Hàng Hiệu
+		Visit Link ↗
+		5
+		%
+		percentage
+		✕
+		✕
+		1.2M
+		View Traffic →
+		9
+		[34] (190,126)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>FragranceX />
+		[35] (404,127)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.fragrancex.com/customerservice/affiliate.html' title='Visit Program Link'>Visit Link ↗ />
+		5
+		%
+		percentage
+		✕
+		✕
+		3.5M
+		[36] (808,141)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=default'>View Traffic → />
+		[37] (882,127)<a class='flex-1' href='/projects/detail?id=default' />
+			[38] (869,127)<div  />
+				[39] (867,127)<div  />
+		9
+		[40] (959,127)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[41] (197,198)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>StrawberryNET />
+		[42] (404,199)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.strawberrynet.com/en-vn/affiliate/' title='Visit Program Link'>Visit Link ↗ />
+		10
+		%
+		percentage
+		✕
+		✕
+		[43] (808,189)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>1.1M />
+		[44] (808,213)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=default'>View Traffic → />
+		[45] (882,199)<a class='flex-1' href='/projects/detail?id=default' />
+			[46] (869,199)<div  />
+				[47] (867,199)<div  />
+		9
+		[48] (959,199)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[49] (203,271)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>Thế Giới Nước Hoa />
+		[50] (404,271)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://accesstrade.vn/campaign/the-gioi-nuoc-hoa' title='Visit Program Link'>Visit Link ↗ />
+		6
+		%
+		percentage
+		✕
+		✕
+		[51] (808,261)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>450k />
+		[52] (808,285)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=default'>View Traffic → />
+		[53] (882,271)<a class='flex-1' href='/projects/detail?id=default' />
+			[54] (869,271)<div  />
+				[55] (866,271)<div  />
+		8
+		[56] (959,271)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[57] (189,343)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>Orchard.vn />
+		[58] (404,343)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://orchard.vn/affiliate/' title='Visit Program Link'>Visit Link ↗ />
+		5
+		%
+		percentage
+		✕
+		✕
+		[59] (808,333)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>180k />
+		[60] (808,357)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=default'>View Traffic → />
+		[61] (882,343)<a class='flex-1' href='/projects/detail?id=default' />
+			[62] (869,343)<div  />
+				[63] (866,343)<div  />
+		8
+		[64] (959,343)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[65] (208,415)<a class='hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>TikTok Shop Vietnam />
+		[66] (404,416)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://seller-vn.tiktok.com/university/home?identity=affiliate' title='Visit Program Link'>Visit Link ↗ />
+		15
+		%
+		percentage
+		✕
+		✕
+		[67] (808,406)<a class='text-[var(--text-primary)] hover:text-blue-400 transition-colors' href='/projects/detail?id=default'>50M+ />
+		[68] (808,430)<a class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter' href='/dashboard?project=default'>View Traffic → />
+		[69] (880,416)<a class='flex-1' href='/projects/detail?id=default' />
+			[70] (869,416)<div  />
+				[71] (869,416)<div  />
+		10
+		[72] (959,416)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		8 Kết quả
+		[73] (897,491)<button class='flex items-center gap-2 px-4 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full transition-all duration-300 text-xs uppercase tracking-widest'>⚡
+Deep Affiliate Research />
+			⚡
+		[74] (462,580)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Thêm programs trong lĩnh vực Perfume />
+		[75] (600,580)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>So sánh commission rates />
+		[76] (708,580)<button class='px-4 py-2 text-sm border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] 
+                                           rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] 
+                                           transition-all duration-300 cursor-pointer'>Ngách liên quan khác />
+		High ticket affiliate programs 2024
+		Tìm kiếm chương trình hoa hồng hấp dẫn
+
+</current_dom>

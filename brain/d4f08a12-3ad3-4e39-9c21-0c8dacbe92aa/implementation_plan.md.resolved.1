@@ -1,0 +1,53 @@
+# Clean Minimalist Aesthetic Update: Bento Boxes Focus
+
+Following your guidance, we are pivoting the primary focus of this aesthetic cleanup specifically to the animations inside the Bento Boxes (`LandingFeatures.tsx`). Currently, these dynamic previews heavily utilize rainbow colors (blue, green, amber, primary) to denote states, buttons, and charts. 
+
+We will strip away these colored accents in favor of a striking, high-contrast monochrome (Black & White) aesthetic that feels more premium.
+
+## User Review Required
+
+> [!IMPORTANT]
+> This plan aggressively replaces almost all colors within the Bento Box animations with `foreground` (black in light mode/white in dark mode), `background`, and `neutral` shades. Please review the detailed component breakdowns below to ensure this strict B&W aesthetic matches your vision.
+
+## Proposed Changes
+
+---
+
+### [LandingFeatures.tsx](file:///C:/Users/ADMIN/Desktop/prod-adecos/src/containers/landing/LandingFeatures.tsx)
+
+We will update all four animated previews in the Bento Grid to use strict monochrome styling. 
+
+#### 1. AIAgentPreview (Chat Animation)
+- **Chat Bubbles:** Invert the user message bubble from `bg-primary text-white` to `bg-foreground text-background`. 
+- **Status & Typing Indicators:** Change the online green dot to `bg-foreground`, and the typing dots from `bg-primary/60` to `bg-foreground/50`.
+- **Chart Animation:** Replace the blue and green CTR/CVR bars with `bg-foreground` and `bg-foreground/40`.
+- **Action Plan Widget:** Remove the blue background/borders (`bg-blue-500/5`), changing it to a sharp neutral theme (e.g., `bg-neutral-100 dark:bg-neutral-900 border-l-foreground`). Change the green "High Impact" badge to `bg-foreground text-background`. Replace the blue "Apply Strategy" button with a sleek `bg-foreground text-background`.
+
+#### 2. DeepResearchPreview (Scanning Animation)
+- **Progress Bars:** Change the scanning laser and progress bars from `bg-primary` to `bg-foreground`.
+- **Search Cursor:** Make the blinking search cursor `bg-foreground`.
+- **Results & Status:** Remove the green text from "20% Định kỳ", relying instead on font-weight and layout. Change the green "Verified" checkmark chip to `bg-neutral-200 dark:bg-neutral-800 text-foreground`.
+
+#### 3. AnalyticsPreview (Charts & KPIs)
+- **KPI Metrics:** The values for Copy Profit, Notion Comm, and Avg CPA currently use green, blue, and amber text. We will standardize all KPI numbers to a bold `text-foreground`.
+- **Badges:** Change the green `+40% ROI` badge to a premium `bg-neutral-200 dark:bg-neutral-800 text-foreground border-border`.
+- **Area Chart:** Update the SVG stroke and gradient stops from `var(--primary)` to use `var(--foreground)` and context-aware transparency.
+
+#### 4. ProjectManagementPreview (Dashboard Modals)
+- **State Changes:** The "Connect Ads" and "Ref Count" boxes currently turn blue and green when activated. We will change the active state to a high-contrast inverted look: `bg-foreground text-background` to clearly denote activation without relying on color.
+- **Labels & Tags:** Update the top-left "Project" tag from `bg-primary/10 text-primary` to `bg-foreground text-background`.
+- **Modal Buttons:** The "Saving..." modal buttons, currently `bg-primary`, will become `bg-foreground text-background`.
+
+---
+
+## Open Questions
+
+> [!WARNING]
+> 1. With the Bento Animations fully transitioning to Black & White, should we also apply the B&W updates to the rest of the landing page as previously proposed (Hero, UseCases, Orbs), or **only** modify `LandingFeatures.tsx` for now?
+> 2. Are there any absolute states (like an Error state or a Success checkmark) within the animations that you *still* want to retain a subtle red/green color for usability purposes, or should they be 100% strictly grayscale?
+
+## Verification Plan
+
+### Manual Verification
+- A full review of `LandingFeatures.tsx` to verify all tailwind classes containing `blue`, `green`, `amber`, `rose`, `purple`, and `primary` have been successfully replaced.
+- Spin up the local development server and visually monitor the automatic animations across the 4 Bento Boxes to ensure the contrast is crisp, readable, and perfectly aligns with the minimalist black & white concept in both Light and Dark mode.

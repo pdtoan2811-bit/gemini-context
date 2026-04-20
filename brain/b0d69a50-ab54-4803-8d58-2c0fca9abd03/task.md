@@ -1,0 +1,76 @@
+# Task: Implement CanvasMind with Microsoft Agent Framework
+
+- [x] Analyze Requirements and Design Agent Architecture <!-- id: 0 -->
+    - [x] Review PRD (CanvasMind.txt) and Agent Framework capabilities
+    - [x] Define Agent List and responsibilities
+    - [x] Design Data Models (Node, Edge, GraphState)
+- [x] Create Implementation Plan (`implementation_plan.md`) <!-- id: 1 -->
+- [/] Initialize Project Structure <!-- id: 2 -->
+    - [/] Frontend: React + ReactFlow setup
+    - [x] Backend: Python + Agent Framework setup
+- [/] Implement Backend (Agent Framework Layer) <!-- id: 3 -->
+    - [x] Define Pydantic Models for Graph/Nodes
+    - [x] Implement `GraphAgent` with Structured Outputs
+    - [x] Create API endpoints for Frontend communication
+- [x] Implement Frontend (Visual Layer) <!-- id: 4 -->
+    - [x] Setup ReactFlow canvas
+    - [x] Implement Node rendering and Selection logic
+    - [x] Connect to Backend API
+- [x] Verify "Context Boundary" Logic <!-- id: 5 -->
+    - [x] Test node selection -> Prompt injection flow
+- [x] Write Walkthrough and Documentation <!-- id: 6 -->
+- [x] Debug Blank Screen Issue <!-- id: 7 -->
+- [x] Refactor UI/UX to match Premium Design <!-- id: 8 -->
+    - [x] Create Custom Node Component (Card Style)
+    - [x] Implement Floating Chat Panel Overlay
+    - [x] Apply "Dot Grid" and Light Theme aesthetic
+    - [x] Fix Missing Tailwind Configuration
+    - [x] Match Layout to Second Reference Image
+- [x] Debug "Failed to connect to agent" error <!-- id: 9 -->
+    - [x] Fix OpenAIChatClient constructor
+    - [x] Relax Pydantic Model validation
+    - [x] Implement robust AgentResponse handling
+- [x] Enhance Content Depth and Interaction <!-- id: 10 -->
+    - [x] Remove Default Node (Empty Canvas Start)
+    - [x] Update Agent Prompt: "Short Article" content & "3 Layers" depth
+    - [x] Implement "Context Preview" Panel in ChatInterface
+        - [x] Single Node: Show full content
+        - [x] Multi Node: Show "Playlist" list of nodes
+- [x] Enhance Content Depth and Interaction <!-- id: 10 -->
+    - [x] Remove Default Node (Empty Canvas Start)
+    - [x] Update Agent Prompt: "Short Article" content & "3 Layers" depth
+    - [x] Implement "Context Preview" Panel in ChatInterface
+    - [x] Verify "Prompt Injection" from selection remains working
+- [x] Implement Advanced Features v2 <!-- id: 11 -->
+    - [x] **Agent Monitoring System**
+        - [x] Backend: Create `AgentRegistry` and `/agents` endpoint
+        - [x] Frontend: Create `AgentMonitor` UI Widget
+    - [x] **URL Content Ingestion**
+        - [x] Backend: Implement `IngestionAgent` with `BeautifulSoup` & Markdown rewriter
+        - [x] Backend: Add `/ingest` endpoint
+        - [x] Frontend: Handle `onPaste` event for URLs on Canvas
+    - [x] **Advanced Search & Rich Nodes**
+        - [x] Backend: Integrate `SearchTool` (Mock/Simulated if no key, or DuckDuckGo)
+        - [x] Frontend: Update `ConceptNode` to display `thumbnail` images
+- [x] Refine V2 Experience <!-- id: 12 -->
+    - [x] **Horizontal Layout & Design**
+        - [x] Frontend: Update `ConceptNode` handles (Right/Left)
+        - [x] Frontend: Implement `dagre` for automatic Left-to-Right layout in `App.tsx`
+    - [x] **Editable Nodes**
+        - [x] Frontend: Make `ConceptNode` content editable (textarea/input)
+        - [x] Frontend: Sync edits to local state (preserved in session)
+    - [x] **Visual Polish & Markdown**
+        - [x] Frontend: Install `react-markdown` & `@tailwindcss/typography`
+        - [x] Frontend: Apply `prose` class to Nodes for beautiful rendering
+    - [x] **Data Enrichment**
+        - [x] Backend: Update `IngestionAgent` to scrape `og:image` for thumbnails
+        - [x] Backend: Tune `GraphAgent` prompt (Search aggression & 60k token context)
+- [x] V4: True Maestro & Deep Scraping <!-- id: 14 -->
+    - [x] **Chat UI Fixes**
+        - [x] Frontend: Implement `ReactMarkdown` in `ChatInterface` bubble
+    - [x] **Thumbnail Debugging**
+        - [x] Frontend: Add `referrerPolicy="no-referrer"` to `ConceptNode` images
+        - [x] Backend: verify `og:image` extraction and absolute URL logic
+    - [x] **Deep Research Maestro**
+        - [x] Backend: `MaestroAgent` performs Search -> URL Extraction -> Deep `scrape_url` Loop
+        - [x] Backend: `GraphAgent` prompt updated to FORCE edge creation and use scraped Thumbnails

@@ -1,0 +1,18 @@
+# Walkthrough - Structured Data Model & UI Fixes
+
+## Changes Implemented
+
+### 1. Robust JSON Generation
+-   **Service Layer**: Refactored `src/services/gemini.js` to prompt the AI for a strict JSON array instead of Markdown.
+-   **Parsing**: Removed fragile regex/markdown parsing. Implemented `JSON.parse` with error handling and sanitization (stripping code blocks).
+
+### 2. UI/UX Polish & Layout Architecture
+-   **Thumbnails Fixed**: The issue of "huge tall thumbnails" was caused by the Slide content forcing the container open.
+    -   *Technique*: Applied `position: absolute; inset: 0` to the `.slide-thumbnail-wrapper`. This forces the content to submit to the container's 16:9 aspect ratio, solving the scaling issue definitively.
+-   **Main Preview Fit**: Reduced padding in `SlideCanvas` to allow the slide to fill more of the screen (`padding={20}`), answering the "fit the screen" request.
+-   **Scaling Logic**: `ScaledSlide.jsx` now defaults to `scale=0` to prevent unscaled content flashes and uses a robust `ResizeObserver` with padding support.
+
+## Verification Steps
+1.  **Sidebar**: Thumbnails should now be perfect 16:9 rectangles, fully contained, with properly scaled text.
+2.  **Slide Preview**: The main slide should be large, centered, and have minimal whitespace around the edges.
+3.  **Responsiveness**: Resizing the window should automatically adjust the scale of both the main slide and thumbnails without breaking layout.

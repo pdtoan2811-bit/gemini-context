@@ -1,0 +1,7 @@
+# Task Tracker: Project Management Revamp
+
+- [/] Update user PRD documentation (`adecos mvp/docs/PRD.md`)
+- [ ] Overhaul `ProjectManagementPreview` component in `LandingFeatures.tsx`
+- [ ] Add new translation keys for multi-account metrics in `en/client.json` and `vi/client.json`
+- [ ] Update `landing-content.md` copy reference documentation
+- [ ] Verify UI formatting and code build process

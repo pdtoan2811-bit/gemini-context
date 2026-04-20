@@ -1,0 +1,182 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+		[12] (121,230)<span >1 />
+	[13] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,291)<div  />
+			[15] (20,291)<span  />
+			[16] (53,291)<span >Quản lý Ads />
+	[17] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (44,351)<div  />
+			[19] (20,351)<span  />
+			[20] (52,351)<span >Thí nghiệm />
+	[21] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (51,411)<div  />
+			[23] (20,411)<span  />
+			[24] (59,411)<span >Deep Research />
+	[25] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,471)<div  />
+			[27] (20,471)<span  />
+			[28] (48,471)<span >Analytics />
+	[29] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,532)<div  />
+			[31] (20,532)<span  />
+			[32] (51,532)<span >Thông báo />
+	MVP v1.0
+	[33] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[34] (572,491)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Profit Bidding
+		Đăng ký
+		Natural Language
+		Tìm hiểu
+		Networking
+		Facebook
+		Zalo
+		taffiliate marketing projects
+		Đây là các chương trình affiliate trong lĩnh vực
+		affiliate marketing
+		mà tôi tìm được cho bạn:
+		Thương hiệu
+		Chương trình
+		[35] (448,484)<th >Hoa hồng ↕ />
+		Loại
+		Brand Name
+		Ads
+		[36] (784,484)<th >Traffic ↕ />
+		[37] (884,484)<th >Score ↕ />
+		[38] (199,548)<button class='hover:text-blue-400 transition-colors text-left'>Shopee Vietnam />
+		[39] (349,548)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://affiliate.shopee.vn/' title='Visit Program Link'>Visit Link ↗ />
+		7
+		%
+		percentage
+		✕
+		✓
+		[40] (784,538)<button class='text-[var(--text-primary)] hover:text-blue-400 transition-colors text-left'>80M+ />
+		[41] (784,562)<button class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter text-left'>View Affiliate Traffic → />
+		[42] (877,548)<button class='flex-1 text-left' />
+		10
+		[43] (959,548)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[44] (199,620)<button class='hover:text-blue-400 transition-colors text-left'>Lazada Vietnam />
+		[45] (349,620)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://www.lazada.vn/lazada-affiliate-program/' title='Visit Program Link'>Visit Link ↗ />
+		6
+		%
+		percentage
+		✕
+		✓
+		[46] (784,610)<button class='text-[var(--text-primary)] hover:text-blue-400 transition-colors text-left'>15M+ />
+		[47] (784,634)<button class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter text-left'>View Affiliate Traffic → />
+		[48] (877,620)<button class='flex-1 text-left' />
+		10
+		[49] (959,620)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[50] (208,692)<button class='hover:text-blue-400 transition-colors text-left'>Accesstrade Vietnam />
+		[51] (349,692)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://accesstrade.vn/' title='Visit Program Link'>Visit Link ↗ />
+		0
+		%
+		cpa
+		✕
+		✓
+		[52] (784,682)<button class='text-[var(--text-primary)] hover:text-blue-400 transition-colors text-left'>1.2M+ />
+		[53] (784,706)<button class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter text-left'>View Affiliate Traffic → />
+		[54] (877,692)<button class='flex-1 text-left' />
+		10
+		[55] (959,692)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[56] (180,765)<button class='hover:text-blue-400 transition-colors text-left'>Unica />
+		[57] (349,765)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://unica.vn/affiliate' title='Visit Program Link'>Visit Link ↗ />
+		40
+		%
+		percentage
+		✓
+		✓
+		[58] (784,755)<button class='text-[var(--text-primary)] hover:text-blue-400 transition-colors text-left'>850k />
+		[59] (784,779)<button class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter text-left'>View Affiliate Traffic → />
+		[60] (879,765)<button class='flex-1 text-left' />
+		9
+		[61] (959,765)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		[62] (192,837)<button class='hover:text-blue-400 transition-colors text-left'>Tiki Vietnam />
+		[63] (349,837)<a class='text-blue-400 hover:text-blue-300 text-sm hover:underline block' href='https://tiki.vn/tiep-thi-lien-ket' title='Visit Program Link'>Visit Link ↗ />
+		5
+		%
+		percentage
+		✕
+		✓
+		[64] (784,827)<button class='text-[var(--text-primary)] hover:text-blue-400 transition-colors text-left'>12M+ />
+		[65] (784,851)<button class='text-[10px] text-blue-400/60 hover:text-blue-400 uppercase tracking-tighter text-left'>View Affiliate Traffic → />
+		[66] (877,837)<button class='flex-1 text-left' />
+		10
+		[67] (959,837)<button class='text-[var(--text-secondary)] hover:text-emerald-500 transition-colors p-2 hover:bg-emerald-500/10 rounded-full' title='Save Program' />
+		Ecomobi
+		Visit Link ↗
+		0
+		%
+		hybrid
+		✕
+		✓
+		500k
+		View Affiliate Traffic →
+		9
+		HostArmada
+		Visit Link ↗
+		0
+		%
+		cpa
+		✕
+		✓
+		180k
+		View Affiliate Traffic →
+		9
+		Đã lưu Unica thành công!
+		[68] (977,965)<button class='ml-2 hover:opacity-70 transition-opacity focus:outline-none' />
+	[69] (572,913)<input class='w-full bg-transparent border-none focus:ring-0 focus:outline-none text-[var(--text-primary)] placeholder-[var(--text-secondary)] font-serif font-light placeholder:italic text-center relative z-10
+                    text-base md:text-lg py-2 placeholder:text-sm md:placeholder:text-base
+                    
+                ' placeholder='Nhập yêu cầu tìm kiếm của bạn' />
+	[70] (314,968)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+		[71] (289,968)<input class='w-4 h-4 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+		[72] (320,968)<span >Deep Research />
+	i
+	[73] (812,968)<button class='text-[10px] uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'>⟲ Restart Onboarding Demo />
+
+</current_dom>

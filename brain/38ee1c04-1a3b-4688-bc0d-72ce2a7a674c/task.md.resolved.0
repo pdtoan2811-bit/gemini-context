@@ -1,0 +1,8 @@
+# Implementing Terms and Conditions Page
+
+- `[/]` Update `docs/landing-content.md` with terms and conditions layout mapping.
+- `[ ]` Update `adecos mvp/docs/PRD.md` with typography and spacing specs.
+- `[ ]` Add English translations to `messages/en/client.json`.
+- `[ ]` Add Vietnamese translations to `messages/vi/client.json`.
+- `[ ]` Create `src/app/[locale]/(landing)/terms/page.tsx` with responsive, dark/light mode friendly layout.
+- `[ ]` Verify application locally.

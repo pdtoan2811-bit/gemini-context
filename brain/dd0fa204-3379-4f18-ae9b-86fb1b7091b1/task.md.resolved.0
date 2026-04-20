@@ -1,0 +1,24 @@
+# Mythos Short — Execution Tracker
+
+## Phase 1: Documentation (Sync Engine)
+- [/] BRD — Business Requirements
+- [/] PRD — Product Requirements  
+- [/] SRS — Software Requirements Specification
+
+## Phase 2: Asset Pipeline Scripts
+- [ ] `scripts/generate-voiceover-mythos.ts` — 30 scenes, ElevenLabs TTS + word timestamps
+- [ ] `scripts/fetch-images-mythos.ts` — 30 scene images via Tavily
+
+## Phase 3: Remotion Composition
+- [ ] `src/components/MythosShort.tsx` — Main composition (30 scenes, word-synced captions)
+- [ ] `src/Root.tsx` — Register `mythos-short` composition
+
+## Phase 4: Asset Generation
+- [ ] Run voiceover generation script
+- [ ] Run image fetching script
+- [ ] Generate fallback images for missing scenes
+
+## Phase 5: Verification
+- [ ] Preview in Remotion Studio
+- [ ] Audio-visual sync check
+- [ ] Walkthrough artifact

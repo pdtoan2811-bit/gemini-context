@@ -1,0 +1,31 @@
+# Task: Implement V4 Client-First Intelligence
+
+- [x] Update [n8n_agent_v2_design.md](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/n8n_agent_v2_design.md) (V4) <!-- id: 0 -->
+- [x] Implement Client-Side Gemini Service <!-- id: 12 -->
+    - [x] Create `GeminiService.js` (Call Gemini 2.5 Flash) <!-- id: 13 -->
+    - [x] Implement "Thinking Phrase" Generator <!-- id: 14 -->
+- [x] Implement "Gatekeeper" Logic in [App.jsx](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/client/src/App.jsx) <!-- id: 15 -->
+    - [x] Add URL/YouTube/Content Detection <!-- id: 16 -->
+    - [x] Implement `Jina` fetch proxy (or direct if possible) <!-- id: 17 -->
+- [x] Build New UI Elements <!-- id: 18 -->
+    - [x] Add "Auto-Generate Mind Map" Toggle <!-- id: 19 -->
+    - [x] Add "Funny Loading State" Component <!-- id: 20 -->
+- [x] Update [n8n_agent_v2_design.md](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/n8n_agent_v2_design.md) (V3 Hybrid Architecture) <!-- id: 24 -->
+- [x] Client-Side (Gemini 2.5) Implementation <!-- id: 12 -->
+    - [x] Immediate "Seed Node" Creation <!-- id: 13 -->
+    - [x] Funny Loading UI <!-- id: 20 -->
+- [x] n8n Workflow V3 (Refinement) <!-- id: 25 -->
+    - [x] Logic for "Semantic Linking" (Input Content) <!-- id: 26 -->
+    - [x] Logic for "Deep Dive" (Research & Expand) <!-- id: 27 -->
+    - [x] MECE Structuring Prompt <!-- id: 28 -->
+    - [x] Implement [agent_workflow_v3_hybrid.json](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/agent_workflow_v3_hybrid.json) <!-- id: 29 -->
+
+- [x] Separate Architecture Documentation <!-- id: 30 -->
+    - [x] Create [n8n_architecture_v3.md](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/n8n_architecture_v3.md) (Backend Building Guide) <!-- id: 31 -->
+    - [x] Create [client_ai_spec_v3.md](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/client_ai_spec_v3.md) (Client Logic Spec) <!-- id: 32 -->
+    - [x] Implement Smart Search Tool (Code Node) <!-- id: 33 -->
+
+- [x] Implement Server-Side Parser (Local) <!-- id: 34 -->
+    - [x] Scaffold `server` directory (Express.js) <!-- id: 35 -->
+    - [x] Create `/parse` endpoint (`jsdom` + `readability`) <!-- id: 36 -->
+    - [x] Update Client [fetchContent](file:///c:/Users/ADMIN/Desktop/flowstep-ver2/client/src/App.jsx#163-190) to use Local Server <!-- id: 37 -->

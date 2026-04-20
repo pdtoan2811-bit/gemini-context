@@ -1,0 +1,50 @@
+# Implementation Plan - Interactive Editor & Layout Fixes
+
+The user needs to edit slides AND requires immediate fixes for broken layouts (overflows, collisions).
+
+## Goals
+1.  **Fix Layouts**: Address "awful" spacing in Grid (text overflow) and Split (collisions).
+2.  **Interaction**: Enable inline text editing and image drag-and-drop.
+
+## 1. Core Interactive Components
+These components will replace static HTML tags in all templates.
+
+### `EditableText.tsx`
+-   **Props**: `value`, `onChange`, `className`, `tagName` (h1/p/div), `multiline` (bool).
+-   **Implementation**: Use `contentEditable` with `suppressContentEditableWarning`.
+-   **Style**: transparent background, inherits font styles, shows dashed border on hover/focus.
+
+### `EditableImage.tsx`
+-   **Props**: `src`, `alt`, `className`, `onUpload`, `isBackground`.
+-   **Implementation**:
+    -   Displays image.
+    -   **Drag & Drop**: Native HTML5 DnD listeners.
+    -   **Click**: Triggers hidden `<input type="file">`.
+    -   **Style**: Shows "Change Image" overlay on hover.
+
+## 2. Template Refactoring & Repairs
+
+### [GridSlide.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/GridSlide.tsx) (Repair + Interact)
+-   **Problem**: Fixed height columns cause text overlap.
+-   **Fix**:
+    -   Use CSS Grid (`grid-cols-2`) instead of Flex or fixed width.
+    -   Allow cards to grow vertically.
+    -   Add `overflow-y-auto` or simpler clamping.
+-   **Interact**: Wrap items in `EditableText`.
+
+### [SplitSlide.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/SplitSlide.tsx) (Repair + Interact)
+-   **Problem**: Text hits image; image placeholder is ugly.
+-   **Fix**:
+    -   Increase gap (`gap-12`).
+    -   Enforce max-height on image container.
+    -   Better flex grow/shrink logic.
+-   **Interact**: `EditableText` for title/body, `EditableImage` for the split image.
+
+### [HeroSlide.tsx](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/HeroSlide.tsx) (Interact)
+-   **Interact**: Make Title/Subtitle editable. Add `EditableImage` for the background (a bit trickier layout-wise, but doable).
+
+## 3. Execution Order
+1.  Create `EditableText` & `EditableImage`.
+2.  Refactor [GridSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/GridSlide.tsx#9-56) (Fix layout + Add Edit).
+3.  Refactor [SplitSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/SplitSlide.tsx#9-38) (Fix layout + Add Edit).
+4.  Refactor [HeroSlide](file:///c:/Users/ADMIN/Desktop/ai_slideshow/src/components/Templates/HeroSlide.tsx#9-53) (Add Edit).

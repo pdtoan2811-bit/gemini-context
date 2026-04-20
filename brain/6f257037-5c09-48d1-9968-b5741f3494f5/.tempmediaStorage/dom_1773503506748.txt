@@ -1,0 +1,150 @@
+[0] (500,500)<div  />
+	[1] (71,58)<a class='group block' href='/' />
+		[2] (71,46)<h1 >Adecos />
+		[3] (71,79)<p >AI-Powered Platform />
+	[4] (71,170)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,170)<div  />
+			[6] (20,170)<span  />
+			[7] (47,170)<span >AI Agent />
+	[8] (71,230)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,230)<div  />
+			[10] (20,230)<span  />
+			[11] (57,230)<span >Quản lý dự án />
+		[12] (121,230)<span >1 />
+	[13] (71,291)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[14] (45,291)<div  />
+			[15] (20,291)<span  />
+			[16] (53,291)<span >Quản lý Ads />
+	[17] (71,351)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[18] (44,351)<div  />
+			[19] (20,351)<span  />
+			[20] (52,351)<span >Thí nghiệm />
+	[21] (71,411)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[22] (51,411)<div  />
+			[23] (20,411)<span  />
+			[24] (59,411)<span >Deep Research />
+	[25] (71,471)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[26] (40,471)<div  />
+			[27] (20,471)<span  />
+			[28] (48,471)<span >Analytics />
+	[29] (71,532)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[30] (43,532)<div  />
+			[31] (20,532)<span  />
+			[32] (51,532)<span >Thông báo />
+	MVP v1.0
+	[33] (120,944)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	[34] (572,500)<div class='flex-1 p-8 overflow-auto bg-[var(--bg-primary)] transition-colors duration-300' scrollable='true' />
+		Google Ads Dashboard
+		Phân tích hiệu suất chiến dịch
+		Khoảng thời gian
+		[35] (924,78)<button class='px-3 py-1.5 border border-[var(--border-color)] rounded-sm text-xs text-[var(--text-primary)] bg-[var(--bg-primary)] hover:bg-[var(--bg-surface)] flex items-center gap-2'>01/10/2026 - 31/12/2026
+📅 />
+			01/10/2026 - 31/12/2026
+			📅
+		[36] (182,166)<label class='text-xs text-[var(--text-secondary)] uppercase tracking-wider'>Nhóm theo />
+		[37] (231,166)<button class='px-4 py-1.5 text-xs uppercase tracking-wider transition-all rounded-sm bg-[var(--text-primary)] text-[var(--bg-primary)]'>Ngày />
+		[38] (272,166)<button class='px-4 py-1.5 text-xs uppercase tracking-wider transition-all rounded-sm border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)]'>Tuần />
+		[39] (318,166)<button class='px-4 py-1.5 text-xs uppercase tracking-wider transition-all rounded-sm border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)]'>Tháng />
+		[40] (294,240)<label class='text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-3 block flex-shrink-0'>Tài khoản />
+		[41] (294,278)<input class='w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] text-xs px-2 py-1 mb-3 rounded-sm focus:outline-none focus:border-[var(--text-primary)]' placeholder='Tìm kiếm...' />
+		[42] (292,324)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[43] (175,324)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[44] (220,324)<div  />
+				[45] (220,316)<span >Tài khoản Chính (Demo) />
+				[46] (220,333)<span >Google Ads />
+		[47] (292,367)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[48] (175,367)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[49] (217,367)<div  />
+				[50] (217,359)<span >Tài khoản Phụ (Demo) />
+				[51] (217,376)<span >Google Ads />
+		[52] (569,240)<label class='text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-3 block flex-shrink-0'>Chương trình />
+		[53] (569,278)<input class='w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] text-xs px-2 py-1 mb-3 rounded-sm focus:outline-none focus:border-[var(--text-primary)]' placeholder='Tìm kiếm...' />
+		[54] (567,316)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[55] (450,316)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[56] (470,316)<span >Shopee />
+		[57] (567,344)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[58] (450,344)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[59] (470,344)<span >Lazada />
+		[60] (567,372)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[61] (450,372)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[62] (471,372)<span >Amazon />
+		[63] (567,399)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[64] (450,399)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[65] (478,399)<span >TikTok Shop />
+		[66] (567,427)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+			[67] (450,427)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+			[68] (469,427)<span >Uniqlo />
+		[69] (844,240)<label class='text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-3 block flex-shrink-0'>Từ khóa />
+		[70] (844,278)<input class='w-full bg-[var(--bg-surface)] border border-[var(--border-color)] text-[var(--text-primary)] text-xs px-2 py-1 mb-3 rounded-sm focus:outline-none focus:border-[var(--text-primary)]' placeholder='Tìm kiếm...' />
+		[71] (844,391)<div class='space-y-2 overflow-y-auto flex-1 pr-2' scrollable='true' />
+			[72] (839,316)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[73] (725,316)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[74] (763,316)<span >shopee khuyến mãi />
+			[75] (839,344)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[76] (725,344)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[77] (756,344)<span >săn sale 11.11 />
+			[78] (839,372)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[79] (725,372)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[80] (758,372)<span >freeship shopee />
+			[81] (839,399)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[82] (725,399)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[83] (751,399)<span >lazada sale />
+			[84] (839,427)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[85] (725,427)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[86] (766,427)<span >điện thoại chính hãng />
+			[87] (839,455)<label class='flex items-center gap-2 text-sm text-[var(--text-primary)] cursor-pointer hover:text-[var(--text-secondary)] transition-colors' />
+				[88] (725,455)<input class='w-4 h-4 rounded border-[var(--border-color)] bg-transparent flex-shrink-0' />
+				[89] (749,455)<span >tiki lazada />
+			best kitchen gear
+			amazon home deals
+			air fryer reviews
+			đồ dùng tiện ích
+			trend tiktok
+			mua hàng tiktok
+			áo giữ nhiệt uniqlo
+			thời trang mùa đông
+			uniqlo vietnam
+		Tổng clicks
+		263,573
+		Chi phí
+		480,198,642
+		₫
+		Chuyển đổi
+		13942
+		CPC Trung bình
+		1,822
+		₫
+		▼
+		0.0
+		%
+		so với kỳ trước
+		Chi phí & Doanh thu
+		[90] (569,967)<div  />

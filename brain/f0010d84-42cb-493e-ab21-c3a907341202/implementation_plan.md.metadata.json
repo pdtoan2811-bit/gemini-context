@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for Adecos MVP.\nFocuses on \"No Spec, No Service\" protocol adherence.\nArchitecture: FastAPI (Backend) + React (Frontend).\nKey Feature: Mocking data via Gemini API for MVP.\nUI: Glassmorphism, Vietnamese language.",
+  "updatedAt": "2026-02-02T12:51:24.115817800Z"
+}

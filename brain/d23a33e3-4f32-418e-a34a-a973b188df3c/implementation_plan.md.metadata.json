@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Refactor AI generation to output structured JSON instead of Markdown.",
+  "updatedAt": "2025-12-22T13:18:38.516298500Z"
+}

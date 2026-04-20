@@ -1,0 +1,42 @@
+# Implementation Plan - Phase 3: Debug & Stability (NextStep v3.0)
+
+This plan details the diagnosis and fixes for the reported "Invisible UI" and "Broken AI" issues.
+
+## User Review Required
+> [!IMPORTANT]
+> This requires installing additional Azure SDK dependencies (`azure-identity`, `azure-core`) even if `api_key` is used, as the provider library often imports them.
+
+## Proposed Changes
+
+### Backend (Python / Agent Framework)
+#### [MODIFY] [orchestrator.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py)
+*   **Logic**: Improve `run_router` to check for keywords like "map", "research", "plot", "graph" to trigger `CanvasAgent`.
+*   **Feedback**: Ensure `status` messages are yielded during tool execution.
+
+#### [NEW] [tools.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/tools.py)
+*   **Purpose**: A light MCP implementation (or tool wrapper) for Web Search.
+*   **Tools**: `search_web(query: str)` using DuckDuckGo or Bing.
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py)
+*   **CanvasAgent**: Bind the new Search Tool to this agent so it can "Find research" as requested.
+
+### Frontend (Next.js / React Flow)
+#### [MODIFY] [frontend/app/page.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/app/page.tsx)
+- **Goal**: Fix UI Stacking Context & Interactivity.
+- **Details**:
+    -   Move `ChatInterface` and `OrchestratorPanel` *outside* any `relative` containers that might clip them.
+    -   Ensure `z-index` is explicitly higher (e.g., `z-50`) than the canvas (`z-0`).
+    -   Add `pointer-events-none` to the full-screen overlay but active events on the panels.
+
+#### [MODIFY] [frontend/components/OrchestratorPanel.tsx](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/frontend/components/OrchestratorPanel.tsx)
+- **Goal**: Ensure visibility.
+- **Details**:
+    -   Remove `initial={{ opacity: 0 }}` temporarily to debug if animation is the culprit.
+    -   Verify `backdrop-blur` works with the new Tailwind v3 config.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Visual Check**: Restart app, verify Chat Window is visible on the left and Panel on the right.
+2.  **Interaction Check**: Click input field in Chat Window (must not click through to canvas).
+3.  **AI Check**: Send "hello" in chat. Verify backend logs showing successful Azure API call.

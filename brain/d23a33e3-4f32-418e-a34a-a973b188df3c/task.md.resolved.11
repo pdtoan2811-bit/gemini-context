@@ -1,0 +1,11 @@
+# Task: Implement Auto-Fit Text & Thumbnail Sync
+
+- [x] Implement Markdown Rendering <!-- id: 16 -->
+    - [x] Check/Install `react-markdown` <!-- id: 17 -->
+    - [x] Refactor [SlideCanvas](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideCanvas.jsx#87-123) to support Read/Edit modes <!-- id: 18 -->
+- [x] Implement Auto-Fit Text <!-- id: 20 -->
+    - [x] Add auto-scaling logic to [EditableArea](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideCanvas.jsx#5-86) <!-- id: 21 -->
+- [ ] Sync Thumbnail & Canvas Design <!-- id: 22 -->
+    - [ ] Create shared `AutoFitContent` component <!-- id: 23 -->
+    - [ ] Refactor [SlideSidebar](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideSidebar.jsx#4-33) to use shared component <!-- id: 24 -->
+    - [ ] Refactor [SlideCanvas](file:///c:/Users/ADMIN/Desktop/ai_slides_shows/src/components/SlideCanvas.jsx#87-123) to use shared component for View Mode (Optional but good) <!-- id: 25 -->

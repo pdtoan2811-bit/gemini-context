@@ -1,0 +1,8 @@
+# Task: Debug white screen crash and verify Traffic column
+
+## Checklist
+- [ ] Navigate to http://localhost:5173/chat
+- [ ] Search for 'Perfume affiliate programs US'
+- [ ] Check for white screen crash
+- [ ] Capture console logs if crash occurs
+- [ ] Describe Traffic column if no crash

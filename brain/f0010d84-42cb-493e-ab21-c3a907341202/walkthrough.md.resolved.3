@@ -1,0 +1,36 @@
+# Walkthrough - Adecos MVP
+
+I have successfully initialized and implemented the **Adecos MVP**, fully refining the UI to a premium **"Elegant Monochrome"** aesthetic with full **Vietnamese localization**.
+
+## 1. Specifications (Protocol 1.0)
+- **[BRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/BRD.md)**: Business Value.
+- **[PRD](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/PRD.md)**: UX/Behavior.
+- **[SRS](file:///c:/Users/ADMIN/Desktop/adecos mvp/docs/SRS.md)**: Architecture.
+
+## 2. Implementation
+
+### Frontend Design Overhaul ("Elegant Monochrome")
+- **Typography**: **Playfair Display** (Serif) & **Inter** (Sans).
+- **Palette**: Luxury Black (#0a0a0a) & Off-White (#fafafa).
+- **Localization**: Fully translated to Vietnamese.
+
+### Components
+- **[ChatInterface](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ChatInterface.jsx)**
+    - Minimalist line-input.
+    - **NEW**: Suggestion Chips (Crypto, Software, Forex...) with elegant glass styling.
+- **[ResultsTable](file:///c:/Users/ADMIN/Desktop/adecos mvp/frontend/src/components/ResultsTable.jsx)**
+    - Editorial layout.
+    - Vietnamese headers (Thương hiệu, Hoa hồng, Điểm AI...).
+
+### Backend (FastAPI + Gemini)
+Streams mock data via `/api/research/stream`.
+**Key File**: [generator.py](file:///c:/Users/ADMIN/Desktop/adecos mvp/backend/generator.py)
+
+## 3. Usage
+1.  **One-Click Launch**:
+    ```batch
+    run_app.bat
+    ```
+2.  **Manual**:
+    - Backend: `uvicorn main:app --reload`
+    - Frontend: `npm run dev`

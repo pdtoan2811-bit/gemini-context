@@ -1,0 +1,47 @@
+# Implementation Plan - Phase 2: Interactive MCP Flow
+
+# Goal Description
+Enable the "Text-to-Graph" flow. User enters a prompt, Maestro analyzes it, calls the Researcher Agent, and updates the Graph on the Canvas.
+
+## User Review Required
+> [!IMPORTANT]
+> **MCP Transport**: We will implement the `stdio` transport for the Python Researcher agent.
+> **Gemini Prompts**: We will need to tune the "Meta-Graph" prompt to output structured JSON that Maestro can parse into Graph Nodes.
+
+## Proposed Changes
+
+### Frontend (Canvas)
+#### [MODIFY] [frontend/src/App.tsx]
+- Add `handleSearch` function.
+- Call `api.sendPrompt(query)`.
+- Poll `api.getGraph()` (or similar) to update the canvas.
+
+#### [MODIFY] [frontend/src/services/api.ts]
+- Add `getGraph()` to fetch current nodes/edges.
+
+### Backend (Maestro)
+#### [MODIFY] [backend/main.py]
+- POST `/prompt`: Accepts user query, triggers Orchestrator.
+- GET `/graph`: Returns current graph state (Nodes/Edges).
+
+#### [MODIFY] [backend/maestro/orchestrator.py]
+- Implement `process_request(query)`:
+    1.  Ask Gemini: "What tools should I use for '{query}'?"
+    2.  Parse Gemini response (Expected: List of Tool Calls).
+    3.  **Execute Tool Call**:
+        - Spawn/Connect to [agents/researcher/server.py](file:///c:/Users/ADMIN/Desktop/nextstepver2/backend/agents/researcher/server.py) via `stdio` (using `mcp` Client).
+        - Send `CallToolRequest`.
+        - Receive `CallToolResult`.
+    4.  Update Graph (Neo4j + In-Memory).
+
+#### [MODIFY] [backend/agents/researcher/server.py]
+- Ensure it accepts standard input/output for MCP protocol.
+
+## Verification Plan
+
+### Manual Verification
+1.  Enter "Research MCP Protocol" in Frontend.
+2.  **Expect**:
+    - "Maestro" node emits an edge to a new "Researcher" node (Status: Thinking).
+    - "Researcher" node turns into "Data Node" with results.
+    - Canvas updates automatically.

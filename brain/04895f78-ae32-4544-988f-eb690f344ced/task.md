@@ -1,0 +1,22 @@
+# Task: Implement "Code as Design" Slide Templates
+
+- [x] Planning & Documentation <!-- id: 0 -->
+    - [x] Create `docs/PRD.md` for Smart Slide Components <!-- id: 1 -->
+    - [x] Create `docs/SRS.md` for Technical Architecture <!-- id: 2 -->
+    - [x] Create `implementation_plan.md` <!-- id: 3 -->
+- [x] Infrastructure Setup <!-- id: 4 -->
+    - [x] Install and Configure Tailwind CSS <!-- id: 5 -->
+    - [x] Set up Design System Tokens (colors, typography) <!-- id: 6 -->
+- [x] Component Implementation (Phase A & B) <!-- id: 7 -->
+    - [x] Create `SlideContainer` (Responsive Wrapper) <!-- id: 8 -->
+    - [x] Implement "Big Bang" (Title/Hero) Component <!-- id: 9 -->
+    - [x] Implement "Grid" (2/3/4 Column) Component <!-- id: 10 -->
+    - [x] Implement "Timeline" Component <!-- id: 11 -->
+    - [x] Implement "Split" Component <!-- id: 12 -->
+    - [x] Implement "Metric" Component <!-- id: 13 -->
+    - [x] Implement "Quote" Component <!-- id: 14 -->
+- [x] Schema & AI Integration (Phase C) <!-- id: 15 -->
+    - [x] Define JSON Schema for new templates <!-- id: 16 -->
+    - [x] Update `SlideRenderer` to use new components <!-- id: 17 -->
+- [/] Verification <!-- id: 18 -->
+    - [ ] Create walkthrough with screenshots of new templates <!-- id: 19 -->

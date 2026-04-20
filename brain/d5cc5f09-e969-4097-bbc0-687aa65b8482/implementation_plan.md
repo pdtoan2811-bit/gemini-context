@@ -1,0 +1,32 @@
+# Implementation Plan - Prototype CMS
+
+Add a subtle, non-intrusive Content Management System (CMS) overlay to the Adecos prototype to help developers and testers understand the intended user stories and acceptance criteria (AC).
+
+## Proposed Changes
+
+### [Frontend]
+
+#### [NEW] [userStories.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/userStories.js)
+Define user stories and ACs with enhanced "vibe" metadata.
+- **Media Support**: `mockupImage` or `tutorialVideo` fields for non-demonstrable ACs.
+- **Action Tags**: Use string keys for `previewAction` that map to the `ActionRegistry`.
+
+#### [NEW] [ActionRegistry.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/utils/ActionRegistry.js)
+A flexible mapping of labels to application logic.
+- **Vibe Coding**: Allows the user to quickly define a new action (e.g., "trigger_wow_effect") and map it to a React state change or navigation.
+
+#### [NEW] [PrototypeCMS.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/PrototypeCMS.jsx)
+Main CMS overlay component.
+- **Vibe Mode UI**: Glassmorphism aesthetic, high-quality animations.
+- **Visual Overlay**: If an AC is clicked and has a `mockupImage`, show it as a high-fidelity modal/overlay to simulate "how it will look".
+- **Verified Badge**: Allow developers/testers to mark ACs as "Vibe Checked" in the UI (persistent for the session).
+
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/App.jsx)
+Integrate the `PrototypeCMS` at the top level, wrapping the main UI.
+
+## Verification Plan
+
+### Manual Verification
+1. **Action Trigger**: Click "Preview" and verify the `ActionRegistry` executes the mapped function.
+2. **Visual Mockup**: Trigger an AC with a `mockupImage` and verify it displays a premium overlay.
+3. **Hot-Edit**: Add a new story to `userStories.js` and verify it appears instantly in the CMS.

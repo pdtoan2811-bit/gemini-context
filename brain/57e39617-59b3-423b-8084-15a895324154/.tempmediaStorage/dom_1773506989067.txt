@@ -1,0 +1,108 @@
+[0] (500,500)<div  />
+	[1] (71,56)<a class='group block' href='/' />
+		[2] (71,45)<h1 >Adecos />
+		[3] (71,76)<p >AI-Powered Platform />
+	[4] (71,165)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                bg-[var(--bg-secondary)] text-[var(--text-primary)]
+                            ' href='/chat' />
+		[5] (39,165)<div  />
+			[6] (20,165)<span  />
+			[7] (47,165)<span >AI Agent />
+	[8] (71,224)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/projects' />
+		[9] (48,224)<div  />
+			[10] (20,224)<span  />
+			[11] (56,224)<span >Quản lý dự án />
+	[12] (71,282)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/ads' />
+		[13] (45,282)<div  />
+			[14] (20,282)<span  />
+			[15] (53,282)<span >Quản lý Ads />
+	[16] (71,341)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/experiments' />
+		[17] (43,341)<div  />
+			[18] (20,341)<span  />
+			[19] (51,341)<span >Thí nghiệm />
+	[20] (71,399)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/deep-research' />
+		[21] (50,399)<div  />
+			[22] (20,399)<span  />
+			[23] (58,399)<span >Deep Research />
+	[24] (71,458)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/dashboard' />
+		[25] (40,458)<div  />
+			[26] (20,458)<span  />
+			[27] (48,458)<span >Analytics />
+	[28] (71,516)<a class='
+                                flex items-center justify-between px-4 py-3 mb-2 rounded-sm
+                                transition-all duration-300 group
+                                text-[var(--text-secondary)] hover:bg-[var(--bg-surface)] hover:text-[var(--text-primary)]
+                            ' href='/notification' />
+		[29] (43,516)<div  />
+			[30] (20,516)<span  />
+			[31] (51,516)<span >Thông báo />
+	MVP v1.0
+	[32] (119,946)<button class='p-2 rounded-full hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-amber-500 transition-colors' title='Switch to Dark Mode' />
+	AI Agent
+	AI Agent tìm kiếm dự án và phân tích dữ liệu
+	[33] (571,492)<div class='flex-1 overflow-y-auto px-4 md:px-8 py-6' scrollable='true' />
+		Đã sẵn sàng
+		Nghiên cứu Thị trường
+		Market Intelligence
+		Phân tích sâu về thị trường, đối thủ & Winning Products.
+		Winning Products
+		Competitor Spy
+		[34] (218,250)<button class='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg'>Bắt đầu ngay />
+		Đã sẵn sàng
+		Kết nối Tài khoản QC
+		Connect Ad Accounts
+		Tích hợp Google, FB & TikTok Ads
+		Google Ads
+		Facebook
+		TikTok
+		[35] (769,250)<a class='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg' href='/ads'>Kết nối ngay />
+		✨ Coming Soon
+		Tự động tối ưu chiến dịch
+		Auto-Optimization
+		Tự động tối ưu Feed & Bid giá theo ROAS.
+		Profit Bidding
+		[36] (209,634)<a class='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--tile-accent)] hover:border-[var(--tile-accent)] bg-transparent' href='#'>Đăng ký />
+		✨ Coming Soon
+		Chat với Data
+		Data Analyst Agent
+		Hỏi đáp với dữ liệu, doanh thu với AI.
+		Natural Language
+		[37] (487,634)<a class='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--tile-accent)] hover:border-[var(--tile-accent)] bg-transparent' href='#'>Tìm hiểu />
+		Đã sẵn sàng
+		Cộng đồng Adecos
+		Affiliate Community
+		Kết nối với ADECOS team và các chuyên gia trong affiliate MMO.
+		Networking
+		[38] (786,634)<a class='flex flex-1 items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--tile-accent)] hover:border-[var(--tile-accent)] bg-transparent' href='#'>Facebook />
+		[39] (903,634)<a class='flex flex-1 items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--tile-accent)] hover:border-[var(--tile-accent)] bg-transparent' href='#'>Zalo />
+	[40] (571,916)<input class='w-full bg-transparent border-none focus:ring-0 focus:outline-none text-[var(--text-primary)] placeholder-[var(--text-secondary)] font-serif font-light placeholder:italic text-center relative z-10
+                    text-base md:text-lg py-2 placeholder:text-sm md:placeholder:text-base
+                    
+                ' placeholder='Nhập yêu cầu tìm kiếm của bạn' />
+	[41] (316,969)<label class='inline-flex items-center gap-2 cursor-pointer select-none' />
+		[42] (292,969)<input class='w-4 h-4 rounded-sm bg-[var(--bg-surface)] border-[var(--border-color)] flex-shrink-0 focus:ring-0 focus:ring-offset-0' />
+		[43] (322,969)<span >Deep Research />
+	i
+	[44] (809,969)<button class='text-[10px] uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors'>⟲ Restart Onboarding Demo />

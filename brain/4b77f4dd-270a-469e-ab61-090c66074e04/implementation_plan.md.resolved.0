@@ -1,0 +1,42 @@
+# Dynamic "Floating" Connections Implementation Plan
+
+The goal is to rework the drag-and-connect experience so that connections feel dynamic and aren't visually tied to specific "dock" handles. We will achieve this using a "Floating Edge" strategy where edges automatically connect to the closest point on the receiving node's perimeter.
+
+## User Review Required
+
+> [!NOTE]
+> This change will alter the visual behavior of edges. They will no longer appear to emanate from the Left/Right sides specifically, but will flow from the node's center to the intersection point on the border.
+
+## Proposed Changes
+
+### Frontend - Utils
+#### [NEW] [floatingEdgeUtils.js](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/utils/floatingEdgeUtils.js)
+- Implement `getIntersection(node, targetNode)` to calculate where the edge should meet the node border.
+- Implement `getEdgeParams(source, target)` helper.
+
+### Frontend - Components
+#### [NEW] [FloatingEdge.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/FloatingEdge.jsx)
+- Create a custom React Flow edge that uses `getEdgeParams` to dynamically calculate its path.
+- It will react to node drag events to update the connection point in real-time.
+
+#### [MODIFY] [CustomNode.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/CustomNode.jsx)
+- Update handles to be "Central" or optimized for floating edges.
+- Instead of specific Left/Right handles, we might consolidate to a central handle or keep existing handles but hide them, allowing the Floating Edge to take over the visual rendering.
+- **Decision**: We will consolidate to one Source and one Target handle positioned at the center (visually hidden) to facilitate the "connect from anywhere" feel, OR keep perimeter handles but use the Floating Edge to override the path.
+    - *Refined Approach*: Maintain `opacity: 0` handles at the center of the node. This allows connection from the "body" of the node.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/App.jsx) (or Flow parent)
+- Register the new `floating` edge type in `edgeTypes`.
+
+#### [MODIFY] [GraphCanvas.jsx](file:///c:/Users/ADMIN/Desktop/nexus-ver3/frontend/src/components/GraphCanvas.jsx)
+- Ensure the default edge type is set to `floating` (or whatever we name it) or update existing edges to use it.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Launch App**: Run `npm run dev` in `frontend`.
+2.  **Create Nodes**: Add two nodes to the canvas.
+3.  **Connect**: Drag from one node to another.
+    - *Expectation*: The line should appear to connect the closest points of the two nodes.
+4.  **Drag Node**: Move one node around the other.
+    - *Expectation*: The connection point should slide along the edge of the node to stay closest to the other node (not fixed to a side).

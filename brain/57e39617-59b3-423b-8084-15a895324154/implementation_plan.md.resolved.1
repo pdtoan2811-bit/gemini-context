@@ -1,0 +1,92 @@
+# Vietnamese Translation & Campaign Alignment for Ad Optimization
+
+The goal is to fully localize the "Ad Optimization" (Deep Dive) flow in the chat screen to Vietnamese and ensure all mock content matches the US DTC brands (Nike, Sephora US, etc.) used in the backend mock data.
+
+## Proposed Changes
+
+### Documentation
+
+#### [MODIFY] [PRD.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/PRD.md)
+Update to clarify that while the platform mocks US brands, the UX writing and AI insights are fully in Vietnamese.
+
+#### [MODIFY] [SRS_01_Chat_Interface.md](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/docs/SRS_01_Chat_Interface.md)
+Ensure all UI component descriptions and expected outputs are localized.
+
+---
+
+# Vietnamese Ad Optimization Refinement
+
+Translate remaining English strings in the Ad Optimization UI to ensure a fully consistent Vietnamese experience, matching the mocked US DTC brands.
+
+## Proposed Changes
+
+### [Frontend Components]
+
+#### [MODIFY] [ChatMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ChatMessage.jsx)
+- Translate "Deep dive analysis for" to "Phân tích chuyên sâu cho".
+
+#### [MODIFY] [CompactWorkflowMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CompactWorkflowMessage.jsx)
+- Translate layout headers ("tasks • SMART framework").
+- Translate section labels ("Performance", "Action Items", "AI Insight").
+- Translate action buttons ("AI Fill All", "Dismiss", "Request Revision", "Approve & Execute").
+- Add status mapping for "Draft", "Approved", etc.
+
+#### [MODIFY] [WorkflowMessage.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/WorkflowMessage.jsx)
+- Translate header and status text.
+- Translate "Recommended Actions" and "AI Insight" labels.
+
+#### [MODIFY] [SmartTaskCard.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/SmartTaskCard.jsx)
+- Translate SMART framework acronym and labels (Specific, Measurable, etc.).
+- Translate placeholders and "Trade-offs" label.
+- Translate buttons ("AI Fill", "Add Trade-off").
+
+#### [MODIFY] [ApprovalPanel.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/ApprovalPanel.jsx)
+- Translate status badges ("Draft", "Approved", "Executing", "Completed").
+- Translate success messages and button labels.
+
+#### [MODIFY] [TodoList.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/workflow/TodoList.jsx)
+- Translate headers and "completed" status text.
+- Translate "Ask AI to Revise All" button.
+
+### Backend
+
+#### [MODIFY] [agents.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/agents.py)
+Refine prompts for `Data Analyst` and `Narrative Writer` to ensure they strictly speak Vietnamese and acknowledge the context of US DTC brands from a Vietnamese perspective.
+
+#### [MODIFY] [generator.py](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/backend/generator.py)
+Fully localize the "thinking prompts" generator to Vietnamese.
+
+---
+
+### Frontend
+
+#### [MODIFY] [mockWorkflowData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/mockWorkflowData.js)
+- Translate all headers, insights, and TODO items to Vietnamese.
+- Update campaign names to match the mocked brands (e.g., "Nike Ads Optimization", "Sephora US Budget Analysis").
+
+#### [MODIFY] [ResultsTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/ResultsTable.jsx)
+Translate table headers, action buttons (`View Affiliate Traffic`, `Deep Affiliate Research`), and tooltips to Vietnamese.
+
+#### [MODIFY] [CampaignSelectionTable.jsx](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/components/agent/CampaignSelectionTable.jsx)
+Translate all UI strings to Vietnamese.
+
+#### [MODIFY] [onboardingData.js](file:///c:/Users/ADMIN/Desktop/adecos-mvp-mockup/frontend/src/data/onboardingData.js)
+Localize remaining English phrases in marketing notes and feature sections.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run dev` and verify UI manually in browser.
+
+### Manual Verification
+- Trigger "Deep Affiliate Research" from the Results Table.
+- Verify the following in Vietnamese:
+    - User message bubble.
+    - Workflow progress bar and headers.
+    - Performance section labels.
+    - AI Insight badge and text.
+    - Task list buttons and SMART detail labels.
+    - Sticky approval bar buttons and status.
+- Verify that the "thinking" steps are in Vietnamese.
+- Verify that the resulting Workflow/Table/Chart sections are fully in Vietnamese.
+- Verify that the campaign names match the mocked US brands.

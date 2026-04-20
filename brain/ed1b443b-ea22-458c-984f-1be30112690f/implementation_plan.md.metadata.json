@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Implementation plan for Project SpecOps.\n- **Backend**: FastAPI serving CrewAI agents. Using WebSockets for real-time \"thought\" streaming.\n- **Frontend**: Next.js to render the \"War Room\" (logs) and \"Living Doc\" (PRD).\n- **Core Loop**: User Input -> Manager -> Strategist (Roast) -> Architect (Build) -> Manager (Check) -> Stream to UI.",
+  "updatedAt":  "2025-12-30T06:56:46.259583700Z"
+}

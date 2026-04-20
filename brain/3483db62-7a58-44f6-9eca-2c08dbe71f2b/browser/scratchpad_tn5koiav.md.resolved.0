@@ -1,0 +1,13 @@
+# Task: Verify ai-editor-short Remotion composition
+
+## Plan
+- [ ] Open http://localhost:3000
+- [ ] Select "ai-editor-short" composition
+- [ ] Wait for metadata calculation (~5s)
+- [ ] Capture screenshot at frame 30
+- [ ] Capture screenshot at frame 200
+- [ ] Verify:
+    - [ ] Blurred background filling the canvas
+    - [ ] Square video panel in upper portion
+    - [ ] Captions in bottom area
+- [ ] Final summary

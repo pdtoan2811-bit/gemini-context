@@ -1,0 +1,123 @@
+# Walkthrough: Table Display Improvements
+
+## User Requirements
+1. Remove truncation from terms column
+2. Focus on commission percentage (%)
+3. Show whether brand name can be used (boolean)
+4. Make table area wider to display more information
+
+## Changes Made
+
+### Backend Data Schema
+Updated [generator.py](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/backend/generator.py#L24-L37) prompt templates to generate new fields:
+
+**Previous Schema:**
+```json
+{
+  "brand": "...",
+  "incentive": "10% giá trị đơn",
+  "terms": "Cấm brand name",
+  "legitimacy_score": 85
+}
+```
+
+**New Schema:**
+```json
+{
+  "brand": "Exness",
+  "program_url": "https://...",
+  "commission_percent": 40,
+  "commission_type": "Revenue Share / CPA",
+  "can_use_brand": false,
+  "traffic_3m": "25.4M",
+  "legitimacy_score": 9.8
+}
+```
+
+### Frontend Table Component
+Updated [ResultsTable.jsx](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ResultsTable.jsx) with new column structure:
+
+**New Columns:**
+| Column | Display | Description |
+|--------|---------|-------------|
+| **Hoa hồng (%)** | `40%` in large font | Commission percentage, sortable |
+| **Loại HH** | `PERCENTAGE` / `CPA` / `HYBRID` | Commission type in small caps |
+| **Brand Name** | ✓ Được / ✗ Không | Green/red badges for brand usage permission |
+
+**Layout Changes:**
+- ✅ Removed `max-w-7xl` constraint → Table now uses full width
+- ✅ Removed `max-w-[200px] truncate` from terms → No more truncation
+- ✅ Commission percentage displayed in `text-2xl font-semibold` → Prominent focus
+- ✅ Brand usage shown with colored badges → Easy visual scanning
+
+### Visual Improvements
+
+**Commission Display:**
+```jsx
+<td className="px-6 py-6 font-mono text-2xl text-white font-semibold">
+    {row.commission_percent > 0 ? `${row.commission_percent}%` : '—'}
+</td>
+```
+- Large, bold font for easy readability
+- Shows "—" for CPA-only programs (commission_percent = 0)
+
+**Brand Usage Badges:**
+```jsx
+{row.can_use_brand ? (
+    <span className="bg-green-500/20 text-green-400">✓ Được</span>
+) : (
+    <span className="bg-red-500/20 text-red-400">✗ Không</span>
+)}
+```
+- Green badge: Brand name allowed
+- Red badge: Brand name restricted
+
+**Legitimacy Score:**
+- Changed from 0-100 scale to 0-10 scale for better readability
+- Updated visual bar calculation: [(score / 10) * 100%](file:///C:/Users/ADMIN/Desktop/adecos%20mvp/frontend/src/components/ChatMessage.jsx#71-72)
+
+## Testing Results
+
+**Test Query:** "Forex"
+
+**Sample Output:**
+```json
+{
+  "brand": "Exness",
+  "program_url": "https://www.exness.com/affiliates/",
+  "commission_percent": 40,
+  "commission_type": "Revenue Share / CPA",
+  "can_use_brand": false,
+  "traffic_3m": "25.4M",
+  "legitimacy_score": 9.8
+}
+```
+
+**Schema Validation:** ✅ All 7 required fields present
+
+## Before vs. After
+
+### Before:
+- ❌ "Điều khoản" column truncated at 200px
+- ❌ Commission shown as text string ("10% giá trị đơn")
+- ❌ Brand restrictions buried in terms text
+- ❌ Table constrained to max-w-7xl
+- ❌ Score on 0-100 scale
+
+### After:
+- ✅ No truncation - full width table
+- ✅ Commission as prominent number (40%)
+- ✅ Brand usage as clear visual badge
+- ✅ Table uses full available width
+- ✅ Score on intuitive 0-10 scale
+- ✅ Sortable commission column
+
+## Key Benefits
+
+1. **Faster Scanning:** Commission % prominently displayed in large font
+2. **Clear Restrictions:** Brand usage immediately visible with color coding
+3. **No Lost Information:** Removed truncation, table expanded to full width
+4. **Better UX:** Can sort by commission percentage to find best deals
+5. **Professional Look:** Clean badges and hierarchy
+
+The table now provides all the critical information at a glance without scrolling or truncation!

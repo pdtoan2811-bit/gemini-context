@@ -1,0 +1,23 @@
+# Task: Verify Mock Data Change on Ads Page
+
+## Plan
+- [x] Navigate to http://localhost:5173/ads
+- [x] Perform hard refresh (Ctrl+Shift+R)
+- [ ] Verify existence of ecommerce products:
+    - [ ] MDW_Shopee_Search_01
+    - [ ] MDW_Lazada_Display_Low
+    - [ ] MDW_TikTok_Shop_Fashion
+    - [ ] MDW_Amazon_Store_US
+- [x] Check for persistence of old data:
+    - [x] Exness
+    - [x] Binance
+- [ ] If old data persists, investigate source (Network/Console)
+- [ ] Report findings
+
+## Observations
+- Navigated to `/ads`.
+- Performed hard refresh (Ctrl+Shift+R).
+- Old data persists: 'MDW_Exness_Search_01', 'MDW_Binance_Video', 'MDW_Fintech_Lead' are still present.
+- 'Quản lý ID' and 'Quản lý chiến dịch' tabs also show old data.
+- 'Deep Research' page *does* show ecommerce data (Shopee, Lazada, etc.).
+- Need to find where the Ads page data is coming from.

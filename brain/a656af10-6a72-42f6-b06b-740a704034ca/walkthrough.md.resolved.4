@@ -1,0 +1,41 @@
+# Migration Walkthrough: Azure to Standard OpenAI
+
+## Overview
+We have successfully migrated the backend from **Azure AI Foundry** to **Standard OpenAI** to support the `gpt-5-mini-2025-08-07` model.
+
+## key Changes
+1.  **Backend Configuration**:
+    -   Updated [.env](file:///C:/Users/ADMIN/Desktop/nextstep-ver3/.env) with `OPENAI_API_KEY` and `OPENAI_MODEL`.
+    -   Refactored [src/backend/agents.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/agents.py) to use [OpenAIChatClient](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/external/agent-framework/python/packages/core/agent_framework/openai/_chat_client.py#472-559) (Standard) correctly passing `model_id`.
+2.  **Product Documentation**:
+    -   Updated [NextstepPRD.md](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/NextstepPRD.md) to reflect the new technical stack (Standard OpenAI).
+
+## Verification Results
+
+### 1. API Connectivity Test
+We ran a direct connection test to the OpenAI API using your key and model.
+
+**Script:** [src/backend/test_openai_connection.py](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/test_openai_connection.py)
+**Result:** ✅ Success
+**Log:**
+```text
+Testing Standard OpenAI Connection...
+Model: gpt-5-mini-2025-08-07
+Sending 'PING' to agent (Streaming)...
+Chunk: P
+Chunk: ONG
+SUCCESS: Streaming complete.
+```
+
+### 2. App Logic Validity
+We confirmed via script that the [Orchestrator](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py#27-202) can initialize and the model supports the required streaming capabilities.
+
+### 5. Debug & Observability
+-   **Streaming Tools**: Converted [Orchestrator](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/src/backend/orchestrator.py#27-202) to use `run_stream`.
+-   **Visible Debug**: Tool execution (e.g., "Calling Tool: search...") now appears in the Orchestrator Panel status updates.
+-   **Structure Enforcement**: Updated system prompt to ensure JSON output even during streaming.
+
+## Next Steps
+1.  **Restart the App**: Run [start_app.bat](file:///c:/Users/ADMIN/Desktop/nextstep-ver3/start_app.bat).
+ to reload the new environment variables.
+2.  **Expect Latency**: `gpt-5-mini` is a reasoning model; initial responses may take 10-30 seconds.
