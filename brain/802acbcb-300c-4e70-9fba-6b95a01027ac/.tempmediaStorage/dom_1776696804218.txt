@@ -1,0 +1,40 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	🎬
+	Remotion Prompt Studio
+	AI Video Generation × Antigravity
+	Server Connected
+	Generation History (
+	0
+	)
+	📹
+	No videos generated yet.
+	Submit a prompt to get started!
+	🎬
+	Submit a prompt to generate your first video
+	[1] (891,106)<label class='prompt-panel__label'>Template />
+	[2] (891,142)<select class='prompt-panel__select' id='template-select' />
+	Fully customized from your prompt
+	[3] (891,221)<label class='prompt-panel__label'>Video Prompt />
+	[4] (891,323)<textarea class='prompt-panel__textarea' id='prompt-input' placeholder='Describe the video you want to generate...
+
+Examples:
+• "Breaking: SpaceX launches first Mars colony ship"
+• "Top 5 AI tools that will replace your job in 2026"
+• "Explain quantum computing in 60 seconds"' />
+	⌘+Enter to submit
+	[5] (891,468)<button class='advanced-toggle'>Advanced Options />
+		[6] (797,468)<span >▶ />
+	[7] (891,533)<button class='generate-btn ' id='generate-btn'>🚀 Generate Video />
+		[8] (839,533)<span  />
+	How it works:
+	1. Type your video prompt above
+	2. Click Generate — a prompt file is created
+	3. Antigravity agent picks it up and generates assets
+	4. Video renders automatically when ready
+	Or click "📋 Copy Prompt" on any job to paste into Antigravity manually.
+
+</current_dom>

@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Final walkthrough documenting the complete Remotion Prompt Studio with direct MCP bridge integration between the web UI and Antigravity IDE. Covers all 23 files created, architecture, verification results, and usage instructions including the MCP tools for real-time bidirectional communication.",
+  "updatedAt": "2026-04-20T15:02:46.972942800Z",
+  "version": "1"
+}

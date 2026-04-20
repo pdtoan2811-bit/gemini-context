@@ -1,0 +1,10 @@
+# Remotion Prompt Studio Task Checklist
+
+- [ ] Take initial screenshot of http://localhost:5173/
+- [ ] Select "News Short" from the template dropdown
+- [ ] Enter video prompt: "AI just replaced 50% of coding jobs overnight"
+- [ ] Click "Generate Video"
+- [ ] Wait 3 seconds
+- [ ] Take final screenshot
+- [ ] Extract Job ID from left sidebar
+- [ ] Report findings and Job ID

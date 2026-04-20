@@ -1,0 +1,125 @@
+# Remotion Prompt Studio — Walkthrough
+
+## What Was Built
+
+A complete web application that lets you generate Remotion videos by typing prompts in a UI. Your Antigravity IDE agent picks up the prompt and generates all the video assets (script, voiceover, images, composition code), then the video renders and plays back in the UI.
+
+## Architecture
+
+```mermaid
+graph LR
+    A["🖥️ Web UI<br/>localhost:5173"] -->|POST /api/prompt| B["⚙️ Express Server<br/>localhost:3001"]
+    B -->|Writes .json| C["📁 .prompts/"]
+    D["🧠 Antigravity IDE"] -->|Reads prompt| C
+    D -->|Generates assets| E["📂 public/content/"]
+    D -->|Writes .done| C
+    B -->|Detects .done| F["📡 WebSocket"]
+    F -->|Status update| A
+    E -->|Serves video| A
+```
+
+## UI Preview
+
+![Remotion Prompt Studio UI](C:\Users\ADMIN\.gemini\antigravity\brain\802acbcb-300c-4e70-9fba-6b95a01027ac\ui_initial.png)
+
+## Demo Recording
+
+![Browser test recording](C:\Users\ADMIN\.gemini\antigravity\brain\802acbcb-300c-4e70-9fba-6b95a01027ac\prompt_studio_test_1776696739625.webp)
+
+## Files Created (22 files)
+
+### Configuration
+| File | Purpose |
+|---|---|
+| [package.json](file:///c:/Users/ADMIN/Desktop/remotion/package.json) | Dependencies + scripts |
+| [tsconfig.json](file:///c:/Users/ADMIN/Desktop/remotion/tsconfig.json) | TypeScript config |
+| [remotion.config.ts](file:///c:/Users/ADMIN/Desktop/remotion/remotion.config.ts) | Remotion rendering config |
+| [vite.config.ts](file:///c:/Users/ADMIN/Desktop/remotion/vite.config.ts) | Vite dev server + proxy |
+| [.env.example](file:///c:/Users/ADMIN/Desktop/remotion/.env.example) | API key template |
+| [.gitignore](file:///c:/Users/ADMIN/Desktop/remotion/.gitignore) | Exclusions |
+
+### Shared Utilities
+| File | Purpose |
+|---|---|
+| [types.ts](file:///c:/Users/ADMIN/Desktop/remotion/src/lib/types.ts) | PromptJob, Timeline, Scene, WsMessage types |
+| [constants.ts](file:///c:/Users/ADMIN/Desktop/remotion/src/lib/constants.ts) | FPS, resolution, palettes |
+
+### Remotion Compositions
+| File | Purpose |
+|---|---|
+| [index.ts](file:///c:/Users/ADMIN/Desktop/remotion/src/index.ts) | Remotion entry point |
+| [Root.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/remotion/Root.tsx) | Auto-discovers compositions from completed jobs |
+| [PromptVideo.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/remotion/PromptVideo.tsx) | Generic video composition (grain, particles, kinetic captions) |
+
+### Express Server
+| File | Purpose |
+|---|---|
+| [server.ts](file:///c:/Users/ADMIN/Desktop/remotion/server/server.ts) | REST API + WebSocket + file watcher |
+
+### Web UI
+| File | Purpose |
+|---|---|
+| [index.html](file:///c:/Users/ADMIN/Desktop/remotion/index.html) | Vite HTML entry |
+| [main.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/main.tsx) | React entry point |
+| [index.css](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/index.css) | Dark theme design system |
+| [App.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/App.tsx) | Three-panel layout |
+| [PromptPanel.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/components/PromptPanel.tsx) | Template + prompt input |
+| [VideoPlayer.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/components/VideoPlayer.tsx) | Video playback + controls |
+| [JobHistory.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/components/JobHistory.tsx) | Past jobs sidebar |
+| [StatusBar.tsx](file:///c:/Users/ADMIN/Desktop/remotion/src/ui/components/StatusBar.tsx) | Progress + step indicators |
+
+### Agent Skill
+| File | Purpose |
+|---|---|
+| [SKILL.md](file:///c:/Users/ADMIN/Desktop/remotion/.agents/skills/prompt-watcher/SKILL.md) | Antigravity agent workflow for processing prompts |
+
+### Documentation
+| File | Purpose |
+|---|---|
+| [BRD.md](file:///c:/Users/ADMIN/Desktop/remotion/docs/BRD.md) | Business requirements |
+| [PRD.md](file:///c:/Users/ADMIN/Desktop/remotion/docs/PRD.md) | Product requirements |
+| [SRS.md](file:///c:/Users/ADMIN/Desktop/remotion/docs/SRS.md) | Software specification |
+
+## Verification Results
+
+| Check | Result |
+|---|---|
+| `npm install` | ✅ 355 packages, 0 vulnerabilities |
+| `tsc --noEmit` | ✅ 0 errors |
+| Express server (port 3001) | ✅ Running |
+| Vite UI (port 5173) | ✅ Running |
+| UI renders in browser | ✅ Three-panel layout, dark theme |
+| WebSocket connected | ✅ "Server Connected" shown |
+| Prompt submission | ✅ Prompt file created at `.prompts/d6223984.json` |
+| Job history updates | ✅ Job appears with status indicators |
+
+## How to Use
+
+### Start the studio
+```bash
+cd c:\Users\ADMIN\Desktop\remotion
+npm run start    # Starts both Express server + Vite UI
+```
+
+### Generate a video
+1. Open **http://localhost:5173** in your browser
+2. Select a template (News Short, Documentary, AI Summary, Custom)
+3. Type your video prompt
+4. Click **🚀 Generate Video**
+
+### Two ways Antigravity processes your prompt
+
+**Option A — Automated (file watcher):**
+- Open this project in Antigravity IDE
+- The agent will detect new `.prompts/*.json` files
+- Follow the `prompt-watcher` skill workflow
+
+**Option B — Manual (clipboard):**
+- Click **📋 Copy Prompt** on any job
+- Paste the clipboard text into Antigravity's chat
+- The agent will generate the assets
+
+### After the agent finishes
+- Agent writes `.prompts/{id}.done` → UI auto-updates via WebSocket
+- Rendered video plays in the center player
+- Click **⬇ Download** to save the MP4
