@@ -1,0 +1,7 @@
+# Video Verification Plan
+- [ ] Navigate to http://localhost:5173/
+- [ ] Take initial screenshot
+- [ ] Select SpaceX job in sidebar
+- [ ] Wait for video load
+- [ ] Take final screenshot
+- [ ] Verify video player content and controls

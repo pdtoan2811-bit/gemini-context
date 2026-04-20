@@ -1,0 +1,62 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	🎬
+	Remotion Prompt Studio
+	AI Video Generation × Antigravity
+	Server Connected
+	Generation History (
+	2
+	)
+	[1] (83,199)<div class='job-card ' role='button' />
+		[2] (83,168)<div  />
+			[3] (15,168)<div  />
+			[4] (38,168)<span >#
+87d6e7c1 />
+		[5] (83,200)<div >AI just replaced 50% of coding jobs overnight />
+		[6] (83,231)<div >9m ago />
+	[7] (83,318)<div class='job-card job-card--active' role='button' />
+		[8] (83,287)<div  />
+			[9] (15,287)<div  />
+			[10] (38,287)<span >#
+b6b161fe />
+		[11] (83,319)<div >Breaking: SpaceX launches first Mars colony ship with 100 passengers />
+		[12] (83,350)<div >14m ago />
+	[13] (522,478)<button class='clipboard-btn ' id='copy-prompt-btn'>📋 Copy Prompt />
+	[14] (593,478)<button class='video-controls__btn' id='download-btn'>⬇ Download />
+	b6b161fe
+	100
+	%
+	✓
+	Prompt Submitted
+	✓
+	Agent Processing
+	✓
+	Rendering Video
+	●
+	Complete
+	Video ready!
+	[15] (891,106)<label class='prompt-panel__label'>Template />
+	[16] (891,141)<select class='prompt-panel__select' id='template-select' />
+	Fully customized from your prompt
+	[17] (891,219)<label class='prompt-panel__label'>Video Prompt />
+	[18] (891,320)<textarea class='prompt-panel__textarea' id='prompt-input' placeholder='Describe the video you want to generate...
+
+Examples:
+• "Breaking: SpaceX launches first Mars colony ship"
+• "Top 5 AI tools that will replace your job in 2026"
+• "Explain quantum computing in 60 seconds"' scrollable='true' />
+	⌘+Enter to submit
+	[19] (891,466)<button class='advanced-toggle'>Advanced Options />
+		[20] (797,466)<span >▶ />
+	🚀 Generate Video
+	How it works:
+	1. Type your video prompt above
+	2. Click Generate — a prompt file is created
+	3. Antigravity agent picks it up and generates assets
+	4. Video renders automatically when ready
+	Or click "📋 Copy Prompt" on any job to paste into Antigravity manually.
+
+</current_dom>
