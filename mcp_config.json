@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "remotion-prompt-studio": {
-      "command": "npx",
-      "args": ["tsx", "c:\\Users\\ADMIN\\Desktop\\remotion\\mcp-bridge\\server.ts"],
-      "env": {}
-    }
-  }
-}
