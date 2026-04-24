@@ -1,0 +1,12 @@
+# Task: Verify Visual Components in Remotion Preview
+
+## Plan
+- [ ] Open http://localhost:5173
+- [ ] Select job `24757796` (Opus 4.7 vs GPT 5.5)
+- [ ] Wait for preview to load
+- [ ] Check for visual components (bars, quotes, tables, etc.)
+- [ ] Take screenshots of various scenes (4, 7, 9, 11, 16, 19)
+- [ ] Report findings
+
+## Progress Log
+- Initializing task.
