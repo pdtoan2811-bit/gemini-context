@@ -1,0 +1,14 @@
+# Task: Verify Application State
+
+## Checklist:
+- [ ] Open http://localhost:5173
+- [ ] Verify Readiness status (Server: online?)
+- [ ] Check Job history for "done" jobs
+- [ ] Check Prompt panel readiness status
+- [ ] Take screenshot of the full page
+- [ ] Report findings
+
+## Findings:
+- Readiness status: 
+- Job history: 
+- Prompt panel status: 

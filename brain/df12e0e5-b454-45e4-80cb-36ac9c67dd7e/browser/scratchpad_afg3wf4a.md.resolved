@@ -1,0 +1,13 @@
+# UI Verification Plan
+
+- [ ] Navigate to http://localhost:5173 (Attempting, encountering "target closed" errors)
+- [ ] Wait 5 seconds for page load
+- [ ] Take initial screenshot (full viewport)
+- [ ] Verify three-column layout:
+    - [ ] LEFT: Job history sidebar (with at least one job card)
+    - [ ] CENTER: Video player area
+    - [ ] RIGHT: Prompt panel (readiness card and textarea)
+- [ ] Click on a job card if available
+- [ ] Wait 3 seconds
+- [ ] Take second screenshot
+- [ ] Report findings details

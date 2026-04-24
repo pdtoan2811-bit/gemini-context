@@ -1,0 +1,11 @@
+# Remotion Prompt Studio — Enhanced UI Tasks
+
+- [ ] **1. Types** — Add `parentJobId`, `refinedSceneId`, `refineScene` fields to types.ts
+- [ ] **2. Server** — Add timeline endpoint + store new fields in jobs
+- [ ] **3. VideoPlayer** — Replace `<video>` with `@remotion/player` `<Player>`
+- [ ] **4. SceneTimeline** — New component: clickable scene strip below player
+- [ ] **5. PromptPanel** — Scene refinement mode: "Refining Scene X" context
+- [ ] **6. JobHistory** — Parent-child chains, revision badges, re-use prompt
+- [ ] **7. App.tsx** — Wire timeline fetching, selectedScene, pass props
+- [ ] **8. CSS** — Styles for SceneTimeline, Player container, job chains, refine indicator
+- [ ] **9. Verify** — Start dev, submit prompt, preview composition, test scene selection
