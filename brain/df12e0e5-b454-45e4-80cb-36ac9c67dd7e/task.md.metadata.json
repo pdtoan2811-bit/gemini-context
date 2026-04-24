@@ -1,6 +1,6 @@
 {
   "artifactType": "ARTIFACT_TYPE_TASK",
-  "summary": "Progress tracker for the enhanced Remotion Prompt Studio UI implementation.",
-  "updatedAt": "2026-04-24T07:25:27.056878400Z",
-  "version": "1"
+  "summary": "Task tracker for creating 4 new agent skills: deep-research-engine, script-architect, visual-asset-forge, and pipeline-orchestrator.",
+  "updatedAt": "2026-04-24T07:37:49.302824Z",
+  "version": "2"
 }

@@ -1,6 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Implementation plan for three major UI features:\n1. Inline Remotion Player preview using @remotion/player to render compositions live in the browser without requiring offline rendering\n2. Scene-level selection and enhancement — clickable timeline strip below the video that lets users select a scene and submit refinement prompts scoped to it\n3. Prompt history with context chains — job history grouped by parent-child refinement relationships with revision tracking\n\nAlso documents fixes already completed this session: port collision fix, MCP bridge registration, and successful pipeline test.",
-  "updatedAt": "2026-04-24T07:08:35.069477700Z",
+  "summary": "Architecture plan for 4 new skills that form a pipeline: deep-research-engine (Tavily + Reddit intelligence gathering), script-architect (rich script with visual directives), visual-asset-forge (programmatic Remotion chart/table/comparison components), and pipeline-orchestrator (master coordination). Each skill will include detailed instructions and mock code.",
+  "updatedAt": "2026-04-24T07:37:06.010582300Z",
+  "version": "1",
   "requestFeedback": true
 }
