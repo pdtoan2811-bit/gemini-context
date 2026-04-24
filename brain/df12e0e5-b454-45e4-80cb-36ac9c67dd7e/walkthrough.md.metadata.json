@@ -1,6 +1,6 @@
 {
   "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
-  "summary": "Walkthrough of the 4 new skills created for the topic-to-video pipeline, along with updates to existing skills.",
-  "updatedAt": "2026-04-24T07:44:19.796028Z",
-  "version": "1"
+  "summary": "Complete walkthrough of all changes: premium VisualOverlay rewrite with 7 animated components and shared glass design system, PromptPanel duration presets, subtitle spacing fix, skills documentation overhaul, MCP auto-polling, and types enhancement.",
+  "updatedAt": "2026-04-24T08:19:48.563561300Z",
+  "version": "2"
 }

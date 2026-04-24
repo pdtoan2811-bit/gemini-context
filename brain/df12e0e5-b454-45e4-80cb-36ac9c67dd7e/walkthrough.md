@@ -1,112 +1,67 @@
-# Walkthrough — Skill Pipeline Architecture
+# Walkthrough — Premium Visual Components & Pipeline Enhancement
 
-## What Was Built
+## Changes Made
 
-4 new skills + 2 existing skill updates that transform a generic user topic into a fully-realized Remotion video with programmatic visual assets.
+### 1. Premium Visual Components (`src/remotion/VisualOverlay.tsx`) — COMPLETE REWRITE
 
-## Pipeline Flow
+Rebuilt all 7 animated components from scratch with a **premium design system** optimized for **9:16 vertical** (1080×1920) short-form video:
 
-```
-User: "Anthropic Mythos vs GPT 5.5"
-       │
-       ▼
-┌──────────────────────────────────────────────────────────┐
-│ [pipeline-orchestrator] — Master coordinator             │
-│                                                          │
-│  Phase 1 ► [deep-research-engine]                        │
-│            Tavily deep search + Reddit sentiment         │
-│            → research.json (facts, dataPoints,           │
-│              sentiment, controversies, timeline)          │
-│                                                          │
-│  Phase 2 ► [script-architect]                            │
-│            Research → rich scene script with              │
-│            visual directives (chart, comparison,          │
-│            stat counter, quote card, etc.)                │
-│            → rich-script.json                             │
-│                                                          │
-│  Phase 3 ► [visual-asset-forge] + ElevenLabs TTS         │
-│            7 Remotion components + word-level             │
-│            voiceover timing                               │
-│            → voice.mp3 per scene + wordTimings            │
-│                                                          │
-│  Phase 4 ► Timeline assembly                              │
-│            → timeline.json → Remotion Player preview      │
-└──────────────────────────────────────────────────────────┘
-```
+| Component | Key Visual Features |
+|---|---|
+| **ComparisonBar** | Glass card wrapper, gradient bar fills with shine highlight, staggered spring reveal, tabular-nums counters, accent glow on values |
+| **StatCounter** | Scale-up entrance, radial glow pulse (sin wave), glass pill subtitle, 130px hero number |
+| **VsSplit** | Slide-in from sides, gradient VS circle badge, accent-bordered bullet cards, staggered point reveals |
+| **QuoteCard** | Shimmer sweep effect, rounded avatar with initial, upvote pill with border, italic quote with tone badge + dot indicator |
+| **TimelineGraphic** | Gradient progress line, dots with glow rings + dark border, GlassCard wrapper |
+| **DataTable** | No-padding glass card, accent header row, row-by-row slide-in, highlighted rows with tinted background |
+| **ProgressRing** | SVG stroke-dasharray spring, radial background glow pulse, glass pill subtitle |
 
-## New Skills Created
+**Shared Design System**:
+- `GLASS` tokens: bg, border, blur, radius, shadow(), glow()
+- `OverlayContainer`: positions content in 9:16 safe zone (top 180px, bottom 42%)
+- `GlassCard`: reusable frosted glass card with blur + accent shadow
+- `SectionTitle` + `AccentLine`: consistent typography/decoration primitives
 
-### 1. `deep-research-engine`
-[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/deep-research-engine/SKILL.md)
+### 2. PromptVideo.tsx Integration
 
-- **Multi-angle Tavily search**: Core topic, data/numbers, controversy — 3 parallel searches
-- **Reddit sentiment via Tavily**: Searches `site:reddit.com` across 9 target subreddits
-- **Source credibility ranking**: Tier 1 (Reuters, TechCrunch) → Tier 3 (Reddit, Medium)
-- **Data point extraction**: Regex-based numerical claim parsing with comparison pairing
-- **Output**: `research.json` with `facts[]`, `dataPoints[]`, `sentiment[]`, `controversies[]`, `entities[]`, `timeline[]`
+- Imported `VisualOverlay` + `VisualDirective` type
+- Added `<VisualOverlay>` to SceneView layer stack between Particles and TagBadge
+- Extended Scene type to include `visual?: VisualDirective`
 
-### 2. `script-architect`
-[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/script-architect/SKILL.md)
+### 3. PromptPanel.tsx — Duration Controls
 
-- **8 visual directive types**: `comparison-bar`, `stat-counter`, `versus-split`, `quote-card`, `timeline-graphic`, `data-table`, `progress-ring`, `caption-only`
-- **Decision matrix**: Maps research signals to visual types (e.g., two numbers → `comparison-bar`)
-- **Scene type ordering**: hook → context → data → comparison → sentiment → impact → cta
-- **Full TypeScript specs** for each visual directive's `data` object
-- **Pacing rules**: fast/punchy/measured/slower with frame duration guidelines
-- **Complete example**: 7-scene rich script for the Mythos vs GPT topic
+- **Target Duration**: 60s / 90s / 120s preset buttons + Custom input
+- **Max Duration / Scene**: Number input (default 3s, range 1-15s)  
+- **Style**: Kinetic / Formal / Minimal dropdown
+- New CSS: `.duration-presets`, `.duration-preset-btn`, `.duration-preset-btn--active`
 
-### 3. `visual-asset-forge`
-[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/visual-asset-forge/SKILL.md)
+### 4. Subtitle Word Spacing Fix
 
-**7 production-ready Remotion components** with full React/TSX code:
+- `gap: "0 0.25em"` → `gap: "4px 10px"` on word flex container
+- `fontSize: 58` → `52`, `lineHeight: 1.2` → `1.25`
+- `letterSpacing: negative` → `"0.01em"` (positive)
 
-| Component | What it renders | Lines of code |
-|-----------|----------------|---------------|
-| `ComparisonBar` | Animated horizontal bars comparing 2-5 values | ~80 |
-| `StatCounter` | Large counting number with glow pulse | ~70 |
-| `VsSplit` | Split-screen entity comparison with bullet points | ~100 |
-| `QuoteCard` | Reddit-style quote with avatar, upvotes, tone badge | ~90 |
-| `TimelineGraphic` | Horizontal timeline with animated dot markers | ~60 |
-| `DataTable` | Row-by-row animated reveal table | ~80 |
-| `ProgressRing` | SVG circular progress indicator | ~70 |
+### 5. Skills Documentation Updated
 
-All components use:
-- Spring physics (`spring()`) for entrances
-- Stagger delays for sequential reveals
-- Glass morphism (`backdrop-filter: blur()`)
-- Accent color inheritance from palette or data
-- `Inter` font family with `fontWeight: 700-900`
+- **`visual-asset-forge`**: Complete rewrite — references actual implementation, documents design tokens, catalogs all 7 components with data shapes, specifies 9:16 layout rules
+- **`script-architect`**: Fixed pacing rules to enforce `maxSceneDuration` as hard cap. Added word count guidance. Added visual variety rule (40% minimum).
+- **`pipeline-orchestrator`**: Added `maxSceneDuration` enforcement at Phase 2 (scene count formula) and Phase 3 (frame capping with `Math.min()`).
+- **`prompt-watcher`**: Added auto-trigger documentation for MCP bridge polling.
 
-### 4. `pipeline-orchestrator`
-[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/pipeline-orchestrator/SKILL.md)
+### 6. MCP Bridge Auto-Polling
 
-- **4-phase execution protocol** with TypeScript mock code for each phase
-- **Quality gates** between phases (minimum facts, scene count validation, voice-subtitle sync check)
-- **Error recovery**: Retry logic for Tavily, ElevenLabs failures; graceful fallbacks
-- **Status update schedule**: 5% → 20% → 35% → 40-65% → 75% → 90% → 100%
-- **Scene refinement flow**: Handles `parentJobId` + `refineScene` for targeted re-generation
-- **Pipeline checklist**: Step-by-step verification before completion signal
+- Added `startPromptPolling()` function after `notifications/initialized`
+- 10-second interval checks for new pending prompts
+- Sends `notifications/resources/updated` + `notifications/tools/list_changed` via stdout
+- Enables Antigravity to auto-detect and process new prompts without user intervention
 
-## Existing Skills Updated
+### 7. Types Enhancement
 
-### `news-curator-tavily-reddit`
-Added note pointing to `deep-research-engine` as the full-pipeline successor.
+- Added `targetDuration?: number` to `PromptOptions` interface
+- Fixed duplicate type definitions in `types.ts`
 
-### `prompt-watcher`
-Added note pointing to `pipeline-orchestrator` for enhanced workflow.
+## Testing
 
-### `youtube-shorts-mastermind` (previous session)
-Added Voice-Subtitle Sync Protocol (6 mandatory rules).
-
-## Final Skills Directory
-
-```
-.agents/skills/
-├── deep-research-engine/     ← NEW  Research intelligence
-├── script-architect/         ← NEW  Rich script generation
-├── visual-asset-forge/       ← NEW  7 Remotion components
-├── pipeline-orchestrator/    ← NEW  Master coordinator
-├── news-curator-tavily-reddit/  Updated cross-reference
-├── prompt-watcher/              Updated cross-reference
-└── youtube-shorts-mastermind/   Updated voice-subtitle sync
-```
+- All HMR builds pass clean (Vite + Remotion)
+- No TypeScript errors
+- Settings flow verified: UI → server API → `.prompts/*.json` → MCP bridge
