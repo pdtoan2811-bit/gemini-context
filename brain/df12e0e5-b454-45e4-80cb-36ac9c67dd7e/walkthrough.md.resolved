@@ -1,80 +1,112 @@
-# Walkthrough — Enhanced Remotion Prompt Studio UI
+# Walkthrough — Skill Pipeline Architecture
 
-## What Changed
+## What Was Built
 
-### 1. Inline Remotion Player Preview
-[VideoPlayer.tsx](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/ui/components/VideoPlayer.tsx) — **No render needed to preview!**
-- Replaced the old `<video>` tag approach with `@remotion/player`'s `<Player>` component
-- When a job completes (`done` status), the UI fetches `timeline.json` and renders the composition **live in the browser**
-- Player has full controls: play/pause, scrub, loop
-- Seeking auto-jumps to a selected scene's start frame
-- Falls back to `<video>` for rendered `.mp4` and placeholder for in-progress jobs
+4 new skills + 2 existing skill updates that transform a generic user topic into a fully-realized Remotion video with programmatic visual assets.
 
-### 2. Scene Timeline Strip
-[SceneTimeline.tsx](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/ui/components/SceneTimeline.tsx) — **NEW component**
-- Horizontal scrollable strip below the video player
-- Each scene card shows: number (color-coded with palette accent), tag, caption preview, duration
-- Click to select/deselect a scene → player seeks to that scene
-- "✕ Clear" button to deselect
+## Pipeline Flow
 
-### 3. Scene Refinement Mode
-[PromptPanel.tsx](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/ui/components/PromptPanel.tsx)
-- When a scene is selected, the prompt panel enters **refine mode**:
-  - Shows a "🎯 Refining: [tag]" indicator with the current caption
-  - Textarea placeholder changes to scene-specific suggestions
-  - Template selector and advanced options are hidden (not relevant for refinement)
-  - Submit button changes to "🎯 Refine Scene"
-  - Submissions include `parentJobId` and `refineScene` in options for context chains
+```
+User: "Anthropic Mythos vs GPT 5.5"
+       │
+       ▼
+┌──────────────────────────────────────────────────────────┐
+│ [pipeline-orchestrator] — Master coordinator             │
+│                                                          │
+│  Phase 1 ► [deep-research-engine]                        │
+│            Tavily deep search + Reddit sentiment         │
+│            → research.json (facts, dataPoints,           │
+│              sentiment, controversies, timeline)          │
+│                                                          │
+│  Phase 2 ► [script-architect]                            │
+│            Research → rich scene script with              │
+│            visual directives (chart, comparison,          │
+│            stat counter, quote card, etc.)                │
+│            → rich-script.json                             │
+│                                                          │
+│  Phase 3 ► [visual-asset-forge] + ElevenLabs TTS         │
+│            7 Remotion components + word-level             │
+│            voiceover timing                               │
+│            → voice.mp3 per scene + wordTimings            │
+│                                                          │
+│  Phase 4 ► Timeline assembly                              │
+│            → timeline.json → Remotion Player preview      │
+└──────────────────────────────────────────────────────────┘
+```
 
-### 4. Max Scene Duration Setting
-- Replaced "Scenes" count with **"Max Duration / Scene"** (default 3 seconds, range 1–15s, step 0.5s)
-- Shows "seconds" label below the input for clarity
+## New Skills Created
 
-### 5. Prompt History with Context Chains
-[JobHistory.tsx](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/ui/components/JobHistory.tsx)
-- Jobs are grouped by parent-child chains (refinements nest under their parent)
-- Version badges (`v1`, `v2`, ...) show on chain members
-- Scene refinement badge (`🎯 sceneId`) on child jobs
-- **"↺" re-use prompt button** on each job card (hover to reveal)
-- **"+ New" button** in the sidebar header to start a fresh video
+### 1. `deep-research-engine`
+[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/deep-research-engine/SKILL.md)
 
-### 6. Render Button
-- [VideoPlayer.tsx](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/ui/components/VideoPlayer.tsx): **"🎬 Render Video"** button appears when a job is done and has a timeline
-- [server.ts](file:///c:/Users/Admin/Desktop/remotionVidsTesting/server/server.ts): **`POST /api/jobs/:id/render`** spawns a Remotion render process
-  - Streams progress via WebSocket (`Rendering: X/Y frames`)
-  - Sets `videoUrl` when done → triggers download button
+- **Multi-angle Tavily search**: Core topic, data/numbers, controversy — 3 parallel searches
+- **Reddit sentiment via Tavily**: Searches `site:reddit.com` across 9 target subreddits
+- **Source credibility ranking**: Tier 1 (Reuters, TechCrunch) → Tier 3 (Reddit, Medium)
+- **Data point extraction**: Regex-based numerical claim parsing with comparison pairing
+- **Output**: `research.json` with `facts[]`, `dataPoints[]`, `sentiment[]`, `controversies[]`, `entities[]`, `timeline[]`
 
-### 7. Server Enhancements
-[server.ts](file:///c:/Users/Admin/Desktop/remotionVidsTesting/server/server.ts)
-- `GET /api/jobs/:id/timeline` — serves timeline.json for any completed job
-- `POST /api/jobs/:id/render` — triggers Remotion render with progress streaming
-- Jobs now store `parentJobId` and `refinedSceneId` for context chains
+### 2. `script-architect`
+[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/script-architect/SKILL.md)
 
-### 8. Type Updates
-[types.ts](file:///c:/Users/Admin/Desktop/remotionVidsTesting/src/lib/types.ts)
-- `PromptJob`: added `parentJobId`, `refinedSceneId`
-- `PromptOptions`: added `refineScene`, `parentJobId`, `maxSceneDuration`
+- **8 visual directive types**: `comparison-bar`, `stat-counter`, `versus-split`, `quote-card`, `timeline-graphic`, `data-table`, `progress-ring`, `caption-only`
+- **Decision matrix**: Maps research signals to visual types (e.g., two numbers → `comparison-bar`)
+- **Scene type ordering**: hook → context → data → comparison → sentiment → impact → cta
+- **Full TypeScript specs** for each visual directive's `data` object
+- **Pacing rules**: fast/punchy/measured/slower with frame duration guidelines
+- **Complete example**: 7-scene rich script for the Mythos vs GPT topic
 
----
+### 3. `visual-asset-forge`
+[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/visual-asset-forge/SKILL.md)
 
-## Files Modified
+**7 production-ready Remotion components** with full React/TSX code:
 
-| File | Change |
-|------|--------|
-| `src/ui/components/VideoPlayer.tsx` | Rewritten: Player + render button |
-| `src/ui/components/SceneTimeline.tsx` | **NEW**: Scene strip component |
-| `src/ui/components/PromptPanel.tsx` | Rewritten: Refine mode + max duration |
-| `src/ui/components/JobHistory.tsx` | Rewritten: Chains + new video btn |
-| `src/ui/App.tsx` | Rewritten: Timeline/scene/render state |
-| `src/ui/index.css` | Extended: ~200 lines of new styles |
-| `src/lib/types.ts` | Extended: New fields |
-| `server/server.ts` | Extended: Timeline + render endpoints |
+| Component | What it renders | Lines of code |
+|-----------|----------------|---------------|
+| `ComparisonBar` | Animated horizontal bars comparing 2-5 values | ~80 |
+| `StatCounter` | Large counting number with glow pulse | ~70 |
+| `VsSplit` | Split-screen entity comparison with bullet points | ~100 |
+| `QuoteCard` | Reddit-style quote with avatar, upvotes, tone badge | ~90 |
+| `TimelineGraphic` | Horizontal timeline with animated dot markers | ~60 |
+| `DataTable` | Row-by-row animated reveal table | ~80 |
+| `ProgressRing` | SVG circular progress indicator | ~70 |
 
-## Verified
+All components use:
+- Spring physics (`spring()`) for entrances
+- Stagger delays for sequential reveals
+- Glass morphism (`backdrop-filter: blur()`)
+- Accent color inheritance from palette or data
+- `Inter` font family with `fontWeight: 700-900`
 
-- ✅ All HMR updates applied with no errors
-- ✅ Server restarts clean with new endpoints
-- ✅ `POST /api/prompt` → creates job with new fields
-- ✅ Timeline endpoint returns correct data
-- ✅ Done signal triggers correct WebSocket broadcast
-- ✅ Build passes — all 4 services running (Server, UI, Remotion, MCP)
+### 4. `pipeline-orchestrator`
+[SKILL.md](file:///c:/Users/Admin/Desktop/remotionVidsTesting/.agents/skills/pipeline-orchestrator/SKILL.md)
+
+- **4-phase execution protocol** with TypeScript mock code for each phase
+- **Quality gates** between phases (minimum facts, scene count validation, voice-subtitle sync check)
+- **Error recovery**: Retry logic for Tavily, ElevenLabs failures; graceful fallbacks
+- **Status update schedule**: 5% → 20% → 35% → 40-65% → 75% → 90% → 100%
+- **Scene refinement flow**: Handles `parentJobId` + `refineScene` for targeted re-generation
+- **Pipeline checklist**: Step-by-step verification before completion signal
+
+## Existing Skills Updated
+
+### `news-curator-tavily-reddit`
+Added note pointing to `deep-research-engine` as the full-pipeline successor.
+
+### `prompt-watcher`
+Added note pointing to `pipeline-orchestrator` for enhanced workflow.
+
+### `youtube-shorts-mastermind` (previous session)
+Added Voice-Subtitle Sync Protocol (6 mandatory rules).
+
+## Final Skills Directory
+
+```
+.agents/skills/
+├── deep-research-engine/     ← NEW  Research intelligence
+├── script-architect/         ← NEW  Rich script generation
+├── visual-asset-forge/       ← NEW  7 Remotion components
+├── pipeline-orchestrator/    ← NEW  Master coordinator
+├── news-curator-tavily-reddit/  Updated cross-reference
+├── prompt-watcher/              Updated cross-reference
+└── youtube-shorts-mastermind/   Updated voice-subtitle sync
+```
