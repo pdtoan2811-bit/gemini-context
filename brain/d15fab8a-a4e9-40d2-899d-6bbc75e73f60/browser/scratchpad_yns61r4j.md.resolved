@@ -1,0 +1,27 @@
+# Task: Verify Sandbox Project Detail View Changes
+
+## Plan
+- [ ] Navigate to `http://localhost:3000/en/projects/sandbox`
+- [ ] Take a screenshot of the project list
+- [ ] Click "Xem" on the Binance project
+- [ ] Verify detail view tabs (Traffic -> Kết nối báo cáo -> Thông tin) and take a screenshot
+- [ ] Click "Kết nối báo cáo" tab and take a screenshot
+- [ ] Click "Connect Campaign" and take a screenshot of the modal
+- [ ] Click "Thông tin dự án" tab and take a screenshot
+- [ ] Report findings
+
+## Progress
+- [x] Navigate to `http://localhost:3000/en/projects/sandbox`
+- [ ] Take a screenshot of the project list
+- [ ] Click "Xem" on the Binance project
+- [ ] Verify detail view tabs (Traffic -> Kết nối báo cáo -> Thông tin) and take a screenshot
+- [ ] Click "Kết nối báo cáo" tab and take a screenshot
+- [ ] Click "Connect Campaign" and take a screenshot of the modal
+- [ ] Click "Thông tin dự án" tab and take a screenshot
+- [ ] Report findings
+
+## Observations
+- Stuck at sign-in page (`/en/signin`).
+- Clicking "Sign in with Keycloak" leads to a real Keycloak login page which requires credentials.
+- Instructions said to wait and refresh, but it hasn't bypassed the login yet after multiple attempts and a 30s wait.
+- I'll try to reach the user or seek an alternative way if possible.

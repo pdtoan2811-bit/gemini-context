@@ -1,0 +1,14 @@
+# Task: Verify Sandbox Project Detail View Changes
+
+## Plan
+- [ ] Navigate to `http://localhost:3000/en/projects/sandbox`
+- [ ] Take a screenshot of the project list
+- [ ] Click "Xem" on the Binance project
+- [ ] Verify detail view tabs (Traffic -> Kết nối báo cáo -> Thông tin) and take a screenshot
+- [ ] Click "Kết nối báo cáo" tab and take a screenshot
+- [ ] Click "Connect Campaign" and take a screenshot of the modal
+- [ ] Click "Thông tin dự án" tab and take a screenshot
+- [ ] Report findings
+
+## Progress
+- 
