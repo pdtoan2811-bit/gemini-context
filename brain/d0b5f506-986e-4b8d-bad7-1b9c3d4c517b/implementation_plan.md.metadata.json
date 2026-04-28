@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Detailed implementation plan for building an interactive demo of the Adecos Project + Campaign Ads + Link Ref management system. Covers project setup with Vite + React + shadcn/ui, data modeling, UI components, and the three core flows: Create, Update, and Delete.",
+  "updatedAt": "2026-04-28T06:46:30.613110900Z",
+  "requestFeedback": true
+}
