@@ -1,0 +1,12 @@
+# Project Verification Checklist
+
+- [ ] Dashboard (http://localhost:5173/)
+- [ ] Project List (http://localhost:5173/projects)
+- [ ] Create Flow Demo (http://localhost:5173/demo/create)
+- [ ] Update Flow Demo (http://localhost:5173/demo/update)
+
+## Findings
+- Dashboard: 
+- Project List: 
+- Create Flow Demo: 
+- Update Flow Demo: 

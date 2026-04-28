@@ -1,0 +1,33 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	A
+	Adecos
+	Enterprise
+	[1] (62,110)<a class='flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 text-gray-400 hover:bg-white/5 hover:text-gray-200' href='/'>Dashboard />
+	[2] (62,156)<a class='flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 text-gray-400 hover:bg-white/5 hover:text-gray-200' href='/projects'>Project Management />
+	[3] (62,202)<a class='flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 text-gray-400 hover:bg-white/5 hover:text-gray-200' href='/ads'>Ads Management />
+	[4] (62,248)<a class='flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 text-gray-400 hover:bg-white/5 hover:text-gray-200' href='/activity'>Activity Log />
+	[5] (62,311)<button class='flex items-center gap-3 px-3 py-2.5 rounded-lg text-[13px] font-medium text-gray-400 hover:bg-white/5 hover:text-gray-200 transition-all w-full'>Demo Scenarios />
+		Demo Scenarios
+	[6] (66,362)<a class='flex items-center gap-2 pl-6 pr-3 py-2 rounded-lg text-[12px] font-medium transition-all duration-200 text-gray-500 hover:bg-white/5 hover:text-gray-300' href='/demo/create' />
+		[7] (29,362)<div  />
+	[8] (66,401)<a class='flex items-center gap-2 pl-6 pr-3 py-2 rounded-lg text-[12px] font-medium transition-all duration-200 bg-[#E97A2B]/15 text-[#E97A2B]' href='/demo/update' />
+		[9] (29,401)<div  />
+	[10] (66,439)<a class='flex items-center gap-2 pl-6 pr-3 py-2 rounded-lg text-[12px] font-medium transition-all duration-200 text-gray-500 hover:bg-white/5 hover:text-gray-300' href='/demo/delete' />
+		[11] (29,439)<div  />
+	Anh Đức
+	duc.ba@adecos.com
+	Demo › Update Flow
+	[12] (790,114)<button class='flex items-center gap-2 px-3 py-2 text-sm text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors' />
+	[13] (356,202)<button class='flex items-center gap-3 px-5 py-3 rounded-xl border transition-all border-[#E97A2B] bg-orange-50 shadow-sm' />
+	[14] (469,202)<button class='flex items-center gap-3 px-5 py-3 rounded-xl border transition-all border-gray-200 bg-white hover:border-gray-300' />
+	[15] (569,202)<button class='flex items-center gap-3 px-5 py-3 rounded-xl border transition-all border-gray-200 bg-white hover:border-gray-300' />
+	[16] (453,433)<label class='block text-sm font-medium text-gray-700 mb-1' />
+	[17] (453,470)<select class='w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-200' />
+	[18] (453,519)<label class='block text-sm font-medium text-gray-700 mb-1' />
+	[19] (453,556)<input class='w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-200' />
+
+</current_dom>

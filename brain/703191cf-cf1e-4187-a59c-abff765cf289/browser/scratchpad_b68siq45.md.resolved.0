@@ -1,0 +1,13 @@
+# Task: Verify localhost:3000
+
+## Checklist
+- [ ] Navigate to http://localhost:3000
+- [ ] Wait for page load (up to 30s)
+- [ ] Check final URL (redirects)
+- [ ] Capture visible content/errors
+- [ ] Capture page title
+- [ ] Report findings
+
+## Observations
+- Environment: Next.js dev server running on port 3000.
+- Previous Issue: Page loading forever or timing out.

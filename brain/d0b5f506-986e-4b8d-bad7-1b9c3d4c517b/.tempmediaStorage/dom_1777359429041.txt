@@ -1,0 +1,46 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[plugin:vite:import-analysis]
+Failed to resolve import "../../store/useStore" from "src/pages/DeleteFlowDemo.jsx". Does the file exist?
+C:
+[0] (317,116)<a class='file-link'>/Users/Admin/Desktop/adecosProjectProDemo/src/pages/DeleteFlowDemo.jsx:2:25 />
+1  |  import { useState } from "react";
+2  |  import { useStore } from "../../store/useStore";
+   |                            ^
+3  |  import { RefreshCw, Unlink, PauseCircle, CheckCircle2, XCircle, Loader2, ArrowRight, ShieldAlert, Archive, Database }...
+4  |  var _jsxFileName = "C:/Users/Admin/Desktop/adecosProjectProDemo/src/pages/DeleteFlowDemo.jsx";
+at TransformPluginContext._formatLog (
+[1] (484,294)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:30375:39 />
+)
+    at TransformPluginContext.error (
+[2] (466,315)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:30372:14 />
+)
+    at normalizeUrl (
+[3] (406,335)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:27654:18 />
+)
+    at async
+[4] (376,356)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:27717:30 />
+at async Promise.all (index 1)
+    at async TransformPluginContext.transform (
+[5] (501,397)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:27685:4 />
+)
+    at async EnvironmentPluginContainer.transform (
+[6] (518,418)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:30164:14 />
+)
+    at async loadAndTransform (
+[7] (443,439)<a class='file-link'>file:///C:/Users/Admin/Desktop/adecosProjectProDemo/node_modules/vite/dist/node/chunks/node.js:24512:26 />
+)
+Click outside, press
+Esc
+key, or fix the code to dismiss.
+You can also disable this overlay by setting
+server.hmr.overlay
+to
+false
+in
+vite.config.js
+.
+
+</current_dom>
