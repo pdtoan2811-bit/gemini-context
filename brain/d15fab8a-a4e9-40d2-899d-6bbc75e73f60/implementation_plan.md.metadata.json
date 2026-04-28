@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for building a sandbox/prototype UI that demonstrates the full Campaign → Link Ref → Project mapping lifecycle. Covers:\n\n1. New TypeScript types for the enhanced domain model (SandboxProject, LinkRef, AdsCampaign, SyncEvent)\n2. Comprehensive mock data with 5 projects, 8+ campaigns, 6+ link refs\n3. React context store with reducer for state management and scenario loading\n4. New route at /projects/sandbox with three-panel layout\n5. 10+ new UI components including scenario menu, project list, modals for connect/migrate/edit, event log, sync animations\n6. 12 clickable scenarios covering Create, Update, Delete, and Error edge cases\n7. Premium dark-mode design with glassmorphism, Framer Motion animations, and color-coded status system",
+  "updatedAt": "2026-04-28T07:24:50.258345200Z",
+  "requestFeedback": true
+}
