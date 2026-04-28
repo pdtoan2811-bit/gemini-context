@@ -1,0 +1,136 @@
+Data Preview & Preparation
+Affiliate Program Dataset
+13,222
+Records
+19
+Fields
+113 MB
+File Size
+[0] (880,45)<label class='file-input-label' id='upload-btn'>Upload JSON />
+Overview
+Data Table
+Data Quality
+Distribution
+Cleaning Plan
+Data Distribution
+Understand the distribution of values across key fields
+Industry
+5 categories
+Forex
+0.9%
+120
+Crypto
+6.5%
+858
+SP số
+75.6%
+9,997
+Tài chính
+2.0%
+270
+SPVL
+15.0%
+1,977
+Top 10 Niches
+31 total
+Software
+37.1%
+4,907
+AI
+29.7%
+3,921
+Crypto Sàn
+5.1%
+680
+Tech & Digital Products
+3.6%
+478
+Self Improvement
+3.5%
+469
+Lifestyles
+3.1%
+414
+Services Marketplace
+2.6%
+349
+Consumer Goods
+2.5%
+325
+B2B
+1.7%
+229
+Travel
+1.3%
+174
+Top Commission Types
+134 types
+CPS
+18.0%
+2,375
+Revenue Share
+11.6%
+1,538
+CPA
+5.4%
+709
+Hybrid
+1.2%
+153
+CPL
+0.2%
+30
+Referral
+0.2%
+28
+Vĩnh viễn, % doanh thu
+0.2%
+27
+vĩnh viễn, % doanh thu
+0.1%
+19
+Currency Distribution
+16 types
+%
+28.5%
+3,770
+USD
+3.9%
+518
+EUR
+0.1%
+18
+GBP
+0.1%
+13
+INR
+0.1%
+9
+Credits
+0.0%
+4
+credits
+0.0%
+3
+CAD
+0.0%
+2
+Period Month
+3 periods
+2026-03
+91.2%
+12,061
+2026-01
+3.8%
+505
+2026-02
+5.0%
+656
+Has Policy
+2 values
+true
+100.0%
+13,222
+false
+0.0%
+0

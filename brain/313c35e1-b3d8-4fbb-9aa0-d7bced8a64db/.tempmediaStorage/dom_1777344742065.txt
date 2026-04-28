@@ -1,0 +1,70 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Data Preview & Preparation
+Affiliate Program Dataset
+13,222
+Records
+19
+Fields
+113 MB
+File Size
+[0] (880,45)<label class='file-input-label' id='upload-btn'>Upload JSON />
+Overview
+Data Table
+Data Quality
+Distribution
+Cleaning Plan
+Data Cleaning Preparation
+Recommended cleaning steps based on data analysis
+[1] (500,178)<div class='step-header' />
+	[2] (120,178)<div >1 />
+	[3] (504,178)<div  />
+		[4] (504,166)<div >Handle Missing Commission Data />
+		[5] (504,192)<div >8,146 null commission_type + 8,922 null commission_min/max />
+	[6] (884,178)<div  />
+[7] (500,283)<div class='step-header' />
+	[8] (120,283)<div >2 />
+	[9] (504,283)<div  />
+		[10] (504,272)<div >Standardize Commission Types />
+		[11] (504,297)<div >135 unique values → target ~8 categories />
+	[12] (884,283)<div  />
+[13] (500,389)<div class='step-header' />
+	[14] (120,389)<div >3 />
+	[15] (504,389)<div  />
+		[16] (504,377)<div >Normalize Currency Field />
+		[17] (504,402)<div >17 unique values → standardize to ISO codes + percentage flag />
+	[18] (884,389)<div  />
+[19] (500,494)<div class='step-header' />
+	[20] (120,494)<div >4 />
+	[21] (504,494)<div  />
+		[22] (504,482)<div >Fix Monthly Visits Outliers />
+		[23] (504,507)<div >Max value: 11,892,679,876 — clearly erroneous />
+	[24] (884,494)<div  />
+[25] (500,599)<div class='step-header' />
+	[26] (120,599)<div >5 />
+	[27] (504,599)<div  />
+		[28] (504,588)<div >Remove Zero-Variance Fields />
+		[29] (504,613)<div >status_project has only 1 unique value />
+	[30] (884,599)<div  />
+[31] (500,705)<div class='step-header' />
+	[32] (120,705)<div >6 />
+	[33] (504,705)<div  />
+		[34] (504,693)<div >Handle Missing Descriptions />
+		[35] (504,718)<div >484 null + 1 empty description records />
+	[36] (884,705)<div  />
+[37] (500,810)<div class='step-header' />
+	[38] (120,810)<div >7 />
+	[39] (504,810)<div  />
+		[40] (504,798)<div >Standardize Notes Field />
+		[41] (504,823)<div >12,748 non-null notes — mostly tag-like values />
+	[42] (884,810)<div  />
+[43] (500,915)<div class='step-header' />
+	[44] (120,915)<div >8 />
+	[45] (504,915)<div  />
+		[46] (504,904)<div >Flatten Nested Fields (Optional) />
+		[47] (504,929)<div >policy_details has 42 keys, traffic_details has 4 keys />
+	[48] (884,915)<div  />
+
+</current_dom>

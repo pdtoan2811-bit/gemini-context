@@ -1,0 +1,108 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Data Preview & Preparation
+Affiliate Program Dataset
+13,222
+Records
+19
+Fields
+113 MB
+File Size
+[0] (880,45)<label class='file-input-label' id='upload-btn'>Upload JSON />
+Overview
+Data Table
+Data Quality
+Distribution
+Cleaning Plan
+Data Quality Report
+Identify missing values, anomalies, and data issues
+86%
+Quality Score
+Completeness
+85.7%
+No Duplicates (ID)
+100%
+No Duplicates (URL)
+100%
+Commission Data
+38.4%
+Description Coverage
+96.3%
+Currency Data
+32.9%
+Missing Data Analysis
+7 fields with nulls
+id
+0.0%
+0 nulls
+name
+0.0%
+0 nulls
+url
+0.0%
+0 nulls
+industry
+0.0%
+0 nulls
+niche
+0.0%
+0 nulls
+sub_niche
+0.0%
+0 nulls
+description
+3.7%
+484 nulls
+status_project
+0.0%
+0 nulls
+commission_type
+61.6%
+8,146 nulls
+commission_min
+67.5%
+8,922 nulls
+commission_max
+67.5%
+8,922 nulls
+currency
+67.1%
+8,877 nulls
+monthly_visits
+0.0%
+0 nulls
+period_month
+0.0%
+0 nulls
+has_policy
+0.0%
+0 nulls
+traffic_info
+0.0%
+0 nulls
+notes
+3.6%
+474 nulls
+created_date
+0.0%
+0 nulls
+update_date
+0.1%
+14 nulls
+Data Anomalies & Issues
+⚠️
+Commission Type: 8,146 null values (61.6%)
+Most null commission_type records likely need policy data extraction or removal.
+HIGH
+⚠️
+Commission Min/Max: 8,922 null values (67.5%)
+Commission range data is missing for 67.5% of records. These need to be extracted from policy_details or set to defaults.
+HIGH
+💱
+Currency: 8,877 null values
+Currency information is missing for 67.1% of records. May correlate with missing commission data.
+MEDIUM
+
+</current_dom>

@@ -1,0 +1,259 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Data Preview & Preparation
+Affiliate Program Dataset
+13,222
+Records
+19
+Fields
+113 MB
+File Size
+[0] (880,45)<label class='file-input-label' id='upload-btn'>Upload JSON />
+Overview
+Data Table
+Data Quality
+Distribution
+Cleaning Plan
+Data Table
+Browse and search through all records
+[1] (315,152)<input id='search-input' placeholder='Search by name, URL, or niche...' />
+[2] (554,152)<select class='filter-select' id='filter-industry' />
+[3] (646,152)<select class='filter-select' id='filter-commission' />
+[4] (735,152)<select class='filter-select' id='filter-period' />
+Showing 1–50 of 13,222
+[5] (874,152)<div >Columns />
+[6] (500,516)<div class='table-wrapper scrollable' id='main-table-wrapper' scrollable='true' />
+	[7] (145,209)<th >name />
+		[8] (134,210)<span >⇅ />
+	[9] (241,209)<th >url />
+		[10] (215,210)<span >⇅ />
+	[11] (322,209)<th >industry />
+		[12] (341,210)<span >⇅ />
+	[13] (387,209)<th >niche />
+		[14] (385,210)<span >⇅ />
+	[15] (476,209)<th >commission_type />
+		[16] (502,210)<span >⇅ />
+	[17] (570,209)<th >commission_min />
+		[18] (602,210)<span >⇅ />
+	[19] (656,209)<th >commission_max />
+		[20] (689,210)<span >⇅ />
+	[21] (729,209)<th >currency />
+		[22] (750,210)<span >⇅ />
+	[23] (800,209)<th >monthly_visits />
+		[24] (831,210)<span >⇅ />
+	[25] (879,209)<th >period_month
+⇅ />
+		⇅
+	has_policy
+	⇅
+	Liquid Brokers
+	[26] (247,252)<a href='https://www.liquidbrokers.com/'>https://www.liquidbrokers.com/ />
+	Forex
+	Forex Sàn
+	CPA
+	4
+	4
+	USD
+	257,734
+	2026-03
+	✓ true
+	KOT4X
+	[27] (226,297)<a href='https://kot4x.com/'>https://kot4x.com/ />
+	Forex
+	Forex Sàn
+	Vĩnh viễn, số tiền cố định trên mỗi lot giao dịch
+	2
+	2
+	USD
+	10,531
+	2026-03
+	✓ true
+	Coinexx
+	[28] (229,341)<a href='https://coinexx.com/'>https://coinexx.com/ />
+	Crypto
+	Crypto Sàn
+	Vĩnh viễn, % doanh thu
+	50
+	50
+	%
+	85,684
+	2026-03
+	✓ true
+	Fireflies AI
+	[29] (225,386)<a href='https://fireflies.ai/'>https://fireflies.ai/ />
+	SP số
+	AI
+	vĩnh viễn (trong 12 tháng)
+	30
+	30
+	%
+	4,596,762
+	2026-03
+	✓ true
+	Tapbit
+	[30] (239,430)<a href='https://www.tapbit.com/en'>https://www.tapbit.com/en />
+	Crypto
+	Crypto Sàn
+	Revenue Share
+	70
+	70
+	%
+	5,522,571
+	2026-03
+	✓ true
+	FTMO
+	[31] (229,474)<a href='https://ftmo.com/en/'>https://ftmo.com/en/ />
+	Forex
+	Forex Quỹ
+	Một lần, % doanh thu
+	20
+	20
+	%
+	6,266,718
+	2026-03
+	✓ true
+	OneKey
+	[32] (225,519)<a href='https://onekey.so/'>https://onekey.so/ />
+	Crypto
+	Crypto Wallet
+	Vĩnh viễn, % doanh thu
+	18
+	18
+	%
+	303,976
+	2026-03
+	✓ true
+	Sway Funded
+	[33] (237,563)<a href='https://swayfunded.com/'>https://swayfunded.com/ />
+	Forex
+	Forex Quỹ
+	Trọn đời, % doanh thu (10 tầng)
+	20
+	20
+	%
+	18,614
+	2026-03
+	✓ true
+	Gamdom
+	[34] (231,608)<a href='https://gamdom.com/'>https://gamdom.com/ />
+	Tài chính
+	Game
+	Vĩnh viễn, % doanh thu hoặc % lợi thế nhà cái
+	20
+	20
+	%
+	1,337,980
+	2026-03
+	✓ true
+	Hankotrade
+	[35] (235,652)<a href='https://hankotrade.com/'>https://hankotrade.com/ />
+	Forex
+	Forex Sàn
+	Chia sẻ doanh thu (Revenue Share) vĩnh viễn
+	12
+	12
+	USD
+	262,043
+	2026-03
+	✓ true
+	The Trading Pit
+	[36] (246,697)<a href='https://www.thetradingpit.com/'>https://www.thetradingpit.com/ />
+	SPVL
+	Self Improvement
+	Vĩnh viễn, % doanh thu (MLM hoặc Bậc thang)
+	10
+	10
+	%
+	315,021
+	2026-03
+	✓ true
+	WEEX
+	[37] (234,741)<a href='https://www.weex.com/'>https://www.weex.com/ />
+	Crypto
+	Crypto Sàn
+	Vĩnh viễn, % doanh thu phí giao dịch
+	40
+	40
+	%
+	12,911,243
+	2026-03
+	✓ true
+	Gate
+	[38] (233,786)<a href='https://www.gate.com/'>https://www.gate.com/ />
+	Crypto
+	Crypto Sàn
+	Vĩnh viễn, % doanh thu
+	40
+	40
+	%
+	13,800,866
+	2026-03
+	✓ true
+	Bybit
+	[39] (239,830)<a href='https://www.bybit.com/en/'>https://www.bybit.com/en/ />
+	Crypto
+	Crypto Sàn
+	Revenue Share
+	50
+	50
+	%
+	12,764,010
+	2026-03
+	✓ true
+	DuraMarkets
+	https://duramarkets.com/
+	Forex
+	Forex Sàn
+	Phần trăm doanh thu
+	40
+	40
+	%
+	20,103
+	2026-03
+	✓ true
+	Expandi
+	https://expandi.io/
+	SP số
+	Software
+	Phần trăm doanh thu định kỳ (Recurring)
+	20
+	20
+	%
+	223,239
+	2026-03
+	✓ true
+	KCEX
+	https://www.kcex.com/
+	Crypto
+	Crypto Sàn
+	Vĩnh viễn, % doanh thu (Rebate)
+	100
+	100
+	%
+	7,138,807
+	2026-03
+	✓ true
+	Pocket
+	https://pocketoption.com/en/login/
+	Tài chính
+	BO
+	vĩnh viễn, % doanh thu
+	15
+	15
+	%
+	5,333,825
+	2026-03
+	✓ true
+Previous
+[40] (447,880)<button class='page-num active'>1 />
+[41] (467,880)<button class='page-num '>2 />
+[42] (487,880)<button class='page-num '>3 />
+[43] (506,880)<button class='page-num '>4 />
+[44] (526,880)<button class='page-num '>5 />
+...
+[45] (566,880)<button class='page-num '>265 />
+[46] (600,880)<button class='page-btn' id='next-page'>Next />
+
+</current_dom>
