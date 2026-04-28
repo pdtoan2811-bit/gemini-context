@@ -1,25 +1,43 @@
-# Task: Enhanced Project Management Sandbox
+# Project Management Sandbox — Task Progress
 
-## Phase 1: Core Data Layer
-- [/] Types (`project-campaign-types.ts`)
-- [ ] Mock data (`mock-project-campaign-data.ts`)
-- [ ] Store/Context (`useProjectCampaignStore.ts`)
+## Phase 1: Core Architecture ✅
+- [x] Domain types (`project-campaign-types.ts`)
+- [x] Mock data (`mock-project-campaign-data.ts`)
+- [x] State store (`useProjectCampaignStore.tsx`)
+- [x] Page route (`/projects/sandbox/page.tsx`)
 
-## Phase 2: UI Components
-- [ ] `ProjectSandboxLayout.tsx`
-- [ ] `ScenarioMenu.tsx`
-- [ ] `ProjectListPanel.tsx`
-- [ ] `CampaignCard.tsx`
-- [ ] `LinkRefCard.tsx`
-- [ ] `ConnectCampaignModal.tsx`
-- [ ] `MigrateCampaignModal.tsx`
-- [ ] `EditLinkRefModal.tsx`
-- [ ] `EventLogPanel.tsx`
-- [ ] `SyncAnimation.tsx`
+## Phase 2: Layout & Navigation ✅
+- [x] ~~Three-panel layout~~ → **Two-panel layout** (collapsible scenario + main)
+- [x] Sidebar nav link with 🧪 badge
+- [x] Collapsible left panel with toggle button
 
-## Phase 3: Route & Integration
-- [ ] Page route (`/projects/sandbox/page.tsx`)
+## Phase 3: Scenario Panel ✅
+- [x] ScenarioMenu with 12 categorized scenarios (Create/Update/Delete/Edge)
+- [x] Event Log merged INTO scenario panel as a tab
+- [x] Tabs: "Kịch bản" / "Event Log" with counts
 
-## Phase 4: Verification
-- [ ] Build check
-- [ ] Visual verification
+## Phase 4: Project List (Production-matching DataTable) ✅
+- [x] DataTable with columns: STT, Dự án, Trạng thái, Campaign, Link Ref, Chi phí, Clicks, Cập nhật, Actions
+- [x] Checkbox selection, status badges
+- [x] Filter tabs: Tất cả / Đang chạy / Đã lưu
+- [x] "Thêm dự án" button + create modal
+- [x] Scenario auto-run logic (all 12 scenarios)
+
+## Phase 5: Project Detail View (Production-grade) ✅
+- [x] **SandboxDetailView** — separate production-quality component file
+- [x] Mirrors production `ProjectDetailLayout` structure with `SimpleTabs`
+- [x] Tab 1: **Thông tin dự án** — project description, general info fields, policy cards (Hoa hồng / Trả thưởng / Cấm & điều kiện)
+- [x] Tab 2: **Campaign & Link Ref** — connect/disconnect/migrate/edit actions with modals, link ref grid, campaign cards
+- [x] Tab 3: **Chỉ số traffic** — KPI cards with trend arrows, Recharts TrafficTrendChart + SocialTrafficChart, mock monthly data
+- [x] Stat bar: Campaign count, Chi phí, Clicks, Conversions
+- [x] Back navigation to list
+- [x] All modals: ConnectCampaign, MigrateCampaign, EditLinkRef
+
+## Phase 6: Supporting Components ✅
+- [x] CampaignCard, LinkRefCard
+- [x] SyncAnimation (step-by-step progress)
+- [x] ConnectCampaignModal, MigrateCampaignModal, EditLinkRefModal
+
+## Verification ✅
+- [x] TypeScript compiles clean (`tsc --noEmit` passes)
+- [x] Dev server serves `/en/projects/sandbox` — 200 OK
