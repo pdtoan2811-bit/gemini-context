@@ -1,0 +1,13 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+404
+Trang không tồn tại.
+Trang bạn tìm không tồn tại hoặc đã được chuyển đi.
+Lạc trong không gian?
+[0] (500,635)<a class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-primary/90 h-10 max-h-10 px-2 py-1.5 has-[>svg]:px-2 gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-500 hover:to-blue-500 hover:opacity-95 transition-all duration-200' href='/vi'>Về trang chủ />
+Thử tìm kiếm hoặc quay về trang chủ.
+[1] (500,762)<input aria-label='Tìm kiếm' class='file:text-foreground selection:bg-primary selection:text-primary-foreground border-border! h-9 min-h-10 w-full min-w-0 rounded-10 border px-3 py-1 text-base transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring aria-invalid:border-destructive border-zinc-700 bg-zinc-900/50 placeholder:text-zinc-500 focus-visible:ring-purple-500/50 dark:border-border dark:bg-input/30' placeholder='Tìm kiếm...' />
+
+</current_dom>

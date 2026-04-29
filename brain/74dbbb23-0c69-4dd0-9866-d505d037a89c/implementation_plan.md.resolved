@@ -1,336 +1,341 @@
-# Retroactive Fill — "Expand-As-You-Go" Approach
+# Two-Dataset Architecture: Live vs Backdate
 
-## Your Insight
+## The Problem with One Table
 
-The two data streams are **independent and asymmetric**:
-
-```
-ADS TRANSACTIONS (automated)          REF COUNTS (manual)
-────────────────────────               ────────────────────
-✅ Always flowing (hourly sync)        ❌ User enters manually
-✅ Full history available              ❌ User may only have today + yesterday
-✅ Precise (from Google Ads API)       ⚠️ Can be backdated / adjusted
-✅ Attributed automatically on map     ❌ User must enter for each date
-```
-
-**The key rule**: Dashboard only shows **combined metrics** (Cost/Ref, Click→Ref) for dates where **BOTH ads transactions AND ref counts exist**. The calculation window naturally expands as user enters more ref count data.
-
----
-
-## How It Works — Full Trace
-
-### Day 1: System starts syncing Campaign A (unmapped)
+Mixing live-synced data and retroactive backfill in the same table:
 
 ```
-Hourly sync runs → transactions created:
-
-TX-001 | Day 1, 00:00 | Camp A | refLink: null | project: null | $180 | UNATTRIBUTED
-TX-002 | Day 1, 01:00 | Camp A | refLink: null | project: null | $195 | UNATTRIBUTED
-TX-003 | Day 1, 02:00 | Camp A | refLink: null | project: null | $160 | UNATTRIBUTED
+TX-001 | Day 1,  00:00 | Camp A | $180 | SYNC      ← live, hourly, reliable
+TX-002 | Day 1,  01:00 | Camp A | $195 | SYNC      ← live, hourly, reliable
 ...
-TX-024 | Day 1, 23:00 | Camp A | refLink: null | project: null | $175 | UNATTRIBUTED
+TX-700 | Day 1         | Camp A | $4,800 | BACKFILL ← daily, retroactive, estimated
 ```
 
-**Dashboard**: Shows "⚠️ $4,200 chi phí chưa gán" (unattributed pool)
+Problems:
+- **Which one do I trust?** Live TX-001 and backfill TX-700 both cover Day 1
+- **Backfill based on current mapping** — if mapping changes, backfill is wrong but lives in same table as real data
+- **Can't safely re-generate** backfill without risking live data
+- **Different granularity** — hourly vs daily in one table = messy aggregation
 
-### Days 2–29: Sync continues, transactions pile up
+## The Solution: Two Separate Datasets
 
-```
-TX-025 to TX-696: 29 days × 24 hours = 696 more UNATTRIBUTED transactions
-Total unattributed: ~$125,000
-```
-
-**Dashboard**: "⚠️ $125,000 chi phí chưa gán (Campaign A)" — user sees the warning daily.
-
-### Day 30: User maps Campaign A → binance.com/?ref=ducba → Project Binance
-
-**What happens immediately:**
-
-1. ✅ Future transactions (Day 30+) are automatically attributed:
-```
-TX-721 | Day 30, 00:00 | Camp A | ref=ducba | Binance | $190 | SYNC
-TX-722 | Day 30, 01:00 | Camp A | ref=ducba | Binance | $205 | SYNC
-```
-
-2. ✅ Past UNATTRIBUTED transactions (Day 1-29) get re-attributed:
-```
-TX-001 | Day 1, 00:00 | Camp A | ref=ducba | Binance | $180 | BACKFILL (was UNATTRIBUTED)
-TX-002 | Day 1, 01:00 | Camp A | ref=ducba | Binance | $195 | BACKFILL
-...all 696 transactions now point to Binance
-```
-
-**Dashboard for Project Binance**:
-```
-📊 Từ Google Ads (1 campaign đang kết nối)
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Tổng chi phí │ │ Tổng clicks  │ │ Tổng impr.   │
-│ $129,200  ✅ │ │ 12,400   ✅  │ │ 340,000  ✅  │ ← Full 30 days of data!
-└──────────────┘ └──────────────┘ └──────────────┘
-
-📈 Từ Link Ref (1 link ref)
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
-│ —            │ │ —            │ │ —            │ ← NO ref counts entered yet!
-└──────────────┘ └──────────────┘ └──────────────┘
-  ℹ️ Nhập ref count để xem chỉ số Cost/Ref
+```mermaid
+graph TB
+    subgraph "Dataset 1: LIVE TRANSACTIONS"
+        A["Hourly Sync"] --> B["ads_transactions"]
+        B --> |"Machine-generated<br/>Immutable<br/>Hourly granularity"| C["🔒 NEVER modified"]
+    end
+    subgraph "Dataset 2: BACKDATE ESTIMATES"
+        D["Google Ads<br/>History API"] --> E["ads_backdate"]
+        E --> |"Retroactive<br/>Regenerable<br/>Daily granularity"| F["♻️ CAN be wiped & rebuilt"]
+    end
+    subgraph "Query Layer"
+        B --> G["MERGE"]
+        E --> G
+        G --> |"Live wins over Backdate"| H["Dashboard metrics"]
+    end
+    style B fill:#34d399,color:#000
+    style E fill:#f59e0b,color:#000
+    style H fill:#6366f1,color:#fff
 ```
 
-> **Ads data = complete.** But ref data = empty → combined metrics show "—".
-
-### Day 30 (later): User enters ref counts for today + yesterday
-
-```
-Ref count entered:
-  Day 29: 43 refs
-  Day 30: 55 refs
-```
-
-**Dashboard updates:**
-```
-📈 Từ Link Ref (1 link ref — 2 ngày có dữ liệu)
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
-│ 98 refs      │ │ $86          │ │ 2.3%         │
-│ (2 ngày)     │ │ (2 ngày)     │ │ (2 ngày)     │
-└──────────────┘ └──────────────┘ └──────────────┘
-```
-
-**Calculation** (only for days with ref data):
-```
-Day 29: Ads cost = $4,300 (from transactions), Ref = 43 → Cost/Ref = $100
-Day 30: Ads cost = $4,180 (from transactions), Ref = 55 → Cost/Ref = $76
-Average Cost/Ref = ($4,300 + $4,180) / (43 + 55) = $86.5
-```
-
-**Chart** (only 2 data points so far):
-```
-Cost/Ref
-  $150 ┤
-  $100 ┤─╮      ← Day 29
-   $76 ┤ ╰──    ← Day 30
-   $50 ┤
-     0 ┼──┬──
-        29  30
-```
-
-### Day 35: User backfills ref counts for Day 20–28
-
-```
-Ref count entered for Day 20-28:
-  Day 20: 38, Day 21: 41, Day 22: 35, Day 23: 44, Day 24: 39,
-  Day 25: 47, Day 26: 42, Day 27: 50, Day 28: 45
-```
-
-**Dashboard automatically expands:**
-```
-📈 Từ Link Ref (1 link ref — 11 ngày có dữ liệu)
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
-│ 479 refs     │ │ $92          │ │ 2.1%         │
-│ (11 ngày)    │ │ (11 ngày)    │ │ (11 ngày)    │
-└──────────────┘ └──────────────┘ └──────────────┘
-```
-
-**Chart expands** (11 data points now):
-```
-Cost/Ref
-  $120 ┤      ╭╮
-  $100 ┤──╮╭─╯╰─╮╭─╮     ← Day 20-28 filled in!
-   $80 ┤  ╰╯    ╰╯ ╰──
-   $60 ┤
-     0 ┼──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──
-        20 21 22 23 24 25 26 27 28 29 30
-```
-
-> **The ads data for Day 20-28 was ALWAYS THERE** (from Day 1 sync).
-> Only the ref count side was missing. Once user fills it in → chart expands instantly.
-
-### Day 60: User backfills all remaining ref counts (Day 1–19)
-
-```
-Dashboard now has FULL 60 days of data:
-
-📈 Từ Link Ref (1 link ref — 60 ngày có dữ liệu)
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
-│ 2,340 refs   │ │ $89          │ │ 2.2%         │
-│ (60 ngày)    │ │ (60 ngày)    │ │ (60 ngày)    │
-└──────────────┘ └──────────────┘ └──────────────┘
-```
-
-**Full chart** — all 60 days visible with no gaps.
+| | Live Transactions | Backdate Estimates |
+|---|---|---|
+| **Source** | Hourly cron sync | Google Ads History API (pulled on mapping) |
+| **Granularity** | Hourly | Daily |
+| **Confidence** | 🟢 High — real-time, machine-generated | 🟡 Medium — retroactive, based on current mapping |
+| **Mutability** | Immutable — never edit or delete | Regenerable — can wipe & rebuild |
+| **Mapping change** | Stays untouched | **Wiped and regenerated** with new mapping |
+| **Data starts flowing** | From campaign first sync | From Google Ads history (up to 2 years back) |
+| **Lifespan** | Permanent | **Superseded** by live data over time |
 
 ---
 
-## What Date Range Picker Shows
+## Data Models
 
-The date range picker needs to be aware of data availability:
+### Dataset 1: Live Transactions (ads_transactions)
 
+```typescript
+interface AdsTransaction {
+  id: string;                    // "TX-000142"
+  timestamp: string;             // "2026-01-15T19:00:00Z" (precise hour)
+  syncBatchId: string;           // groups all tx from same sync cycle
+
+  // Source
+  campaignId: string;
+  campaignName: string;          // snapshot at sync time
+  accountId: string;
+
+  // Destination (null if unattributed at sync time)
+  refLinkId: string | null;
+  projectId: string | null;
+
+  // Amounts
+  cost: number;
+  clicks: number;
+  impressions: number;
+  conversions: number;
+
+  // Type
+  type: "SYNC" | "ADJUSTMENT";
+  adjustsTransactionId?: string; // for corrections
+  note?: string;
+}
 ```
-┌─────────────────────────────────────────────────────────┐
-│ 📅 30 ngày qua  ▾                                       │
-│                                                         │
-│ Dữ liệu khả dụng:                                      │
-│   📊 Google Ads: 60 ngày (Day 1 → Day 60)              │
-│   📈 Ref Count:  11 ngày (Day 20 → Day 30)    ← shown │
-│                                                         │
-│ Cost/Ref chỉ tính cho ngày có CẢ HAI nguồn dữ liệu    │
-└─────────────────────────────────────────────────────────┘
+
+### Dataset 2: Backdate Estimates (ads_backdate)
+
+```typescript
+interface AdsBackdateEntry {
+  id: string;                    // "BD-000042"
+  date: string;                  // "2026-01-15" (daily only, no hour)
+  generatedAt: string;           // when this estimate was created
+
+  // Source
+  campaignId: string;
+
+  // Destination (always set — generated from current mapping)
+  refLinkId: string;
+  projectId: string;
+
+  // Amounts (daily totals from Google Ads History API)
+  cost: number;
+  clicks: number;
+  impressions: number;
+  conversions: number;
+
+  // Metadata
+  mappingSnapshot: {             // records WHICH mapping was used to generate this
+    refLinkId: string;
+    projectId: string;
+    mappedAt: string;            // when the user created this mapping
+  };
+}
 ```
 
 ---
 
-## Edge Cases This Approach Solves
+## Lifecycle — Full Worked Example
 
-### 1. "I just signed up, don't have ref data yet"
-
-```
-State: 30 days of ads transactions (auto-synced), 0 days of ref counts
-
-Dashboard:
-  📊 Ads: $129K total cost, 12.4K clicks    ← shows full data ✅
-  📈 Ref: —, Cost/Ref: —                    ← nothing to calculate yet
-  ℹ️ "Nhập ref count để bắt đầu theo dõi hiệu quả"
-```
-
-**No fake metrics.** User sees their spend clearly, understands they need to enter ref data.
-
-### 2. "I entered wrong ref count for Day 25, need to fix"
-
-Ref count is manually editable — user just updates Day 25's number. Dashboard recalculates instantly. **No transaction reversal needed** because ref counts are not transactions.
-
-### 3. "I mapped the wrong campaign, need to remap"
-
-User disconnects Campaign A from Binance, remaps to Kling.
+### Phase 1: Day 1–29 — Sync running, no mapping yet
 
 ```
-Past transactions (Day 1-29, currently Binance):
-  → Re-attribute from Binance → Kling (REMAP type)
+LIVE TRANSACTIONS (flowing hourly):
+TX-001 | Day 1,  00:00 | Camp A | project: null | $180 | SYNC
+TX-002 | Day 1,  01:00 | Camp A | project: null | $195 | SYNC
+...
+TX-696 | Day 29, 23:00 | Camp A | project: null | $175 | SYNC
 
-Effect on Binance dashboard: Cost drops (those days no longer count)
-Effect on Kling dashboard: Cost appears (those days now count)
-Ref count: unchanged (belongs to ref link, not campaign)
+BACKDATE TABLE: (empty — no mapping, nothing to backdate)
+
+DASHBOARD: "⚠️ Camp A: $125K chi phí chưa gán"
 ```
 
-BUT WAIT — if user entered ref counts for `binance.com/?ref=ducba` for Day 1-29, those ref counts are still there. And the campaign transactions moved to Kling. So:
-- Binance: has ref counts but no ads cost → Cost/Ref = $0/ref (free acquisition!)
-- Kling: has ads cost but maybe no ref counts → Cost/Ref = "—"
+### Phase 2: Day 30 — User maps Campaign A → Binance
 
-**This correctly reflects**: the campaign was originally serving Binance refs, now it serves Kling.
+**Two things happen:**
 
-### 4. "Campaign A ran 100 days, I only have ref for 10 days"
-
+**Step 1**: Future live transactions get attributed automatically
 ```
-📊 Ads section: $430K total (100 days)
-📈 Ref section: 420 refs (10 days), Cost/Ref: $102 (10 days only)
-
-Note: "Cost/Ref dựa trên 10 ngày có dữ liệu ref (Day 20-30).
-       Nhập thêm ref count để mở rộng phạm vi tính toán."
+TX-697 | Day 30, 00:00 | Camp A | Binance | $190 | SYNC  ← attributed from now on
 ```
 
-**Transparent** — user knows exactly what the metric covers.
-
-### 5. "Two campaigns mapped to same ref link, one disconnected"
-
+**Step 2**: Past UNATTRIBUTED live transactions get re-attributed
 ```
-Day 1-80:   Camp A + Camp B → ref=ducba → Binance
-Day 80:     Disconnect Camp A
-Day 81-100: Camp B only → ref=ducba → Binance
-
-Day 50 transactions: TX from A ($45K) + TX from B ($32K) = $77K  ← PRESERVED
-Day 85 transactions: TX from B ($31K) only                       ← CORRECT
-Ref count Day 50: 42 refs                                        ← UNCHANGED
-Ref count Day 85: 38 refs                                        ← UNCHANGED
-
-Cost/Ref Day 50: $77K / 42 = $1,833
-Cost/Ref Day 85: $31K / 38 = $816
+TX-001 | Day 1,  00:00 | Camp A | Binance | $180 | SYNC  ← was null, now Binance
+TX-002 | Day 1,  01:00 | Camp A | Binance | $195 | SYNC
+... (all 696 transactions updated)
 ```
 
-**Day 50's $77K never changes** — those transactions are immutable. ✅
-
-### 6. "User backdates ref count after disconnect"
+**NO backdate needed** — we already have hourly live data for Day 1-29!
 
 ```
-Timeline:
-  Day 1-30: Camp A connected, 0 ref counts entered
-  Day 30: Disconnect Camp A
-  Day 35: User enters ref counts for Day 10-25
-
-Dashboard for Day 10-25:
-  Ads cost: from Camp A transactions (already recorded during Day 1-30)  ✅
-  Ref count: just entered  ✅
-  Cost/Ref: calculated!  ✅
+BACKDATE TABLE: (still empty — live data covers everything)
 ```
 
-Even though Camp A is now disconnected, the **historical transactions are still attributed** to this project. Adding ref data retroactively just fills in the other half of the equation.
+### Phase 3: Day 30 — BUT what if Campaign A ran for 6 months before our sync started?
 
-### 7. "I have ref counts but NO campaign mapped yet"
+System started syncing on Day 1, but Campaign A has been running on Google Ads since **6 months ago** (Day -180).
 
-```
-📊 Ads: "Chưa có campaign nào được kết nối"
-📈 Ref: 420 refs (10 days), Cost/Ref: — (no ads data)
-
-ℹ️ "Kết nối Campaign để tính Cost/Ref"
-```
-
-Ref data exists independently. User can track refs before mapping any campaign.
-
-### 8. "Hourly granularity catches mid-day changes"
+**Now backdate kicks in:**
 
 ```
-13:00 sync: Camp A → Binance → $210   (old mapping)
-14:00: User remaps Camp A → Kling
-14:00 sync: Camp A → Kling   → $205   (new mapping)
+System pulls Google Ads History API for Camp A: Day -180 → Day 0 (before our sync)
 
-Binance gets: $210 (and all earlier hours)
-Kling gets: $205 (and all later hours)
+BACKDATE TABLE:
+BD-001 | Day -180 | Camp A | Binance | $4,200 | (daily total)
+BD-002 | Day -179 | Camp A | Binance | $4,500 |
+BD-003 | Day -178 | Camp A | Binance | $3,800 |
+...
+BD-180 | Day 0    | Camp A | Binance | $4,100 |
 
-No splitting. No estimation. Exact hourly attribution.
+LIVE TRANSACTIONS: Day 1 → Day 30 (hourly, attributed to Binance)
+
+Dashboard sees: 210 days of data total
+  - 180 days from backdate (daily) 🟡
+  - 30 days from live (hourly) 🟢
+```
+
+### Phase 4: Day 60 — User remaps Campaign A → Kling
+
+**Live data:**
+```
+Day 1-59 transactions stay at Binance (they were correctly attributed at sync time)
+Day 60+ transactions go to Kling (new mapping)
+```
+
+**Backdate data:**
+```
+❗ Backdate was generated with "Binance" mapping.
+   Now that mapping changed → WIPE and REGENERATE:
+
+BD-001 | Day -180 | Camp A | Kling | $4,200 | (regenerated with new mapping!)
+BD-002 | Day -179 | Camp A | Kling | $4,500 |
+...
+BD-180 | Day 0    | Camp A | Kling | $4,100 |
+```
+
+Wait — **should pre-system backdate go to Kling?** The campaign existed before our system, we have no idea which project it served back then. The user is saying "from now on, map Camp A to Kling" — does that mean the historical data should also move?
+
+**Answer: YES, because backdate is an estimation.** It's based on the CURRENT mapping. When mapping changes, the estimation changes. This is the whole point of separating it from live data.
+
+```
+POST-REMAP STATE:
+
+LIVE TRANSACTIONS (UNTOUCHED):
+  Day 1-59:  Camp A → Binance   (these are FACTS — actually synced during Binance era)
+  Day 60+:   Camp A → Kling     (new mapping)
+
+BACKDATE (REGENERATED):
+  Day -180 to Day 0: Camp A → Kling  (estimation — uses current mapping)
+```
+
+**This creates a natural "break" in the data:**
+
+```
+Binance dashboard:
+  Day -180 to 0:  NO data (backdate moved to Kling)
+  Day 1 to 59:    ✅ from live transactions
+  Day 60+:        NO data (remapped to Kling)
+
+Kling dashboard:
+  Day -180 to 0:  ✅ from backdate (estimated)
+  Day 1 to 59:    NO data (live transactions belong to Binance)
+  Day 60+:        ✅ from live transactions
+```
+
+### Phase 5: Over time — backdate gets superseded
+
+As months pass, we accumulate more and more live data. The backdate becomes less relevant:
+
+```
+Month 1:   ██░░░░░░░░░░░░░░   live 30 days, backdate 180 days
+Month 3:   ██████░░░░░░░░░░   live 90 days, backdate 180 days
+Month 6:   ████████████░░░░   live 180 days, backdate 180 days
+Month 12:  ████████████████   live 360 days → backdate fully superseded!
+```
+
+Eventually the backdate period falls outside any reasonable date range query and becomes irrelevant.
+
+---
+
+## Query Pattern: Overlay Merge
+
+```
+For each date D in query range:
+
+1. Does LIVE data exist for date D?
+   → YES: use live transactions (SUM grouped by date)
+   → NO:  continue to step 2
+
+2. Does BACKDATE exist for date D?
+   → YES: use backdate entry
+   → NO:  no data for this date
+```
+
+```sql
+-- Overlay query: live wins over backdate
+WITH live AS (
+  SELECT
+    DATE(timestamp) as date,
+    SUM(cost) as cost,
+    SUM(clicks) as clicks,
+    'live' as source
+  FROM ads_transactions
+  WHERE projectId = 'proj-binance'
+    AND timestamp BETWEEN '2026-01-01' AND '2026-03-31'
+  GROUP BY DATE(timestamp)
+),
+backdate AS (
+  SELECT
+    date,
+    SUM(cost) as cost,
+    SUM(clicks) as clicks,
+    'backdate' as source
+  FROM ads_backdate
+  WHERE projectId = 'proj-binance'
+    AND date BETWEEN '2026-01-01' AND '2026-03-31'
+  GROUP BY date
+)
+SELECT
+  COALESCE(live.date, backdate.date) as date,
+  COALESCE(live.cost, backdate.cost) as cost,
+  COALESCE(live.clicks, backdate.clicks) as clicks,
+  CASE WHEN live.date IS NOT NULL THEN 'live' ELSE 'backdate' END as source
+FROM live
+FULL OUTER JOIN backdate ON live.date = backdate.date
+ORDER BY date
 ```
 
 ---
 
-## The Fundamental Formula
+## Dashboard Trust Indicators
+
+The dashboard shows WHERE the data comes from:
 
 ```
-For any date D and project P:
+┌──────────────────────────────────────────────────────────────┐
+│  📊 Từ Google Ads  (1 campaign, 60 ngày dữ liệu)            │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐    │
+│  │ 🟢 30 ngày dữ liệu trực tiếp (hourly sync)         │    │
+│  │ 🟡 30 ngày dữ liệu ước tính (backdate từ Ads API)  │    │
+│  └──────────────────────────────────────────────────────┘    │
+│                                                              │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐          │
+│  │ Tổng chi phí │ │ Tổng clicks  │ │ Tổng impr.   │          │
+│  │ $258K        │ │ 24.8K        │ │ 680K         │          │
+│  └──────────────┘ └──────────────┘ └──────────────┘          │
+└──────────────────────────────────────────────────────────────┘
+```
 
-  Ads Cost(D, P) = SUM(transactions WHERE projectId=P AND date=D)
-                   → ALWAYS available (from hourly sync)
+On the chart, backdate period has a different visual treatment:
 
-  Ref Count(D, P) = SUM(refCounts WHERE linkRefId IN P.linkRefs AND date=D)
-                     → Available only if user entered data for date D
-
-  Cost/Ref(D, P) = Ads Cost(D, P) / Ref Count(D, P)
-                    → Only calculable when BOTH exist for date D
-                    → Shows "—" otherwise
-
-  Date range aggregation:
-    Only sum dates where BOTH Ads Cost > 0 AND Ref Count > 0
-    Display: "Cost/Ref: $89 (dựa trên N ngày có dữ liệu)"
+```
+Cost (VND)
+  $6,000 ┤
+         │   Backdate (🟡)          Live (🟢)
+  $5,000 ┤┄┄┄┄╮┄┄╮┄┄╮┄┄╮┄┄╮▓▓▓▓╮▓▓╮▓▓╮▓▓╮▓▓╮▓▓╮▓▓╮▓▓╮▓▓╮▓▓
+         │    ╰┄┄╯┄┄╯┄┄╯┄┄╯     ╰▓▓╯▓▓╯▓▓╯▓▓╯▓▓╯▓▓╯▓▓╯▓▓╯
+  $4,000 ┤                 │
+         │   ┄┄ dashed     │    ▓▓ solid
+  $3,000 ┤   (estimated)   │    (actual)
+         │                 │
+     $0  ┼──┬──┬──┬──┬──┬──┼──┬──┬──┬──┬──┬──┬──┬──┬──┬──
+         -30  -25  -20  -15│ -10  -5   0   5  10  15  20  25  Day
+                            │
+                     First sync day
 ```
 
 ---
 
-## Remaining Edge Case Questions
+## Summary: Why Two Datasets > One
 
-> [!IMPORTANT]
-> **Q10: Re-attribution on remap — should past UNATTRIBUTED transactions be moved?**
->
-> When user maps Campaign A → Binance on Day 30:
-> - Day 1-29 UNATTRIBUTED transactions → re-attribute to Binance ✅
->
-> When user REMAPS Campaign A from Binance → Kling on Day 50:
-> - Day 30-49 transactions stay at Binance (they were correctly attributed at the time)
-> - But what about Day 1-29? They were originally UNATTRIBUTED, then backfilled to Binance.
->   - (a) Keep them at Binance (they were attributed to Binance, remap only affects future)
->   - (b) Move them to Kling too (if user says "Campaign A was always meant for Kling")
->   - (c) Let user choose per-remap: "Move historical data too?" checkbox
-
-> [!IMPORTANT]
-> **Q11: How does the dashboard communicate data overlap?**
->
-> If user has 30 days of ads data but only 7 days of ref data:
-> - (a) Show "Cost/Ref: $89 (7 ngày)" with a small label
-> - (b) Show a data completeness bar: "█████░░░░░░░░░░ 7/30 ngày có ref data"
-> - (c) Gray out chart areas where ref data is missing
+| Scenario | One table (mixed) | Two datasets (separated) |
+|----------|-------------------|-------------------------|
+| "Is this data real or estimated?" | Check `type` field — janky | Check which table — clear |
+| Mapping changes | Edit BACKFILL rows in same table as SYNC | Wipe backdate table, regenerate. Live untouched |
+| "Show me only reliable data" | `WHERE type = 'SYNC'` — filter | Query only `ads_transactions` — clean |
+| Data quality audit | Mixed confidence in one table | Separate confidence levels by design |
+| Backdate conflicts with live | Two rows for same date, which wins? | Overlay merge: live always wins |
+| Storage/retention policy | Same policy for all | Different retention: live = permanent, backdate = purgeable |
