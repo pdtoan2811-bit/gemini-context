@@ -1,5 +1,6 @@
 {
   "artifactType": "ARTIFACT_TYPE_TASK",
-  "summary": "Task checklist for creating the Project Management PRD document, covering research of sandbox and production code, writing all 6 screens/tabs, and finalizing for dev handoff.",
-  "updatedAt": "2026-04-29T01:48:38.556843300Z"
+  "summary": "Task list for implementing the Campaign Connection Ledger prototype in the sandbox.",
+  "updatedAt": "2026-04-29T04:56:10.834839400Z",
+  "version": "1"
 }

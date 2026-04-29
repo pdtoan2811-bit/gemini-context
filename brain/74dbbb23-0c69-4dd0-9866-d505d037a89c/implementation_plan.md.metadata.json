@@ -1,7 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Plan to fix the confusing disconnect between ads metrics and ref counts when campaigns are connected/disconnected. The core issue is that ads metrics (cost, clicks, impressions) change when campaigns change, but ref counts stay the same because they come from a different source (affiliate tracking). The solution introduces clear visual separation of data sources with labeled section headers, a contextual notice when campaign count changes, and smart empty-state handling for the ads-only metrics.",
-  "updatedAt": "2026-04-29T04:39:35.550510700Z",
-  "version": "1",
+  "summary": "Architectural analysis for a Campaign Connection Ledger — a junction table that records timestamped connect/disconnect windows so that campaigns can swap between projects without losing historical data. Covers the current model's flaws, the proposed data model, query patterns for time-windowed ads metrics, migration strategy, and edge cases (overlapping windows, mid-day swaps, backdated connections).",
+  "updatedAt": "2026-04-29T04:54:18.330597400Z",
+  "version": "2",
   "requestFeedback": true
 }

@@ -1,82 +1,218 @@
-# Fix: Ads Performance — Data Source Confusion
+# Campaign Connection Ledger — Time-Windowed Data Architecture
 
-## Problem
-
-When a user connects or disconnects campaigns, the **ads metrics** (cost, clicks, impressions) change immediately because they're aggregated from connected campaigns. But **ref counts** don't change because they come from Link Refs (affiliate tracking), which are independent of campaign connections.
-
-This creates confusing behavior:
-- Disconnect a campaign → cost drops 50% → ref count stays the same → user thinks "where are these refs coming from?"
-- The dashboard mixes two data sources without making it clear
-
-## Root Cause
-
-`generateDailyMockData()` uses `campaigns.reduce(...)` to calculate totals. When campaigns change, ads data changes, but `linkRefs.refCounts` is untouched.
-
-## Proposed Approach: **Data Source Separation**
-
-### Visual Split — Two labeled groups of KPI cards
-
-Instead of a flat 3×2 grid, split into two visually distinct sections:
+## The Problem with the Current Model
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  📊 Từ Google Ads  (N campaign đang kết nối)        │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐             │
-│  │ Chi phí  │ │ Clicks   │ │ Impr.    │             │
-│  └──────────┘ └──────────┘ └──────────┘             │
-│                                                     │
-│  📈 Từ Link Ref  (N link ref đang hoạt động)        │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐             │
-│  │ Ref Count│ │ Cost/Ref │ │ Click→Ref│             │
-│  └──────────┘ └──────────┘ └──────────┘             │
-└─────────────────────────────────────────────────────┘
+AdsCampaign {
+  projectId: string | null;   // ← single pointer, current only
+  linkRefId: string | null;   // ← single pointer, current only
+}
 ```
 
-- **Section 1**: "Từ Google Ads" — Chi phí, Clicks, Impressions. Subtitle shows `"N campaign đang kết nối"`. These change when campaigns connect/disconnect.
-- **Section 2**: "Từ Link Ref" — Ref Count, Chi phí / Ref, Click → Ref. Subtitle shows `"N link ref đang hoạt động"`. Ref Count is independent; the cross-metrics (Cost/Ref, Click→Ref) naturally adjust.
+**What's lost when you disconnect:**
+- *When* was this campaign connected? Unknown.
+- *Which project* did it serve from Jan 1 to Mar 15? Gone.
+- If reconnected later — was the gap intentional? No record.
 
-### Contextual Notice
+**Result**: Ads metrics for a project become meaningless after any swap, because you can't attribute past spend to the right project for the right time period.
 
-When there are **0 campaigns** connected but link refs still have ref data, show:
+---
+
+## Proposed: Campaign Connection Ledger
+
+### Core Concept
+
+Instead of a mutable `projectId` on the campaign, create a **time-windowed junction record** for every connect/disconnect event:
 
 ```
-ℹ️ Chưa có campaign nào được kết nối — dữ liệu quảng cáo không khả dụng. 
-   Ref Count vẫn được theo dõi qua Link Ref.
+Campaign ←──── ConnectionLedger ────→ Project
+                    │
+                    ├── connectedAt   (timestamp)
+                    ├── disconnectedAt (timestamp | null = still active)
+                    └── linkRefId     (was assigned during this window)
 ```
 
-When campaigns are present but **0 link refs**, show:
+### Data Model
+
+```typescript
+interface CampaignConnection {
+  id: string;
+  campaignId: string;
+  projectId: string;
+  linkRefId: string;
+  connectedAt: string;      // ISO timestamp — when user clicked "Sync"
+  disconnectedAt: string | null;  // null = currently connected
+}
+```
+
+> [!IMPORTANT]
+> `AdsCampaign.projectId` and `AdsCampaign.linkRefId` still exist as **current state shortcuts** (denormalized). But the ledger is the **source of truth** for historical queries.
+
+### Example Timeline
 
 ```
-ℹ️ Chưa có Link Ref — kết nối campaign để tạo Link Ref và bắt đầu theo dõi ref count.
+Campaign "Sale Tháng 4" (camp-bn-1)
+──────────────────────────────────────────────────────────────
+Jan 1 ────── Connected to Binance ──────── Mar 15
+                                            Mar 15 ── Disconnected
+                                            Mar 20 ── Connected to Shopee ── (now)
+
+Ledger:
+┌──────────┬──────────────┬──────────┬────────────┬────────────────┐
+│ id       │ campaignId   │ projectId│ connectedAt│ disconnectedAt │
+├──────────┼──────────────┼──────────┼────────────┼────────────────┤
+│ conn-001 │ camp-bn-1    │ Binance  │ Jan 1      │ Mar 15         │
+│ conn-002 │ camp-bn-1    │ Shopee   │ Mar 20     │ null           │
+└──────────┘──────────────┘──────────┘────────────┘────────────────┘
 ```
 
-### Charts — Keep but add data-source labels
+---
 
-- **Chart 1**: "Chi phí Ads vs Ref Count" — already clear (two Y-axes, two sources)
-- **Chart 2**: "Impressions vs Clicks" — pure Google Ads data
-- When 0 campaigns connected → Charts show empty state: "Kết nối campaign để xem dữ liệu quảng cáo"
+## Query Pattern: Time-Windowed Metrics
 
-## Proposed Changes
+When user opens **Project Binance → Hiệu quả Ads → Feb 1 to Apr 30**:
 
-### [MODIFY] [SandboxDetailView.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/project-sandbox/SandboxDetailView.tsx)
+### Step 1: Find overlapping connections
 
-In `AdsPerformanceTab`:
+```sql
+SELECT * FROM campaign_connections
+WHERE project_id = 'Binance'
+  AND connected_at < '2026-04-30'           -- started before query end
+  AND (disconnected_at IS NULL 
+       OR disconnected_at > '2026-02-01')   -- ended after query start (or still active)
+```
 
-1. **KPI grid**: Split flat `grid-cols-3` into two sections with sub-headers:
-   - Section header: small label + campaign/linkref count
-   - Subtle `border-b` separator between sections
+Result: `conn-001` (Jan 1 → Mar 15) — overlaps with query range.
 
-2. **Empty states**: Add conditional notices for edge cases (0 campaigns, 0 link refs)
+### Step 2: Clamp to effective window
 
-3. **Charts**: Hide ads-related chart data when 0 campaigns (keep ref count chart if data exists)
+```
+Query range:     Feb 1 ──────────────── Apr 30
+Connection:      Jan 1 ────── Mar 15
+                        ↓
+Effective:       Feb 1 ────── Mar 15    ← clamped intersection
+```
 
-### [MODIFY] [06-ads-performance.md](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/docs/PRD/06-ads-performance.md)
+```typescript
+const effectiveFrom = max(connection.connectedAt, queryFrom);
+const effectiveTo   = min(connection.disconnectedAt ?? now, queryTo);
+```
 
-Update sections 3, 4, 5, 6, 7 to reflect the new data-source-aware design.
+### Step 3: Pull Google Ads metrics for effective window only
 
-## Verification
+```
+GET /google-ads/campaigns/{campaignId}/metrics
+  ?from=2026-02-01
+  &to=2026-03-15
+```
 
-- Connect campaigns → Ads section shows data
-- Disconnect all campaigns → Ads section shows "—", notice appears, Ref Count still shown
-- Reconnect → Ads data returns without ref count changing
-- The user should **never be confused** about why one metric changes and another doesn't
+### Step 4: Aggregate across all connections for the project
+
+Multiple campaigns can have overlapping windows → sum their metrics per day.
+
+---
+
+## What This Enables
+
+| Scenario | Current Model | Ledger Model |
+|----------|--------------|-------------|
+| Disconnect + reconnect | Data lost, metrics reset | Full history preserved |
+| Campaign swap A→B→A | Only last state visible | See all 3 windows |
+| "What did Binance cost in Feb?" | Wrong if campaign moved | Correct — only Feb window |
+| Audit trail | No record of when | Full timestamped log |
+| Multi-project campaign | Impossible | Natural — different time windows |
+
+---
+
+## Edge Cases & Rules
+
+### 1. No overlapping connections for same campaign + same project
+
+A campaign can only be connected to one project at a time. When you connect to a new project, the old connection must be closed first.
+
+```
+CONNECT camp-1 to Binance:
+  → Close any open connection for camp-1 (set disconnectedAt = now)
+  → Create new connection record for Binance
+```
+
+### 2. Mid-day swap precision
+
+Use full ISO timestamps (not just dates) so if a campaign is disconnected at 14:00 and reconnected elsewhere at 14:05, the 5-minute gap is captured.
+
+For daily-level queries, use the **day boundary rule**:
+- A day counts for a project if the connection was active for **any part** of that day.
+- Cost is **not split** within a day — Google Ads reports daily, so the full day's cost goes to whichever project held the connection at end-of-day (or use prorated split if needed).
+
+### 3. Backdated connections
+
+Not supported. Connections always start from `now`. If a user forgot to connect, they can't backdate — this prevents data fabrication.
+
+### 4. Link Ref persistence
+
+When a campaign is disconnected, its Link Ref stays in the project. The Link Ref is owned by the project, not the campaign. Ref counts on the Link Ref are unaffected.
+
+### 5. Google Ads data caching
+
+Since Google Ads API is the source of truth for campaign metrics, the system should:
+- Cache daily metrics per campaign (independent of project)
+- At query time, the ledger determines *which cached days* belong to which project
+
+```
+┌──────────────────────┐      ┌────────────────────┐
+│ Google Ads Cache     │      │ Connection Ledger   │
+│ (campaign × date     │  ×   │ (campaign × project │
+│  → cost, clicks...)  │      │  × time window)     │
+└──────────┬───────────┘      └──────────┬──────────┘
+           │                             │
+           └────────── JOIN ─────────────┘
+                       │
+              Project's metrics for
+              the queried date range
+```
+
+---
+
+## Implementation Phases
+
+### Phase 1: Backend — Ledger table + API (Required for production)
+
+1. Create `campaign_connections` table
+2. Modify `CONNECT_CAMPAIGNS` → insert ledger record
+3. Modify `DISCONNECT_CAMPAIGN` → close ledger record (set `disconnectedAt`)
+4. New API: `GET /projects/{id}/ads-metrics?from=&to=` → uses ledger for windowed query
+5. Keep `campaign.projectId` as denormalized current-state shortcut
+
+### Phase 2: Frontend — Time-aware queries
+
+1. `AdsPerformanceTab` calls the windowed API instead of aggregating from `campaigns[]`
+2. Add "Connection History" section showing when campaigns were active in this project
+
+### Phase 3: Sandbox — Prototype with mock ledger
+
+1. Add `CampaignConnection[]` to sandbox state
+2. Update `generateDailyMockData` to respect time windows
+3. Demo the behavior: connect → disconnect → reconnect → observe data continuity
+
+---
+
+## Impact on Existing PRDs
+
+| PRD | Impact |
+|-----|--------|
+| **PRD 05 (Campaign Connection)** | `CONNECT_CAMPAIGNS` creates ledger record; `DISCONNECT_CAMPAIGN` closes it |
+| **PRD 06 (Ads Performance)** | Query uses ledger windows instead of current `campaign.projectId` |
+| **PRD 03 (Project Detail)** | Campaign list shows "Connected since {date}" instead of just presence |
+| **New PRD** | "Connection History" — audit log of all connect/disconnect events per project |
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> **Q1**: Should mid-day swaps split the day's cost proportionally, or assign the full day to the "end-of-day holder"?
+> 
+> Recommendation: Full day to end-of-day holder (simpler, matches Google Ads daily reporting granularity).
+
+> [!WARNING]
+> **Q2**: This is a **backend-first** feature. The sandbox can prototype it, but the real value comes from server-side ledger + Google Ads API caching. Should we build the sandbox prototype first, or wait for backend?
