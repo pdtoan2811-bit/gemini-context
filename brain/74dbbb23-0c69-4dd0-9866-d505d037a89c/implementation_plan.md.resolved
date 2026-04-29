@@ -1,218 +1,296 @@
-# Campaign Connection Ledger — Time-Windowed Data Architecture
+# Campaign Ledger — Event-Sourced, Immutable Architecture
 
-## The Problem with the Current Model
+## Why the Current Approach Falls Short
+
+What we built so far is a **mutable time-window** model:
 
 ```
-AdsCampaign {
-  projectId: string | null;   // ← single pointer, current only
-  linkRefId: string | null;   // ← single pointer, current only
+CampaignConnection {
+  connectedAt: "Jan 1"
+  disconnectedAt: "Mar 15"  ← we MUTATE this field
 }
 ```
 
-**What's lost when you disconnect:**
-- *When* was this campaign connected? Unknown.
-- *Which project* did it serve from Jan 1 to Mar 15? Gone.
-- If reconnected later — was the gap intentional? No record.
+This has problems:
+- **Who** disconnected? Unknown.
+- **Why** was it disconnected? No record.
+- User accidentally disconnects → reconnects → we have 2 records but no concept of "this was a mistake"
+- User wants to backdate a correction → impossible, we can only set `disconnectedAt = now`
+- No audit trail, no undo, no amendment
 
-**Result**: Ads metrics for a project become meaningless after any swap, because you can't attribute past spend to the right project for the right time period.
+## Real-World Analogy: Bank Account Ledger
 
----
-
-## Proposed: Campaign Connection Ledger
-
-### Core Concept
-
-Instead of a mutable `projectId` on the campaign, create a **time-windowed junction record** for every connect/disconnect event:
+A bank never *edits* a transaction. Every action is a new line item:
 
 ```
-Campaign ←──── ConnectionLedger ────→ Project
-                    │
-                    ├── connectedAt   (timestamp)
-                    ├── disconnectedAt (timestamp | null = still active)
-                    └── linkRefId     (was assigned during this window)
+Date       | Type    | Description                   | Amount
+───────────┼─────────┼───────────────────────────────┼────────
+Jan 1      | CREDIT  | Salary deposit                | +5,000
+Jan 15     | DEBIT   | Rent payment                  | -1,200
+Jan 16     | DEBIT   | *Accidental double charge*     | -1,200
+Jan 17     | CREDIT  | Refund: duplicate rent charge  | +1,200  ← CORRECTION
+           |         | (amends: Jan 16 entry)         |
+───────────┼─────────┼───────────────────────────────┼────────
+Balance    |         |                               |  3,800
 ```
 
-### Data Model
+Key principles:
+1. **Never delete or edit** existing entries
+2. To fix mistakes → create a **new corrective entry** that references the original
+3. Current balance = **sum of all entries** (derived state)
+4. Full audit trail — you can always explain "why does the balance look like this?"
+
+## Our Campaign Ledger — Same Principle
+
+### The Ledger Entry (Immutable)
 
 ```typescript
-interface CampaignConnection {
+type LedgerAction =
+  | "CONNECT"       // campaign assigned to project
+  | "DISCONNECT"    // campaign removed from project
+  | "REMAP"         // atomic move: disconnect from A + connect to B
+  | "AMEND"         // retroactive correction (fix a mistake)
+
+interface CampaignLedgerEntry {
   id: string;
+  timestamp: string;          // when this entry was created (immutable)
+  action: LedgerAction;
   campaignId: string;
-  projectId: string;
+  projectId: string;          // target project
   linkRefId: string;
-  connectedAt: string;      // ISO timestamp — when user clicked "Sync"
-  disconnectedAt: string | null;  // null = currently connected
+
+  // ── For REMAP ──
+  fromProjectId?: string;     // the project it's leaving
+
+  // ── For AMEND ──
+  amendsEntryId?: string;     // which previous entry is being corrected
+  effectiveAt?: string;       // backdated timestamp (when the correction "should have" happened)
+  reason?: string;            // "Accidentally disconnected" / "Wrong project mapping"
+
+  // ── Metadata ──
+  note?: string;              // user-facing note
 }
 ```
 
-> [!IMPORTANT]
-> `AdsCampaign.projectId` and `AdsCampaign.linkRefId` still exist as **current state shortcuts** (denormalized). But the ledger is the **source of truth** for historical queries.
-
-### Example Timeline
+### Example: Real-Life Affiliate Campaign Lifecycle
 
 ```
-Campaign "Sale Tháng 4" (camp-bn-1)
-──────────────────────────────────────────────────────────────
-Jan 1 ────── Connected to Binance ──────── Mar 15
-                                            Mar 15 ── Disconnected
-                                            Mar 20 ── Connected to Shopee ── (now)
+Scenario: Toan runs affiliate campaigns for Binance.
+He has 2 Google Ads campaigns promoting binance.com/sale-thang-4.
+```
 
-Ledger:
-┌──────────┬──────────────┬──────────┬────────────┬────────────────┐
-│ id       │ campaignId   │ projectId│ connectedAt│ disconnectedAt │
-├──────────┼──────────────┼──────────┼────────────┼────────────────┤
-│ conn-001 │ camp-bn-1    │ Binance  │ Jan 1      │ Mar 15         │
-│ conn-002 │ camp-bn-1    │ Shopee   │ Mar 20     │ null           │
-└──────────┘──────────────┘──────────┘────────────┘────────────────┘
+#### Chapter 1: Normal Flow
+
+```
+LEDGER
+────────────────────────────────────────────────────────────────────────
+#001 | Jan 1  | CONNECT    | camp-search → Binance  | lr-binance-sale
+#002 | Jan 1  | CONNECT    | camp-display → Binance | lr-binance-sale
+────────────────────────────────────────────────────────────────────────
+State: Binance has 2 campaigns. Ads metrics flowing since Jan 1.
+```
+
+#### Chapter 2: Toan Pauses Display Campaign in Google Ads
+
+```
+(No ledger entry — this is a Google Ads status change, not a connection change.
+ The campaign is still "connected" to Binance, just paused.)
+```
+
+#### Chapter 3: Toan Disconnects Search Campaign to Move to Shopee
+
+```
+#003 | Mar 15 | DISCONNECT | camp-search ← Binance  | lr-binance-sale
+#004 | Mar 15 | CONNECT    | camp-search → Shopee   | lr-shopee-deal
+────────────────────────────────────────────────────────────────────────
+State: Binance has 1 campaign (display). Shopee has 1 campaign (search).
+Binance metrics: Jan 1 → Mar 15 from both campaigns, Mar 16+ from display only.
+Shopee metrics: Mar 15+ from search campaign.
+```
+
+#### Chapter 4: Toan Realizes He Made a Mistake — Shopee Was Wrong
+
+```
+#005 | Mar 16 | DISCONNECT | camp-search ← Shopee   | lr-shopee-deal
+     |        | note: "Mapped to wrong project"
+#006 | Mar 16 | CONNECT    | camp-search → Binance  | lr-binance-sale
+────────────────────────────────────────────────────────────────────────
+State: Binance has 2 campaigns again.
+
+Derived windows for Binance:
+  camp-search: Jan 1 → Mar 15, Mar 16 → now  (gap: Mar 15-16 at Shopee)
+  camp-display: Jan 1 → now (never moved)
+
+Derived windows for Shopee:
+  camp-search: Mar 15 → Mar 16  (1 day of ads data attributed)
+```
+
+#### Chapter 5: Toan Wants to Pretend the Mistake Never Happened
+
+He uses **AMEND** to retroactively fix the Shopee assignment:
+
+```
+#007 | Mar 17 | AMEND      | camp-search → Binance  | lr-binance-sale
+     |        | amendsEntryId: #003 (the original disconnect from Binance)
+     |        | effectiveAt: Mar 15 (backdated)
+     |        | reason: "Accidentally moved to Shopee, correcting to keep at Binance"
+────────────────────────────────────────────────────────────────────────
+Effect: The AMEND nullifies #003, #004, #005.
+Derived windows for Binance:
+  camp-search: Jan 1 → now (continuous — the Shopee gap is erased)
+  camp-display: Jan 1 → now
+
+Derived windows for Shopee:
+  (empty — the 1-day assignment was amended away)
+
+BUT the ledger still has entries #003-#006 for audit trail.
+```
+
+### Alternative: REMAP (Atomic Move)
+
+Instead of separate DISCONNECT + CONNECT, a REMAP does both atomically:
+
+```
+#003 | Mar 15 | REMAP | camp-search | from: Binance → to: Shopee | lr-shopee-deal
+```
+
+Benefits:
+- No risk of a "gap" between disconnect and connect
+- Clear intent: "I'm moving this, not just removing it"
+- Easier to amend: one entry to correct instead of two
+
+---
+
+## How Derived State Works
+
+### Current State (which campaigns are in which project right now?)
+
+```python
+def get_current_assignments():
+    assignments = {}  # campaignId → projectId
+    
+    for entry in ledger (sorted by timestamp):
+        if entry is AMEND:
+            # Undo the effect of the amended entry
+            undo_entry(entry.amendsEntryId)
+            # Apply the amendment
+            assignments[entry.campaignId] = entry.projectId
+        elif entry is CONNECT or REMAP:
+            assignments[entry.campaignId] = entry.projectId
+        elif entry is DISCONNECT:
+            del assignments[entry.campaignId]
+    
+    return assignments
+```
+
+### Time-Windowed Metrics (for date range queries)
+
+```python
+def get_windows_for_project(projectId, queryFrom, queryTo):
+    windows = []  # list of (campaignId, effectiveFrom, effectiveTo)
+    
+    for entry in ledger:
+        # Build windows by replaying ledger...
+        # Each CONNECT opens a window, each DISCONNECT closes it
+        # AMEND adjusts historical windows
+    
+    # Clamp each window to query range
+    for window in windows:
+        window.from = max(window.from, queryFrom)
+        window.to = min(window.to, queryTo)
+    
+    # For each day in query range, sum metrics from campaigns with active windows
 ```
 
 ---
 
-## Query Pattern: Time-Windowed Metrics
+## Comparison: IRL Systems That Use This Pattern
 
-When user opens **Project Binance → Hiệu quả Ads → Feb 1 to Apr 30**:
+| System | Ledger Entry | Derived State |
+|--------|-------------|--------------|
+| **Bank** | Transactions (credit/debit) | Account balance |
+| **Git** | Commits (add/remove/modify) | Current file tree |
+| **Accounting** | Journal entries | Trial balance / P&L |
+| **Stock portfolio** | Buy/sell/transfer orders | Current holdings + capital gains |
+| **Campaign Ledger (ours)** | Connect/disconnect/remap/amend | Current assignments + windowed metrics |
 
-### Step 1: Find overlapping connections
-
-```sql
-SELECT * FROM campaign_connections
-WHERE project_id = 'Binance'
-  AND connected_at < '2026-04-30'           -- started before query end
-  AND (disconnected_at IS NULL 
-       OR disconnected_at > '2026-02-01')   -- ended after query start (or still active)
-```
-
-Result: `conn-001` (Jan 1 → Mar 15) — overlaps with query range.
-
-### Step 2: Clamp to effective window
+### Stock Portfolio — Closest Analogy
 
 ```
-Query range:     Feb 1 ──────────────── Apr 30
-Connection:      Jan 1 ────── Mar 15
-                        ↓
-Effective:       Feb 1 ────── Mar 15    ← clamped intersection
+Jan 1:  Buy 100 AAPL in Account A           → A: 100 AAPL
+Feb 1:  Transfer 50 AAPL from A to B        → A: 50, B: 50
+Mar 1:  Sell 30 AAPL from B                  → A: 50, B: 20
+Mar 2:  Oops, should have sold from A.
+        AMEND: Reverse Mar 1 sell from B,
+               Re-apply as sell from A       → A: 20, B: 50
+
+Q1 dividend calculation:
+  Account A held 100 shares Jan-Feb, 50 shares Feb-Mar, 20 shares Mar+
+  Account B held 50 shares Feb-Mar, 20 shares Mar+ (amended from 50→20→50)
 ```
 
-```typescript
-const effectiveFrom = max(connection.connectedAt, queryFrom);
-const effectiveTo   = min(connection.disconnectedAt ?? now, queryTo);
-```
-
-### Step 3: Pull Google Ads metrics for effective window only
-
-```
-GET /google-ads/campaigns/{campaignId}/metrics
-  ?from=2026-02-01
-  &to=2026-03-15
-```
-
-### Step 4: Aggregate across all connections for the project
-
-Multiple campaigns can have overlapping windows → sum their metrics per day.
+This is **exactly** our problem — which "account" (project) gets the "dividend" (ads cost) for which time period.
 
 ---
 
-## What This Enables
-
-| Scenario | Current Model | Ledger Model |
-|----------|--------------|-------------|
-| Disconnect + reconnect | Data lost, metrics reset | Full history preserved |
-| Campaign swap A→B→A | Only last state visible | See all 3 windows |
-| "What did Binance cost in Feb?" | Wrong if campaign moved | Correct — only Feb window |
-| Audit trail | No record of when | Full timestamped log |
-| Multi-project campaign | Impossible | Natural — different time windows |
-
----
-
-## Edge Cases & Rules
-
-### 1. No overlapping connections for same campaign + same project
-
-A campaign can only be connected to one project at a time. When you connect to a new project, the old connection must be closed first.
+## Mistake Handling — Decision Tree
 
 ```
-CONNECT camp-1 to Binance:
-  → Close any open connection for camp-1 (set disconnectedAt = now)
-  → Create new connection record for Binance
-```
-
-### 2. Mid-day swap precision
-
-Use full ISO timestamps (not just dates) so if a campaign is disconnected at 14:00 and reconnected elsewhere at 14:05, the 5-minute gap is captured.
-
-For daily-level queries, use the **day boundary rule**:
-- A day counts for a project if the connection was active for **any part** of that day.
-- Cost is **not split** within a day — Google Ads reports daily, so the full day's cost goes to whichever project held the connection at end-of-day (or use prorated split if needed).
-
-### 3. Backdated connections
-
-Not supported. Connections always start from `now`. If a user forgot to connect, they can't backdate — this prevents data fabrication.
-
-### 4. Link Ref persistence
-
-When a campaign is disconnected, its Link Ref stays in the project. The Link Ref is owned by the project, not the campaign. Ref counts on the Link Ref are unaffected.
-
-### 5. Google Ads data caching
-
-Since Google Ads API is the source of truth for campaign metrics, the system should:
-- Cache daily metrics per campaign (independent of project)
-- At query time, the ledger determines *which cached days* belong to which project
-
-```
-┌──────────────────────┐      ┌────────────────────┐
-│ Google Ads Cache     │      │ Connection Ledger   │
-│ (campaign × date     │  ×   │ (campaign × project │
-│  → cost, clicks...)  │      │  × time window)     │
-└──────────┬───────────┘      └──────────┬──────────┘
-           │                             │
-           └────────── JOIN ─────────────┘
-                       │
-              Project's metrics for
-              the queried date range
+User made an error
+    │
+    ├── "I just disconnected by accident, let me reconnect"
+    │   → Simple: Create CONNECT entry. ✅
+    │   → Small gap in data (minutes). Acceptable.
+    │
+    ├── "I connected to the wrong project, need to move"
+    │   → Use REMAP: Atomic move to correct project. ✅
+    │   → Old project shows data up to remap date.
+    │
+    ├── "I want to pretend the mistake never happened"
+    │   → Use AMEND: Backdate correction. ✅
+    │   → Dashboard shows continuous data as if error never occurred.
+    │   → Ledger still has full audit trail.
+    │
+    └── "I need to understand what happened last month"
+        → Read ledger entries filtered by date/campaign. ✅
+        → Full forensic trail.
 ```
 
 ---
 
 ## Implementation Phases
 
-### Phase 1: Backend — Ledger table + API (Required for production)
+### Phase 1: Replace CampaignConnection with Ledger (Sandbox)
 
-1. Create `campaign_connections` table
-2. Modify `CONNECT_CAMPAIGNS` → insert ledger record
-3. Modify `DISCONNECT_CAMPAIGN` → close ledger record (set `disconnectedAt`)
-4. New API: `GET /projects/{id}/ads-metrics?from=&to=` → uses ledger for windowed query
-5. Keep `campaign.projectId` as denormalized current-state shortcut
+1. Replace `CampaignConnection` type with `CampaignLedgerEntry`
+2. Replace `connections[]` with `ledger[]` in state
+3. Update reducers: CONNECT/DISCONNECT create ledger entries
+4. Add REMAP action (atomic disconnect + connect)
+5. Build `deriveLedgerWindows()` utility — replays ledger → time windows
+6. Update `generateDailyMockData()` to use derived windows
 
-### Phase 2: Frontend — Time-aware queries
+### Phase 2: Add AMEND Support (Sandbox)
 
-1. `AdsPerformanceTab` calls the windowed API instead of aggregating from `campaigns[]`
-2. Add "Connection History" section showing when campaigns were active in this project
+1. Add AMEND action to reducer
+2. Build `deriveLedgerWindows()` logic for amendments
+3. Add "Lịch sử kết nối" (Connection History) panel — read-only view of ledger
 
-### Phase 3: Sandbox — Prototype with mock ledger
+### Phase 3: Backend (Production)
 
-1. Add `CampaignConnection[]` to sandbox state
-2. Update `generateDailyMockData` to respect time windows
-3. Demo the behavior: connect → disconnect → reconnect → observe data continuity
-
----
-
-## Impact on Existing PRDs
-
-| PRD | Impact |
-|-----|--------|
-| **PRD 05 (Campaign Connection)** | `CONNECT_CAMPAIGNS` creates ledger record; `DISCONNECT_CAMPAIGN` closes it |
-| **PRD 06 (Ads Performance)** | Query uses ledger windows instead of current `campaign.projectId` |
-| **PRD 03 (Project Detail)** | Campaign list shows "Connected since {date}" instead of just presence |
-| **New PRD** | "Connection History" — audit log of all connect/disconnect events per project |
+1. `campaign_ledger` table (append-only, no UPDATE/DELETE)
+2. API: `POST /projects/{id}/ledger` — create entry
+3. API: `GET /projects/{id}/ledger` — read entries
+4. API: `GET /projects/{id}/metrics?from=&to=` — uses derived windows
 
 ---
 
 ## Open Questions
 
 > [!IMPORTANT]
-> **Q1**: Should mid-day swaps split the day's cost proportionally, or assign the full day to the "end-of-day holder"?
-> 
-> Recommendation: Full day to end-of-day holder (simpler, matches Google Ads daily reporting granularity).
+> **Q1: AMEND scope** — Should AMEND be available to all users, or only admins? Backdating data changes is powerful and can affect billing/reporting.
 
-> [!WARNING]
-> **Q2**: This is a **backend-first** feature. The sandbox can prototype it, but the real value comes from server-side ledger + Google Ads API caching. Should we build the sandbox prototype first, or wait for backend?
+> [!IMPORTANT]
+> **Q2: REMAP in UI** — Should REMAP be a first-class UI action (drag-and-drop campaign between projects), or just disconnect + connect with smart detection?
+
+> [!TIP]
+> **Recommended**: Start with Phase 1 (CONNECT/DISCONNECT/REMAP). Add AMEND in Phase 2 only if users actually need retroactive corrections. Most mistakes are caught within minutes and a simple reconnect is sufficient.

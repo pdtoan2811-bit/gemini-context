@@ -1,7 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Architectural analysis for a Campaign Connection Ledger — a junction table that records timestamped connect/disconnect windows so that campaigns can swap between projects without losing historical data. Covers the current model's flaws, the proposed data model, query patterns for time-windowed ads metrics, migration strategy, and edge cases (overlapping windows, mid-day swaps, backdated connections).",
-  "updatedAt": "2026-04-29T04:54:18.330597400Z",
-  "version": "2",
+  "summary": "Comprehensive design for an event-sourced Campaign Ledger — an immutable, append-only log that records every connect/disconnect/remap/amend action. Current state is derived by replaying entries. Includes real-world analogies (bank ledger, stock portfolio transfers, Git), detailed data model, mistake handling via AMEND entries, derived windows algorithm, and comparison with the current mutable approach.",
+  "updatedAt": "2026-04-29T06:45:27.405058600Z",
+  "version": "3",
   "requestFeedback": true
 }
