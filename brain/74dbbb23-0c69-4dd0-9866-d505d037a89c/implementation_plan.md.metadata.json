@@ -1,7 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Deep analysis of the critical flaw in the current time-windowed approach: campaign metrics are stored as aggregates (totals), not daily time-series. When a campaign is disconnected, its total is removed from all calculations, retroactively distorting historical data. The solution: treat ads data like ref counts — cache daily metrics per campaign, and use the ledger to determine attribution per day. Includes a full worked example with 100 days of data across 5 phases (connect, fill, disconnect, gap, reconnect) and a comparison table showing the wrong vs. correct approach for each phase.",
-  "updatedAt": "2026-04-29T06:55:24.853035800Z",
-  "version": "4",
+  "summary": "Complete transaction-based architecture design for ads performance tracking. Resolves Q2 (unmapped spend → UNATTRIBUTED transactions), Q3 (retroactive fill → auto-backfill on first mapping), Q7 (Google Ads corrections → ADJUSTMENT transactions). Includes full transaction schema, 7 transaction types, hourly sync flow diagram, worked example with 12 transactions across a day showing remap at 14:00, and derivation formulas for all KPI metrics.",
+  "updatedAt": "2026-04-29T07:30:23.922349100Z",
+  "version": "5",
   "requestFeedback": true
 }
