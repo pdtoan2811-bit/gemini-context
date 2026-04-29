@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Full PRD (Product Requirements Document) for the Adecos Project Management feature. Covers 6 major screens/navigation areas: (1) Project List Page (Production), (2) Add/Edit Project Modal, (3) Project Detail – Info Tab, (4) Project Detail – Traffic Tab, (5) Sandbox – Project List & Campaign Connection, and (6) Sandbox – Project Detail with 4 sub-tabs (Ads Performance, Connection Report, Project Analysis, Project History). Each section includes Problem, Current Situation, User Stories, Acceptance Criteria, and Suggested Test Cases. Ready for developer handoff.",
+  "updatedAt": "2026-04-29T01:46:10.700020600Z",
+  "requestFeedback": true
+}
