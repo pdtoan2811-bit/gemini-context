@@ -1,289 +1,336 @@
-# Transaction-Based Ads Architecture — Final Design
+# Retroactive Fill — "Expand-As-You-Go" Approach
 
-## Confirmed Answers
+## Your Insight
 
-| Q | Answer | Impact |
-|---|--------|--------|
-| Q1: Trigger | **Hourly sync** — 1 transaction per campaign per hour (if non-zero) | ~24 rows/campaign/day max |
-| Q4: Partial-day remap | **Hourly sync handles naturally** — pre-remap hours → old mapping, post-remap hours → new mapping | No splitting math needed |
-| Q5: Ref count | **NOT a transaction** — manually entered, separate entity | Transaction table = ads money only |
-| Q6: Zero-spend | **Skip** — no row if cost = 0 | Cleaner table, less storage |
+The two data streams are **independent and asymmetric**:
+
+```
+ADS TRANSACTIONS (automated)          REF COUNTS (manual)
+────────────────────────               ────────────────────
+✅ Always flowing (hourly sync)        ❌ User enters manually
+✅ Full history available              ❌ User may only have today + yesterday
+✅ Precise (from Google Ads API)       ⚠️ Can be backdated / adjusted
+✅ Attributed automatically on map     ❌ User must enter for each date
+```
+
+**The key rule**: Dashboard only shows **combined metrics** (Cost/Ref, Click→Ref) for dates where **BOTH ads transactions AND ref counts exist**. The calculation window naturally expands as user enters more ref count data.
 
 ---
 
-## Q2 Recommendation: Unmapped Spend → UNATTRIBUTED Transactions
+## How It Works — Full Trace
 
-**Create transactions with `refLink = null, project = null`.**
-
-```
-MICACE0001 | 19:00 | null        | null        | Campaign A | $200 | 20 clicks
-MICACE0002 | 20:00 | null        | null        | Campaign A | $180 | 18 clicks
-            ↑ Campaign A is spending money but not mapped to any project
-```
-
-**Why this is the right approach:**
-
-1. **Total ads spend is always accurate** — SUM(all transactions) = total Google Ads cost, regardless of mapping
-2. **Visibility** — dashboard shows: "⚠️ $380 chi phí chưa được gán cho project nào" → prompts user to map
-3. **No data loss** — when user eventually maps Campaign A, the historical spend is already recorded
-4. **Accounting integrity** — money entered the system (Google Ads charged you), so it must be recorded somewhere
-
-**What it looks like on the dashboard:**
+### Day 1: System starts syncing Campaign A (unmapped)
 
 ```
-┌──────────────────────────────────────────────────┐
-│  ⚠️ Chi phí chưa gán: $380 (Campaign A, B)      │
-│     → Kết nối campaign để gán chi phí vào Project │
-└──────────────────────────────────────────────────┘
-```
+Hourly sync runs → transactions created:
 
-**When user maps Campaign A → binance.com/?ref=ducba on Day 30:**
-- Future transactions (Day 30+): automatically go to binance + ref link → normal flow
-- Past transactions (Day 1–29): handled by Q3 (backfill) ↓
-
----
-
-## Q3 Recommendation: Retroactive Fill → Smart Auto-Backfill
-
-### The Flow
-
-```
-Day 1:  Campaign A starts running on Google Ads
-Day 1-29: Hourly syncs create UNATTRIBUTED transactions (refLink=null, project=null)
-Day 30: User maps Campaign A → binance.com/?ref=ducba → Project Binance
-        ↓
-        System auto-backfills: updates Day 1-29 UNATTRIBUTED transactions
-        to point to the new mapping
-```
-
-### Rules
-
-| Scenario | Behavior |
-|----------|----------|
-| Transactions exist as UNATTRIBUTED | **Re-attribute** them to the new mapping |
-| Transactions exist under a DIFFERENT project | **Don't touch** — they belong to the old project |
-| No transactions exist (campaign ran before our system started syncing) | **Pull from Google Ads API** → create BACKFILL transactions |
-
-### Transaction Types
-
-```typescript
-type TransactionType =
-  | "SYNC"          // normal hourly sync
-  | "BACKFILL"      // historical data pulled on first mapping
-  | "ADJUSTMENT"    // Google Ads correction (see Q7)
-  | "REMAP"         // re-attribution from one project to another
-```
-
-### Backfill Example
-
-```
-Before mapping (Day 1-29 transactions exist as UNATTRIBUTED):
-
-MICACE0001 | Day 1, 19:00  | null    | null    | Camp A | $200 | SYNC
-MICACE0002 | Day 1, 20:00  | null    | null    | Camp A | $180 | SYNC
+TX-001 | Day 1, 00:00 | Camp A | refLink: null | project: null | $180 | UNATTRIBUTED
+TX-002 | Day 1, 01:00 | Camp A | refLink: null | project: null | $195 | UNATTRIBUTED
+TX-003 | Day 1, 02:00 | Camp A | refLink: null | project: null | $160 | UNATTRIBUTED
 ...
-MICACE0028 | Day 29, 23:00 | null    | null    | Camp A | $210 | SYNC
-
-After user maps on Day 30 → system backfills:
-
-MICACE0001 | Day 1, 19:00  | ref=ducba | Binance | Camp A | $200 | SYNC → BACKFILL
-MICACE0002 | Day 1, 20:00  | ref=ducba | Binance | Camp A | $180 | SYNC → BACKFILL
-...
-MICACE0028 | Day 29, 23:00 | ref=ducba | Binance | Camp A | $210 | SYNC → BACKFILL
-MICACE0029 | Day 30, 00:00 | ref=ducba | Binance | Camp A | $190 | SYNC  ← normal from here
+TX-024 | Day 1, 23:00 | Camp A | refLink: null | project: null | $175 | UNATTRIBUTED
 ```
 
-### Edge: What if Campaign A ran BEFORE our system existed?
+**Dashboard**: Shows "⚠️ $4,200 chi phí chưa gán" (unattributed pool)
 
-Google Ads Reporting API provides historical data (up to ~2 years). On first mapping:
-
-1. System pulls daily reports from Google Ads for available history
-2. Creates BACKFILL transactions (1 per day — hourly not available for historical data)
-3. All backfilled to the CURRENT mapping
+### Days 2–29: Sync continues, transactions pile up
 
 ```
-MICACE-BF-001 | Day 1  | ref=ducba | Binance | Camp A | $4,800 | BACKFILL (daily)
-MICACE-BF-002 | Day 2  | ref=ducba | Binance | Camp A | $5,100 | BACKFILL (daily)
-...
-MICACE-BF-029 | Day 29 | ref=ducba | Binance | Camp A | $4,500 | BACKFILL (daily)
-MICACE0029    | Day 30 | ref=ducba | Binance | Camp A | $4,900 | SYNC (hourly from here)
+TX-025 to TX-696: 29 days × 24 hours = 696 more UNATTRIBUTED transactions
+Total unattributed: ~$125,000
 ```
 
-> **Note:** BACKFILL transactions are daily granularity (Google Ads limitation for historical). 
-> From mapping date forward, transactions are hourly (from live sync).
+**Dashboard**: "⚠️ $125,000 chi phí chưa gán (Campaign A)" — user sees the warning daily.
+
+### Day 30: User maps Campaign A → binance.com/?ref=ducba → Project Binance
+
+**What happens immediately:**
+
+1. ✅ Future transactions (Day 30+) are automatically attributed:
+```
+TX-721 | Day 30, 00:00 | Camp A | ref=ducba | Binance | $190 | SYNC
+TX-722 | Day 30, 01:00 | Camp A | ref=ducba | Binance | $205 | SYNC
+```
+
+2. ✅ Past UNATTRIBUTED transactions (Day 1-29) get re-attributed:
+```
+TX-001 | Day 1, 00:00 | Camp A | ref=ducba | Binance | $180 | BACKFILL (was UNATTRIBUTED)
+TX-002 | Day 1, 01:00 | Camp A | ref=ducba | Binance | $195 | BACKFILL
+...all 696 transactions now point to Binance
+```
+
+**Dashboard for Project Binance**:
+```
+📊 Từ Google Ads (1 campaign đang kết nối)
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Tổng chi phí │ │ Tổng clicks  │ │ Tổng impr.   │
+│ $129,200  ✅ │ │ 12,400   ✅  │ │ 340,000  ✅  │ ← Full 30 days of data!
+└──────────────┘ └──────────────┘ └──────────────┘
+
+📈 Từ Link Ref (1 link ref)
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
+│ —            │ │ —            │ │ —            │ ← NO ref counts entered yet!
+└──────────────┘ └──────────────┘ └──────────────┘
+  ℹ️ Nhập ref count để xem chỉ số Cost/Ref
+```
+
+> **Ads data = complete.** But ref data = empty → combined metrics show "—".
+
+### Day 30 (later): User enters ref counts for today + yesterday
+
+```
+Ref count entered:
+  Day 29: 43 refs
+  Day 30: 55 refs
+```
+
+**Dashboard updates:**
+```
+📈 Từ Link Ref (1 link ref — 2 ngày có dữ liệu)
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
+│ 98 refs      │ │ $86          │ │ 2.3%         │
+│ (2 ngày)     │ │ (2 ngày)     │ │ (2 ngày)     │
+└──────────────┘ └──────────────┘ └──────────────┘
+```
+
+**Calculation** (only for days with ref data):
+```
+Day 29: Ads cost = $4,300 (from transactions), Ref = 43 → Cost/Ref = $100
+Day 30: Ads cost = $4,180 (from transactions), Ref = 55 → Cost/Ref = $76
+Average Cost/Ref = ($4,300 + $4,180) / (43 + 55) = $86.5
+```
+
+**Chart** (only 2 data points so far):
+```
+Cost/Ref
+  $150 ┤
+  $100 ┤─╮      ← Day 29
+   $76 ┤ ╰──    ← Day 30
+   $50 ┤
+     0 ┼──┬──
+        29  30
+```
+
+### Day 35: User backfills ref counts for Day 20–28
+
+```
+Ref count entered for Day 20-28:
+  Day 20: 38, Day 21: 41, Day 22: 35, Day 23: 44, Day 24: 39,
+  Day 25: 47, Day 26: 42, Day 27: 50, Day 28: 45
+```
+
+**Dashboard automatically expands:**
+```
+📈 Từ Link Ref (1 link ref — 11 ngày có dữ liệu)
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
+│ 479 refs     │ │ $92          │ │ 2.1%         │
+│ (11 ngày)    │ │ (11 ngày)    │ │ (11 ngày)    │
+└──────────────┘ └──────────────┘ └──────────────┘
+```
+
+**Chart expands** (11 data points now):
+```
+Cost/Ref
+  $120 ┤      ╭╮
+  $100 ┤──╮╭─╯╰─╮╭─╮     ← Day 20-28 filled in!
+   $80 ┤  ╰╯    ╰╯ ╰──
+   $60 ┤
+     0 ┼──┬──┬──┬──┬──┬──┬──┬──┬──┬──┬──
+        20 21 22 23 24 25 26 27 28 29 30
+```
+
+> **The ads data for Day 20-28 was ALWAYS THERE** (from Day 1 sync).
+> Only the ref count side was missing. Once user fills it in → chart expands instantly.
+
+### Day 60: User backfills all remaining ref counts (Day 1–19)
+
+```
+Dashboard now has FULL 60 days of data:
+
+📈 Từ Link Ref (1 link ref — 60 ngày có dữ liệu)
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Ref Count    │ │ Cost/Ref     │ │ Click→Ref    │
+│ 2,340 refs   │ │ $89          │ │ 2.2%         │
+│ (60 ngày)    │ │ (60 ngày)    │ │ (60 ngày)    │
+└──────────────┘ └──────────────┘ └──────────────┘
+```
+
+**Full chart** — all 60 days visible with no gaps.
 
 ---
 
-## Q7 Recommendation: Google Ads Corrections → ADJUSTMENT Transactions
+## What Date Range Picker Shows
 
-Google Ads sometimes retroactively adjusts numbers:
-- **Invalid click refunds**: "Yesterday's clicks were 20, but 3 were invalid → adjust to 17"
-- **Delayed conversions**: "Day 5 actually had 2 more conversions we detected late"
-- **Billing adjustments**: "Credit for service disruption: -$50"
-
-### Approach: Append ADJUSTMENT transaction (never edit originals)
+The date range picker needs to be aware of data availability:
 
 ```
-Original:
-MICACE0001 | Day 1, 19:00 | ref=ducba | Binance | Camp A | $200 | 20 clicks | SYNC
-
-Google Ads next-day correction: actual was $180, 17 clicks
-
-Adjustment:
-MICACE0099 | Day 2, 06:00 | ref=ducba | Binance | Camp A | -$20 | -3 clicks | ADJUSTMENT
-           | adjusts: MICACE0001
-           | reason: "Google Ads invalid click refund"
-```
-
-**Why not just edit MICACE0001?**
-- Audit trail: you can see "we originally reported $200, then Google corrected to $180"
-- Accounting compliance: immutable records  
-- Debugging: if numbers look wrong, you can trace every change
-
-**Net calculation:**
-```
-Day 1 actual cost = $200 (SYNC) + (-$20) (ADJUSTMENT) = $180 ✅
-```
-
-### Correction Detection
-
-During each hourly sync, the system compares:
-```
-Google Ads reported total for Day 1:     $180
-Our SUM(transactions for Camp A, Day 1): $200
-Delta:                                   -$20 → create ADJUSTMENT
-```
-
-This runs automatically — no user action needed.
-
----
-
-## Complete Transaction Schema
-
-```typescript
-interface AdsTransaction {
-  id: string;                    // "MICACE0001"
-  timestamp: string;             // "2026-01-15T19:00:00Z"
-  type: TransactionType;         // SYNC | BACKFILL | ADJUSTMENT | REMAP
-
-  // ── Source ──
-  campaignId: string;            // "camp-bn-search-1"
-  campaignName: string;          // "Binance Sale - Search" (snapshot)
-  accountId: string;             // "ads-001"
-
-  // ── Destination (null if UNATTRIBUTED) ──
-  refLinkId: string | null;      // "lr-binance-sale"
-  refLinkUrl: string | null;     // "binance.com/?ref=ducba" (snapshot)
-  projectId: string | null;      // "proj-binance"
-  projectName: string | null;    // "Binance" (snapshot)
-
-  // ── Amounts ──
-  cost: number;                  // VND (can be negative for ADJUSTMENT)
-  clicks: number;                // can be negative for ADJUSTMENT
-  impressions: number;
-  conversions: number;
-
-  // ── Metadata ──
-  adjustsTransactionId?: string; // for ADJUSTMENT: which original tx
-  note?: string;                 // "Campaign đổi link ref + project"
-  syncBatchId?: string;          // groups all tx from same sync cycle
-}
-```
-
-## Hourly Sync Flow
-
-```mermaid
-flowchart TD
-    A["⏰ Hourly Cron Job"] --> B["Pull Google Ads data<br/>(last 1 hour + corrections for last 7 days)"]
-    B --> C{For each campaign}
-    C --> D{Is campaign<br/>mapped to a<br/>project?}
-    D -->|Yes| E["Create SYNC transaction<br/>refLink=X, project=Y, cost=$200"]
-    D -->|No| F["Create SYNC transaction<br/>refLink=null, project=null<br/>(UNATTRIBUTED)"]
-    C --> G{Check corrections<br/>for past 7 days}
-    G --> H{Delta between<br/>Google Ads vs<br/>our SUM?}
-    H -->|Yes| I["Create ADJUSTMENT transaction<br/>with delta amount"]
-    H -->|No| J["No action"]
-```
-
----
-
-## Full Worked Example: 1 Day with Remap at 14:00
-
-**Setup:**
-- Campaign A: mapped to `binance.com/?ref=ducba` → Project Binance
-- Campaign B: mapped to `kling.ai/?ref=toan` → Project Kling
-- At **14:00**, user remaps Campaign A → `kling.ai/?ref=ducba` → Project Kling
-
-**Transactions created by hourly sync:**
-
-| TX ID | Time | Campaign | Ref Link | Project | Cost | Clicks | Type |
-|-------|------|----------|----------|---------|------|--------|------|
-| 0001 | 00:00 | Camp A | ref=ducba@binance | Binance | $180 | 18 | SYNC |
-| 0002 | 00:00 | Camp B | ref=toan@kling | Kling | $36 | 10 | SYNC |
-| 0003 | 01:00 | Camp A | ref=ducba@binance | Binance | $195 | 20 | SYNC |
-| 0004 | 01:00 | Camp B | ref=toan@kling | Kling | $32 | 8 | SYNC |
-| ... | ... | ... | ... | ... | ... | ... | ... |
-| 0025 | 13:00 | Camp A | ref=ducba@binance | Binance | $210 | 22 | SYNC |
-| 0026 | 13:00 | Camp B | ref=toan@kling | Kling | $38 | 11 | SYNC |
-| | **14:00** | | **USER REMAPS Camp A → Kling** | | | | |
-| 0027 | 14:00 | Camp A | **ref=ducba@kling** | **Kling** | $205 | 21 | SYNC |
-| 0028 | 14:00 | Camp B | ref=toan@kling | Kling | $35 | 9 | SYNC |
-| ... | ... | ... | ... | ... | ... | ... | ... |
-| 0047 | 23:00 | Camp A | ref=ducba@kling | Kling | $190 | 19 | SYNC |
-| 0048 | 23:00 | Camp B | ref=toan@kling | Kling | $34 | 10 | SYNC |
-
-**End-of-day aggregation:**
-
-| Project | Camp | Hours attributed | Total Cost | Total Clicks |
-|---------|------|:---:|-----------|-------------|
-| Binance | Camp A | 00:00–13:00 (14h) | **$2,730** | 280 |
-| Kling | Camp A | 14:00–23:00 (10h) | **$1,975** | 200 |
-| Kling | Camp B | 00:00–23:00 (24h) | **$840** | 234 |
-
-> **No splitting math.** The hourly sync naturally captures the exact remap moment. 
-> Binance gets Camp A's spend up to 13:00. Kling gets Camp A's spend from 14:00.
-> Total Camp A for the day = $2,730 + $1,975 = $4,705 → **nothing lost, nothing duplicated.**
-
----
-
-## KPI Derivation
-
-All metrics are derived from the transaction table:
-
-```sql
--- Project Binance, Date range: Jan 1 to Jan 31
-
--- Total ads cost
-SELECT SUM(cost) FROM transactions
-WHERE projectId = 'proj-binance'
-  AND timestamp BETWEEN '2026-01-01' AND '2026-01-31'
-  AND type IN ('SYNC', 'BACKFILL', 'ADJUSTMENT')
-
--- Cost per ref (cross-metric)
-WITH ads AS (
-  SELECT SUM(cost) as total_cost FROM transactions
-  WHERE projectId = 'proj-binance' AND ...
-),
-refs AS (
-  SELECT SUM(count) as total_refs FROM ref_counts
-  WHERE linkRefId IN (SELECT id FROM link_refs WHERE projectId = 'proj-binance')
-    AND date BETWEEN '2026-01-01' AND '2026-01-31'
-)
-SELECT ads.total_cost / NULLIF(refs.total_refs, 0) AS cost_per_ref
+┌─────────────────────────────────────────────────────────┐
+│ 📅 30 ngày qua  ▾                                       │
+│                                                         │
+│ Dữ liệu khả dụng:                                      │
+│   📊 Google Ads: 60 ngày (Day 1 → Day 60)              │
+│   📈 Ref Count:  11 ngày (Day 20 → Day 30)    ← shown │
+│                                                         │
+│ Cost/Ref chỉ tính cho ngày có CẢ HAI nguồn dữ liệu    │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Open Questions
+## Edge Cases This Approach Solves
+
+### 1. "I just signed up, don't have ref data yet"
+
+```
+State: 30 days of ads transactions (auto-synced), 0 days of ref counts
+
+Dashboard:
+  📊 Ads: $129K total cost, 12.4K clicks    ← shows full data ✅
+  📈 Ref: —, Cost/Ref: —                    ← nothing to calculate yet
+  ℹ️ "Nhập ref count để bắt đầu theo dõi hiệu quả"
+```
+
+**No fake metrics.** User sees their spend clearly, understands they need to enter ref data.
+
+### 2. "I entered wrong ref count for Day 25, need to fix"
+
+Ref count is manually editable — user just updates Day 25's number. Dashboard recalculates instantly. **No transaction reversal needed** because ref counts are not transactions.
+
+### 3. "I mapped the wrong campaign, need to remap"
+
+User disconnects Campaign A from Binance, remaps to Kling.
+
+```
+Past transactions (Day 1-29, currently Binance):
+  → Re-attribute from Binance → Kling (REMAP type)
+
+Effect on Binance dashboard: Cost drops (those days no longer count)
+Effect on Kling dashboard: Cost appears (those days now count)
+Ref count: unchanged (belongs to ref link, not campaign)
+```
+
+BUT WAIT — if user entered ref counts for `binance.com/?ref=ducba` for Day 1-29, those ref counts are still there. And the campaign transactions moved to Kling. So:
+- Binance: has ref counts but no ads cost → Cost/Ref = $0/ref (free acquisition!)
+- Kling: has ads cost but maybe no ref counts → Cost/Ref = "—"
+
+**This correctly reflects**: the campaign was originally serving Binance refs, now it serves Kling.
+
+### 4. "Campaign A ran 100 days, I only have ref for 10 days"
+
+```
+📊 Ads section: $430K total (100 days)
+📈 Ref section: 420 refs (10 days), Cost/Ref: $102 (10 days only)
+
+Note: "Cost/Ref dựa trên 10 ngày có dữ liệu ref (Day 20-30).
+       Nhập thêm ref count để mở rộng phạm vi tính toán."
+```
+
+**Transparent** — user knows exactly what the metric covers.
+
+### 5. "Two campaigns mapped to same ref link, one disconnected"
+
+```
+Day 1-80:   Camp A + Camp B → ref=ducba → Binance
+Day 80:     Disconnect Camp A
+Day 81-100: Camp B only → ref=ducba → Binance
+
+Day 50 transactions: TX from A ($45K) + TX from B ($32K) = $77K  ← PRESERVED
+Day 85 transactions: TX from B ($31K) only                       ← CORRECT
+Ref count Day 50: 42 refs                                        ← UNCHANGED
+Ref count Day 85: 38 refs                                        ← UNCHANGED
+
+Cost/Ref Day 50: $77K / 42 = $1,833
+Cost/Ref Day 85: $31K / 38 = $816
+```
+
+**Day 50's $77K never changes** — those transactions are immutable. ✅
+
+### 6. "User backdates ref count after disconnect"
+
+```
+Timeline:
+  Day 1-30: Camp A connected, 0 ref counts entered
+  Day 30: Disconnect Camp A
+  Day 35: User enters ref counts for Day 10-25
+
+Dashboard for Day 10-25:
+  Ads cost: from Camp A transactions (already recorded during Day 1-30)  ✅
+  Ref count: just entered  ✅
+  Cost/Ref: calculated!  ✅
+```
+
+Even though Camp A is now disconnected, the **historical transactions are still attributed** to this project. Adding ref data retroactively just fills in the other half of the equation.
+
+### 7. "I have ref counts but NO campaign mapped yet"
+
+```
+📊 Ads: "Chưa có campaign nào được kết nối"
+📈 Ref: 420 refs (10 days), Cost/Ref: — (no ads data)
+
+ℹ️ "Kết nối Campaign để tính Cost/Ref"
+```
+
+Ref data exists independently. User can track refs before mapping any campaign.
+
+### 8. "Hourly granularity catches mid-day changes"
+
+```
+13:00 sync: Camp A → Binance → $210   (old mapping)
+14:00: User remaps Camp A → Kling
+14:00 sync: Camp A → Kling   → $205   (new mapping)
+
+Binance gets: $210 (and all earlier hours)
+Kling gets: $205 (and all later hours)
+
+No splitting. No estimation. Exact hourly attribution.
+```
+
+---
+
+## The Fundamental Formula
+
+```
+For any date D and project P:
+
+  Ads Cost(D, P) = SUM(transactions WHERE projectId=P AND date=D)
+                   → ALWAYS available (from hourly sync)
+
+  Ref Count(D, P) = SUM(refCounts WHERE linkRefId IN P.linkRefs AND date=D)
+                     → Available only if user entered data for date D
+
+  Cost/Ref(D, P) = Ads Cost(D, P) / Ref Count(D, P)
+                    → Only calculable when BOTH exist for date D
+                    → Shows "—" otherwise
+
+  Date range aggregation:
+    Only sum dates where BOTH Ads Cost > 0 AND Ref Count > 0
+    Display: "Cost/Ref: $89 (dựa trên N ngày có dữ liệu)"
+```
+
+---
+
+## Remaining Edge Case Questions
 
 > [!IMPORTANT]
-> **Q8: Snapshot vs reference for campaign/project names?**  
-> The schema stores `campaignName` and `projectName` as snapshots. If user renames the project later, old transactions still show the old name. Is this correct behavior (audit accuracy) or should transactions always show current name (display convenience)?
+> **Q10: Re-attribution on remap — should past UNATTRIBUTED transactions be moved?**
+>
+> When user maps Campaign A → Binance on Day 30:
+> - Day 1-29 UNATTRIBUTED transactions → re-attribute to Binance ✅
+>
+> When user REMAPS Campaign A from Binance → Kling on Day 50:
+> - Day 30-49 transactions stay at Binance (they were correctly attributed at the time)
+> - But what about Day 1-29? They were originally UNATTRIBUTED, then backfilled to Binance.
+>   - (a) Keep them at Binance (they were attributed to Binance, remap only affects future)
+>   - (b) Move them to Kling too (if user says "Campaign A was always meant for Kling")
+>   - (c) Let user choose per-remap: "Move historical data too?" checkbox
 
-> [!IMPORTANT]  
-> **Q9: Backfill depth limit?**  
-> When user maps a campaign for the first time, how far back should we backfill? Options:
-> - (a) All available Google Ads history (~2 years)
-> - (b) Max 90 days  
-> - (c) Configurable per user/project
-> - (d) Since project creation date (most logical?)
+> [!IMPORTANT]
+> **Q11: How does the dashboard communicate data overlap?**
+>
+> If user has 30 days of ads data but only 7 days of ref data:
+> - (a) Show "Cost/Ref: $89 (7 ngày)" with a small label
+> - (b) Show a data completeness bar: "█████░░░░░░░░░░ 7/30 ngày có ref data"
+> - (c) Gray out chart areas where ref data is missing

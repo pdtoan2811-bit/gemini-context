@@ -1,7 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Complete transaction-based architecture design for ads performance tracking. Resolves Q2 (unmapped spend → UNATTRIBUTED transactions), Q3 (retroactive fill → auto-backfill on first mapping), Q7 (Google Ads corrections → ADJUSTMENT transactions). Includes full transaction schema, 7 transaction types, hourly sync flow diagram, worked example with 12 transactions across a day showing remap at 14:00, and derivation formulas for all KPI metrics.",
-  "updatedAt": "2026-04-29T07:30:23.922349100Z",
-  "version": "5",
+  "summary": "Deep analysis of the 'expand-as-you-go' approach to retroactive data: ads transactions flow continuously (hourly sync, always recorded even if UNATTRIBUTED), ref counts are entered manually and expand over time. Dashboard metrics only calculate where BOTH data streams overlap. Includes full worked example tracing a user from Day 1 to Day 60 across 6 phases, showing how the calculation window naturally expands as ref count data is backfilled. Covers 8 edge cases solved by this approach and identifies 2 edge cases that still need answers.",
+  "updatedAt": "2026-04-29T07:40:03.716295200Z",
+  "version": "6",
   "requestFeedback": true
 }
