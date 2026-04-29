@@ -1,7 +1,7 @@
 {
   "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary": "Comprehensive design for an event-sourced Campaign Ledger — an immutable, append-only log that records every connect/disconnect/remap/amend action. Current state is derived by replaying entries. Includes real-world analogies (bank ledger, stock portfolio transfers, Git), detailed data model, mistake handling via AMEND entries, derived windows algorithm, and comparison with the current mutable approach.",
-  "updatedAt": "2026-04-29T06:45:27.405058600Z",
-  "version": "3",
+  "summary": "Deep analysis of the critical flaw in the current time-windowed approach: campaign metrics are stored as aggregates (totals), not daily time-series. When a campaign is disconnected, its total is removed from all calculations, retroactively distorting historical data. The solution: treat ads data like ref counts — cache daily metrics per campaign, and use the ledger to determine attribution per day. Includes a full worked example with 100 days of data across 5 phases (connect, fill, disconnect, gap, reconnect) and a comparison table showing the wrong vs. correct approach for each phase.",
+  "updatedAt": "2026-04-29T06:55:24.853035800Z",
+  "version": "4",
   "requestFeedback": true
 }

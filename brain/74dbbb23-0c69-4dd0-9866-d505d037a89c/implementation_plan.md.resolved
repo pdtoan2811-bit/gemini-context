@@ -1,296 +1,292 @@
-# Campaign Ledger — Event-Sourced, Immutable Architecture
+# The Daily Cache Problem — Why Totals Don't Work
 
-## Why the Current Approach Falls Short
+## Your Scenario — Traced Step by Step
 
-What we built so far is a **mutable time-window** model:
-
+### Setup
 ```
-CampaignConnection {
-  connectedAt: "Jan 1"
-  disconnectedAt: "Mar 15"  ← we MUTATE this field
-}
-```
-
-This has problems:
-- **Who** disconnected? Unknown.
-- **Why** was it disconnected? No record.
-- User accidentally disconnects → reconnects → we have 2 records but no concept of "this was a mistake"
-- User wants to backdate a correction → impossible, we can only set `disconnectedAt = now`
-- No audit trail, no undo, no amendment
-
-## Real-World Analogy: Bank Account Ledger
-
-A bank never *edits* a transaction. Every action is a new line item:
-
-```
-Date       | Type    | Description                   | Amount
-───────────┼─────────┼───────────────────────────────┼────────
-Jan 1      | CREDIT  | Salary deposit                | +5,000
-Jan 15     | DEBIT   | Rent payment                  | -1,200
-Jan 16     | DEBIT   | *Accidental double charge*     | -1,200
-Jan 17     | CREDIT  | Refund: duplicate rent charge  | +1,200  ← CORRECTION
-           |         | (amends: Jan 16 entry)         |
-───────────┼─────────┼───────────────────────────────┼────────
-Balance    |         |                               |  3,800
+Project Y:     y.com/?ref_id=toan
+Campaign A:    cost = 3,000,000 VND total, clicks = 2,000
+Campaign B:    cost = 2,000,000 VND total, clicks = 1,500
+Ref count:     filled for 100 days (day 1 → day 100)
 ```
 
-Key principles:
-1. **Never delete or edit** existing entries
-2. To fix mistakes → create a **new corrective entry** that references the original
-3. Current balance = **sum of all entries** (derived state)
-4. Full audit trail — you can always explain "why does the balance look like this?"
+---
 
-## Our Campaign Ledger — Same Principle
+## What Happens with the CURRENT (broken) Approach
 
-### The Ledger Entry (Immutable)
+The current code stores campaign metrics as **aggregates** (totals):
+```typescript
+campaign.cost = 3_000_000  // total, not daily
+campaign.clicks = 2_000    // total, not daily
+```
+
+And `generateDailyMockData()` **distributes** these totals across days proportionally:
+```typescript
+const totalCost = activeCamps.reduce((s, c) => s + c.cost, 0);
+// Day's cost = totalCost × (dayRefCount / totalRefCount) × jitter
+```
+
+### Phase 1: Day 1–100 — Both connected ✅
+
+```
+Total cost pool = A (3M) + B (2M) = 5M
+Distributed across 100 days ≈ 50K/day average
+
+Day 50 (ref=40):  cost ≈ 50K × ratio × jitter
+                  Cost per ref ≈ 50K / 40 = 1,250 VND/ref
+```
+
+### Phase 2: Day 80 — Disconnect Campaign A ❌ BUG
+
+```
+Total cost pool = B only = 2M    ← A's 3M VANISHES from ALL days
+Distributed across 100 days ≈ 20K/day
+
+Day 50 (SAME ref=40):  cost ≈ 20K × ratio × jitter
+                         Cost per ref ≈ 20K / 40 = 500 VND/ref  ← WRONG!
+```
+
+**The bug**: Day 50's cost drops from ~1,250 to ~500 VND/ref. But Campaign A was DEFINITELY running on day 50 and spending money! The user sees historical cost/ref suddenly become 60% cheaper, which is a lie.
+
+### Phase 3: Day 90 — Reconnect Campaign A ❌ STILL BROKEN
+
+```
+Total cost pool = A (3M) + B (2M) = 5M again
+All 100 days recalculate back to ~50K/day
+
+Day 85 (during gap):  cost ≈ 50K   ← WRONG, A wasn't running!
+```
+
+**The bug**: Day 85 now shows Campaign A's cost, but A was disconnected during that period. The cost is inflated for the gap period.
+
+### Root Cause
+
+```
+Campaign.cost is a TOTAL (snapshot from Google Ads)
+                    ↓
+We DISTRIBUTE it evenly across all days
+                    ↓
+When campaign list changes, ALL days recalculate
+                    ↓
+HISTORICAL data changes = WRONG
+```
+
+> [!CAUTION]
+> **The current model treats campaign cost like a "rate" that can be turned on/off. But in reality, the money was ALREADY SPENT on specific days. You can't un-spend it by disconnecting.**
+
+---
+
+## The Correct Approach: Daily Cache (like a bank ledger)
+
+### Principle: Ads data = daily time-series, just like ref count
+
+Ref counts are stored per day:
+```
+linkRef.refCounts = [
+  { date: "2026-01-01", count: 43 },
+  { date: "2026-01-02", count: 55 },
+  ...
+]
+```
+
+Ads data should **also** be stored per day:
+```
+campaignDailyCache = [
+  { campaignId: "A", date: "2026-01-01", cost: 45000, clicks: 28, impressions: 850 },
+  { campaignId: "A", date: "2026-01-02", cost: 52000, clicks: 31, impressions: 920 },
+  { campaignId: "B", date: "2026-01-01", cost: 32000, clicks: 21, impressions: 640 },
+  ...
+]
+```
+
+> [!IMPORTANT]
+> This daily data comes from Google Ads Reporting API, which provides daily breakdowns. We **cache** it locally so it's permanent — even if the campaign is disconnected, deleted, or the Google Ads account is revoked.
+
+### Data Model
 
 ```typescript
-type LedgerAction =
-  | "CONNECT"       // campaign assigned to project
-  | "DISCONNECT"    // campaign removed from project
-  | "REMAP"         // atomic move: disconnect from A + connect to B
-  | "AMEND"         // retroactive correction (fix a mistake)
-
-interface CampaignLedgerEntry {
-  id: string;
-  timestamp: string;          // when this entry was created (immutable)
-  action: LedgerAction;
+/** Cached daily metrics per campaign — sourced from Google Ads, stored permanently */
+interface CampaignDailyMetric {
   campaignId: string;
-  projectId: string;          // target project
-  linkRefId: string;
-
-  // ── For REMAP ──
-  fromProjectId?: string;     // the project it's leaving
-
-  // ── For AMEND ──
-  amendsEntryId?: string;     // which previous entry is being corrected
-  effectiveAt?: string;       // backdated timestamp (when the correction "should have" happened)
-  reason?: string;            // "Accidentally disconnected" / "Wrong project mapping"
-
-  // ── Metadata ──
-  note?: string;              // user-facing note
+  date: string;          // "2026-01-15"
+  cost: number;          // VND
+  clicks: number;
+  impressions: number;
+  conversions: number;
 }
 ```
 
-### Example: Real-Life Affiliate Campaign Lifecycle
+### How the Query Works
 
 ```
-Scenario: Toan runs affiliate campaigns for Binance.
-He has 2 Google Ads campaigns promoting binance.com/sale-thang-4.
+User opens Project Y → "Hiệu quả Ads" → Date range: Day 40 to Day 95
 ```
 
-#### Chapter 1: Normal Flow
+**Step 1**: Find ledger windows for Project Y
 
 ```
-LEDGER
-────────────────────────────────────────────────────────────────────────
-#001 | Jan 1  | CONNECT    | camp-search → Binance  | lr-binance-sale
-#002 | Jan 1  | CONNECT    | camp-display → Binance | lr-binance-sale
-────────────────────────────────────────────────────────────────────────
-State: Binance has 2 campaigns. Ads metrics flowing since Jan 1.
+Ledger:
+  #001 | Day 1  | CONNECT    | camp-A → Project Y
+  #002 | Day 1  | CONNECT    | camp-B → Project Y
+  #003 | Day 80 | DISCONNECT | camp-A ← Project Y
+  #004 | Day 90 | CONNECT    | camp-A → Project Y (reconnected)
+
+Derived windows:
+  Camp A: [Day 1 → Day 80], [Day 90 → now]
+  Camp B: [Day 1 → now]     (never disconnected)
 ```
 
-#### Chapter 2: Toan Pauses Display Campaign in Google Ads
+**Step 2**: Clamp windows to query range [Day 40, Day 95]
 
 ```
-(No ledger entry — this is a Google Ads status change, not a connection change.
- The campaign is still "connected" to Binance, just paused.)
+  Camp A: [Day 40 → Day 80], [Day 90 → Day 95]
+  Camp B: [Day 40 → Day 95]
 ```
 
-#### Chapter 3: Toan Disconnects Search Campaign to Move to Shopee
+**Step 3**: For each day, look up cached daily metrics from active campaigns
 
 ```
-#003 | Mar 15 | DISCONNECT | camp-search ← Binance  | lr-binance-sale
-#004 | Mar 15 | CONNECT    | camp-search → Shopee   | lr-shopee-deal
-────────────────────────────────────────────────────────────────────────
-State: Binance has 1 campaign (display). Shopee has 1 campaign (search).
-Binance metrics: Jan 1 → Mar 15 from both campaigns, Mar 16+ from display only.
-Shopee metrics: Mar 15+ from search campaign.
+Day 50: Camp A active ✅, Camp B active ✅
+  → cost = cache[A][day50].cost + cache[B][day50].cost
+  → = 45,000 + 32,000 = 77,000 VND
+
+Day 85: Camp A NOT active ❌, Camp B active ✅
+  → cost = cache[B][day85].cost only
+  → = 35,000 VND
+
+Day 92: Camp A active ✅ (reconnected), Camp B active ✅
+  → cost = cache[A][day92].cost + cache[B][day92].cost
+  → = 48,000 + 31,000 = 79,000 VND
 ```
 
-#### Chapter 4: Toan Realizes He Made a Mistake — Shopee Was Wrong
+**Step 4**: Calculate KPIs
 
 ```
-#005 | Mar 16 | DISCONNECT | camp-search ← Shopee   | lr-shopee-deal
-     |        | note: "Mapped to wrong project"
-#006 | Mar 16 | CONNECT    | camp-search → Binance  | lr-binance-sale
-────────────────────────────────────────────────────────────────────────
-State: Binance has 2 campaigns again.
+Ref count (Day 40-95):    unchanged — comes from Link Ref, independent
+Ads cost (Day 40-95):     sum of daily cached costs from active campaigns per day
+Cost/ref:                 total cost / total ref for the period
 
-Derived windows for Binance:
-  camp-search: Jan 1 → Mar 15, Mar 16 → now  (gap: Mar 15-16 at Shopee)
-  camp-display: Jan 1 → now (never moved)
-
-Derived windows for Shopee:
-  camp-search: Mar 15 → Mar 16  (1 day of ads data attributed)
-```
-
-#### Chapter 5: Toan Wants to Pretend the Mistake Never Happened
-
-He uses **AMEND** to retroactively fix the Shopee assignment:
-
-```
-#007 | Mar 17 | AMEND      | camp-search → Binance  | lr-binance-sale
-     |        | amendsEntryId: #003 (the original disconnect from Binance)
-     |        | effectiveAt: Mar 15 (backdated)
-     |        | reason: "Accidentally moved to Shopee, correcting to keep at Binance"
-────────────────────────────────────────────────────────────────────────
-Effect: The AMEND nullifies #003, #004, #005.
-Derived windows for Binance:
-  camp-search: Jan 1 → now (continuous — the Shopee gap is erased)
-  camp-display: Jan 1 → now
-
-Derived windows for Shopee:
-  (empty — the 1-day assignment was amended away)
-
-BUT the ledger still has entries #003-#006 for audit trail.
-```
-
-### Alternative: REMAP (Atomic Move)
-
-Instead of separate DISCONNECT + CONNECT, a REMAP does both atomically:
-
-```
-#003 | Mar 15 | REMAP | camp-search | from: Binance → to: Shopee | lr-shopee-deal
-```
-
-Benefits:
-- No risk of a "gap" between disconnect and connect
-- Clear intent: "I'm moving this, not just removing it"
-- Easier to amend: one entry to correct instead of two
-
----
-
-## How Derived State Works
-
-### Current State (which campaigns are in which project right now?)
-
-```python
-def get_current_assignments():
-    assignments = {}  # campaignId → projectId
-    
-    for entry in ledger (sorted by timestamp):
-        if entry is AMEND:
-            # Undo the effect of the amended entry
-            undo_entry(entry.amendsEntryId)
-            # Apply the amendment
-            assignments[entry.campaignId] = entry.projectId
-        elif entry is CONNECT or REMAP:
-            assignments[entry.campaignId] = entry.projectId
-        elif entry is DISCONNECT:
-            del assignments[entry.campaignId]
-    
-    return assignments
-```
-
-### Time-Windowed Metrics (for date range queries)
-
-```python
-def get_windows_for_project(projectId, queryFrom, queryTo):
-    windows = []  # list of (campaignId, effectiveFrom, effectiveTo)
-    
-    for entry in ledger:
-        # Build windows by replaying ledger...
-        # Each CONNECT opens a window, each DISCONNECT closes it
-        # AMEND adjusts historical windows
-    
-    # Clamp each window to query range
-    for window in windows:
-        window.from = max(window.from, queryFrom)
-        window.to = min(window.to, queryTo)
-    
-    # For each day in query range, sum metrics from campaigns with active windows
+The gap (Day 81-89) correctly shows lower cost (only B) with same ref count.
+The reconnection (Day 90+) correctly resumes A's cost contribution.
+Historical data (Day 40-80) is NEVER affected by disconnect/reconnect.
 ```
 
 ---
 
-## Comparison: IRL Systems That Use This Pattern
-
-| System | Ledger Entry | Derived State |
-|--------|-------------|--------------|
-| **Bank** | Transactions (credit/debit) | Account balance |
-| **Git** | Commits (add/remove/modify) | Current file tree |
-| **Accounting** | Journal entries | Trial balance / P&L |
-| **Stock portfolio** | Buy/sell/transfer orders | Current holdings + capital gains |
-| **Campaign Ledger (ours)** | Connect/disconnect/remap/amend | Current assignments + windowed metrics |
-
-### Stock Portfolio — Closest Analogy
+## Full Worked Example: 5 Phases
 
 ```
-Jan 1:  Buy 100 AAPL in Account A           → A: 100 AAPL
-Feb 1:  Transfer 50 AAPL from A to B        → A: 50, B: 50
-Mar 1:  Sell 30 AAPL from B                  → A: 50, B: 20
-Mar 2:  Oops, should have sold from A.
-        AMEND: Reverse Mar 1 sell from B,
-               Re-apply as sell from A       → A: 20, B: 50
-
-Q1 dividend calculation:
-  Account A held 100 shares Jan-Feb, 50 shares Feb-Mar, 20 shares Mar+
-  Account B held 50 shares Feb-Mar, 20 shares Mar+ (amended from 50→20→50)
+                     Phase 1         Phase 2      Phase 3    Phase 4        Phase 5
+Timeline:  ──────────────────────── ──────────── ────────── ────────── ──────────────
+Days:      1        40       80      81    89     90   95    96   100
+           │─────────┼────────┤      │─────┤      │────┤     │────┤
+           │  A + B  │  A + B │      │ B   │      │A+B │     │A+B │
+           │connected│        │      │only │      │    │     │    │
 ```
 
-This is **exactly** our problem — which "account" (project) gets the "dividend" (ads cost) for which time period.
-
----
-
-## Mistake Handling — Decision Tree
-
-```
-User made an error
-    │
-    ├── "I just disconnected by accident, let me reconnect"
-    │   → Simple: Create CONNECT entry. ✅
-    │   → Small gap in data (minutes). Acceptable.
-    │
-    ├── "I connected to the wrong project, need to move"
-    │   → Use REMAP: Atomic move to correct project. ✅
-    │   → Old project shows data up to remap date.
-    │
-    ├── "I want to pretend the mistake never happened"
-    │   → Use AMEND: Backdate correction. ✅
-    │   → Dashboard shows continuous data as if error never occurred.
-    │   → Ledger still has full audit trail.
-    │
-    └── "I need to understand what happened last month"
-        → Read ledger entries filtered by date/campaign. ✅
-        → Full forensic trail.
-```
-
----
-
-## Implementation Phases
-
-### Phase 1: Replace CampaignConnection with Ledger (Sandbox)
-
-1. Replace `CampaignConnection` type with `CampaignLedgerEntry`
-2. Replace `connections[]` with `ledger[]` in state
-3. Update reducers: CONNECT/DISCONNECT create ledger entries
-4. Add REMAP action (atomic disconnect + connect)
-5. Build `deriveLedgerWindows()` utility — replays ledger → time windows
-6. Update `generateDailyMockData()` to use derived windows
-
-### Phase 2: Add AMEND Support (Sandbox)
-
-1. Add AMEND action to reducer
-2. Build `deriveLedgerWindows()` logic for amendments
-3. Add "Lịch sử kết nối" (Connection History) panel — read-only view of ledger
-
-### Phase 3: Backend (Production)
-
-1. `campaign_ledger` table (append-only, no UPDATE/DELETE)
-2. API: `POST /projects/{id}/ledger` — create entry
-3. API: `GET /projects/{id}/ledger` — read entries
-4. API: `GET /projects/{id}/metrics?from=&to=` — uses derived windows
-
----
-
-## Open Questions
-
-> [!IMPORTANT]
-> **Q1: AMEND scope** — Should AMEND be available to all users, or only admins? Backdating data changes is powerful and can affect billing/reporting.
-
-> [!IMPORTANT]
-> **Q2: REMAP in UI** — Should REMAP be a first-class UI action (drag-and-drop campaign between projects), or just disconnect + connect with smart detection?
+| Day | Active Camps | Daily Cost (cached) | Ref Count | Cost/Ref | Notes |
+|-----|-------------|-------------------|-----------|----------|-------|
+| 50  | A + B       | 45K + 32K = 77K   | 40        | 1,925    | Normal operation |
+| 79  | A + B       | 51K + 28K = 79K   | 45        | 1,756    | Last day before disconnect |
+| **80** | **A + B** | **48K + 33K = 81K** | **42** | **1,929** | **A disconnected at end of day** |
+| 81  | B only      | 35K               | 44        | 795      | Cost drops (correct! A isn't spending) |
+| 85  | B only      | 31K               | 38        | 816      | Gap period — only B's real spend |
+| 89  | B only      | 29K               | 41        | 707      | Last gap day |
+| **90** | **A + B** | **52K + 34K = 86K** | **43** | **2,000** | **A reconnected** |
+| 95  | A + B       | 47K + 30K = 77K   | 39        | 1,974    | Back to normal |
 
 > [!TIP]
-> **Recommended**: Start with Phase 1 (CONNECT/DISCONNECT/REMAP). Add AMEND in Phase 2 only if users actually need retroactive corrections. Most mistakes are caught within minutes and a simple reconnect is sufficient.
+> Notice: Day 50's cost (77K) **NEVER changes** regardless of what happens on Day 80 or Day 90. This is the key difference from the broken totals approach.
+
+### What the User Sees on the Chart
+
+```
+Cost/Ref trend:
+  2,000 ┤                                              ╭──────
+        │ ╭─────────────────────╮                     ╭╯
+  1,500 ┤─╯                     ╰╮                   │
+        │                        │                   │
+  1,000 ┤                        │                   │
+        │                        ╰───────────────────╯
+    500 ┤                         ← B only (cheaper,
+        │                            but less ad coverage)
+      0 ┼──────┬──────┬──────┬──────┬──────┬──────┬─────
+        Day 40    50    60    70    80    90   100
+
+Ref Count trend:
+    50 ┤    ╭╮    ╭╮  ╭╮  ╭╮  ╭╮  ╭╮  ╭╮  ╭╮
+       │╭──╯╰──╮╯ ╰╮╯ ╰╮╯ ╰╮╯ ╰╮╯ ╰╮╯ ╰╮╯ ╰──
+    30 ┤╯      ╰╯                              
+       │  ← UNCHANGED regardless of campaign changes
+    10 ┤
+     0 ┼──────┬──────┬──────┬──────┬──────┬──────┬─────
+```
+
+The chart tells a clear story:
+- **Cost drops during gap** → "I'm spending less because Campaign A is off"
+- **Ref stays the same** → "But my affiliate links are still generating (from organic, existing traffic, etc.)"
+- **Cost/ref ratio drops during gap** → "My ROI looks better because I'm getting 'free' refs without Campaign A's spend — but this is misleading because the refs were driven by past ad spend"
+
+---
+
+## Implementation Impact
+
+### What changes from the current sandbox
+
+| Component | Current | Correct |
+|-----------|---------|---------|
+| `AdsCampaign.cost` | Total (aggregate) | Keep as aggregate for display, but NOT for daily calculation |
+| **NEW: `CampaignDailyMetric[]`** | Not exists | Daily cache — source of truth for per-day cost |
+| `generateDailyMockData()` | Distributes campaign totals across days | Looks up actual cached daily data per campaign |
+| Ledger | Determines which campaigns are "active" per day | Same — no change |
+| Ref counts | Daily per link ref | Same — no change |
+
+### New Mock Data Needed
+
+```typescript
+// Instead of campaign.cost = 3_000_000 (total)
+// Generate realistic daily breakdown:
+function generateMockDailyCache(campaign: AdsCampaign, startDate: string, days: number): CampaignDailyMetric[] {
+  const dailyAvgCost = campaign.cost / days;
+  return Array.from({ length: days }, (_, i) => {
+    const date = addDays(startDate, i);
+    const jitter = 0.6 + Math.random() * 0.8; // ±40% daily variation
+    return {
+      campaignId: campaign.id,
+      date,
+      cost: Math.round(dailyAvgCost * jitter),
+      clicks: Math.round((campaign.clicks / days) * jitter),
+      impressions: Math.round((campaign.impressions / days) * jitter),
+      conversions: Math.round((campaign.conversions / days) * jitter),
+    };
+  });
+}
+```
+
+---
+
+## Summary: The 3 Layers
+
+```
+Layer 1: DAILY CACHE (immutable facts)
+  "Campaign A spent 45,000 VND on Jan 15"
+  → Comes from Google Ads API
+  → Never changes, even if campaign is disconnected
+  → Like a bank statement: the money was spent, period.
+
+Layer 2: LEDGER (immutable events)
+  "Campaign A was connected to Project Y on Jan 1"
+  "Campaign A was disconnected from Project Y on Mar 15"
+  → Determines ATTRIBUTION: which project "owns" each day's cost
+  → Like stock transfer records: who held the shares on each date
+
+Layer 3: DERIVED METRICS (calculated on-the-fly)
+  "Project Y's cost on Jan 15 = Camp A (45K) + Camp B (32K) = 77K"
+  → JOIN of Layer 1 × Layer 2, clamped to date range
+  → Like portfolio valuation: derived from holdings × market data
+```
+
+> [!IMPORTANT]
+> **The key insight**: Disconnecting a campaign doesn't change history. It only changes the FUTURE. 
+> 
+> Just like selling a stock doesn't change the dividends you already earned while holding it.
