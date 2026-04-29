@@ -1,0 +1,26 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Được tin dùng bởi các đội ngũ tăng trưởng hàng đầu:
+Adecos AI trở thành lợi thế cạnh tranh của team affiliate—
+giúp tìm winning products và tối ưu ROAS tự tin hơn.
+—
+Performance Marketing Lead
+Được tin dùng bởi các đội ngũ tăng trưởng hàng đầu:
+Forbes
+HubSpot
+Shopify
+Nielsen
+Impact
+Partnerize
+Awin
+Rakuten Advertising
+Forbes
+HubSpot
+Shopify
+Nielsen
+Impact
+Partnerize
+
+</current_dom>

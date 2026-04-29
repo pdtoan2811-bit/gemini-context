@@ -1,0 +1,11 @@
+# Task Plan: Verify Ref Count Backdate Modal
+
+- [x] Navigate to `http://localhost:3000/vi`
+- [/] Find and enter Sandbox/Project Management (Encountered login on /dashboard, re-checking homepage)
+- [ ] Open a project detail view
+- [ ] Switch to "Kết nối báo cáo" tab
+- [ ] Verify "Nhập backdate" button presence (Screenshot)
+- [ ] Open "Nhập backdate" modal (Screenshot)
+- [ ] Use "Điền nhanh" button
+- [ ] Verify grid is filled (Screenshot)
+- [ ] Final report

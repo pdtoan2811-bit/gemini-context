@@ -1,0 +1,21 @@
+[0] (29,33)<a aria-label='Trang chủ' class='flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-foreground sm:text-base md:text-lg' href='/vi'>Adecos />
+[1] (484,34)<a class='text-sm font-medium text-muted-foreground transition-colors hover:text-foreground' href='#features'>Tính năng />
+[2] (528,34)<a class='text-sm font-medium text-muted-foreground transition-colors hover:text-foreground' href='#pricing'>Giá />
+[3] (878,33)<div aria-label='Language selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[4] (870,33)<button aria-label='English' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='English'>EN />
+		EN
+	[5] (885,33)<button aria-label='Tiếng Việt' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Tiếng Việt'>VI />
+		VI
+[6] (917,33)<div aria-label='Theme selection' class='inline-flex rounded-full border border-border bg-muted/50 p-px min-h-6' role='group' />
+	[7] (910,33)<button aria-label='Light' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none text-muted-foreground hover:text-foreground' title='Light' />
+	[8] (925,33)<button aria-label='Dark' class='flex min-w-7 flex-1 cursor-pointer items-center justify-center rounded-full p-1 transition-colors focus:outline-none bg-background dark:bg-muted text-foreground shadow-sm' title='Dark' />
+[9] (964,33)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-8 max-h-8 rounded-md gap-1.5 px-2 py-1.5 has-[>svg]:px-2'>Đăng nhập />
+Trusted by
+100+
+brands
+Tối ưu
+Affiliate Marketing
+bằng AI
+Adecos AI giúp bạn tìm sản phẩm thắng lớn, phân tích dữ liệu và tối ưu ROAS cho E-commerce. Chat, Deep Research và Analytics trong một nền tảng.
+Bắt đầu
+Xem Demo
