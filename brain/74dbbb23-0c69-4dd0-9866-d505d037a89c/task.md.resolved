@@ -1,10 +1,10 @@
 # Campaign Connection Ledger — Sandbox Prototype
 
-- [ ] **Step 1**: Add `CampaignConnection` type to `project-campaign-types.ts`
-- [ ] **Step 2**: Add `connections` array to `ProjectCampaignState`
-- [ ] **Step 3**: Generate initial mock connections in `mock-project-campaign-data.ts`
-- [ ] **Step 4**: Update `CONNECT_CAMPAIGNS` reducer → create connection record
-- [ ] **Step 5**: Update `DISCONNECT_CAMPAIGN` reducer → close connection record
-- [ ] **Step 6**: Add `getConnectionsForProject` helper to store
-- [ ] **Step 7**: Update `AdsPerformanceTab` — use connection ledger for windowed metrics
-- [ ] **Step 8**: Update PRD 06 to document the ledger
+- [x] **Step 1**: Add `CampaignConnection` type to `project-campaign-types.ts`
+- [x] **Step 2**: Add `connections` array to `ProjectCampaignState`
+- [x] **Step 3**: Generate initial mock connections in `mock-project-campaign-data.ts`
+- [x] **Step 4**: Update `CONNECT_CAMPAIGNS` reducer → create connection record
+- [x] **Step 5**: Update `DISCONNECT_CAMPAIGN` reducer → close connection record
+- [x] **Step 6**: Add `getConnectionsForProject` helper to store
+- [x] **Step 7**: Update `AdsPerformanceTab` — use connection ledger for windowed metrics
+- [x] **Step 8**: Update PRD 06 to document the ledger
