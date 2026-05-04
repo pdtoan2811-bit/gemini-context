@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Redesign plan for the Link Ref card's Ref Count section. Two changes: (1) upgrade tiny action buttons to proper shadcn Button components for consistent sizing, (2) add a Ngày/Tuần/Tháng toggle so users can enter ref counts by week or month with auto-distribution to daily values. Includes an open question about distribution strategy.",
+  "updatedAt":  "2026-05-04T06:51:25.216441100Z",
+  "requestFeedback":  true
+}
