@@ -1,5 +1,6 @@
 {
   "artifactType":  "ARTIFACT_TYPE_TASK",
-  "summary":  "Task list for Link Ref card redesign: upgrade buttons to shadcn, add week/month entry mode with distribution choice.",
-  "updatedAt":  "2026-05-04T06:54:35.476537900Z"
+  "summary":  "Task tracking for Link Ref card redesign. All implementation done, pending user visual testing.",
+  "updatedAt":  "2026-05-04T07:30:14.931746400Z",
+  "version":  "1"
 }
