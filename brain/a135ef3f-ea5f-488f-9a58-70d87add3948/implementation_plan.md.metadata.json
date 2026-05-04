@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Fix the `start.bat` script to correctly start the Next.js dev server by adding the `call` command before `pnpm` executions. This prevents the batch script from terminating prematurely.",
+  "updatedAt":  "2026-05-04T05:01:24.721808900Z",
+  "requestFeedback":  true
+}

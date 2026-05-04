@@ -1,0 +1,4 @@
+- [ ] Fix `start.bat` by adding `call` to `pnpm` commands
+- [ ] Add `pnpm install` check to `start.bat`
+- [ ] Add `pause` at the end of `start.bat`
+- [ ] Verify fix by running the script
