@@ -1,0 +1,15 @@
+# Task Checklist
+- [/] Navigate to index.html with cache buster (Page already open at Step 3, using Reset button)
+- [ ] Verify initial state (Narration bar: "Press Next Step to begin the demo")
+- [ ] Step 1: Click Next Step (Verify narration "Step 1 · Intent Detection → Tool Call" and chat)
+- [ ] Step 2: Click Next Step
+- [ ] Step 3: Click Next Step (Verify context switch color change)
+- [ ] Step 4-8: Click Next Step 5 more times
+- [ ] Verify scrolling in right panel at Step 8
+- [ ] Final report on findings
+
+## Observations
+- Page was already at Step 3/8 upon loading.
+- Control+R didn't reset the state (likely localStorage).
+- "Reset" button is available.
+- Narration bar not immediately obvious in Step 3 screenshot/DOM.

@@ -1,0 +1,17 @@
+# Task: Investigate AI Agent Demo UI Issues
+
+## Plan
+1. [ ] Navigate to `file:///C:/Users/Admin/Desktop/Agent%20context%20design/index.html`
+2. [ ] Click "Next Step →" 7 times (500ms intervals)
+3. [ ] Capture screenshot of final state
+4. [ ] Test scrollability of right panel (Internals)
+5. [ ] Test scrollability of left panel (Chat)
+6. [ ] Identify cropped content
+7. [ ] Report findings
+
+## Findings
+- Viewport size:
+- Right panel scrollable:
+- Left panel scrollable:
+- Cropped content:
+- Tool Execution panel visibility:

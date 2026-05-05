@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Enhanced AI chat agent architecture with 4-layer context management, intent detection pipeline, tool orchestration, context switching via TaskFrame stack, and plan for an interactive vanilla HTML/CSS/JS demonstration.\n\nCovers:\n- Enhanced L1–L4 context layers with eviction/compaction policies\n- Intent classification taxonomy (7 intent types)\n- TaskFrame stack-based context switching with suspend/resume semantics\n- Tool registry, selection, chaining, and error recovery\n- Entity extraction and cross-frame linking\n- Interactive demo specification with mock conversation scenario",
+  "updatedAt":  "2026-05-05T03:34:24.625097200Z"
+}

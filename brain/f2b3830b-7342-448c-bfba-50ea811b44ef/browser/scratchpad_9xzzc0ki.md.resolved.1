@@ -1,0 +1,17 @@
+# Task: Investigate AI Agent Demo UI Issues
+
+## Plan
+1. [x] Navigate to `file:///C:/Users/Admin/Desktop/Agent%20context%20design/index.html`
+2. [x] Click "Next Step →" 7 times (500ms intervals)
+3. [x] Capture screenshot of final state
+4. [ ] Test scrollability of right panel (Internals)
+5. [ ] Test scrollability of left panel (Chat)
+6. [ ] Identify cropped content
+7. [ ] Report findings
+
+## Findings
+- Viewport size: 1920x945
+- Right panel scrollable: To be tested
+- Left panel scrollable: To be tested
+- Cropped content: Tool Execution panel is cut off (delete_event not visible). TaskFrame stack might also be partially cut off.
+- Tool Execution panel visibility: Only first two tool calls visible.

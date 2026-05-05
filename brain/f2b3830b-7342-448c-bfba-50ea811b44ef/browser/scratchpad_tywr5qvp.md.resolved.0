@@ -1,0 +1,17 @@
+# AI Agent Context Architecture Demo Verification
+
+## Checklist
+- [ ] Navigate to demo URL and take initial screenshot
+- [ ] Click "Next Step →" once, verify narration banner (Step 1)
+- [ ] Click "Next Step →" two more times, verify context switch narration (Step 3)
+- [ ] Verify right panel scrollability
+- [ ] Click "Next Step →" four more times (Step 7)
+- [ ] Click "Next Step →" one final time (Step 8)
+- [ ] Answer final report questions
+
+## Findings
+- Narration banner:
+- Right panel scrollability:
+- Narration colors:
+- Chat scrolling:
+- Layout issues:

@@ -1,0 +1,82 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+Ψ
+Agent Context Architecture
+Interactive Demo — Intent Detection · Tool Calling · Context Switching
+Step 3 / 8
+[0] (850,32)<button class='btn' id='btn-next'>Next Step → />
+[1] (912,32)<button class='btn btn-primary' id='btn-autoplay'>▶ Auto-play />
+[2] (966,32)<button class='btn btn-danger' id='btn-reset'>↺ Reset />
+💬 Conversation
+Step through the conversation to see how the agent processes each message
+U
+You
+What's the weather like in Hanoi right now?
+🔧 Tool Called
+weather_api.get_current({ "city": "Hanoi", "units": "metric" }...)
+AI
+Agent
+Currently in Hanoi it's
+31°C
+(feels like 36°C) with partly cloudy skies. Humidity is at 78% with a light southeast wind at 12 km/h. Pretty warm out there! ☀️
+🔀 Context Switch: Weather Inquiry → Calendar Booking
+U
+You
+Schedule a meeting with Lan tomorrow at 3pm to discuss the Q2 report.
+🔧 Tool Called
+calendar_api.create_event({ "title": "Q2 Report Discussion",...)
+[3] (465,956)<button class='btn'>Send />
+Intent Detection
+Classifier
+command
+97%
+command
+query
+context_switch
+Context Layers
+L1 → L4
+L1: Active Context
+User command + calendar_api response
+1,100 tok
+L2: Working Memory
+TaskFrame: Calendar Booking [active] · TaskFrame: Weather Inquiry [suspended]
+720 tok
+L3: Episodic Memory
+—
+0 tok
+L4: Long-term Memory
+User pref: metric units
+120 tok
+TaskFrame Stack
+Working Memory
+📅 Calendar Booking
+active
+person: Lan
+date: tomorrow
+time: 3:00 PM
+subject: Q2 report
+🌤️ Weather Inquiry
+suspended
+city: Hanoi
+timeframe: now
+Tool Execution
+Registry
+🔧 weather_api.get_current
+✓ Success
+{ "city": "Hanoi", "units": "metric" }
+{ "temp": 31, "feels_like": 36,
+  "humidity": 78, "condition": "Partly Cloudy",
+  "wind": "12 km/h SE" }
+🔧 calendar_api.create_event
+✓ Success
+{ "title": "Q2 Report Discussion",
+  "attendees": ["Lan"],
+  "datetime": "2026-05-06T15:00",
+  "duration": 60 }
+{ "event_id": "evt_8x2kf9",
+  "status": "confirmed",
+  "calendar_link": "https://cal.app/evt_8x2kf9" }
+
+</current_dom>

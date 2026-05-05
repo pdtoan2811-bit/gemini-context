@@ -1,0 +1,9 @@
+# Task Checklist
+- [ ] Navigate to index.html with cache buster
+- [ ] Verify initial state (Narration bar: "Press Next Step to begin the demo")
+- [ ] Step 1: Click Next Step (Verify narration "Step 1 · Intent Detection → Tool Call" and chat)
+- [ ] Step 2: Click Next Step
+- [ ] Step 3: Click Next Step (Verify context switch color change)
+- [ ] Step 4-8: Click Next Step 5 more times
+- [ ] Verify scrolling in right panel at Step 8
+- [ ] Final report on findings
