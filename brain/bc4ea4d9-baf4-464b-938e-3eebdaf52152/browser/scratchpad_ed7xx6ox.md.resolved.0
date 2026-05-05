@@ -1,0 +1,12 @@
+# Competitor Spy Layout Verification
+
+## Task Checklist
+- [x] Navigate to `/en/competitor-spy` (Redirected to login)
+- [x] Navigate to `/vi/competitor-spy` (Redirected to login)
+- [x] Take screenshot of the layout (Captured login screen)
+- [ ] Analyze layout and report back
+
+## Observations
+- Both `/en/competitor-spy` and `/vi/competitor-spy` redirect to a "Sign in with Keycloak" page.
+- I am unable to proceed past the login screen due to security guidelines.
+- Captured screenshot of the login screen as requested.

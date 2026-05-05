@@ -1,0 +1,29 @@
+# Competitor Spy Module — Task Tracker
+
+## Phase 1: Foundation
+- [/] Types (`competitor-spy-types.ts`)
+- [ ] Mock data (`mock-competitor-spy-data.ts`)
+- [ ] Store/Hook (`useCompetitorSpyStore.tsx`)
+
+## Phase 2: Route & Layout
+- [ ] Route page (`/competitor-spy/page.tsx`)
+- [ ] Main page component (`CompetitorSpyPage.tsx`)
+
+## Phase 3: Feature Components
+- [ ] `AdCreativeCard.tsx`
+- [ ] `DomainSpyView.tsx`
+- [ ] `MediaBuyerSpyView.tsx`
+- [ ] `SpyTargetsList.tsx`
+- [ ] `SpyAlertsFeed.tsx`
+- [ ] `AddSpyTargetModal.tsx`
+
+## Phase 4: Integration
+- [ ] Sidebar nav item
+- [ ] Admin layout labels
+- [ ] Translation keys (vi, en)
+- [ ] Project list "Spy" button
+- [ ] Project detail "Spy" button
+
+## Phase 5: Verify
+- [ ] Dev server runs without errors
+- [ ] Browser test

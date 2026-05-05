@@ -1,0 +1,7 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Plan to rebuild the Competitor Spy module with a proper CRUD pattern matching the Project Sandbox (DataTable list ↔ detail view). Replaces the current search/card-grid approach with a unified tracking-first design. Applies SHE framework: DataTable for simplicity, hover-reveal actions for hide, status dots/badges for embody.",
+  "updatedAt":  "2026-05-05T04:56:53.401796300Z",
+  "version":  "1",
+  "requestFeedback":  true
+}

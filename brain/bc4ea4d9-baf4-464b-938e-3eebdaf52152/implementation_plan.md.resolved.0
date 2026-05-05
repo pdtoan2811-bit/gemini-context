@@ -1,0 +1,251 @@
+# Competitor Spy Module — Trung tâm Minh bạch Quảng cáo
+
+Tạo module mới **"Theo dõi đối thủ"** (Competitor Spy) sử dụng dữ liệu từ Google Ads Transparency Center (Trung tâm minh bạch quảng cáo) để giúp user:
+
+1. **Tìm kiếm theo domain** — xem tất cả quảng cáo đang chạy trên domain đó
+2. **Tìm kiếm theo media buyer** — xem media buyer nào đang chạy ads trên domain nào
+3. **Tạo spy target** — theo dõi domain/media buyer và nhận alert khi có thay đổi
+4. **Tích hợp Project Management** — nút "Spy đối thủ" trên mỗi dự án
+
+---
+
+## Proposed Changes
+
+### 1. Data Model & Types
+
+#### [NEW] [competitor-spy-types.ts](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/types/competitor-spy-types.ts)
+
+New type definitions for the spy module:
+
+```typescript
+// Core entities
+SpyDomain          // Domain being tracked (domain, advertiser info, ad count, last checked)
+SpyMediaBuyer      // Media buyer profile (name, email, verified, domains they run ads on)
+SpyAd              // Individual ad creative (format, content, assets, first/last seen, platform, region)
+SpyTarget          // User-created spy target (type: domain|media_buyer, alert settings, status)
+SpyAlert           // Change notification (type: new_ad|removed_ad|new_buyer|creative_change, timestamp)
+SpySearchResult    // Search result wrapper
+```
+
+Key type relationships:
+- `SpyDomain` → has many `SpyAd[]` and many `SpyMediaBuyer[]`
+- `SpyMediaBuyer` → runs ads on many `SpyDomain[]`
+- `SpyTarget` → references either a `SpyDomain` or `SpyMediaBuyer`
+- `SpyAlert` → references a `SpyTarget`
+
+---
+
+### 2. Mock Data
+
+#### [NEW] [mock-competitor-spy-data.ts](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/data/mock-competitor-spy-data.ts)
+
+Rich mock data simulating Google Ads Transparency Center results:
+- **5+ sample domains** (binance.com, shopee.vn, lazada.vn, tiki.vn, sendo.vn) with realistic ad creatives
+- **10+ media buyers** with Vietnamese names, emails, verified status
+- **30+ sample ads** across formats: Text, Image, Video
+- **Sample alerts** for change detection
+- Realistic metadata: regions (VN, TH, ID), platforms (YouTube, Search, Display, Maps), date ranges
+
+---
+
+### 3. State Management
+
+#### [NEW] [useCompetitorSpyStore.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/hooks/useCompetitorSpyStore.tsx)
+
+Context + Reducer store (same pattern as `useProjectCampaignStore`):
+- **State**: domains, mediaBuyers, ads, targets, alerts, search results, loading states
+- **Actions**: SEARCH_DOMAIN, SEARCH_MEDIA_BUYER, ADD_SPY_TARGET, REMOVE_SPY_TARGET, TOGGLE_TARGET_ALERT, MARK_ALERT_READ, SIMULATE_CRAWL
+
+---
+
+### 4. Route & Page
+
+#### [NEW] [page.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/app/[locale]/(admin)/competitor-spy/page.tsx)
+
+New Next.js route at `/competitor-spy`. Simple server component wrapper.
+
+---
+
+### 5. Container Components
+
+#### [NEW] [CompetitorSpyPage.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/CompetitorSpyPage.tsx)
+
+**Main page layout** with two-panel design:
+- **Left sidebar** (collapsible): Spy Targets list + recent alerts
+- **Main area**: Search + Results
+
+Features:
+- **Unified search bar** at top with toggle: "Tìm theo Domain" / "Tìm theo Media Buyer"
+- **Search results** rendered as cards
+- **Tab system**: Tìm kiếm | Mục tiêu theo dõi | Cảnh báo
+
+#### [NEW] [DomainSpyView.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/DomainSpyView.tsx)
+
+**Domain detail view** showing:
+- **Domain header**: domain name, advertiser name, verified badge, total ad count
+- **Media Buyers section**: grid of media buyer cards running ads on this domain
+- **Ads Gallery**: filterable grid of ad creatives (Text/Image/Video) with:
+  - Platform badges (YouTube, Search, Display)
+  - Region tags
+  - First seen / Last seen dates
+  - Impression range indicators
+- **Add to Spy Targets** button with alert configuration
+
+#### [NEW] [MediaBuyerSpyView.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/MediaBuyerSpyView.tsx)
+
+**Media buyer detail view** showing:
+- **Buyer header**: name, email, verified location, total domains
+- **Domains list**: domains this buyer runs ads on with ad counts
+- **Recent ads**: timeline of their latest creatives
+- **Add to Spy Targets** button
+
+#### [NEW] [SpyTargetsList.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/SpyTargetsList.tsx)
+
+**Spy targets management panel** (left sidebar):
+- List of active spy targets (domain and media buyer types)
+- Status indicators (active/paused, last checked, changes detected)
+- Quick actions: view, pause, delete
+- "Simulate crawl" button for demo purposes
+
+#### [NEW] [SpyAlertsFeed.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/SpyAlertsFeed.tsx)
+
+**Alerts feed** showing detected changes:
+- Vertical timeline with typed icons
+- Alert types: new ad, removed ad, new buyer, creative change
+- Mark as read, filter by target
+- Timestamp and details
+
+#### [NEW] [AdCreativeCard.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/AdCreativeCard.tsx)
+
+**Reusable ad creative card** component:
+- Different layouts for Text/Image/Video ad formats
+- Platform icon badges
+- Hover effects with full details overlay
+- Copy ad text / download assets actions
+
+#### [NEW] [AddSpyTargetModal.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/competitor-spy/AddSpyTargetModal.tsx)
+
+Modal for creating a spy target:
+- Domain or media buyer input
+- Alert frequency selection (realtime, daily, weekly)
+- Alert types checkboxes (new ads, removed ads, buyer changes)
+
+---
+
+### 6. Sidebar Navigation Integration
+
+#### [MODIFY] [DashboardSidebar.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/dashboard/DashboardSidebar.tsx)
+
+Add new nav item to `NAV_ITEMS` array:
+```diff
++ { href: "/competitor-spy", labelKey: "competitorSpy", icon: EyeIcon },
+```
+
+#### [MODIFY] [layout.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/app/[locale]/(admin)/layout.tsx)
+
+Add translation label:
+```diff
++ competitorSpy: t("competitorSpy"),
+```
+
+---
+
+### 7. Project Management Integration
+
+#### [MODIFY] [ProjectListPanel.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/project-sandbox/ProjectListPanel.tsx)
+
+Add "Spy đối thủ" button to the project actions column in the DataTable, linking to the competitor-spy module with the project's domain pre-filled.
+
+#### [MODIFY] [SandboxDetailView.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/project-sandbox/SandboxDetailView.tsx)
+
+Add a "Spy đối thủ" quick action button in the project detail header area.
+
+---
+
+### 8. Translation Keys
+
+#### [MODIFY] [vi.json](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/messages/vi.json)
+#### [MODIFY] [en.json](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/messages/en.json)
+
+Add translation keys:
+```json
+{
+  "competitorSpy": "Theo dõi đối thủ"
+}
+```
+
+---
+
+## UI Design Direction
+
+### Visual Theme
+- **Primary accent**: Indigo/purple gradient (`#6366f1` → `#8b5cf6`) — differentiating from the blue primary of project management
+- **Dark glassmorphism cards** for ad previews
+- **Pulsing radar animation** on the search icon to convey "spying" activity
+- **Status indicators**: Green (active), Amber (pending), Red (alert/change detected)
+
+### Layout
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  ┌─────────────────┐  ┌──────────────────────────────────────┐  │
+│  │  SPY TARGETS     │  │  🔍 Search Domain / Media Buyer      │  │
+│  │                  │  ├──────────────────────────────────────┤  │
+│  │  📡 binance.com  │  │                                      │  │
+│  │  📡 shopee.vn    │  │  SEARCH RESULTS / DOMAIN DETAIL      │  │
+│  │  👤 Nguyễn Văn A │  │                                      │  │
+│  │                  │  │  ┌────┐ ┌────┐ ┌────┐ ┌────┐        │  │
+│  │  ─ RECENT ALERTS │  │  │ Ad │ │ Ad │ │ Ad │ │ Ad │        │  │
+│  │  🔴 New ad found │  │  └────┘ └────┘ └────┘ └────┘        │  │
+│  │  🟡 Creative chg │  │                                      │  │
+│  │                  │  │  MEDIA BUYERS ON THIS DOMAIN          │  │
+│  └─────────────────┘  │  ┌──────┐ ┌──────┐ ┌──────┐          │  │
+│                        │  │Buyer │ │Buyer │ │Buyer │          │  │
+│                        │  └──────┘ └──────┘ └──────┘          │  │
+│                        └──────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> ### Tên module trên sidebar
+> Bạn muốn hiển thị tên gì trên sidebar? Gợi ý:
+> - "Theo dõi đối thủ" (Competitor Spy)
+> - "Minh bạch QC" (Ad Transparency)
+> - "Spy Ads"
+
+> [!IMPORTANT]
+> ### Icon cho sidebar
+> Dùng icon nào? Gợi ý:
+> - `Eye` (👁) — "theo dõi"
+> - `Radar` (📡) — "quét/crawl"
+> - `Binoculars` — "spy"
+> Lucide có `Eye`, `Radar`, `ScanSearch`, `Telescope`
+
+> [!IMPORTANT]
+> ### Tích hợp Project: hành vi nút "Spy đối thủ"
+> Khi click "Spy đối thủ" từ project detail:
+> - **Option A**: Navigate sang `/competitor-spy?domain=xxx` (prefill domain từ project URL)
+> - **Option B**: Mở inline modal ngay trong project detail
+> Khuyến nghị: **Option A** — navigate sang module riêng, vì feature đủ phức tạp để có page riêng.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- `npm run dev` — verify no build errors
+- Navigate to `/competitor-spy` — page loads without errors
+- Search by domain/media buyer — results render correctly
+- Add/remove spy targets — state updates correctly
+- Alerts feed populates with mock data
+
+### Manual Verification
+- Sidebar shows new "Theo dõi đối thủ" nav item
+- All UI components render correctly in both light/dark mode
+- Collapsible left panel works
+- Ad creative cards display different formats (Text/Image/Video)
+- "Spy đối thủ" button appears in project list and detail views
+- Responsive layout at various screen sizes
