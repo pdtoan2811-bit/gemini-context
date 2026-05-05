@@ -1,0 +1,1610 @@
+# Walkthrough — Sandbox UI/UX Revamp
+
+## Summary
+
+Applied SHE framework refinements to the Project Sandbox management interface. All changes compile cleanly with zero TypeScript errors.
+
+---
+
+## Changes Made
+
+### 1. Data Model — [project-campaign-types.ts](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/types/project-campaign-types.ts)
+
+```diff:project-campaign-types.ts
+/**
+ * Types for the enhanced Project ↔ Campaign ↔ Link Ref mapping model.
+ * Used exclusively in the sandbox/prototype environment.
+ */
+
+/* ───────────────────── Status enums ───────────────────── */
+
+export type ProjectStatus = "running" | "saved" | "archived";
+
+export type CampaignStatus =
+  | "enabled"
+  | "paused"
+  | "removed"
+  | "archived"
+  | "pending_review";
+
+export type LinkRefStatus = "active" | "inactive";
+
+export type SyncEventType =
+  | "project_created"
+  | "campaign_connected"
+  | "campaign_disconnected"
+  | "campaign_migrated"
+  | "linkref_created"
+  | "linkref_edited"
+  | "linkref_dedup"
+  | "url_changed_external"
+  | "campaign_paused_external"
+  | "campaign_removed_external"
+  | "sync_completed"
+  | "sync_error"
+  | "api_rate_limit"
+  | "validation_error"
+  | "two_way_sync_triggered";
+
+/* ───────────────────── Core entities ───────────────────── */
+
+export interface SandboxProject {
+  id: string;
+  name: string;
+  status: ProjectStatus;
+  description?: string;
+  url?: string;
+  createdAt: string;
+  updatedAt: string;
+  /** IDs of link refs belonging to this project */
+  linkRefIds: string[];
+  /** IDs of campaigns currently mapped to this project */
+  campaignIds: string[];
+  /** Aggregate metrics */
+  totalSpend: number;
+  totalClicks: number;
+  totalImpressions: number;
+  totalConversions: number;
+}
+
+export interface RefCountEntry {
+  date: string; // YYYY-MM-DD
+  count: number;
+}
+
+export interface LinkRef {
+  id: string;
+  /** The unique URL (landing page) — unique per user account */
+  url: string;
+  /** Project this link ref belongs to */
+  projectId: string;
+  status: LinkRefStatus;
+  createdAt: string;
+  /** IDs of campaigns mapped to this link ref */
+  campaignIds: string[];
+  /** Aggregate metrics inherited from mapped campaigns */
+  totalClicks: number;
+  totalConversions: number;
+  /** Daily ref counts (manually entered or bulk imported) */
+  refCounts: RefCountEntry[];
+}
+
+export interface AdsCampaign {
+  id: string;
+  /** Google Ads campaign name */
+  name: string;
+  /** Google Ads account name */
+  accountName: string;
+  /** Google Ads account ID */
+  accountId: string;
+  /** Owner email */
+  ownerEmail: string;
+  /** Landing page / Final URL on Google Ads */
+  finalUrl: string;
+  status: CampaignStatus;
+  /** Link ref this campaign is mapped to (null if unmapped) */
+  linkRefId: string | null;
+  /** Project this campaign belongs to (null if unmapped) */
+  projectId: string | null;
+  /** Campaign type */
+  campaignType: "search" | "display" | "video" | "shopping" | "pmax";
+  /** Currency code */
+  currencyCode: string;
+  /** Daily budget */
+  dailyBudget: number;
+  /** Metrics */
+  cost: number;
+  clicks: number;
+  impressions: number;
+  conversions: number;
+  cpc: number;
+  ctr: number;
+  startDate: string;
+  updatedAt: string;
+}
+
+export interface SyncEvent {
+  id: string;
+  type: SyncEventType;
+  timestamp: string;
+  /** Human-readable description */
+  message: string;
+  /** Related entity IDs */
+  projectId?: string;
+  campaignId?: string;
+  linkRefId?: string;
+  /** Extra metadata */
+  meta?: Record<string, unknown>;
+}
+
+/** Time-windowed junction: tracks when each campaign was connected/disconnected from a project */
+export interface CampaignConnection {
+  id: string;
+  campaignId: string;
+  projectId: string;
+  linkRefId: string;
+  /** When user clicked "Sync" to connect */
+  connectedAt: string;
+  /** When disconnected — null = currently active */
+  disconnectedAt: string | null;
+}
+
+/* ───────────────────── Store state ───────────────────── */
+
+export interface ProjectCampaignState {
+  projects: SandboxProject[];
+  linkRefs: LinkRef[];
+  campaigns: AdsCampaign[];
+  /** Time-windowed connection ledger — source of truth for historical queries */
+  connections: CampaignConnection[];
+  events: SyncEvent[];
+  /** Currently active scenario ID (null = default state) */
+  activeScenario: ScenarioId | null;
+  /** Whether a sync/animation is in progress */
+  isSyncing: boolean;
+  /** Current sync step label for animation */
+  syncStep: string | null;
+}
+
+/* ───────────────────── Scenarios ───────────────────── */
+
+export type ScenarioId =
+  | "create_empty_project"
+  | "connect_sync_campaigns"
+  | "auto_linkref_new"
+  | "auto_linkref_dedup"
+  | "case_3a_url_changed"
+  | "case_3b_edit_linkref"
+  | "case_3c_bait_link"
+  | "disconnect_campaign"
+  | "campaign_removed_external"
+  | "error_duplicate_linkref"
+  | "error_api_rate_limit"
+  | "error_no_landing_page";
+
+export interface ScenarioConfig {
+  id: ScenarioId;
+  title: string;
+  description: string;
+  category: "create" | "update" | "delete" | "error";
+  /** The category label displayed in the badge */
+  categoryLabel: string;
+}
+
+/* ───────────────────── Action types ───────────────────── */
+
+export type ProjectCampaignAction =
+  | { type: "LOAD_SCENARIO"; scenario: ScenarioId }
+  | { type: "RESET" }
+  | { type: "SET_SYNCING"; isSyncing: boolean; syncStep?: string | null }
+  | { type: "CREATE_PROJECT"; project: SandboxProject }
+  | {
+      type: "CONNECT_CAMPAIGNS";
+      projectId: string;
+      campaignIds: string[];
+    }
+  | {
+      type: "DISCONNECT_CAMPAIGN";
+      campaignId: string;
+    }
+  | {
+      type: "MIGRATE_CAMPAIGN";
+      campaignId: string;
+      toProjectId: string;
+      newFinalUrl: string;
+    }
+  | {
+      type: "EDIT_LINKREF";
+      linkRefId: string;
+      newUrl: string;
+    }
+  | {
+      type: "CAMPAIGN_URL_CHANGED_EXTERNAL";
+      campaignId: string;
+      newUrl: string;
+    }
+  | {
+      type: "CAMPAIGN_STATUS_CHANGED_EXTERNAL";
+      campaignId: string;
+      newStatus: CampaignStatus;
+    }
+  | {
+      type: "ADD_EVENT";
+      event: SyncEvent;
+    }
+  | {
+      type: "SET_STATE";
+      state: Partial<ProjectCampaignState>;
+    }
+  | {
+      type: "ADD_LINKREF";
+      projectId: string;
+      url: string;
+    }
+  | {
+      type: "ADD_REF_COUNTS";
+      linkRefId: string;
+      entries: RefCountEntry[];
+    };
+===
+/**
+ * Types for the enhanced Project ↔ Campaign ↔ Link Ref mapping model.
+ * Used exclusively in the sandbox/prototype environment.
+ */
+
+/* ───────────────────── Status enums ───────────────────── */
+
+export type ProjectStatus = "running" | "saved" | "archived";
+
+export type CampaignStatus =
+  | "enabled"
+  | "paused"
+  | "removed"
+  | "archived"
+  | "pending_review";
+
+export type LinkRefStatus = "active" | "inactive";
+
+export type SyncEventType =
+  | "project_created"
+  | "campaign_connected"
+  | "campaign_disconnected"
+  | "campaign_migrated"
+  | "linkref_created"
+  | "linkref_edited"
+  | "linkref_dedup"
+  | "url_changed_external"
+  | "campaign_paused_external"
+  | "campaign_removed_external"
+  | "sync_completed"
+  | "sync_error"
+  | "api_rate_limit"
+  | "validation_error"
+  | "two_way_sync_triggered";
+
+/* ───────────────────── Core entities ───────────────────── */
+
+export interface SandboxProject {
+  id: string;
+  name: string;
+  status: ProjectStatus;
+  description?: string;
+  url?: string;
+  createdAt: string;
+  updatedAt: string;
+  /** IDs of link refs belonging to this project */
+  linkRefIds: string[];
+  /** IDs of campaigns currently mapped to this project */
+  campaignIds: string[];
+  /** Aggregate metrics */
+  totalSpend: number;
+  totalClicks: number;
+  totalImpressions: number;
+  totalConversions: number;
+}
+
+export interface RefCountEntry {
+  date: string; // YYYY-MM-DD
+  count: number;
+  /** Source of this entry: manual input, csv import, or live sync */
+  source?: 'manual' | 'csv' | 'live';
+  /** Campaign ID that contributed this ref count (optional — from CSV import) */
+  campaignId?: string;
+  /** Campaign name (optional — from CSV import) */
+  campaignName?: string;
+}
+
+export interface LinkRef {
+  id: string;
+  /** The unique URL (landing page) — unique per user account */
+  url: string;
+  /** Project this link ref belongs to */
+  projectId: string;
+  status: LinkRefStatus;
+  createdAt: string;
+  /** IDs of campaigns mapped to this link ref */
+  campaignIds: string[];
+  /** Aggregate metrics inherited from mapped campaigns */
+  totalClicks: number;
+  totalConversions: number;
+  /** Daily ref counts (manually entered or bulk imported) */
+  refCounts: RefCountEntry[];
+}
+
+export interface AdsCampaign {
+  id: string;
+  /** Google Ads campaign name */
+  name: string;
+  /** Google Ads account name */
+  accountName: string;
+  /** Google Ads account ID */
+  accountId: string;
+  /** Owner email */
+  ownerEmail: string;
+  /** Landing page / Final URL on Google Ads */
+  finalUrl: string;
+  status: CampaignStatus;
+  /** Link ref this campaign is mapped to (null if unmapped) */
+  linkRefId: string | null;
+  /** Project this campaign belongs to (null if unmapped) */
+  projectId: string | null;
+  /** Campaign type */
+  campaignType: "search" | "display" | "video" | "shopping" | "pmax";
+  /** Currency code */
+  currencyCode: string;
+  /** Daily budget */
+  dailyBudget: number;
+  /** Metrics */
+  cost: number;
+  clicks: number;
+  impressions: number;
+  conversions: number;
+  cpc: number;
+  ctr: number;
+  startDate: string;
+  updatedAt: string;
+}
+
+export interface SyncEvent {
+  id: string;
+  type: SyncEventType;
+  timestamp: string;
+  /** Human-readable description */
+  message: string;
+  /** Related entity IDs */
+  projectId?: string;
+  campaignId?: string;
+  linkRefId?: string;
+  /** Extra metadata */
+  meta?: Record<string, unknown>;
+}
+
+/** Row from a 6-column CSV backdate import */
+export interface BackdateCsvRow {
+  linkRef: string;         // Link Ref URL or ID
+  refCount: number;        // Number of referrals in the period
+  startTimestamp: string;  // Period start (YYYY-MM-DD)
+  endTimestamp: string;    // Period end (YYYY-MM-DD)
+  campaignId: string;      // Campaign Ads ID
+  adCampName: string;      // Campaign name
+}
+
+/** Record of a CSV/Excel backdate import */
+export interface BackdateImportRecord {
+  id: string;
+  fileName: string;
+  importedAt: string;
+  rowCount: number;
+  linkRefIds: string[];    // Link refs that were affected
+  projectId: string;
+}
+
+/** Time-windowed junction: tracks when each campaign was connected/disconnected from a project */
+export interface CampaignConnection {
+  id: string;
+  campaignId: string;
+  projectId: string;
+  linkRefId: string;
+  /** When user clicked "Sync" to connect */
+  connectedAt: string;
+  /** When disconnected — null = currently active */
+  disconnectedAt: string | null;
+}
+
+/* ───────────────────── Store state ───────────────────── */
+
+export interface ProjectCampaignState {
+  projects: SandboxProject[];
+  linkRefs: LinkRef[];
+  campaigns: AdsCampaign[];
+  /** Time-windowed connection ledger — source of truth for historical queries */
+  connections: CampaignConnection[];
+  events: SyncEvent[];
+  /** Currently active scenario ID (null = default state) */
+  activeScenario: ScenarioId | null;
+  /** Whether a sync/animation is in progress */
+  isSyncing: boolean;
+  /** Current sync step label for animation */
+  syncStep: string | null;
+}
+
+/* ───────────────────── Scenarios ───────────────────── */
+
+export type ScenarioId =
+  | "create_empty_project"
+  | "connect_sync_campaigns"
+  | "auto_linkref_new"
+  | "auto_linkref_dedup"
+  | "case_3a_url_changed"
+  | "case_3b_edit_linkref"
+  | "case_3c_bait_link"
+  | "disconnect_campaign"
+  | "campaign_removed_external"
+  | "error_duplicate_linkref"
+  | "error_api_rate_limit"
+  | "error_no_landing_page";
+
+export interface ScenarioConfig {
+  id: ScenarioId;
+  title: string;
+  description: string;
+  category: "create" | "update" | "delete" | "error";
+  /** The category label displayed in the badge */
+  categoryLabel: string;
+}
+
+/* ───────────────────── Action types ───────────────────── */
+
+export type ProjectCampaignAction =
+  | { type: "LOAD_SCENARIO"; scenario: ScenarioId }
+  | { type: "RESET" }
+  | { type: "SET_SYNCING"; isSyncing: boolean; syncStep?: string | null }
+  | { type: "CREATE_PROJECT"; project: SandboxProject }
+  | {
+      type: "CONNECT_CAMPAIGNS";
+      projectId: string;
+      campaignIds: string[];
+    }
+  | {
+      type: "DISCONNECT_CAMPAIGN";
+      campaignId: string;
+    }
+  | {
+      type: "MIGRATE_CAMPAIGN";
+      campaignId: string;
+      toProjectId: string;
+      newFinalUrl: string;
+    }
+  | {
+      type: "EDIT_LINKREF";
+      linkRefId: string;
+      newUrl: string;
+    }
+  | {
+      type: "CAMPAIGN_URL_CHANGED_EXTERNAL";
+      campaignId: string;
+      newUrl: string;
+    }
+  | {
+      type: "CAMPAIGN_STATUS_CHANGED_EXTERNAL";
+      campaignId: string;
+      newStatus: CampaignStatus;
+    }
+  | {
+      type: "ADD_EVENT";
+      event: SyncEvent;
+    }
+  | {
+      type: "SET_STATE";
+      state: Partial<ProjectCampaignState>;
+    }
+  | {
+      type: "ADD_LINKREF";
+      projectId: string;
+      url: string;
+    }
+  | {
+      type: "ADD_REF_COUNTS";
+      linkRefId: string;
+      entries: RefCountEntry[];
+    };
+```
+
+- `RefCountEntry` now has optional `source` (`'manual' | 'csv' | 'live'`), `campaignId`, and `campaignName` fields
+- Added `BackdateCsvRow` type matching the 6-column CSV format: link ref, ref count, startTimestamp, endTimestamp, ID, adCampName
+- Added `BackdateImportRecord` type for tracking import history
+
+---
+
+### 2. Project List — [ProjectListPanel.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/project-sandbox/ProjectListPanel.tsx)
+
+```diff:ProjectListPanel.tsx
+"use client";
+
+import React, { useState, useMemo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { type ColumnDef } from "@tanstack/react-table";
+import { useProjectCampaignStore } from "@/hooks/useProjectCampaignStore";
+import { makeEventId, makeTimestamp } from "@/data/mock-project-campaign-data";
+import type { SandboxProject, ScenarioId } from "@/types/project-campaign-types";
+import { DataTable } from "@/components/shared/data-table";
+import { Checkbox } from "@/components/ui/checkbox";
+import { BadgeStatus } from "@/components/shared/badge-status";
+import { Button } from "@/components/ui/button";
+import { ConnectCampaignModal } from "./ConnectCampaignModal";
+import { MigrateCampaignModal } from "./MigrateCampaignModal";
+import { EditLinkRefModal } from "./EditLinkRefModal";
+import { SyncAnimation } from "./SyncAnimation";
+import { SandboxDetailView } from "./SandboxDetailView";
+import { toast } from "sonner";
+import {
+  Plus, Zap, Activity, AlertTriangle, Eye,
+} from "lucide-react";
+
+type ViewState =
+  | { view: "list" }
+  | { view: "detail"; projectId: string };
+
+type TabKey = "all" | "running" | "saved";
+
+const STATUS_INFO: Record<string, { type: "completed" | "info" | "neutral"; label: string }> = {
+  running: { type: "completed", label: "Đang chạy" },
+  saved: { type: "info", label: "Đã lưu" },
+  archived: { type: "neutral", label: "Archived" },
+};
+
+function fmtNum(n: number): string {
+  return n.toLocaleString("vi-VN");
+}
+
+function formatDate(v: string): string {
+  try {
+    return new Date(v).toLocaleDateString("vi-VN", {
+      day: "2-digit", month: "2-digit", year: "numeric",
+    });
+  } catch { return v; }
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECT LIST VIEW (DataTable)
+   ═══════════════════════════════════════════════ */
+
+function ProjectListView({
+  onViewDetail,
+  onConnectClick,
+}: {
+  onViewDetail: (id: string) => void;
+  onConnectClick: (id: string) => void;
+}) {
+  const { state, dispatch, runningProjects, savedProjects } = useProjectCampaignStore();
+  const [tab, setTab] = useState<TabKey>("all");
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [newProjectName, setNewProjectName] = useState("");
+  const [isSyncingScenario, setIsSyncingScenario] = useState(false);
+  const [scenarioSyncStep, setScenarioSyncStep] = useState(0);
+
+  // ── Modals ──
+  const [connectModalProject, setConnectModalProject] = useState<string | null>(null);
+  const [migrateModalCampaign, setMigrateModalCampaign] = useState<string | null>(null);
+  const [editLinkRefModal, setEditLinkRefModal] = useState<string | null>(null);
+
+  const filteredProjects = useMemo(() => {
+    if (tab === "running") return runningProjects;
+    if (tab === "saved") return savedProjects;
+    return state.projects;
+  }, [tab, runningProjects, savedProjects, state.projects]);
+
+  // ── Table Columns ──
+  const columns = useMemo<ColumnDef<SandboxProject>[]>(() => [
+    {
+      id: "select",
+      header: ({ table }) => {
+        const ids = table.getRowModel().rows.map((r) => r.original.id);
+        const all = ids.length > 0 && ids.every((id) => selectedIds.includes(id));
+        return (
+          <Checkbox
+            checked={all}
+            onCheckedChange={() => setSelectedIds(all ? [] : ids)}
+            aria-label="Chọn tất cả"
+          />
+        );
+      },
+      cell: ({ row }) => {
+        const id = row.original.id;
+        return (
+          <Checkbox
+            checked={selectedIds.includes(id)}
+            onCheckedChange={() =>
+              setSelectedIds((prev) =>
+                prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+              )
+            }
+            aria-label={`Chọn ${row.original.name}`}
+            onClick={(e) => e.stopPropagation()}
+          />
+        );
+      },
+      size: 44,
+      enableSorting: false,
+    },
+    {
+      id: "index",
+      header: "STT",
+      cell: ({ row }) => (
+        <span className="text-xs text-muted-foreground">{row.index + 1}</span>
+      ),
+      size: 52,
+      enableSorting: false,
+    },
+    {
+      accessorKey: "name",
+      header: "Dự án",
+      cell: ({ row }) => (
+        <span className="font-medium text-foreground">{row.original.name}</span>
+      ),
+      size: 180,
+    },
+    {
+      id: "status",
+      header: "Trạng thái",
+      cell: ({ row }) => {
+        const info = STATUS_INFO[row.original.status] ?? STATUS_INFO.saved;
+        return <BadgeStatus type={info.type}>{info.label}</BadgeStatus>;
+      },
+      size: 120,
+    },
+    {
+      id: "campaigns",
+      header: "Campaign",
+      cell: ({ row }) => (
+        <span className="text-sm">
+          {row.original.campaignIds.length > 0
+            ? `${row.original.campaignIds.length} campaign`
+            : "—"}
+        </span>
+      ),
+      size: 100,
+    },
+    {
+      id: "linkRefs",
+      header: "Link Ref",
+      cell: ({ row }) => (
+        <span className="text-sm">
+          {row.original.linkRefIds.length > 0
+            ? `${row.original.linkRefIds.length} link`
+            : "—"}
+        </span>
+      ),
+      size: 90,
+    },
+    {
+      id: "spend",
+      header: "Chi phí",
+      cell: ({ row }) =>
+        row.original.totalSpend > 0 ? fmtNum(row.original.totalSpend) : "—",
+      size: 120,
+    },
+    {
+      id: "clicks",
+      header: "Clicks",
+      cell: ({ row }) =>
+        row.original.totalClicks > 0 ? fmtNum(row.original.totalClicks) : "—",
+      size: 100,
+    },
+    {
+      accessorKey: "updatedAt",
+      header: "Cập nhật",
+      cell: ({ row }) => (
+        <span className="text-xs text-muted-foreground">
+          {formatDate(row.original.updatedAt)}
+        </span>
+      ),
+      size: 110,
+    },
+    {
+      id: "actions",
+      header: () => <span className="sr-only">Actions</span>,
+      cell: ({ row }) => (
+        <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
+          <Button
+            size="sm"
+            className="h-7 gap-1 px-2.5 text-xs"
+            onClick={() => setConnectModalProject(row.original.id)}
+          >
+            <Zap className="size-3" />
+            Connect
+          </Button>
+          <Button
+            variant="outline" size="sm"
+            className="h-7 gap-1 px-2.5 text-xs"
+            onClick={() => onViewDetail(row.original.id)}
+          >
+            <Eye className="size-3" />
+            Xem
+          </Button>
+        </div>
+      ),
+      size: 180,
+      enableSorting: false,
+    },
+  ], [selectedIds, onViewDetail, connectModalProject]);
+
+  // ── Scenario auto-run ──
+  const handleDisconnectCampaign = useCallback(
+    (campaignId: string) => {
+      dispatch({ type: "DISCONNECT_CAMPAIGN", campaignId });
+      toast.info("Campaign đã ngắt kết nối (archived)");
+    },
+    [dispatch],
+  );
+
+  const runScenarioAction = useCallback(async () => {
+    const scenario = state.activeScenario;
+    if (!scenario) return;
+
+    switch (scenario) {
+      case "create_empty_project":
+        setShowCreateModal(true);
+        break;
+      case "connect_sync_campaigns":
+        setConnectModalProject("proj-binance");
+        break;
+      case "auto_linkref_new":
+        setConnectModalProject("proj-lazada");
+        break;
+      case "auto_linkref_dedup": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 4; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CONNECT_CAMPAIGNS",
+          projectId: "proj-lazada",
+          campaignIds: ["camp-unmapped-1", "camp-unmapped-2", "camp-unmapped-3"],
+        });
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "sync_completed", timestamp: makeTimestamp(),
+            message: "Gộp: 3 campaign → 2 Link Ref (1 URL trùng)", projectId: "proj-lazada" },
+        });
+        toast.success("3 campaign đã map — gộp link ref thành công");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "case_3a_url_changed": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 4; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CAMPAIGN_URL_CHANGED_EXTERNAL",
+          campaignId: "camp-bn-search-1",
+          newUrl: "https://binance.com/new-promo-may",
+        });
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "sync_completed", timestamp: makeTimestamp(),
+            message: "Sync: URL đổi → Ngắt Link Ref cũ → Tạo Link Ref mới", projectId: "proj-binance" },
+        });
+        toast.info("URL changed → auto-reconnected");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "case_3b_edit_linkref":
+        setEditLinkRefModal("lr-binance-sale");
+        break;
+      case "case_3c_bait_link":
+        setMigrateModalCampaign("camp-bait-1");
+        break;
+      case "disconnect_campaign":
+        handleDisconnectCampaign("camp-sp-display-1");
+        break;
+      case "campaign_removed_external": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 3; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CAMPAIGN_STATUS_CHANGED_EXTERNAL",
+          campaignId: "camp-sp-search-1", newStatus: "removed",
+        });
+        toast.warning("Campaign bị xóa trên Google Ads → archived");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "error_duplicate_linkref":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "validation_error", timestamp: makeTimestamp(),
+            message: '❌ URL "binance.com/sale-thang-4" đã thuộc Project "Binance"', projectId: "proj-lazada" },
+        });
+        toast.error('URL "binance.com/sale-thang-4" đã thuộc Project "Binance"');
+        break;
+      case "error_api_rate_limit":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "api_rate_limit", timestamp: makeTimestamp(),
+            message: "❌ Google Ads API rate limit. Retry sau 60s." },
+        });
+        toast.error("Google Ads API rate limit!", { duration: 5000 });
+        break;
+      case "error_no_landing_page":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "validation_error", timestamp: makeTimestamp(),
+            message: '⚠ Campaign "App Install" không có Final URL', campaignId: "camp-no-url" },
+        });
+        toast.warning("Campaign không có Landing Page");
+        break;
+      default: break;
+    }
+  }, [state.activeScenario, dispatch, handleDisconnectCampaign]);
+
+  const prevScenarioRef = React.useRef<ScenarioId | null>(null);
+  React.useEffect(() => {
+    if (state.activeScenario && state.activeScenario !== prevScenarioRef.current) {
+      prevScenarioRef.current = state.activeScenario;
+      const t = setTimeout(runScenarioAction, 400);
+      return () => clearTimeout(t);
+    }
+  }, [state.activeScenario, runScenarioAction]);
+
+  const handleCreateProject = useCallback(() => {
+    if (!newProjectName.trim()) return;
+    const ts = makeTimestamp();
+    const id = `proj-${Date.now()}`;
+    dispatch({
+      type: "CREATE_PROJECT",
+      project: {
+        id, name: newProjectName.trim(), status: "saved",
+        description: "Dự án rỗng (chưa có campaign)",
+        createdAt: ts, updatedAt: ts,
+        linkRefIds: [], campaignIds: [],
+        totalSpend: 0, totalClicks: 0, totalImpressions: 0, totalConversions: 0,
+      },
+    });
+    dispatch({
+      type: "ADD_EVENT",
+      event: { id: makeEventId(), type: "project_created", timestamp: ts,
+        message: `Tạo dự án "${newProjectName.trim()}"`, projectId: id },
+    });
+    toast.success(`Tạo dự án "${newProjectName.trim()}" thành công`);
+    setShowCreateModal(false);
+    setNewProjectName("");
+  }, [dispatch, newProjectName]);
+
+  const TABS: Array<{ key: TabKey; label: string; count: number }> = [
+    { key: "all", label: "Tất cả", count: state.projects.length },
+    { key: "running", label: "Đang chạy", count: runningProjects.length },
+    { key: "saved", label: "Đã lưu", count: savedProjects.length },
+  ];
+
+  return (
+    <>
+      <div className="space-y-4">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-lg font-semibold text-foreground">Quản lý Dự án</h1>
+            <p className="text-xs text-muted-foreground">
+              {state.projects.length} dự án · {state.campaigns.filter((c) => c.projectId).length} campaign mapped
+            </p>
+          </div>
+          <Button size="sm" className="gap-1.5" onClick={() => setShowCreateModal(true)}>
+            <Plus className="size-3.5" />
+            Thêm dự án
+          </Button>
+        </div>
+
+        {/* Scenario hint */}
+        {state.activeScenario && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-xs text-foreground/80"
+          >
+            {state.activeScenario.startsWith("error") ? (
+              <AlertTriangle className="size-3.5 shrink-0 text-amber-400" />
+            ) : (
+              <Activity className="size-3.5 shrink-0 text-primary" />
+            )}
+            <span>
+              Scenario: <span className="font-medium">{state.activeScenario.replace(/_/g, " ")}</span>
+            </span>
+            <Button variant="ghost" size="sm" className="ml-auto h-6 px-2 text-[10px]"
+              onClick={runScenarioAction}
+            >
+              Chạy lại
+            </Button>
+          </motion.div>
+        )}
+
+        {/* Sync animation */}
+        {isSyncingScenario && <SyncAnimation isActive currentStep={scenarioSyncStep} />}
+
+        {/* Tabs */}
+        <div className="flex items-center gap-3 border-b border-border/30">
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              className={`relative pb-2 text-sm font-medium transition-colors ${
+                tab === t.key ? "text-foreground" : "text-muted-foreground hover:text-foreground/70"
+              }`}
+            >
+              {t.label}
+              <span className="ml-1 text-xs text-muted-foreground">({t.count})</span>
+              {tab === t.key && (
+                <motion.div
+                  layoutId="project-tab-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-primary"
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Table */}
+        <DataTable<SandboxProject>
+          data={filteredProjects}
+          columns={columns}
+          initialPageSize={20}
+          emptyMessage="Không có dự án nào"
+          getRowId={(row) => row.id}
+          compact
+          selectedRowIds={selectedIds.length > 0 ? selectedIds : undefined}
+        />
+      </div>
+
+      {/* Create Project Modal */}
+      <AnimatePresence>
+        {showCreateModal && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+            onClick={() => setShowCreateModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+              className="w-full max-w-md rounded-xl border border-border/50 bg-card p-6 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="mb-1 text-base font-semibold">Tạo Dự án mới</h2>
+              <p className="mb-4 text-xs text-muted-foreground">Tạo dự án rỗng làm phễu hứng Campaign</p>
+              <input
+                type="text" placeholder="Tên dự án..." autoFocus
+                value={newProjectName}
+                onChange={(e) => setNewProjectName(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleCreateProject()}
+                className="mb-4 h-10 w-full rounded-lg border border-border/50 bg-background/50 px-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary/40 focus:outline-none"
+              />
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" size="sm" onClick={() => setShowCreateModal(false)}>Hủy</Button>
+                <Button size="sm" onClick={handleCreateProject} disabled={!newProjectName.trim()}>Tạo</Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modals */}
+      {connectModalProject && (
+        <ConnectCampaignModal open onOpenChange={(o) => { if (!o) setConnectModalProject(null); }}
+          projectId={connectModalProject} />
+      )}
+      {migrateModalCampaign && (
+        <MigrateCampaignModal open onOpenChange={(o) => { if (!o) setMigrateModalCampaign(null); }}
+          campaignId={migrateModalCampaign} />
+      )}
+      {editLinkRefModal && (
+        <EditLinkRefModal open onOpenChange={(o) => { if (!o) setEditLinkRefModal(null); }}
+          linkRefId={editLinkRefModal} />
+      )}
+    </>
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   MAIN EXPORT
+   ═══════════════════════════════════════════════ */
+
+export function ProjectListPanel() {
+  const [viewState, setViewState] = useState<ViewState>({ view: "list" });
+
+  return (
+    <AnimatePresence mode="wait">
+      {viewState.view === "list" ? (
+        <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -20 }}>
+          <ProjectListView
+            onViewDetail={(id) => setViewState({ view: "detail", projectId: id })}
+            onConnectClick={(id) => {
+              /* handled inside ProjectListView via connectModalProject state */
+            }}
+          />
+        </motion.div>
+      ) : (
+        <motion.div key="detail" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }}>
+          <SandboxDetailView
+            projectId={viewState.projectId}
+            onBack={() => setViewState({ view: "list" })}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+===
+"use client";
+
+import React, { useState, useMemo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { type ColumnDef } from "@tanstack/react-table";
+import { useProjectCampaignStore } from "@/hooks/useProjectCampaignStore";
+import { makeEventId, makeTimestamp } from "@/data/mock-project-campaign-data";
+import type { SandboxProject, ScenarioId } from "@/types/project-campaign-types";
+import { DataTable } from "@/components/shared/data-table";
+import { Checkbox } from "@/components/ui/checkbox";
+import { BadgeStatus } from "@/components/shared/badge-status";
+import { Button } from "@/components/ui/button";
+import { ConnectCampaignModal } from "./ConnectCampaignModal";
+import { MigrateCampaignModal } from "./MigrateCampaignModal";
+import { EditLinkRefModal } from "./EditLinkRefModal";
+import { SyncAnimation } from "./SyncAnimation";
+import { SandboxDetailView } from "./SandboxDetailView";
+import { toast } from "sonner";
+import {
+  Plus, Zap, Activity, AlertTriangle, Eye,
+} from "lucide-react";
+
+type ViewState =
+  | { view: "list" }
+  | { view: "detail"; projectId: string };
+
+type TabKey = "all" | "running" | "saved";
+
+const STATUS_INFO: Record<string, { type: "completed" | "info" | "neutral"; label: string }> = {
+  running: { type: "completed", label: "Đang chạy" },
+  saved: { type: "info", label: "Đã lưu" },
+  archived: { type: "neutral", label: "Archived" },
+};
+
+function fmtNum(n: number): string {
+  return n.toLocaleString("vi-VN");
+}
+
+function formatDate(v: string): string {
+  try {
+    return new Date(v).toLocaleDateString("vi-VN", {
+      day: "2-digit", month: "2-digit", year: "numeric",
+    });
+  } catch { return v; }
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECT LIST VIEW (DataTable)
+   ═══════════════════════════════════════════════ */
+
+function ProjectListView({
+  onViewDetail,
+  onConnectClick,
+}: {
+  onViewDetail: (id: string) => void;
+  onConnectClick: (id: string) => void;
+}) {
+  const { state, dispatch, runningProjects, savedProjects } = useProjectCampaignStore();
+  const [tab, setTab] = useState<TabKey>("all");
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [newProjectName, setNewProjectName] = useState("");
+  const [isSyncingScenario, setIsSyncingScenario] = useState(false);
+  const [scenarioSyncStep, setScenarioSyncStep] = useState(0);
+
+  // ── Modals ──
+  const [connectModalProject, setConnectModalProject] = useState<string | null>(null);
+  const [migrateModalCampaign, setMigrateModalCampaign] = useState<string | null>(null);
+  const [editLinkRefModal, setEditLinkRefModal] = useState<string | null>(null);
+
+  const filteredProjects = useMemo(() => {
+    if (tab === "running") return runningProjects;
+    if (tab === "saved") return savedProjects;
+    return state.projects;
+  }, [tab, runningProjects, savedProjects, state.projects]);
+
+  // ── Table Columns ──
+  const columns = useMemo<ColumnDef<SandboxProject>[]>(() => [
+    {
+      id: "select",
+      header: ({ table }) => {
+        const ids = table.getRowModel().rows.map((r) => r.original.id);
+        const all = ids.length > 0 && ids.every((id) => selectedIds.includes(id));
+        return (
+          <Checkbox
+            checked={all}
+            onCheckedChange={() => setSelectedIds(all ? [] : ids)}
+            aria-label="Chọn tất cả"
+          />
+        );
+      },
+      cell: ({ row }) => {
+        const id = row.original.id;
+        return (
+          <Checkbox
+            checked={selectedIds.includes(id)}
+            onCheckedChange={() =>
+              setSelectedIds((prev) =>
+                prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+              )
+            }
+            aria-label={`Chọn ${row.original.name}`}
+            onClick={(e) => e.stopPropagation()}
+          />
+        );
+      },
+      size: 44,
+      enableSorting: false,
+    },
+    {
+      id: "index",
+      header: "STT",
+      cell: ({ row }) => (
+        <span className="text-xs text-muted-foreground">{row.index + 1}</span>
+      ),
+      size: 52,
+      enableSorting: false,
+    },
+    {
+      accessorKey: "name",
+      header: "Dự án",
+      cell: ({ row }) => (
+        <span className="font-medium text-foreground">{row.original.name}</span>
+      ),
+      size: 180,
+    },
+    {
+      id: "status",
+      header: "Trạng thái",
+      cell: ({ row }) => {
+        const info = STATUS_INFO[row.original.status] ?? STATUS_INFO.saved;
+        return <BadgeStatus type={info.type}>{info.label}</BadgeStatus>;
+      },
+      size: 120,
+    },
+    {
+      id: "campaigns",
+      header: "Campaign",
+      cell: ({ row }) => (
+        <span className="text-sm">
+          {row.original.campaignIds.length > 0
+            ? `${row.original.campaignIds.length} campaign`
+            : "—"}
+        </span>
+      ),
+      size: 100,
+    },
+    {
+      id: "linkRefs",
+      header: "Link Ref",
+      cell: ({ row }) => (
+        <span className="text-sm">
+          {row.original.linkRefIds.length > 0
+            ? `${row.original.linkRefIds.length} link`
+            : "—"}
+        </span>
+      ),
+      size: 90,
+    },
+    {
+      id: "spend",
+      header: "Chi phí",
+      cell: ({ row }) =>
+        row.original.totalSpend > 0 ? fmtNum(row.original.totalSpend) : "—",
+      size: 120,
+    },
+    {
+      id: "clicks",
+      header: "Clicks",
+      cell: ({ row }) =>
+        row.original.totalClicks > 0 ? fmtNum(row.original.totalClicks) : "—",
+      size: 100,
+    },
+    {
+      accessorKey: "updatedAt",
+      header: "Cập nhật",
+      cell: ({ row }) => (
+        <span className="text-xs text-muted-foreground">
+          {formatDate(row.original.updatedAt)}
+        </span>
+      ),
+      size: 110,
+    },
+    {
+      id: "actions",
+      header: () => <span className="sr-only">Actions</span>,
+      cell: ({ row }) => (
+        <div className="flex items-center justify-end gap-1.5" onClick={(e) => e.stopPropagation()}>
+          <Button
+            size="sm"
+            className="h-7 gap-1 px-2.5 text-xs"
+            onClick={() => setConnectModalProject(row.original.id)}
+          >
+            <Zap className="size-3" />
+            Connect
+          </Button>
+          <Button
+            variant="outline" size="sm"
+            className="h-7 gap-1 px-2.5 text-xs"
+            onClick={() => onViewDetail(row.original.id)}
+          >
+            <Eye className="size-3" />
+            Xem
+          </Button>
+        </div>
+      ),
+      size: 180,
+      enableSorting: false,
+    },
+  ], [selectedIds, onViewDetail, connectModalProject]);
+
+  // ── Scenario auto-run ──
+  const handleDisconnectCampaign = useCallback(
+    (campaignId: string) => {
+      dispatch({ type: "DISCONNECT_CAMPAIGN", campaignId });
+      toast.info("Campaign đã ngắt kết nối (archived)");
+    },
+    [dispatch],
+  );
+
+  const runScenarioAction = useCallback(async () => {
+    const scenario = state.activeScenario;
+    if (!scenario) return;
+
+    switch (scenario) {
+      case "create_empty_project":
+        setShowCreateModal(true);
+        break;
+      case "connect_sync_campaigns":
+        setConnectModalProject("proj-binance");
+        break;
+      case "auto_linkref_new":
+        setConnectModalProject("proj-lazada");
+        break;
+      case "auto_linkref_dedup": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 4; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CONNECT_CAMPAIGNS",
+          projectId: "proj-lazada",
+          campaignIds: ["camp-unmapped-1", "camp-unmapped-2", "camp-unmapped-3"],
+        });
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "sync_completed", timestamp: makeTimestamp(),
+            message: "Gộp: 3 campaign → 2 Link Ref (1 URL trùng)", projectId: "proj-lazada" },
+        });
+        toast.success("3 campaign đã map — gộp link ref thành công");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "case_3a_url_changed": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 4; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CAMPAIGN_URL_CHANGED_EXTERNAL",
+          campaignId: "camp-bn-search-1",
+          newUrl: "https://binance.com/new-promo-may",
+        });
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "sync_completed", timestamp: makeTimestamp(),
+            message: "Sync: URL đổi → Ngắt Link Ref cũ → Tạo Link Ref mới", projectId: "proj-binance" },
+        });
+        toast.info("URL changed → auto-reconnected");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "case_3b_edit_linkref":
+        setEditLinkRefModal("lr-binance-sale");
+        break;
+      case "case_3c_bait_link":
+        setMigrateModalCampaign("camp-bait-1");
+        break;
+      case "disconnect_campaign":
+        handleDisconnectCampaign("camp-sp-display-1");
+        break;
+      case "campaign_removed_external": {
+        setIsSyncingScenario(true);
+        for (let i = 0; i < 3; i++) {
+          await new Promise((r) => setTimeout(r, 600));
+          setScenarioSyncStep(i + 1);
+        }
+        dispatch({
+          type: "CAMPAIGN_STATUS_CHANGED_EXTERNAL",
+          campaignId: "camp-sp-search-1", newStatus: "removed",
+        });
+        toast.warning("Campaign bị xóa trên Google Ads → archived");
+        setIsSyncingScenario(false);
+        setScenarioSyncStep(0);
+        break;
+      }
+      case "error_duplicate_linkref":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "validation_error", timestamp: makeTimestamp(),
+            message: '❌ URL "binance.com/sale-thang-4" đã thuộc Project "Binance"', projectId: "proj-lazada" },
+        });
+        toast.error('URL "binance.com/sale-thang-4" đã thuộc Project "Binance"');
+        break;
+      case "error_api_rate_limit":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "api_rate_limit", timestamp: makeTimestamp(),
+            message: "❌ Google Ads API rate limit. Retry sau 60s." },
+        });
+        toast.error("Google Ads API rate limit!", { duration: 5000 });
+        break;
+      case "error_no_landing_page":
+        dispatch({
+          type: "ADD_EVENT",
+          event: { id: makeEventId(), type: "validation_error", timestamp: makeTimestamp(),
+            message: '⚠ Campaign "App Install" không có Final URL', campaignId: "camp-no-url" },
+        });
+        toast.warning("Campaign không có Landing Page");
+        break;
+      default: break;
+    }
+  }, [state.activeScenario, dispatch, handleDisconnectCampaign]);
+
+  const prevScenarioRef = React.useRef<ScenarioId | null>(null);
+  React.useEffect(() => {
+    if (state.activeScenario && state.activeScenario !== prevScenarioRef.current) {
+      prevScenarioRef.current = state.activeScenario;
+      const t = setTimeout(runScenarioAction, 400);
+      return () => clearTimeout(t);
+    }
+  }, [state.activeScenario, runScenarioAction]);
+
+  const handleCreateProject = useCallback(() => {
+    if (!newProjectName.trim()) return;
+    const ts = makeTimestamp();
+    const id = `proj-${Date.now()}`;
+    dispatch({
+      type: "CREATE_PROJECT",
+      project: {
+        id, name: newProjectName.trim(), status: "saved",
+        description: "Dự án rỗng (chưa có campaign)",
+        createdAt: ts, updatedAt: ts,
+        linkRefIds: [], campaignIds: [],
+        totalSpend: 0, totalClicks: 0, totalImpressions: 0, totalConversions: 0,
+      },
+    });
+    dispatch({
+      type: "ADD_EVENT",
+      event: { id: makeEventId(), type: "project_created", timestamp: ts,
+        message: `Tạo dự án "${newProjectName.trim()}"`, projectId: id },
+    });
+    toast.success(`Tạo dự án "${newProjectName.trim()}" thành công`);
+    setShowCreateModal(false);
+    setNewProjectName("");
+  }, [dispatch, newProjectName]);
+
+  const TABS: Array<{ key: TabKey; label: string; count: number }> = [
+    { key: "all", label: "Tất cả", count: state.projects.length },
+    { key: "running", label: "Đang chạy", count: runningProjects.length },
+    { key: "saved", label: "Đã lưu", count: savedProjects.length },
+  ];
+
+  return (
+    <>
+      <div className="space-y-4">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div>
+          <h1 className="text-lg font-semibold text-foreground tracking-tight">Quản lý Dự án</h1>
+            <p className="text-xs text-muted-foreground">
+              {state.projects.length} dự án · {state.campaigns.filter((c) => c.projectId).length} campaign mapped
+            </p>
+          </div>
+          <Button size="sm" className="gap-1.5 shadow-sm" onClick={() => setShowCreateModal(true)}>
+            <Plus className="size-3.5" />
+            Thêm dự án
+          </Button>
+        </div>
+
+        {/* Scenario hint */}
+        {state.activeScenario && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-xs text-foreground/80"
+          >
+            {state.activeScenario.startsWith("error") ? (
+              <AlertTriangle className="size-3.5 shrink-0 text-amber-400" />
+            ) : (
+              <Activity className="size-3.5 shrink-0 text-primary" />
+            )}
+            <span>
+              Scenario: <span className="font-medium">{state.activeScenario.replace(/_/g, " ")}</span>
+            </span>
+            <Button variant="ghost" size="sm" className="ml-auto h-6 px-2 text-[10px]"
+              onClick={runScenarioAction}
+            >
+              Chạy lại
+            </Button>
+          </motion.div>
+        )}
+
+        {/* Sync animation */}
+        {isSyncingScenario && <SyncAnimation isActive currentStep={scenarioSyncStep} />}
+
+        {/* Tabs */}
+        <div className="flex items-center gap-1 border-b border-border/30">
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key)}
+              className={`relative px-3 pb-2.5 pt-1 text-sm font-medium transition-colors ${
+                tab === t.key ? "text-foreground" : "text-muted-foreground hover:text-foreground/70"
+              }`}
+            >
+              {t.label}
+              <span className={`ml-1 inline-flex items-center justify-center rounded-full px-1.5 py-px text-[10px] font-semibold leading-none ${
+                tab === t.key
+                  ? "bg-primary/15 text-primary"
+                  : "bg-muted/40 text-muted-foreground/60"
+              }`}>{t.count}</span>
+              {tab === t.key && (
+                <motion.div
+                  layoutId="project-tab-indicator"
+                  className="absolute bottom-0 left-1 right-1 h-[2px] rounded-full bg-primary"
+                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Table */}
+        <DataTable<SandboxProject>
+          data={filteredProjects}
+          columns={columns}
+          initialPageSize={20}
+          emptyMessage="Không có dự án nào"
+          getRowId={(row) => row.id}
+          compact
+          selectedRowIds={selectedIds.length > 0 ? selectedIds : undefined}
+        />
+      </div>
+
+      {/* Create Project Modal */}
+      <AnimatePresence>
+        {showCreateModal && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+            onClick={() => setShowCreateModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+              className="w-full max-w-md rounded-xl border border-border/50 bg-card p-6 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="mb-1 text-base font-semibold">Tạo Dự án mới</h2>
+              <p className="mb-4 text-xs text-muted-foreground">Tạo dự án rỗng làm phễu hứng Campaign</p>
+              <input
+                type="text" placeholder="Tên dự án..." autoFocus
+                value={newProjectName}
+                onChange={(e) => setNewProjectName(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleCreateProject()}
+                className="mb-4 h-10 w-full rounded-lg border border-border/50 bg-background/50 px-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary/40 focus:outline-none"
+              />
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" size="sm" onClick={() => setShowCreateModal(false)}>Hủy</Button>
+                <Button size="sm" onClick={handleCreateProject} disabled={!newProjectName.trim()}>Tạo</Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Modals */}
+      {connectModalProject && (
+        <ConnectCampaignModal open onOpenChange={(o) => { if (!o) setConnectModalProject(null); }}
+          projectId={connectModalProject} />
+      )}
+      {migrateModalCampaign && (
+        <MigrateCampaignModal open onOpenChange={(o) => { if (!o) setMigrateModalCampaign(null); }}
+          campaignId={migrateModalCampaign} />
+      )}
+      {editLinkRefModal && (
+        <EditLinkRefModal open onOpenChange={(o) => { if (!o) setEditLinkRefModal(null); }}
+          linkRefId={editLinkRefModal} />
+      )}
+    </>
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   MAIN EXPORT
+   ═══════════════════════════════════════════════ */
+
+export function ProjectListPanel() {
+  const [viewState, setViewState] = useState<ViewState>({ view: "list" });
+
+  return (
+    <AnimatePresence mode="wait">
+      {viewState.view === "list" ? (
+        <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -20 }}>
+          <ProjectListView
+            onViewDetail={(id) => setViewState({ view: "detail", projectId: id })}
+            onConnectClick={(id) => {
+              /* handled inside ProjectListView via connectModalProject state */
+            }}
+          />
+        </motion.div>
+      ) : (
+        <motion.div key="detail" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }}>
+          <SandboxDetailView
+            projectId={viewState.projectId}
+            onBack={() => setViewState({ view: "list" })}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+```
+
+- Tab indicator: animated spring transition, badge-style count pills
+- Connect button: clean primary styling (no gradient)
+- Header: tighter tracking
+
+---
+
+### 3. Detail View — [SandboxDetailView.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/project-sandbox/SandboxDetailView.tsx)
+
+**CSV Upload** — upgraded to support both formats:
+- **6-column** (new): `link ref, ref count, startTimestamp, endTimestamp, ID, adCampName` — distributes ref counts evenly across the date range
+- **2-column** (legacy): `date, count` — backward compatible
+- Template download button generates a pre-filled CSV
+
+**History Tab** — split into three visual sections:
+1. **Sau khi kết nối** — Events after the first `CampaignConnection.connectedAt`. Normal opacity, solid timeline
+2. **Connection Moment Divider** — Subtle horizontal line with ⚡ icon and timestamp
+3. **Trước khi kết nối** — Events before connection. Faded (60% opacity), dashed border, muted event badges
+
+**All Entries Table** — added a "Nguồn" (Source) column showing `CSV`, `Live`, or `—`
+
+---
+
+### Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| No emojis in badges | Unprofessional in enterprise UI |
+| No gradient buttons | Gradients draw attention to wrong elements |
+| Muted "before" events | Visually deprioritize retrospective data |
+| Solid timeline (not colored) | Color should indicate meaning, not decoration |
+| Dashed border on "before" card | Subtle visual cue that this data is estimated/manual |
+| Source as plain text, not badge | Badges create visual noise in dense tables |
+
+## Verification
+
+- ✅ TypeScript compiles with zero errors
+- ⏳ Browser visual verification pending (app running on localhost:3000)

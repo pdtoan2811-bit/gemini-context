@@ -1,0 +1,32 @@
+# Task Tracker — Sandbox UI/UX Revamp
+
+## 1. Data Model Updates
+- [/] Extend `RefCountEntry` with optional `campaignId` and `source` field
+- [ ] Add `BackdateImportRecord` type for CSV upload tracking
+
+## 2. Visual Hierarchy — Project List
+- [ ] Improve tab active indicator (gradient underline)
+- [ ] Add row hover accent border
+- [ ] Make Connect button more prominent (gradient)
+
+## 3. Visual Hierarchy — Detail View Tabs
+- [ ] Simplify tab labels with badge counts
+- [ ] Cleaner KPI card layout with data source badges
+- [ ] Campaign table auto-collapse (>3 campaigns)
+
+## 4. CSV/Excel Backdate Upload Revamp
+- [ ] New 6-column CSV format parser
+- [ ] Template download button
+- [ ] Preview table after file upload
+- [ ] Validation results display
+
+## 5. History Tab — Before/After Split
+- [ ] Split timeline at `CampaignConnection.connectedAt`
+- [ ] "Before Connection" section (muted, dashed, backdate badge)
+- [ ] "After Connection" section (vibrant, solid, live badge)
+- [ ] Connection moment divider with timestamp
+
+## 6. Verification
+- [ ] Run dev server and test all tabs
+- [ ] Test CSV upload with new format
+- [ ] Verify history split renders correctly

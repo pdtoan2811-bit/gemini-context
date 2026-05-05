@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Comprehensive implementation plan for revamping the Project Sandbox UI/UX using the SHE (Simplicity, Hide, Embody) approach. Covers 5 major components:\n1. Data model updates — new BackdateEntry type with link ref, ref count, timestamps, campaign ID, and campaign name fields\n2. Visual hierarchy revamp across all tabs — simplified navigation, progressive disclosure, self-explanatory interfaces\n3. CSV/Excel backdate upload redesign — new 6-column format (link ref, ref count, startTimestamp, endTimestamp, ID, adCampName) with template download and preview\n4. History tab split — before connection (backdate/retrospective data) vs after connection (live/immutable data) with a prominent connection moment divider\n5. Project list polish — stronger tab indicators, hover states, gradient connect button\n\nIncludes open questions about CSV behavior, campaign ID handling, and transaction visual interpretation.",
+  "updatedAt":  "2026-05-05T02:02:22.807943100Z",
+  "requestFeedback":  true
+}
