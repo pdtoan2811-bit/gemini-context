@@ -1,9 +1,10 @@
-# Ads Management Sandbox Tasks
+# Ads Sandbox Implementation
 
-- [x] 1. Create `src/types/ads-sandbox-types.ts`
-- [x] 2. Create `src/data/mock-ads-sandbox-data.ts`
-- [x] 3. Create `src/hooks/useAdsSandboxStore.tsx`
-- [x] 4. Create `src/containers/ads-sandbox/AdsListPanel.tsx`
-- [x] 5. Create `src/containers/ads-sandbox/AdsDetailView.tsx`
-- [x] 6. Create `src/containers/ads-sandbox/DepositModal.tsx`
-- [x] 7. Create `src/app/[locale]/(admin)/ads/sandbox/page.tsx`
+- `[/]` Create mock data file (`mock-ads-data.ts`)
+- `[ ]` Create `AdsSandboxPageContent.tsx`
+- `[ ]` Create `SandboxEmailManagementTab.tsx`
+- `[ ]` Create `SandboxCampaignManagementTab.tsx`
+- `[ ]` Create `SandboxAdsAccountsTab.tsx`
+- `[ ]` Create route page (`/ads/sandbox/page.tsx`)
+- `[ ]` Verify build
+- `[ ]` Browser test
