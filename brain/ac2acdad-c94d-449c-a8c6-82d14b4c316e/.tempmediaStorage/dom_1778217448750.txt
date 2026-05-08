@@ -1,0 +1,46 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+adecos
+Register
+*
+Required fields
+[0] (404,346)<label class='pf-v5-c-form__label'>Username
+* />
+	Username
+	*
+[1] (500,382)<input class='pf-v5-c-form-control' id='username' />
+[2] (403,439)<label class='pf-v5-c-form__label'>Password
+* />
+	Password
+	*
+[3] (487,475)<input id='password' />
+[4] (604,475)<button aria-label='Show password' class='pf-v5-c-button pf-m-control' id='password-show-password' />
+	[5] (604,474)<i  />
+[6] (418,537)<label class='pf-v5-c-form__label'>Confirm password
+* />
+	Confirm password
+	*
+[7] (487,573)<input id='password-confirm' />
+[8] (604,573)<button aria-label='Show password' class='pf-v5-c-button pf-m-control' id='password-confirm-show-password' />
+	[9] (604,572)<i  />
+[10] (396,634)<label class='pf-v5-c-form__label'>Email
+* />
+	Email
+	*
+[11] (500,670)<input class='pf-v5-c-form-control' id='email' />
+[12] (405,727)<label class='pf-v5-c-form__label'>First name
+* />
+	First name
+	*
+[13] (500,763)<input class='pf-v5-c-form-control' id='firstName' />
+[14] (405,820)<label class='pf-v5-c-form__label'>Last name
+* />
+	Last name
+	*
+[15] (500,856)<input class='pf-v5-c-form-control' id='lastName' />
+[16] (500,920)<input class='pf-v5-c-button pf-v5-c-button pf-m-primary pf-m-block ' />
+« Back to Login
+
+</current_dom>

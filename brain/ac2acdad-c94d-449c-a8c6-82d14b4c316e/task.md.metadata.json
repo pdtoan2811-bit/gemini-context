@@ -1,5 +1,6 @@
 {
   "artifactType":  "ARTIFACT_TYPE_TASK",
-  "summary":  "Task checklist for implementing the Ads Management sandbox with mock data, sandbox components, and route page.",
-  "updatedAt":  "2026-05-08T05:00:18.428571900Z"
+  "summary":  "All tasks completed for the Ads Management sandbox implementation.",
+  "updatedAt":  "2026-05-08T05:19:08.274204Z",
+  "version":  "1"
 }

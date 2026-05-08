@@ -1,0 +1,250 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (56,36)<a class='flex min-w-0 flex-1 items-center gap-2 text-sidebar-foreground transition-opacity hover:opacity-90' href='/vi' />
+	[1] (44,36)<span  />
+		[2] (44,28)<span >Adecos />
+		[3] (44,47)<span >Enterprise />
+[4] (116,36)<button aria-label='Collapse sidebar' class='hidden size-8 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground lg:flex' />
+[5] (66,83)<button class='flex h-9 w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/50'>AI Agent />
+	AI Agent
+[6] (66,123)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects' />
+	[7] (18,123)<span  />
+	[8] (51,123)<span >Quản lý dự án />
+[9] (66,161)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects/sandbox' />
+	[10] (18,161)<span  />
+	[11] (57,161)<span >🧪 Quản lý dự án />
+[12] (66,199)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/competitor-spy' />
+	[13] (18,199)<span  />
+	[14] (55,199)<span >Theo dõi đối thủ />
+[15] (66,237)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors bg-sidebar-accent text-sidebar-accent-foreground' href='/vi/ads' />
+	[16] (18,237)<span  />
+	[17] (48,237)<span >Quản lý Ads />
+[18] (66,275)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/clicktracker' />
+	[19] (18,275)<span  />
+	[20] (50,275)<span >Click Tracker />
+[21] (66,313)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/dashboard/experiment' />
+	[22] (18,313)<span  />
+	[23] (46,313)<span >Thí nghiệm />
+[24] (66,351)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/deep-research' />
+	[25] (18,351)<span  />
+	[26] (53,351)<span >Deep Research />
+[27] (66,389)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/analytics' />
+	[28] (18,389)<span  />
+	[29] (43,389)<span >Phân tích />
+[30] (66,428)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/notifications' />
+	[31] (18,428)<span  />
+	[32] (46,428)<span >Thông báo />
+T
+Tester User
+tester123@example.com
+[33] (117,964)<button aria-label='User menu' class='flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent/80 hover:text-sidebar-foreground data-[state=open]:bg-sidebar-accent/80' id='radix-_r_3_' />
+[34] (165,29)<a class='min-w-0 truncate font-normal text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2' href='/vi/ads?tab=campaign'>Quản lý Ads />
+Chi tiết chiến dịch
+[35] (982,29)<button aria-label='Notifications' class='relative flex size-9 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground focus:outline-none' />
+[36] (567,530)<main class='flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-3 sm:p-4 lg:p-6' scrollable='true' />
+	Quản lý Ads
+	🧪 Sandbox
+	[37] (182,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-muted-foreground hover:text-foreground' role='tab'>Quản lý Email />
+	[38] (251,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-primary' role='tab'>Quản lý Chiến dịch />
+	[39] (321,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-muted-foreground hover:text-foreground' role='tab'>Tài khoản Ads />
+	[40] (258,247)<input class='file:text-foreground selection:bg-primary selection:text-primary-foreground border-border! min-w-0 rounded-10 px-3 py-1 transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:border-destructive h-10 min-h-10 w-full rounded-lg border border-hairline bg-white text-sm text-foreground shadow-sm pl-9 pr-9 placeholder:text-third focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:border-primary/30' placeholder='Tìm ID, tên chiến dịch, tên tài khoản...' />
+	[41] (384,247)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 py-1.5 has-[>svg]:px-2 h-[40px] max-h-[40px] gap-2 px-3 text-sm font-normal hover:bg-accent/50 border border-border' />
+		[42] (390,247)<span >Bộ lọc />
+	[43] (810,247)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 py-1.5 has-[>svg]:px-2 gap-2 h-[40px] max-h-[40px] px-3 text-sm font-normal hover:bg-accent/50 border border-border' />
+		[44] (809,247)<span >Tuỳ chỉnh cột />
+		[45] (841,247)<div >20 />
+	[46] (911,247)<div  />
+		[47] (911,247)<button class='inline-flex items-center cursor-pointer gap-2 whitespace-nowrap rounded-10 text-sm transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 max-h-10 px-2 py-1.5 has-[>svg]:px-2 h-[40px] w-full min-w-0 justify-start font-normal focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0 text-foreground'>08/05/2026 - 08/05/2026 />
+	[48] (563,595)<div class='min-h-0 overflow-auto relative border border-border rounded-md' scrollable='true' />
+		[49] (174,307)<button aria-label='Select all' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		STT
+		[50] (241,307)<th  />
+			[51] (241,307)<div >ID tài khoản />
+		[52] (330,307)<th  />
+			[53] (330,307)<div >Tên chiến dịch />
+		[54] (428,307)<th  />
+			[55] (428,307)<div >Tài khoản />
+		[56] (501,307)<th  />
+			[57] (501,307)<div >Trạng thái tài khoản />
+		[58] (580,307)<th  />
+			[59] (580,307)<div >Trạng thái chiến dịch />
+		[60] (656,307)<th  />
+			[61] (656,307)<div >Loại chiến dịch />
+		Thời gian
+		Múi giờ
+		Ngân sách
+		Chi phí
+		Lượt click
+		Lượt hiển thị
+		Chức năng
+		[62] (174,358)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		1
+		3871221491
+		Binance Sale Tháng 5 - Search
+		Tài khoản Ads #1
+		Hoạt động
+		Đang chạy
+		Search
+		12:18 08/05/2026
+		GMT+07:00
+		Ho Chi Minh
+		811.665 VND
+		4.996.118
+		2.886
+		111.767
+		[63] (930,358)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_q_' />
+		[64] (174,419)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		2
+		1644382569
+		Shopee Siêu Sale 5.2026 - Display
+		Tài khoản Ads #2
+		Hoạt động
+		Đang chạy
+		Display
+		12:18 08/05/2026
+		GMT+07:00
+		Bangkok
+		665.775 VND
+		1.115.248
+		3.252
+		146.538
+		[65] (930,419)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_s_' />
+		[66] (174,479)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		3
+		6225231022
+		Lazada Flash Deal - PMax
+		Tài khoản Ads #3
+		Tạm ngưng
+		Đang chạy
+		Performance Max
+		22:18 07/05/2026
+		GMT-07:00
+		Los Angeles
+		444.148 VND
+		1.572.928
+		440
+		8.169
+		[67] (930,479)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_u_' />
+		[68] (174,539)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		4
+		5597123791
+		TikTok Shop Summer - Video
+		Tài khoản Ads #4
+		Đã đóng
+		Tạm dừng
+		Video
+		06:18 08/05/2026
+		GMT+01:00
+		London
+		598.717 VND
+		750.779
+		968
+		22.774
+		[69] (930,539)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_10_' />
+		[70] (174,599)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		5
+		5903862004
+		Crypto Exchange - Search
+		Tài khoản Ads #5
+		Hoạt động
+		Đã xóa
+		Shopping
+		12:18 08/05/2026
+		GMT+07:00
+		Ho Chi Minh
+		521.879 VND
+		5.925.657
+		2.426
+		33.071
+		[71] (930,599)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_12_' />
+		[72] (174,660)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		6
+		2626152912
+		Fashion Store - Display
+		Tài khoản Ads #1
+		Hoạt động
+		Đang chạy
+		Search
+		12:18 08/05/2026
+		GMT+07:00
+		Bangkok
+		821.572 VND
+		7.886.193
+		2.310
+		93.055
+		[73] (930,660)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_14_' />
+		[74] (174,720)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		7
+		1125638684
+		Tech Gadgets - Shopping
+		Tài khoản Ads #2
+		Tạm ngưng
+		Đang chạy
+		Display
+		22:18 07/05/2026
+		GMT-07:00
+		Los Angeles
+		908.409 VND
+		2.139.838
+		7.213
+		236.949
+		[75] (930,720)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_16_' />
+		[76] (174,780)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		8
+		5624305425
+		Food Delivery - Search
+		Tài khoản Ads #3
+		Đã đóng
+		Đang chạy
+		Performance Max
+		06:18 08/05/2026
+		GMT+01:00
+		London
+		440.031 VND
+		8.249.396
+		5.730
+		122.438
+		[77] (930,780)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_18_' />
+		[78] (174,841)<button aria-label='Select row' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+		9
+		8855006950
+		Travel Booking - PMax
+		Tài khoản Ads #4
+		Hoạt động
+		Tạm dừng
+		Video
+		12:18 08/05/2026
+		GMT+07:00
+		Ho Chi Minh
+		373.322 VND
+		8.464.821
+		1.671
+		77.165
+		[79] (930,841)<button aria-label='Mở menu chiến dịch' class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-8 rounded-md gap-1.5 has-[>svg]:px-2 size-8 p-0' id='radix-_r_1a_' />
+		10
+		8885608039
+		Education Online - Video
+		Tài khoản Ads #5
+		Hoạt động
+		Đã xóa
+		Shopping
+		12:18 08/05/2026
+		GMT+07:00
+		Bangkok
+		289.132 VND
+		8.799.676
+		1.288
+		11.915
+	[80] (749,937)<label class='whitespace-nowrap text-secondary-foreground font-medium'>Rows per page />
+	[81] (798,937)<button class='data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-10 border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 h-8 w-18 border-border bg-muted/30 text-foreground cursor-pointer' id='simple-page-size-select' role='combobox'>10 />
+		10
+	Page
+	1
+	of
+	2
+	[82] (938,937)<button aria-label='Next page' class='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-8 cursor-pointer rounded-lg border-border bg-muted/30 hover:bg-muted/50 hover:text-foreground' />
+	[83] (959,937)<button aria-label='Last page' class='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-8 cursor-pointer rounded-lg border-border bg-muted/30 hover:bg-muted/50 hover:text-foreground' />
+
+</current_dom>

@@ -1,0 +1,51 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (56,36)<a class='flex min-w-0 flex-1 items-center gap-2 text-sidebar-foreground transition-opacity hover:opacity-90' href='/vi' />
+	[1] (44,36)<span  />
+		[2] (44,28)<span >Adecos />
+		[3] (44,47)<span >Enterprise />
+[4] (116,36)<button aria-label='Collapse sidebar' class='hidden size-8 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground lg:flex' />
+[5] (66,83)<button class='flex h-9 w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors bg-sidebar-accent text-sidebar-accent-foreground'>AI Agent />
+	AI Agent
+[6] (71,125)<a class='flex min-h-8 items-center gap-2 rounded-md bg-muted/50 px-2 py-1.5 text-sm transition-colors text-sidebar-foreground hover:bg-muted/70' href='/vi/chat?new=1' />
+	[7] (27,125)<span  />
+	[8] (50,125)<span >Chat mới />
+Gần đây
+Đang tải…
+[9] (66,235)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects' />
+	[10] (18,235)<span  />
+	[11] (51,235)<span >Quản lý dự án />
+[12] (66,273)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects/sandbox' />
+	[13] (18,273)<span  />
+	[14] (57,273)<span >🧪 Quản lý dự án />
+[15] (66,311)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/competitor-spy' />
+	[16] (18,311)<span  />
+	[17] (55,311)<span >Theo dõi đối thủ />
+[18] (66,349)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/ads' />
+	[19] (18,349)<span  />
+	[20] (48,349)<span >Quản lý Ads />
+[21] (66,387)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/clicktracker' />
+	[22] (18,387)<span  />
+	[23] (50,387)<span >Click Tracker />
+[24] (66,425)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/dashboard/experiment' />
+	[25] (18,425)<span  />
+	[26] (46,425)<span >Thí nghiệm />
+[27] (66,463)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/deep-research' />
+	[28] (18,463)<span  />
+	[29] (53,463)<span >Deep Research />
+[30] (66,502)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/analytics' />
+	[31] (18,502)<span  />
+	[32] (43,502)<span >Phân tích />
+[33] (66,540)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/notifications' />
+	[34] (18,540)<span  />
+	[35] (46,540)<span >Thông báo />
+[36] (17,964)<button aria-label='User menu' class='grid size-8 shrink-0 place-items-center overflow-hidden rounded-lg bg-muted text-xs font-semibold transition-colors hover:bg-sidebar-accent/80' id='radix-_R_1qqbmqknelb_'>T />
+Tester User
+tester123@example.com
+[37] (117,964)<button aria-label='User menu' class='flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent/80 hover:text-sidebar-foreground data-[state=open]:bg-sidebar-accent/80' id='radix-_R_aqqbmqknelb_' />
+AI Agent
+[38] (982,29)<button aria-label='Notifications' class='relative flex size-9 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground focus:outline-none' />
+
+</current_dom>

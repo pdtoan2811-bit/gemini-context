@@ -1,29 +1,29 @@
-# Ads Management Sandbox Walkthrough
+# Ads Management Sandbox — Walkthrough
 
-I have successfully implemented the **Ads Management Sandbox**, turning it into an interactive prototype that closely mimics the Project Management Sandbox.
+## What was built
 
-## What was Accomplished
+A fully self-contained sandbox replica of the **Quản lý Ads** module, accessible at `/ads/sandbox`. It mirrors the production ads management UI but runs entirely on local mock data — no API calls.
 
-1. **Robust State Management**: Implemented `useAdsSandboxStore.tsx` using React Context and `useReducer` to manage the sandbox state (Accounts, Events, Scenarios) completely client-side without relying on real API endpoints.
-2. **Production-Matched Mock Data**: Created `mock-ads-sandbox-data.ts` containing initial data that strictly conforms to the production `AdsAccountItem` interface (including mapping dummy campaigns and budgets).
-3. **Interactive List View**: Built `AdsListPanel.tsx` using `DataTable`. It features:
-   - A Scenario selector to instantly trigger state simulations (e.g. Budget Exhausted, Auto Suspend).
-   - Quick action buttons on each row ("Nạp tiền", "Tạm Ngưng") to manually dispatch state changes.
-   - Live visual updates when state changes (e.g., Budget updates, Status badges change colors).
-4. **Detailed Drill-Down View**: Built `AdsDetailView.tsx` to visualize individual account metrics. It features:
-   - Spend progress bars.
-   - An event timeline logger (simulating a system audit log/history of the sandbox).
+## Files Created
 
-## Validation
+| File | Purpose |
+|------|---------|
+| [mock-ads-data.ts](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/data/mock-ads-data.ts) | Mock data: 6 emails, 15 accounts, 15 campaigns matching all production types |
+| [AdsSandboxPageContent.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/AdsSandboxPageContent.tsx) | Top-level layout with 🧪 Sandbox badge and 3 tabs |
+| [SandboxEmailManagementTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxEmailManagementTab.tsx) | Email tab with expandable table, search, delegation filter |
+| [SandboxCampaignManagementTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxCampaignManagementTab.tsx) | Campaign tab with full column set, search, filters, date picker, pagination |
+| [SandboxAdsAccountsTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxAdsAccountsTab.tsx) | Accounts tab with 4 stats cards, table, search, status filter |
+| [page.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/app/%5Blocale%5D/(admin)/ads/sandbox/page.tsx) | Route at `/ads/sandbox` |
 
-The Sandbox is completely isolated from production APIs. All state mutations trigger `ADD_EVENT` actions so you can visually verify the system log update when you interact with the UI. 
+## What was verified
 
-You can test this right now by navigating to **`/vi/ads/sandbox`** in your browser. Try selecting a scenario from the dropdown to see the Sync Animations and automated event logging in action.
+- **TypeScript**: Clean build, zero errors
+- **Browser**: All 3 tabs render correctly with mock data populated
 
-## Rendered Changes
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/types/ads-sandbox-types.ts)
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/data/mock-ads-sandbox-data.ts)
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/hooks/useAdsSandboxStore.tsx)
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/AdsListPanel.tsx)
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/AdsDetailView.tsx)
-render_diffs(file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/app/[locale]/(admin)/ads/sandbox/page.tsx)
+## Demo recording
+
+![Ads Sandbox Browser Test](C:\Users\Admin\.gemini\antigravity\brain\ac2acdad-c94d-449c-a8c6-82d14b4c316e\ads_sandbox_verify_1778217387461.webp)
+
+## Production files unchanged
+
+All existing `src/containers/ads/*` files were left untouched. The old `AdsSandboxTable.tsx` stub was replaced by the comprehensive new sandbox.

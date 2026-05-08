@@ -1,0 +1,162 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (56,36)<a class='flex min-w-0 flex-1 items-center gap-2 text-sidebar-foreground transition-opacity hover:opacity-90' href='/vi' />
+	[1] (44,36)<span  />
+		[2] (44,28)<span >Adecos />
+		[3] (44,47)<span >Enterprise />
+[4] (116,36)<button aria-label='Collapse sidebar' class='hidden size-8 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground lg:flex' />
+[5] (66,83)<button class='flex h-9 w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/50'>AI Agent />
+	AI Agent
+[6] (66,123)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects' />
+	[7] (18,123)<span  />
+	[8] (51,123)<span >Quản lý dự án />
+[9] (66,161)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/projects/sandbox' />
+	[10] (18,161)<span  />
+	[11] (57,161)<span >🧪 Quản lý dự án />
+[12] (66,199)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/competitor-spy' />
+	[13] (18,199)<span  />
+	[14] (55,199)<span >Theo dõi đối thủ />
+[15] (66,237)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors bg-sidebar-accent text-sidebar-accent-foreground' href='/vi/ads' />
+	[16] (18,237)<span  />
+	[17] (48,237)<span >Quản lý Ads />
+[18] (66,275)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/clicktracker' />
+	[19] (18,275)<span  />
+	[20] (50,275)<span >Click Tracker />
+[21] (66,313)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/dashboard/experiment' />
+	[22] (18,313)<span  />
+	[23] (46,313)<span >Thí nghiệm />
+[24] (66,351)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/deep-research' />
+	[25] (18,351)<span  />
+	[26] (53,351)<span >Deep Research />
+[27] (66,389)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/analytics' />
+	[28] (18,389)<span  />
+	[29] (43,389)<span >Phân tích />
+[30] (66,428)<a class='flex h-8 items-center gap-2 rounded-md px-2 text-sm transition-colors text-sidebar-foreground hover:bg-sidebar-accent/70' href='/vi/notifications' />
+	[31] (18,428)<span  />
+	[32] (46,428)<span >Thông báo />
+T
+Tester User
+tester123@example.com
+[33] (117,964)<button aria-label='User menu' class='flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent/80 hover:text-sidebar-foreground data-[state=open]:bg-sidebar-accent/80' id='radix-_R_aqqbmqknelb_' />
+[34] (165,29)<a class='min-w-0 truncate font-normal text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2' href='/vi/ads?tab=campaign'>Quản lý Ads />
+Chi tiết chiến dịch
+[35] (982,29)<button aria-label='Notifications' class='relative flex size-9 cursor-pointer shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground focus:outline-none' />
+Quản lý Ads
+🧪 Sandbox
+[36] (182,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-primary' role='tab'>Quản lý Email />
+[37] (251,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-muted-foreground hover:text-foreground' role='tab'>Quản lý Chiến dịch />
+[38] (321,180)<button class='relative cursor-pointer shrink-0 pb-3 pt-1 text-sm font-medium whitespace-nowrap transition-colors text-muted-foreground hover:text-foreground' role='tab'>Tài khoản Ads />
+[39] (258,247)<input class='file:text-foreground selection:bg-primary selection:text-primary-foreground border-border! min-w-0 rounded-10 px-3 py-1 transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:border-destructive h-10 min-h-10 w-full rounded-lg border border-hairline bg-white text-sm text-foreground shadow-sm pl-9 pr-9 placeholder:text-third focus-visible:ring-1 focus-visible:ring-primary/20 focus-visible:border-primary/30' placeholder='Tìm kiếm email...' />
+[40] (384,247)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 py-1.5 has-[>svg]:px-2 h-[40px] max-h-[40px] gap-2 px-3 text-sm font-normal hover:bg-accent/50 border border-border' />
+	[41] (390,247)<span >Bộ lọc />
+[42] (864,247)<button class='inline-flex items-center cursor-pointer justify-center whitespace-nowrap rounded-10 transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:text-accent-foreground dark:hover:bg-accent/50 py-1.5 has-[>svg]:px-2 gap-2 h-[40px] max-h-[40px] px-3 text-sm font-normal hover:bg-accent/50 border border-border' />
+	[43] (863,247)<span >Tuỳ chỉnh cột />
+	[44] (896,247)<div >9 />
+[45] (944,247)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 text-sm font-medium transition-all outline-none aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third bg-primary text-primary-foreground hover:bg-primary/90 h-10 max-h-10 px-2 py-1.5 has-[>svg]:px-2 shrink-0'>Thêm email />
+[46] (567,412)<div class='min-h-0 overflow-auto relative border border-border rounded-md' scrollable='true' />
+	[47] (185,307)<button aria-label='Chọn tất cả email' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+	STT
+	Email
+	Tổng ngân sách
+	Tổng chi tiêu
+	Ngân sách còn lại
+	ID / Camp
+	Trạng thái ủy quyền
+	Chức năng
+	[48] (179,356)<button aria-label='Mở rộng dòng' class='inline-flex h-7 w-7 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground' />
+	[49] (194,356)<button aria-label='Chọn email ads.binance@agency.vn' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+	1
+	8521463790
+	ads.binance@agency.vn
+	$15,200.00
+	$8,750.00
+	$6,450.00
+	ID:
+	3
+	Camp:
+	15
+	Đã ủy quyền
+	[50] (884,356)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm' />
+		[51] (891,356)<span >Ủy quyền />
+	[52] (933,356)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm hover:text-destructive'>Xóa />
+	[53] (179,412)<button aria-label='Mở rộng dòng' class='inline-flex h-7 w-7 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground' />
+	[54] (194,412)<button aria-label='Chọn email marketing@shopee-vn.com' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+	2
+	7634921058
+	marketing@shopee-vn.com
+	$9,800.00
+	$6,200.00
+	$3,600.00
+	ID:
+	2
+	Camp:
+	16
+	Đã ủy quyền
+	[55] (884,412)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm' />
+		[56] (891,412)<span >Ủy quyền />
+	[57] (933,412)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm hover:text-destructive'>Xóa />
+	[58] (179,468)<button aria-label='Mở rộng dòng' class='inline-flex h-7 w-7 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground' />
+	[59] (194,468)<button aria-label='Chọn email phamductoan91@gmail.com' class='peer border-input cursor-pointer dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none disabled:cursor-not-allowed disabled:opacity-50' role='checkbox' />
+	3
+	3019847562
+	phamductoan91@gmail.com
+	$22,500.00
+	$14,300.00
+	$8,200.00
+	ID:
+	4
+	Camp:
+	20
+	Đã ủy quyền
+	[60] (884,468)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm' />
+		[61] (891,468)<span >Ủy quyền />
+	[62] (933,468)<button class='inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-10 font-medium transition-all outline-none aria-invalid:border-destructive shrink-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 disabled:cursor-not-allowed disabled:rounded-10 disabled:bg-hairline disabled:border disabled:border-hairline disabled:shadow-[0_1px_2px_0_rgba(0,0,0,0.10)] disabled:opacity-100 disabled:text-third border bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50 max-h-10 py-1.5 has-[>svg]:px-2 h-8 px-2 text-sm hover:text-destructive'>Xóa />
+	4
+	6247813905
+	digital.lazada@mail.com
+	$7,400.00
+	$3,100.00
+	$4,300.00
+	ID:
+	2
+	Camp:
+	17
+	Chưa ủy quyền
+	Ủy quyền
+	Xóa
+	5
+	1598037264
+	tiktok.ads@agency.vn
+	$4,200.00
+	$2,800.00
+	$1,400.00
+	ID:
+	1
+	Camp:
+	8
+	Chưa ủy quyền
+	Ủy quyền
+	Xóa
+	6
+	9073416285
+	nuevads.team@gmail.com
+	$18,600.00
+	$11,400.00
+	$7,200.00
+	ID:
+	3
+	Camp:
+	13
+	Đã ủy quyền
+	Ủy quyền
+	Xóa
+[63] (758,570)<label class='whitespace-nowrap text-secondary-foreground font-medium'>Rows per page />
+[64] (807,570)<button class='data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-10 border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 h-8 w-18 border-border bg-muted/30 text-foreground cursor-pointer' id='simple-page-size-select' role='combobox' />
+Page
+1
+of
+1
+
+</current_dom>
