@@ -1,5 +1,6 @@
 {
   "artifactType":  "ARTIFACT_TYPE_TASK",
-  "summary":  "Task tracker for implementing the Ads Sandbox Management module with mock data.",
-  "updatedAt":  "2026-05-08T04:12:46.685273300Z"
+  "summary":  "Updated task tracking.",
+  "updatedAt":  "2026-05-08T04:36:38.236565400Z",
+  "version":  "6"
 }

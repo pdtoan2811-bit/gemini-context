@@ -1,107 +1,79 @@
-# Sandbox Ads Management
+# Ads Management Sandbox Implementation Plan
 
-Create a sandbox version of the Ads Management module that uses mock data matching all production API fields, enabling full UI testing without backend connectivity.
+This document outlines the approach for building an interactive sandbox for Ads Management, mirroring the architecture and aesthetic of the existing Project Management Sandbox. It will use mock data that strictly adheres to the production `AdsAccountItem` interface.
 
-## Scope
+## Goal Description
 
-The production `/ads` module has **two main tabs**:
-1. **Email Management** — CRUD for delegation emails (with nested account drill-down)
-2. **Campaign Management** — Campaign listing with filtering, sorting, date range
+The goal is to create a fully functional, interactive prototype (Sandbox) for the Ads Management module. It will feature real-time state management using React Context and `useReducer` to simulate interactions like adding budget, changing account statuses, and tracking system events (e.g., Google Ads API syncs). The data structures will match the production environment's `AdsAccountItem` to ensure the prototype can easily be transitioned into the real backend implementation later.
 
-The sandbox will mirror these exactly, plus the **Accounts/ID tab** (currently redirecting to Email), using mock data that matches every field from the production types.
+> [!IMPORTANT]
+> **User Review Required**
+> Please review the proposed simulation scenarios below. Are there any other specific "mock interactions" you'd like to test in this sandbox? 
+> Also, confirm if the location `src/app/[locale]/(admin)/ads/sandbox` is correct for this new page.
+
+## Proposed Simulation Scenarios (Scenarios)
+
+To make it an interactive prototype, we will implement these quick-test scenarios:
+1. **Auto-suspend**: Simulate Google Ads suspending an account due to policy violations (Status changes to `suspended`).
+2. **Budget Exhausted**: Simulate campaign spending depleting the budget (Status changes to `inactive` / `paused`, `budget_remaining` reaches 0).
+3. **Deposit Success**: Simulate a successful top-up of budget (`budget_paid` increases, `budget_remaining` updates).
+4. **Link New Campaign**: Simulate a new campaign being spun up under the Ad account.
 
 ## Proposed Changes
 
-### Mock Data Layer
+---
 
-#### [NEW] [mock-ads-sandbox-data.ts](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/data/mock-ads-sandbox-data.ts)
+### 1. Types and Mock Data
 
-Comprehensive mock data file containing:
+#### [NEW] `src/types/ads-sandbox-types.ts`
+- Define the sandbox-specific state types, action types (`AdsSandboxState`, `AdsSandboxAction`, `AdsEvent`).
+- Ensure it uses the existing `AdsAccountItem` from `src/types/ads.ts`.
 
-- **`MOCK_ADS_ACCOUNTS: AdsAccountItem[]`** — 12 accounts matching all 27+ fields from `AdsAccountItem` type:
-  - `id`, `account_type`, `ads_id`, `name_ads`, `id_mail`, `budget_paid`, `budget_used`, `budget_remaining`
-  - `user_id_manage`, `created_at`, `created_by`, `updated_at`, `updated_by`
-  - `resource`, `resource_account`, `mail`, `staff_account`
-  - `campaign[]`, `campaigns[]`, `status_ads`, `account_staff_name`, `digital_staff_name`
-  - `invoice_source_management_info`
-
-- **`MOCK_CAMPAIGNS: CampaignListItem[]`** — 20 campaigns matching all fields from `CampaignListItem`:
-  - `id`, `account_id`, `account_name`, `status_campaign`, `name_campaign`, `code_campaign`
-  - `start_date`, `target_url`, `budget`, `campaign_type`, `account_type`, `account_ads`, `account_status`
-  - `cost`, `click`, `view`, `cpc`, `cpa`, `cpm`, `ctr`
-  - `daily_budget`, `currency_code`, `timezone`
-  - `data_from`, `data_to`, `clicktracker_integrated`, `clicktracker_integrated_at`
-
-- **`MOCK_DIGITAL_MAILS: DigitalMailItem[]`** — 8 emails matching all fields from `DigitalMailItem`:
-  - `id`, `mail`, `password`, `two_fa`, `recovered`, `mail_type`
-  - `manage_user_id`, `vps_id`, `proxy_id`, `account_quantity`, `campaign_quantity`, `accounts_count`
-  - `is_delegated`, `allow_refetch`, `created_at`, `updated_at`, `created_by`, `updated_by`
-  - `digital_staff_name`, `digital_staff_email`, `account_staff_name`, `account_staff_email`, `account_staff_id`
-  - `vps: DigitalMailVps | null`, `proxy: DigitalMailProxy | null`
-
-- **`MOCK_CAMPAIGN_DETAIL: CampaignDetailResponse`** — Full campaign detail with series data for charts
-
-- **`MOCK_STATISTICS`** — Statistics responses: by-status, by-burden-and-cost, account statistics
-
-- Helper functions: `getMockAccountsList()`, `getMockCampaignsList()`, `getMockEmailsList()` with pagination/filter support
+#### [NEW] `src/data/mock-ads-sandbox-data.ts`
+- Generate realistic mock data for ~10 Ad Accounts that match the `AdsAccountItem` interface precisely.
+- Include varied statuses (`active`, `suspended`, `pending`), budgets, and mapped campaigns.
+- Define `DEFAULT_ADS_STATE`.
 
 ---
 
-### Sandbox Page Container
+### 2. State Management
 
-#### [NEW] [AdsSandboxPageContent.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/AdsSandboxPageContent.tsx)
-
-Main sandbox content component, mirroring `AdsPageContent.tsx` but with:
-- Same 2-tab layout (Email / Campaign) + restored Accounts/IDs tabs  
-- 🧪 Sandbox badge (matching project sandbox style)
-- Uses mock data instead of API hooks
-- All tabs fully functional with local state management
-
-#### [NEW] [SandboxEmailManagementTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxEmailManagementTab.tsx)
-
-Mirrors `EmailManagementTab.tsx` — table of emails with:
-- Same columns: select, no, email, totalBudget, totalSpent, totalRemaining, idCamp, delegationStatus, actions
-- Local CRUD operations (add, delete, send delegation — toast notifications)
-- Filter by delegation status
-- Uses existing `EmailManagementTable` component or a sandbox version
-
-#### [NEW] [SandboxCampaignManagementTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxCampaignManagementTab.tsx)
-
-Mirrors `CampaignManagementTab.tsx` — campaign table with:
-- All 19 columns: select, no, id, name_campaign, account_name, account_status, status_campaign, campaign_type, time, timezone, daily_budget, cost, click, view, cpc, cpa, cpm, ctr, start_date, actions
-- Local filtering, sorting, date range selection
-- Client-side pagination
-- Campaign actions (alert settings, click tracker integration simulation)
-
-#### [NEW] [SandboxAccountsTab.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxAccountsTab.tsx)
-
-Mirrors `AdsAccountsTab.tsx` — accounts table with:
-- KPI cards: total deposited, total spent, balance, total accounts
-- All columns: stt, id, name, status, email, time, depositedBudget, spentBudget, balance
-- Uses existing `AdsAccountsTable` component with mock `AdsAccountListResponse`
+#### [NEW] `src/hooks/useAdsSandboxStore.tsx`
+- Implement a `useReducer` and React Context based store (similar to `useProjectCampaignStore.tsx`).
+- Support actions like `DEPOSIT_BUDGET`, `CHANGE_STATUS`, `ADD_EVENT`, `LOAD_SCENARIO`, `EDIT_ACCOUNT`.
+- Provide convenience selectors for active, suspended, and pending accounts.
 
 ---
 
-### Route
+### 3. UI Components (Ads Sandbox Layout)
 
-#### [NEW] [page.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/app/[locale]/(admin)/ads/sandbox/page.tsx)
+#### [NEW] `src/containers/ads-sandbox/AdsListPanel.tsx`
+- The main data table view for the sandbox, mimicking the production `AdsAccountsTable.tsx` but wired up to the sandbox store.
+- Include tabs to filter by "Tất cả", "Hoạt động", "Tạm ngưng".
+- Add a "Scenario" runner banner at the top to trigger the interactive scenarios.
 
-New route at `/ads/sandbox` — renders `AdsSandboxPageContent` with sandbox badge.
+#### [NEW] `src/containers/ads-sandbox/AdsDetailView.tsx`
+- A detailed drill-down view when clicking an Ad Account.
+- Displays budget progress bars, connected campaigns, and an Event Log (Timeline) of what happened to this account.
+
+#### [NEW] `src/containers/ads-sandbox/DepositModal.tsx`
+- A modal to simulate depositing money into the ad account.
+
+#### [NEW] `src/containers/ads-sandbox/EventLogPanel.tsx` (Optional/Reused)
+- A panel to show the history of simulated events.
 
 ---
 
-### Sidebar Navigation
+### 4. Routing
 
-#### [MODIFY] [DashboardSidebar.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/dashboard/DashboardSidebar.tsx)
-
-Add a nav item for `/ads/sandbox` with `🧪` badge text (matching the `/projects/sandbox` pattern).
+#### [NEW] `src/app/[locale]/(admin)/ads/sandbox/page.tsx`
+- The main entry point for the Sandbox.
+- Wraps the components in `AdsSandboxProvider` and mounts `AdsListPanel`.
 
 ## Verification Plan
 
 ### Manual Verification
-- Navigate to `/ads/sandbox` in the browser
-- Verify all 4 tabs render correctly with mock data
-- Verify table pagination, column toggling, and filtering work with mock data
-- Verify KPI cards display correct aggregated values
-- Verify the sandbox badge is displayed
-- Compare field-by-field that mock data matches all production types
+1. Navigate to `/vi/ads/sandbox` in the browser.
+2. Verify that the table renders the mock data correctly and matches the visual style of the production Ads Table.
+3. Test the "Scenario" triggers to ensure the state updates globally, budget changes are calculated correctly, and events are logged in the event timeline.
+4. Verify that no real API requests are made and everything is contained within the sandbox state.
