@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Maps all 58 RMF Google Ads API checklist items to their implementation status in the Adecos sandbox. 55/58 items (95%) are implemented across all sandbox features (Campaign Management, Campaign Detail, Keywords, Reporting, Accounts). 3 Creation items (C.260, C.270, C.300) related to keyword creation forms are missing - the data models exist but no interactive creation UI. Includes two proposed options to close the gap.",
+  "updatedAt":  "2026-05-11T02:00:57.602578800Z",
+  "requestFeedback":  true
+}

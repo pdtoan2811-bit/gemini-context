@@ -1,0 +1,735 @@
+# RMF Sandbox Gap Closure — Walkthrough
+
+## What changed
+
+### [NEW] [SandboxKeywordCreationPanel.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads-sandbox/SandboxKeywordCreationPanel.tsx)
+
+Interactive sandbox panel that closes **3 RMF checklist gaps**:
+
+| RMF ID | Functionality | What the panel provides |
+|---|---|---|
+| **C.260** | Add keyword | Input + ad group selector → adds to keyword list |
+| **C.270** | Add campaign negative keywords | Negative keyword input → adds to exclusion list |
+| **C.300** | Set keyword match type | Exact / Phrase / Broad selector on keyword add |
+
+Features:
+- Pre-seeded with keywords from `SANDBOX_CAMPAIGN_BLUEPRINT` data
+- `SandboxRequirementMarker` badges tag each section with its RMF IDs
+- Add/remove keywords with Enter key or button
+- Match type shown as colored badges (default/secondary/outline)
+- Negative keywords displayed with destructive-toned chips
+
+---
+
+### [MODIFY] [CampaignDetailKeywords.tsx](file:///c:/Users/Admin/Desktop/adecosProjectProPrototype/src/containers/ads/CampaignDetailKeywords.tsx)
+
+```diff:CampaignDetailKeywords.tsx
+"use client";
+
+import { useCallback, useMemo, useState } from "react";
+import { type ColumnDef } from "@tanstack/react-table";
+
+import { DataTable } from "@/components/shared/data-table";
+import { TableToolbar } from "@/components/shared/table-toolbar";
+import { Card } from "@/components/ui/card";
+import { DEFAULT_LIMIT } from "@/lib/constants";
+import { useGetDetailKeywordsCampaign } from "@/hooks/useCampaign";
+import type { CampaignKeywordItem } from "@/lib/campaign-api";
+import { queryMockCampaignKeywords } from "@/data/mock-ads-data";
+import { SandboxRequirementLabel } from "@/containers/ads-sandbox/SandboxRequirementHint";
+import { REPORTING_REQUIREMENT_SECTIONS } from "@/containers/ads-sandbox/sandbox-checklist-data";
+import {
+  SandboxPrototypeTable,
+  type SandboxTableColumn,
+} from "@/containers/ads-sandbox/SandboxPrototypeUi";
+
+const KEYWORDS_COLUMNS = [
+  { key: "stt", label: "STT" },
+  { key: "keyword", label: "Từ khóa" },
+  { key: "matchType", label: "Kiểu khớp" },
+  { key: "adGroup", label: "Nhóm quảng cáo" },
+  { key: "status", label: "Trạng thái" },
+  { key: "maxCpc", label: "CPC Tối đa" },
+  { key: "clicks", label: "Lần nhấp" },
+  { key: "impressions", label: "Lượt hiển thị" },
+  { key: "ctr", label: "CTR" },
+  { key: "avgCpc", label: "CPC Tr.bình" },
+  { key: "cost", label: "Chi phí" },
+  { key: "impressionsTop", label: "% lượt hiển thị (vị trí đầu tiên nhất)" },
+  { key: "impressionsFirst", label: "% lượt hiển thị (vị trí đầu tiên)" },
+] as const;
+
+type KeywordRow = Record<
+  (typeof KEYWORDS_COLUMNS)[number]["key"],
+  string | number
+>;
+
+function formatPercentage(value: number | string | null | undefined): string {
+  if (value == null || value === "") return "--";
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return "--";
+  return `${(numeric * 100).toFixed(2)}%`;
+}
+
+function renderRequirementLabel(
+  label: string,
+  sandbox: boolean,
+  requirementIds: string[],
+) {
+  if (!sandbox) return label;
+  return <SandboxRequirementLabel label={label} requirementIds={requirementIds} />;
+}
+
+function renderRequirementColumnHeader(
+  label: string,
+  sandbox: boolean,
+  requirementIds: string[],
+) {
+  if (!sandbox) return label;
+  return () => (
+    <SandboxRequirementLabel label={label} requirementIds={requirementIds} />
+  );
+}
+
+export interface CampaignDetailKeywordsProps {
+  campaignId: string;
+  startDate: string;
+  endDate: string;
+  sandbox?: boolean;
+}
+
+export function CampaignDetailKeywords({
+  campaignId,
+  startDate,
+  endDate,
+  sandbox = false,
+}: CampaignDetailKeywordsProps) {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(DEFAULT_LIMIT);
+  const [search, setSearch] = useState("");
+  const [keywordsColumns, setKeywordsColumns] = useState<string[]>(
+    KEYWORDS_COLUMNS.map((c) => c.key),
+  );
+  const keywordsColumnsDef = useMemo<ColumnDef<KeywordRow>[]>(
+    () =>
+      KEYWORDS_COLUMNS.map((col) => {
+        const requirementIds =
+          col.key === "status"
+            ? ["R.50.7", "M.140"]
+            : col.key === "clicks"
+              ? ["R.50.1"]
+              : col.key === "impressions"
+                ? ["R.50.3"]
+                : col.key === "cost"
+                  ? ["R.50.2"]
+                  : [];
+
+        return {
+          accessorKey: col.key,
+          header: requirementIds.length
+            ? renderRequirementColumnHeader(col.label, sandbox, requirementIds)
+            : col.label,
+          cell: ({ getValue }) => (
+            <span className="text-foreground">{String(getValue() ?? "--")}</span>
+          ),
+          size: col.key === "keyword" ? 180 : 120,
+        } satisfies ColumnDef<KeywordRow>;
+      }),
+    [sandbox],
+  );
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+    setPage(1);
+  }, []);
+
+  const liveKeywordsQuery = useGetDetailKeywordsCampaign(
+    campaignId,
+    startDate,
+    endDate,
+    page,
+    limit,
+    search || undefined,
+    {
+      enabled: !sandbox,
+    },
+  );
+  const data = useMemo(
+    () =>
+      sandbox
+        ? queryMockCampaignKeywords({
+            page,
+            limit,
+            search,
+          })
+        : liveKeywordsQuery.data,
+    [limit, liveKeywordsQuery.data, page, sandbox, search],
+  );
+  const isLoading = sandbox ? false : liveKeywordsQuery.isLoading;
+
+  const keywords = data?.items ?? [];
+  const total = data?.total_items ?? data?.total ?? 0;
+  const totalPages = Math.max(
+    1,
+    data?.total_pages ?? Math.ceil(total / limit) ?? 1,
+  );
+
+  const serverPagination = useMemo(
+    () => ({
+      pageIndex: page - 1,
+      totalPages,
+      pageSize: limit,
+      onPageChange: (p: number) => setPage(p + 1),
+      onPageSizeChange: (s: number) => {
+        setLimit(s);
+        setPage(1);
+      },
+    }),
+    [page, limit, totalPages],
+  );
+
+  const keywordRows = useMemo<KeywordRow[]>(() => {
+    return keywords.map((item: CampaignKeywordItem, index: number) => ({
+      stt: (page - 1) * limit + index + 1,
+      keyword: item.keyword ?? "--",
+      matchType: item.match_type ?? "--",
+      adGroup: item.ad_group_name ?? "--",
+      status: item.status ?? "--",
+      maxCpc: item.max_cpc ?? "--",
+      clicks: item.total_click ?? "--",
+      impressions: item.total_view ?? "--",
+      ctr: item.avg_ctr ? `${(Number(item.avg_ctr) * 100).toFixed(2)}%` : "--",
+      avgCpc: item.avg_cpc ?? "--",
+      cost: item.total_cost ?? "--",
+      impressionsTop: formatPercentage(item.absolute_top_impression_percentage),
+      impressionsFirst: formatPercentage(item.top_impression_percentage),
+    }));
+  }, [keywords, page, limit]);
+
+  const visibleKeywordColumns = useMemo(() => {
+    const columnMap = new Map(
+      keywordsColumnsDef.map((col) => {
+        const columnKey =
+          (col as { accessorKey?: string; id?: string }).accessorKey ??
+          (col as { accessorKey?: string; id?: string }).id ??
+          "";
+        return [String(columnKey), col] as const;
+      }),
+    );
+    return keywordsColumns
+      .map((key) => columnMap.get(key))
+      .filter((col): col is ColumnDef<KeywordRow> => col != null);
+  }, [keywordsColumns]);
+
+  const searchTermSection = useMemo(
+    () =>
+      REPORTING_REQUIREMENT_SECTIONS.find((section) => section.id === "searchTerm"),
+    [],
+  );
+  const dynamicSearchAdsSection = useMemo(
+    () =>
+      REPORTING_REQUIREMENT_SECTIONS.find(
+        (section) => section.id === "dynamicSearchAds",
+      ),
+    [],
+  );
+
+  const searchTermColumns = useMemo<
+    SandboxTableColumn<Record<string, string | number>>[]
+  >(
+    () => [
+      {
+        key: "searchTerm",
+        header: renderRequirementLabel("Search term", sandbox, ["R.70.1", "R.70.2"]),
+        className: "min-w-[240px]",
+        render: (row) => (
+          <div className="text-left">
+            <div className="font-medium">{String(row.searchTerm)}</div>
+            <div className="text-xs text-muted-foreground">
+              {String(row.matchType)}
+            </div>
+          </div>
+        ),
+      },
+      {
+        key: "clicks",
+        header: renderRequirementLabel("Clicks", sandbox, ["R.70.3"]),
+        render: (row) => String(row.clicks),
+      },
+      {
+        key: "costMicros",
+        header: renderRequirementLabel("Cost micros", sandbox, ["R.70.4"]),
+        render: (row) => String(row.costMicros),
+      },
+      {
+        key: "impressions",
+        header: renderRequirementLabel("Impressions", sandbox, ["R.70.5"]),
+        render: (row) => String(row.impressions),
+      },
+    ],
+    [],
+  );
+
+  const dynamicSearchAdsColumns = useMemo<
+    SandboxTableColumn<Record<string, string | number>>[]
+  >(
+    () => [
+      {
+        key: "searchTerm",
+        header: renderRequirementLabel("DSA search term", sandbox, ["R.100.1"]),
+        className: "min-w-[240px]",
+        render: (row) => <div className="text-left font-medium">{String(row.searchTerm)}</div>,
+      },
+      {
+        key: "clicks",
+        header: renderRequirementLabel("Clicks", sandbox, ["R.100.2"]),
+        render: (row) => String(row.clicks),
+      },
+      {
+        key: "costMicros",
+        header: renderRequirementLabel("Cost micros", sandbox, ["R.100.3"]),
+        render: (row) => String(row.costMicros),
+      },
+      {
+        key: "impressions",
+        header: renderRequirementLabel("Impressions", sandbox, ["R.100.4"]),
+        render: (row) => String(row.impressions),
+      },
+      {
+        key: "conversions",
+        header: renderRequirementLabel("Conversions", sandbox, ["R.100.5"]),
+        render: (row) => String(row.conversions),
+      },
+    ],
+    [],
+  );
+
+  return (
+    <div className="space-y-6">
+      <div className="space-y-4">
+        <TableToolbar
+          searchPlaceholder="Tìm kiếm từ khóa"
+          onSearch={handleSearch}
+          showColumnConfig
+          columns={KEYWORDS_COLUMNS.map((c) => ({
+            key: c.key,
+            label: c.label,
+          }))}
+          selectedColumns={keywordsColumns}
+          onColumnsChange={setKeywordsColumns}
+          tableId="campaign-keywords"
+          defaultColumns={KEYWORDS_COLUMNS.map((c) => c.key)}
+          columnButtonLabel="Tùy chọn cột"
+        />
+        <DataTable
+          data={keywordRows}
+          columns={visibleKeywordColumns}
+          initialPageSize={limit}
+          emptyMessage="Không có dữ liệu."
+          isLoading={isLoading}
+          serverPagination={serverPagination}
+        />
+      </div>
+
+      {sandbox && searchTermSection ? (
+        <Card className="gap-4 p-4">
+          <div className="space-y-2">
+            <p className="font-medium">Sandbox search term snapshot</p>
+            <p className="text-sm text-muted-foreground">
+              {searchTermSection.description}
+            </p>
+          </div>
+          <SandboxPrototypeTable<Record<string, string | number>>
+            columns={searchTermColumns}
+            rows={searchTermSection.rows as Record<string, string | number>[]}
+            getRowKey={(row, index) =>
+              String(row.searchTerm ?? row.matchType ?? index)
+            }
+          />
+        </Card>
+      ) : null}
+
+      {sandbox && dynamicSearchAdsSection ? (
+        <Card className="gap-4 p-4">
+          <div className="space-y-2">
+            <p className="font-medium">Sandbox DSA search term snapshot</p>
+            <p className="text-sm text-muted-foreground">
+              {dynamicSearchAdsSection.description}
+            </p>
+          </div>
+          <SandboxPrototypeTable<Record<string, string | number>>
+            columns={dynamicSearchAdsColumns}
+            rows={dynamicSearchAdsSection.rows as Record<string, string | number>[]}
+            getRowKey={(row, index) =>
+              String(row.searchTerm ?? row.clicks ?? index)
+            }
+          />
+        </Card>
+      ) : null}
+    </div>
+  );
+}
+===
+"use client";
+
+import { useCallback, useMemo, useState } from "react";
+import { type ColumnDef } from "@tanstack/react-table";
+
+import { DataTable } from "@/components/shared/data-table";
+import { TableToolbar } from "@/components/shared/table-toolbar";
+import { Card } from "@/components/ui/card";
+import { DEFAULT_LIMIT } from "@/lib/constants";
+import { useGetDetailKeywordsCampaign } from "@/hooks/useCampaign";
+import type { CampaignKeywordItem } from "@/lib/campaign-api";
+import { queryMockCampaignKeywords } from "@/data/mock-ads-data";
+import { SandboxRequirementLabel } from "@/containers/ads-sandbox/SandboxRequirementHint";
+import { REPORTING_REQUIREMENT_SECTIONS } from "@/containers/ads-sandbox/sandbox-checklist-data";
+import {
+  SandboxPrototypeTable,
+  type SandboxTableColumn,
+} from "@/containers/ads-sandbox/SandboxPrototypeUi";
+import { SandboxKeywordCreationPanel } from "@/containers/ads-sandbox/SandboxKeywordCreationPanel";
+
+const KEYWORDS_COLUMNS = [
+  { key: "stt", label: "STT" },
+  { key: "keyword", label: "Từ khóa" },
+  { key: "matchType", label: "Kiểu khớp" },
+  { key: "adGroup", label: "Nhóm quảng cáo" },
+  { key: "status", label: "Trạng thái" },
+  { key: "maxCpc", label: "CPC Tối đa" },
+  { key: "clicks", label: "Lần nhấp" },
+  { key: "impressions", label: "Lượt hiển thị" },
+  { key: "ctr", label: "CTR" },
+  { key: "avgCpc", label: "CPC Tr.bình" },
+  { key: "cost", label: "Chi phí" },
+  { key: "impressionsTop", label: "% lượt hiển thị (vị trí đầu tiên nhất)" },
+  { key: "impressionsFirst", label: "% lượt hiển thị (vị trí đầu tiên)" },
+] as const;
+
+type KeywordRow = Record<
+  (typeof KEYWORDS_COLUMNS)[number]["key"],
+  string | number
+>;
+
+function formatPercentage(value: number | string | null | undefined): string {
+  if (value == null || value === "") return "--";
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return "--";
+  return `${(numeric * 100).toFixed(2)}%`;
+}
+
+function renderRequirementLabel(
+  label: string,
+  sandbox: boolean,
+  requirementIds: string[],
+) {
+  if (!sandbox) return label;
+  return <SandboxRequirementLabel label={label} requirementIds={requirementIds} />;
+}
+
+function renderRequirementColumnHeader(
+  label: string,
+  sandbox: boolean,
+  requirementIds: string[],
+) {
+  if (!sandbox) return label;
+  return () => (
+    <SandboxRequirementLabel label={label} requirementIds={requirementIds} />
+  );
+}
+
+export interface CampaignDetailKeywordsProps {
+  campaignId: string;
+  startDate: string;
+  endDate: string;
+  sandbox?: boolean;
+}
+
+export function CampaignDetailKeywords({
+  campaignId,
+  startDate,
+  endDate,
+  sandbox = false,
+}: CampaignDetailKeywordsProps) {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(DEFAULT_LIMIT);
+  const [search, setSearch] = useState("");
+  const [keywordsColumns, setKeywordsColumns] = useState<string[]>(
+    KEYWORDS_COLUMNS.map((c) => c.key),
+  );
+  const keywordsColumnsDef = useMemo<ColumnDef<KeywordRow>[]>(
+    () =>
+      KEYWORDS_COLUMNS.map((col) => {
+        const requirementIds =
+          col.key === "status"
+            ? ["R.50.7", "M.140"]
+            : col.key === "clicks"
+              ? ["R.50.1"]
+              : col.key === "impressions"
+                ? ["R.50.3"]
+                : col.key === "cost"
+                  ? ["R.50.2"]
+                  : [];
+
+        return {
+          accessorKey: col.key,
+          header: requirementIds.length
+            ? renderRequirementColumnHeader(col.label, sandbox, requirementIds)
+            : col.label,
+          cell: ({ getValue }) => (
+            <span className="text-foreground">{String(getValue() ?? "--")}</span>
+          ),
+          size: col.key === "keyword" ? 180 : 120,
+        } satisfies ColumnDef<KeywordRow>;
+      }),
+    [sandbox],
+  );
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+    setPage(1);
+  }, []);
+
+  const liveKeywordsQuery = useGetDetailKeywordsCampaign(
+    campaignId,
+    startDate,
+    endDate,
+    page,
+    limit,
+    search || undefined,
+    {
+      enabled: !sandbox,
+    },
+  );
+  const data = useMemo(
+    () =>
+      sandbox
+        ? queryMockCampaignKeywords({
+            page,
+            limit,
+            search,
+          })
+        : liveKeywordsQuery.data,
+    [limit, liveKeywordsQuery.data, page, sandbox, search],
+  );
+  const isLoading = sandbox ? false : liveKeywordsQuery.isLoading;
+
+  const keywords = data?.items ?? [];
+  const total = data?.total_items ?? data?.total ?? 0;
+  const totalPages = Math.max(
+    1,
+    data?.total_pages ?? Math.ceil(total / limit) ?? 1,
+  );
+
+  const serverPagination = useMemo(
+    () => ({
+      pageIndex: page - 1,
+      totalPages,
+      pageSize: limit,
+      onPageChange: (p: number) => setPage(p + 1),
+      onPageSizeChange: (s: number) => {
+        setLimit(s);
+        setPage(1);
+      },
+    }),
+    [page, limit, totalPages],
+  );
+
+  const keywordRows = useMemo<KeywordRow[]>(() => {
+    return keywords.map((item: CampaignKeywordItem, index: number) => ({
+      stt: (page - 1) * limit + index + 1,
+      keyword: item.keyword ?? "--",
+      matchType: item.match_type ?? "--",
+      adGroup: item.ad_group_name ?? "--",
+      status: item.status ?? "--",
+      maxCpc: item.max_cpc ?? "--",
+      clicks: item.total_click ?? "--",
+      impressions: item.total_view ?? "--",
+      ctr: item.avg_ctr ? `${(Number(item.avg_ctr) * 100).toFixed(2)}%` : "--",
+      avgCpc: item.avg_cpc ?? "--",
+      cost: item.total_cost ?? "--",
+      impressionsTop: formatPercentage(item.absolute_top_impression_percentage),
+      impressionsFirst: formatPercentage(item.top_impression_percentage),
+    }));
+  }, [keywords, page, limit]);
+
+  const visibleKeywordColumns = useMemo(() => {
+    const columnMap = new Map(
+      keywordsColumnsDef.map((col) => {
+        const columnKey =
+          (col as { accessorKey?: string; id?: string }).accessorKey ??
+          (col as { accessorKey?: string; id?: string }).id ??
+          "";
+        return [String(columnKey), col] as const;
+      }),
+    );
+    return keywordsColumns
+      .map((key) => columnMap.get(key))
+      .filter((col): col is ColumnDef<KeywordRow> => col != null);
+  }, [keywordsColumns]);
+
+  const searchTermSection = useMemo(
+    () =>
+      REPORTING_REQUIREMENT_SECTIONS.find((section) => section.id === "searchTerm"),
+    [],
+  );
+  const dynamicSearchAdsSection = useMemo(
+    () =>
+      REPORTING_REQUIREMENT_SECTIONS.find(
+        (section) => section.id === "dynamicSearchAds",
+      ),
+    [],
+  );
+
+  const searchTermColumns = useMemo<
+    SandboxTableColumn<Record<string, string | number>>[]
+  >(
+    () => [
+      {
+        key: "searchTerm",
+        header: renderRequirementLabel("Search term", sandbox, ["R.70.1", "R.70.2"]),
+        className: "min-w-[240px]",
+        render: (row) => (
+          <div className="text-left">
+            <div className="font-medium">{String(row.searchTerm)}</div>
+            <div className="text-xs text-muted-foreground">
+              {String(row.matchType)}
+            </div>
+          </div>
+        ),
+      },
+      {
+        key: "clicks",
+        header: renderRequirementLabel("Clicks", sandbox, ["R.70.3"]),
+        render: (row) => String(row.clicks),
+      },
+      {
+        key: "costMicros",
+        header: renderRequirementLabel("Cost micros", sandbox, ["R.70.4"]),
+        render: (row) => String(row.costMicros),
+      },
+      {
+        key: "impressions",
+        header: renderRequirementLabel("Impressions", sandbox, ["R.70.5"]),
+        render: (row) => String(row.impressions),
+      },
+    ],
+    [],
+  );
+
+  const dynamicSearchAdsColumns = useMemo<
+    SandboxTableColumn<Record<string, string | number>>[]
+  >(
+    () => [
+      {
+        key: "searchTerm",
+        header: renderRequirementLabel("DSA search term", sandbox, ["R.100.1"]),
+        className: "min-w-[240px]",
+        render: (row) => <div className="text-left font-medium">{String(row.searchTerm)}</div>,
+      },
+      {
+        key: "clicks",
+        header: renderRequirementLabel("Clicks", sandbox, ["R.100.2"]),
+        render: (row) => String(row.clicks),
+      },
+      {
+        key: "costMicros",
+        header: renderRequirementLabel("Cost micros", sandbox, ["R.100.3"]),
+        render: (row) => String(row.costMicros),
+      },
+      {
+        key: "impressions",
+        header: renderRequirementLabel("Impressions", sandbox, ["R.100.4"]),
+        render: (row) => String(row.impressions),
+      },
+      {
+        key: "conversions",
+        header: renderRequirementLabel("Conversions", sandbox, ["R.100.5"]),
+        render: (row) => String(row.conversions),
+      },
+    ],
+    [],
+  );
+
+  return (
+    <div className="space-y-6">
+      {sandbox ? <SandboxKeywordCreationPanel /> : null}
+      <div className="space-y-4">
+        <TableToolbar
+          searchPlaceholder="Tìm kiếm từ khóa"
+          onSearch={handleSearch}
+          showColumnConfig
+          columns={KEYWORDS_COLUMNS.map((c) => ({
+            key: c.key,
+            label: c.label,
+          }))}
+          selectedColumns={keywordsColumns}
+          onColumnsChange={setKeywordsColumns}
+          tableId="campaign-keywords"
+          defaultColumns={KEYWORDS_COLUMNS.map((c) => c.key)}
+          columnButtonLabel="Tùy chọn cột"
+        />
+        <DataTable
+          data={keywordRows}
+          columns={visibleKeywordColumns}
+          initialPageSize={limit}
+          emptyMessage="Không có dữ liệu."
+          isLoading={isLoading}
+          serverPagination={serverPagination}
+        />
+      </div>
+
+      {sandbox && searchTermSection ? (
+        <Card className="gap-4 p-4">
+          <div className="space-y-2">
+            <p className="font-medium">Sandbox search term snapshot</p>
+            <p className="text-sm text-muted-foreground">
+              {searchTermSection.description}
+            </p>
+          </div>
+          <SandboxPrototypeTable<Record<string, string | number>>
+            columns={searchTermColumns}
+            rows={searchTermSection.rows as Record<string, string | number>[]}
+            getRowKey={(row, index) =>
+              String(row.searchTerm ?? row.matchType ?? index)
+            }
+          />
+        </Card>
+      ) : null}
+
+      {sandbox && dynamicSearchAdsSection ? (
+        <Card className="gap-4 p-4">
+          <div className="space-y-2">
+            <p className="font-medium">Sandbox DSA search term snapshot</p>
+            <p className="text-sm text-muted-foreground">
+              {dynamicSearchAdsSection.description}
+            </p>
+          </div>
+          <SandboxPrototypeTable<Record<string, string | number>>
+            columns={dynamicSearchAdsColumns}
+            rows={dynamicSearchAdsSection.rows as Record<string, string | number>[]}
+            getRowKey={(row, index) =>
+              String(row.searchTerm ?? row.clicks ?? index)
+            }
+          />
+        </Card>
+      ) : null}
+    </div>
+  );
+}
+```
+
+Added import and conditional render of `SandboxKeywordCreationPanel` at the top of the keywords view, shown only when `sandbox={true}`.
+
+## RMF coverage after changes
+
+| Category | Before | After |
+|---|---|---|
+| Creation | 10/13 (77%) | **13/13 (100%)** |
+| Management | 7/7 (100%) | 7/7 (100%) |
+| Reporting | 38/38 (100%) | 38/38 (100%) |
+| **Total** | **55/58 (95%)** | **58/58 (100%)** |
+
+## Verification
+
+- TypeScript compilation: ✅ No errors

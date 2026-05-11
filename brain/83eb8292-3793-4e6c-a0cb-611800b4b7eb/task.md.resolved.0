@@ -1,0 +1,5 @@
+# RMF Sandbox Gap Closure — Keyword Creation UI
+
+- `[/]` Create `SandboxKeywordCreationPanel.tsx` — mock creation forms for C.260, C.270, C.300
+- `[ ]` Integrate panel into `CampaignDetailKeywords.tsx` (sandbox mode only)
+- `[ ]` Verify build compiles

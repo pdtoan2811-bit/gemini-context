@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary":  "Documents the implementation of the keyword creation panel that closes the 3 remaining RMF checklist gaps (C.260, C.270, C.300). Covers the new SandboxKeywordCreationPanel component and its integration into CampaignDetailKeywords.",
+  "updatedAt":  "2026-05-11T02:03:54.416789600Z"
+}
